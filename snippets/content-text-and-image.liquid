@@ -1,0 +1,55 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-25T10:13:36+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148343
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            0f8375559b83d6fdec6598cf1057f967
+//      Signature:      eyJpdiI6InVYMXFucXNhdDFMY2ZyZHQ4Z1JDTXc9PSIsInZhbHVlIjoiTXBjMTdVZkE1QVJpNzdob3RUU0JFT1IrNmVCNmVITE5ud0VVM2RiSklUSVNZdERFazRTcmFvYzVnbU8xeWltaEY0Z09DMnY0elVkMmgwOTZLM3lYY0E0YWYwQzlHK2NwNUp5dHE2OEZQNGU3QkN3WU9BQ1lkODExdmhvVFY2M2NvckxSYU9rVnZjUXpYQitlYXV6elRJNGlIc2JlS3dUS2tvWlwvdVwvemtKSlN0alBnN2RkYzdOUHBqZlhuanVqQXJJQ1pUbTZMM2lpbGpIK01RMHlwSUxaMlhQMzZzQStTcGZQT083cklBNGQwWWFacG80UkY3Rys3XC9ZU3Bud3hZWDFJMjBXbXNsTWFUSWlaRzcxXC9oa0dDbXhuRnFTSTM1OEtJTFNBb1hmeHlTUzVSYnlJczhLZ1JIKytucTVVS0UxdnlqS0o2YlRwXC9VS2ZwQkhITGJlSUlSVElwaUVZVWhXekprcnl5cmNoZkZ5YlJsNjlvWlNhR3doWWFUQ1I3TVZxVHFKZ3pQdzUyYWdwY2RVanFOWE55bjFSS29SWVVxNU9Jdm9WZ0lsemdvPSIsIm1hYyI6ImI0MTExMGEzNzdmYjMwZGQ5ZjRjNzJmZTEyNTIwYWU4M2MzODA5ZGUzNzk1MDk1ODAwZGIyMDBiMjg4ZTVhZGEifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="article-content block-text-image grid grid--gutterless content-block__standard" id="text-and-image_{{ text_and_image_index }}">
+	<div class="block-text-image__container">
+		{% if side_by_side_array[text_and_image_index] != 'Image right, text left' %}
+			<div class="large--one-half one-whole article-content__standard grid__item grid__item--gutterless block-text-image__image block-text-image__image--left">
+				{% if text_and_image_image_array[text_and_image_index] != blank %}<img src="{{ text_and_image_image_array[text_and_image_index] }}">{% endif %}
+			</div>
+			{% if sp_text_image_bg_array[text_and_image_index] != blank %}
+				<style>#text-and-image_{{ text_and_image_index }} .block-text-image__text { background-color: {{sp_text_image_bg_array[text_and_image_index]}}; }</style>
+			{% endif %}
+			<div class="large--one-half one-whole article-content__standard grid__item grid__item--gutterless block-text-image__text">
+				{% if text_and_image_title_array[text_and_image_index] != blank %}<h3>{{text_and_image_title_array[text_and_image_index]}}</h3>{% endif %}
+				<p>{{ text_and_image_text_array[text_and_image_index] | newline_to_br }}</p>
+				{% if text_and_image_link_text_array[text_and_image_index] != blank and text_and_image_link_url_array[text_and_image_index] != blank %}
+					<a class="main-button secondary-button secondary-text-link" href="{{ text_and_image_link_url_array[text_and_image_index] | downcase }}">{{text_and_image_link_text_array[text_and_image_index]}} ></a>
+				{% endif %}
+			</div>
+		{% else %}
+			<div class="large--hide one-whole article-content__standard grid__item grid__item--gutterless block-text-image__image">
+				{% if text_and_image_image_array[text_and_image_index] != blank %}<img src="{{text_and_image_image_array[text_and_image_index]}}">{% endif %}
+			</div>
+			{% if sp_text_image_bg_array[text_and_image_index] != blank %}
+				<style>#text-and-image_{{ text_and_image_index }} .block-text-image__text { background-color: {{sp_text_image_bg_array[text_and_image_index]}}; }</style>
+			{% endif %}
+			<div class="large--one-half one-whole article-content__standard grid__item grid__item--gutterless block-text-image__text block-text-image__text--right">
+				{% if text_and_image_title_array[text_and_image_index] != blank %}<h3>{{text_and_image_title_array[text_and_image_index]}}</h3>{% endif %}
+				<p>{{ text_and_image_text_array[text_and_image_index] | newline_to_br }}</p>
+				{% if text_and_image_link_text_array[text_and_image_index] != blank and text_and_image_link_url_array[text_and_image_index] != blank %}
+					<a class="main-button secondary-button secondary-text-link" href="{{ text_and_image_link_url_array[text_and_image_index] | downcase }}">{{text_and_image_link_text_array[text_and_image_index]}} ></a>
+				{% endif %}
+			</div>
+			<div class="large--one-half medium--hide small--hide article-content__standard grid__item grid__item--gutterless block-text-image__image block-text-image__image--right">
+				{% if text_and_image_image_array[text_and_image_index] != blank %}<img src="{{text_and_image_image_array[text_and_image_index]}}">{% endif %}
+			</div>
+		{% endif %}
+	</div>
+</div>

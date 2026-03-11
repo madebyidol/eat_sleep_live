@@ -1,0 +1,168 @@
+{% capture related_items %} 
+	{% for product in article.metafields.custom.related_products.value %}
+
+					{% assign variantSize = product.variants | size %}
+
+					<div class="col-md-4">
+						<div class="flip-card menu_page_item">
+							<div class="flip-card-inner">
+								<div class="flip-card-front ">
+									<a href="{{ product.url | downcase }}">
+										<img class="cust_slider_img" src="{{ product.featured_image | product_img_url: '417x218', crop: 'center' }}" alt="{{ product.featured_image.alt }}" loading="lazy">
+
+										{% for image in product.images offset:1 limit:1 %}
+											<img class="cust_slider_img product_image_hover" src="{{ image.src | product_img_url: '417x218', crop: 'center' }}" alt="{{ image.alt }}" loading="lazy">
+										{% endfor %}
+
+										<div class="menu_item_text">
+											<h3 class="menu_heading">{{ product.title}}</h3>
+											<div class="pro-item-description">{{product.description | truncatewords: 5}}</div>
+											<h4 class="menu_price">{% if variantSize > 1 %}From{% endif %} {{ product.price | money_with_currency}}</h4>
+										</div>
+
+										<a class="cst_hotspot_confi" href="{{ product.url | downcase }}">
+											<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M7.99984 5.99935C6.89527 5.99935 5.99984 6.89478 5.99984 7.99935C5.99984 9.10392 6.89527 9.99935 7.99984 9.99935C9.10441 9.99935 9.99984 9.10392 9.99984 7.99935C9.99984 6.89478 9.10441 5.99935 7.99984 5.99935ZM4.6665 7.99935C4.6665 6.1584 6.15889 4.66602 7.99984 4.66602C9.84079 4.66602 11.3332 6.1584 11.3332 7.99935C11.3332 9.8403 9.84079 11.3327 7.99984 11.3327C6.15889 11.3327 4.6665 9.8403 4.6665 7.99935Z" fill="#759092"/>
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M5.24034 1.11961C5.66031 0.875857 6.17959 0.8797 6.59592 1.12964L7.61329 1.74042C7.71694 1.80264 7.83555 1.83551 7.95644 1.83551H8.04424C8.16486 1.83551 8.28323 1.80278 8.38672 1.74082L8.7292 2.31279L8.38672 1.74082L9.39944 1.13443C9.81431 0.886016 10.3311 0.881689 10.7501 1.12312L10.4173 1.70074L10.7501 1.12312L12.5746 2.17446C12.9946 2.41649 13.2501 2.86743 13.242 3.35214L13.222 4.53802C13.22 4.65888 13.2509 4.77802 13.3113 4.88269L12.7341 5.21616L13.3113 4.8827L13.3552 4.9586C13.4155 5.06301 13.503 5.1491 13.6084 5.20772L13.2843 5.79031L13.6084 5.20772L14.6425 5.78299C15.0644 6.01774 15.3265 6.46227 15.3276 6.94514L15.3324 9.04635C15.3335 9.53217 15.0702 9.98013 14.6453 10.2156L13.6087 10.7901C13.5029 10.8487 13.4151 10.935 13.3546 11.0397L13.3113 11.1146L12.7341 10.7811L13.3113 11.1146C13.2509 11.2193 13.22 11.3384 13.222 11.4593L13.242 12.6465C13.2501 13.1298 12.9962 13.5796 12.5782 13.8222L10.7595 14.8777C10.3395 15.1214 9.82025 15.1176 9.40393 14.8677L8.38655 14.2569C8.2829 14.1946 8.16429 14.1618 8.04341 14.1618H7.95561C7.83498 14.1618 7.71662 14.1945 7.61313 14.2565L6.6004 14.8629C6.18554 15.1113 5.66869 15.1156 5.24973 14.8742L3.42531 13.8228C3.00526 13.5808 2.74969 13.1298 2.75788 12.6451L2.77783 11.463C2.77986 11.343 2.74946 11.2247 2.68985 11.1206L2.6435 11.0396L3.22209 10.7084L2.6435 11.0396C2.58316 10.9342 2.49516 10.8472 2.38901 10.7882L1.35739 10.2143L1.68095 9.63268L1.35739 10.2143C0.93543 9.97956 0.673353 9.53502 0.672257 9.05216L0.667484 6.95094C0.66638 6.46513 0.929598 6.01716 1.35453 5.78168L2.39112 5.20723L2.71426 5.79035L2.39112 5.20723C2.49691 5.14861 2.58475 5.06231 2.64525 4.95758L3.22253 5.29104L2.64525 4.95758L2.68851 4.8827C2.74897 4.77802 2.77984 4.65888 2.77781 4.53802L2.75783 3.35075C2.7497 2.86752 3.00369 2.41773 3.42168 2.17513L5.24034 1.11961ZM5.90963 2.27279L4.09097 3.32831L4.11095 4.51559C4.11705 4.87818 4.02445 5.2356 3.84306 5.54962L3.26578 5.21616L3.84306 5.54962L3.7998 5.62451C3.61831 5.93869 3.35477 6.19759 3.0374 6.37346L2.00081 6.94791L2.00559 9.04913L3.0372 9.62302C3.35565 9.80018 3.61965 10.061 3.80067 10.3772L3.84702 10.4582C4.02586 10.7706 4.11705 11.1256 4.11098 11.4855L4.09102 12.6676L5.91544 13.7189L6.92816 13.1125C7.23864 12.9266 7.59373 12.8284 7.95561 12.8284H8.04341C8.40607 12.8284 8.7619 12.9271 9.07284 13.1137L10.0902 13.7245L11.9089 12.669L11.8889 11.4817C11.8828 11.1191 11.9754 10.7617 12.1568 10.4477L12.2 10.3728L12.7773 10.7062L12.2 10.3728C12.3815 10.0586 12.6451 9.7997 12.9624 9.62383L13.999 9.04938L13.9943 6.94816L12.9602 6.37289C12.6441 6.19704 12.3816 5.93875 12.2006 5.62552L12.7779 5.29206L12.2006 5.62552L12.1568 5.54962C11.9754 5.2356 11.8828 4.87818 11.8889 4.51559L11.9088 3.32971L10.0844 2.27837L9.07168 2.88476C8.76121 3.07066 8.40611 3.16884 8.04424 3.16884H7.95644C7.59378 3.16884 7.23794 3.07023 6.92701 2.88357L5.90963 2.27279Z" fill="#759092"/>
+											</svg>
+											<span>Configurable</span>
+										</a>
+
+										<div class="product_variant_cst">
+
+											{% for tag in product.tags %}
+												{% if tag == "show_colours" %}
+													{% assign show_colours = tag %}
+												{% endif %}
+											{% endfor %}
+
+											<select name="id" id="productSelect" class="product-single__variants" >
+												{% for variant in product.variants %}
+													{% if variant.available %}
+														<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+													{% else %}
+														<option disabled="disabled">
+														{{ variant.title }} - {{ 'products.product.sold_out' | t }}
+														</option>
+													{% endif %}
+												{% endfor %}
+											</select>
+
+											<div class="mobile-column">
+											{% if show_colours == "show_colours" %}
+												<div class="metafield-selectors mfs-color">
+													<div class="line-item-property__field option">
+														<div class="meta-options">
+															{% capture assetUrl %}bench-1-warm.png{% endcapture %}
+															{% capture assetName %}warm{% endcapture %}
+															<label for="colour-{{ assetName | replace: '-', ' ' }}" class="colour">
+																<img src="{{ assetUrl | asset_url }}" loading="lazy">
+																<span class="review-heading">{{ assetName | replace: '-', ' ' | capitalize }}</span>
+															</label>
+
+															{% capture assetUrl %}bench-1-grey.png{% endcapture %}
+															{% capture assetName %}grey{% endcapture %}
+															<label for="colour-{{ assetName | replace: '-', ' ' }}" class="colour">
+																<img src="{{ assetUrl | asset_url }}" loading="lazy">
+																<span class="review-heading">{{ assetName | replace: '-', ' ' | capitalize }}</span>
+															</label>
+
+															{% capture assetUrl %}bench-1-natural.png{% endcapture %}
+															{% capture assetName %}natural{% endcapture %}
+															<label for="colour-{{ assetName | replace: '-', ' ' }}" class="colour">
+																<img src="{{ assetUrl | asset_url }}" loading="lazy">
+																<span class="review-heading">{{ assetName | replace: '-', ' ' | capitalize }}</span>
+															</label>
+
+															{% capture assetUrl %}bench-1-classic.png{% endcapture %}
+															{% capture assetName %}classic{% endcapture %}
+															<label for="colour-{{ assetName | replace: '-', ' ' }}" class="colour">
+																<img src="{{ assetUrl | asset_url }}" loading="lazy">
+																<span class="review-heading">{{ assetName | replace: '-', ' ' | capitalize }}</span>
+															</label>
+														</div>
+													</div>
+												</div>
+											{% endif %}
+
+											<div class="size_variant_count">
+												{% assign variantcount = 0 %}
+												{% assign variantcounttext = "size" %}
+
+												{% for variant in product.variants %}
+													{% assign variantcount = variantcount | plus: 1 %}
+												{% endfor %}
+
+												{% unless variantcount == 1 %}
+													{% assign variantcounttext = "sizes" %}
+												{% endunless %}
+
+												{{ variantcount }} {{ variantcounttext }}
+											</div>
+										</div>
+
+											<a class="cst_hotspot_btn hotspot_sec" href="{{ product.url | downcase }}">Customise</a>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+	{% endfor %}
+{% endcapture %}
+
+{% assign related_items = related_items | trim %}
+
+{% unless related_items == blank %}
+	<section id="related-products-section" class="custom-carousel-section">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="main_menu_heading menu-banner-heading">
+							<h2>Related products</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<div class="product_main">
+			<div>
+				<div id="related-slider" class="row center">
+					{{ related_items }}
+				</div>
+			</div>
+		</div>
+
+	</section>
+{% endunless %}
+
+<script>
+$(document).ready(function() {
+	$('#related-slider').slick({
+		infinite: false,
+		slidesToShow: 3.33,
+		slidesToScroll: 3,
+		swipeToSlide: true,
+		autoplay: false,
+		autoplaySpeed: 2000,
+		arrows: false,
+		responsive: [
+			{
+				breakpoint: 1100,
+				settings: {
+					slidesToShow: 3.33,
+					slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2.05,
+					slidesToScroll: 2
+				}
+			}
+		]
+	});
+});
+</script>

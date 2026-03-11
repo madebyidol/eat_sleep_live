@@ -1,0 +1,637 @@
+{% comment %}
+  Flexible Content + Images Section
+  Supports multiple layouts for content and images
+{% endcomment %}
+
+<div class="wrapper flexible-section">
+  <div class="flexible-section-inner {% if section.settings.layout_direction == 'images_first' %}flex-row-reverse{% endif %}">
+    
+    {% comment %} Content Column {% endcomment %}
+    <div class="flexible-section-content">
+      
+      {% comment %} Header {% endcomment %}
+      {% if section.settings.overline != blank or section.settings.heading != blank %}
+        <div class="flexible-section-header">
+          {% if section.settings.overline != blank %}
+            <p class="flexible-section-overline sml-caps">{{ section.settings.overline }}</p>
+          {% endif %}
+          
+          {% if section.settings.heading != blank %}
+            <h2 class="flexible-section-heading">{{ section.settings.heading }}</h2>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% comment %} Body Text {% endcomment %}
+      {% if section.settings.body_text != blank %}
+        <div class="flexible-section-body">
+          {{ section.settings.body_text }}
+        </div>
+      {% endif %}
+
+      {% comment %} Features List {% endcomment %}
+      {% if section.blocks.size > 0 %}
+        <div class="flexible-section-features {% if section.settings.show_overlay_features %}has-overlay-features{% endif %} {% if section.settings.features_background %}with-background{% endif %} {% if section.settings.features_columns == '2' %}two-columns{% else %}one-column{% endif %}">
+          {% for block in section.blocks %}
+            <div class="feature-item" {{ block.shopify_attributes }}>
+              <div class="feature-icon">
+                {%- include 'tick-mark' -%}
+              </div>
+              <p class="feature-text">{{ block.settings.text }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% comment %} Button {% endcomment %}
+      {% if section.settings.button_text != blank %}
+        <div class="flexible-section-button">
+          <a href="{{ section.settings.button_link }}" class="main-button">
+            {{ section.settings.button_text }}
+          </a>
+        </div>
+      {% endif %}
+
+    </div>
+
+    {% comment %} Images Column {% endcomment %}
+    <div class="flexible-section-images {{ section.settings.image_layout }}">
+      
+      {% if section.settings.image_layout == 'two_side_by_side' %}
+        {% comment %} Two images side by side {% endcomment %}
+        <div class="images-two-side">
+          {% if section.settings.image_1 != blank %}
+            <div class="image-wrapper">
+              <img 
+                src="{{ section.settings.image_1 | img_url: '800x' }}"
+                alt="{{ section.settings.image_1.alt | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+          
+          {% if section.settings.image_2 != blank %}
+            <div class="image-wrapper">
+              <img 
+                src="{{ section.settings.image_2 | img_url: '800x' }}"
+                alt="{{ section.settings.image_2.alt | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+        </div>
+
+      {% elsif section.settings.image_layout == 'grid_layout' %}
+        {% comment %} Grid layout: 1 large image + 2 smaller images {% endcomment %}
+        <div class="images-grid">
+          {% if section.settings.image_1 != blank %}
+            <div class="image-wrapper image-large">
+              <img 
+                src="{{ section.settings.image_1 | img_url: '1200x' }}"
+                alt="{{ section.settings.image_1.alt | escape }}"
+                loading="lazy"
+              >
+              
+              {% comment %} Optional overlay features for large image {% endcomment %}
+              {% if section.settings.show_overlay_features and section.blocks.size > 0 %}
+                <div class="image-overlay-features">
+                  <div class="overlay-features-box {% if section.settings.features_columns == '2' %}two-columns{% else %}one-column{% endif %}">
+                    {% for block in section.blocks limit: 4 %}
+                      <div class="feature-item" {{ block.shopify_attributes }}>
+                        <div class="feature-icon">
+                          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8.5" cy="8.5" r="6.8" stroke="#9F5130" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.375 8.5L7.79167 9.91667L10.625 7.08333" stroke="#9F5130" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <p class="feature-text">{{ block.settings.text }}</p>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+          
+          {% if section.settings.image_2 != blank %}
+            <div class="image-wrapper image-small">
+              <img 
+                src="{{ section.settings.image_2 | img_url: '800x' }}"
+                alt="{{ section.settings.image_2.alt | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+          
+          {% if section.settings.image_3 != blank %}
+            <div class="image-wrapper image-small">
+              <img 
+                src="{{ section.settings.image_3 | img_url: '800x' }}"
+                alt="{{ section.settings.image_3.alt | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+        </div>
+
+      {% elsif section.settings.image_layout == 'stacked_mobile' %}
+        {% comment %} Stacked images (mobile layout) {% endcomment %}
+        <div class="images-stacked">
+          {% if section.settings.image_1 != blank %}
+            <div class="image-wrapper">
+              <img 
+                src="{{ section.settings.image_1 | img_url: '800x' }}"
+                alt="{{ section.settings.image_1.alt | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+          
+          {% if section.settings.image_2 != blank %}
+            <div class="image-wrapper">
+              <img 
+                src="{{ section.settings.image_2 | img_url: '800x' }}"
+                alt="{{ section.settings.image_2.alt | escape }}"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+
+{% stylesheet %}
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .flexible-section {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+
+  .flexible-section-inner {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .flexible-section-inner.flex-row-reverse {
+    flex-flow: row-reverse;
+  }
+
+  .flexible-section-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .flexible-section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .flexible-section-overline {
+    margin: 0;
+  }
+
+  .flexible-section-heading {
+    margin: 0;
+  }
+
+  .flexible-section-body {
+    font-size: 19px;
+    line-height: 1.5;
+    color: #808171;
+  }
+
+  /* Features */
+  .flexible-section-features {
+    display: grid;
+    gap: 4px;
+    max-width: 500px;
+  }
+
+  .flexible-section-features.one-column {
+    grid-template-columns: 1fr;
+  }
+
+  .overlay-features-box.two-columns,
+  .flexible-section-features.two-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 16px;
+    display: grid;
+  }
+
+  .flexible-section-features.with-background {
+    background: white;
+    min-width: fit-content;
+    border-radius: 32px;
+    padding: 24px 32px;
+  }
+
+  .feature-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .feature-icon {
+    background: #f8f8f8;
+    border-radius: 20px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feature-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--esl-grey-dark);
+    flex: 1;
+  }
+
+  .flexible-section-button {
+    display: flex;
+  }
+
+  /* Images */
+  .flexible-section-images {
+    flex: 1;
+  }
+
+  .image-wrapper {
+    border-radius: 32px;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Two side by side images */
+  .images-two-side {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .images-two-side .image-wrapper {
+    aspect-ratio: 3 / 5;
+  }
+
+  /* Grid layout */
+  .images-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+
+  .images-grid .image-large {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    aspect-ratio: 2 / 2;
+    position: relative;
+  }
+
+  .images-grid .image-small {
+    aspect-ratio: 1 / 0.69;
+  }
+
+  .images-grid .image-small:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .images-grid .image-small:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* Overlay features on large image */
+  .image-overlay-features {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+  }
+
+  .overlay-features-box {
+    background: white;
+    border-radius: 32px;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* Stacked images */
+  .images-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .images-stacked .image-wrapper {
+    aspect-ratio: 1 / 0.9;
+  }
+
+  .flexible-section-features.has-overlay-features {
+    display: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 1080px) {
+    .overlay-features-box.two-columns {
+      display: none;
+    }
+    .flexible-section-features.has-overlay-features {
+      display: grid;
+    }
+    .flexible-section-inner {
+      gap: 48px;
+    }
+    .flexible-section-features.two-columns {
+      grid-template-columns: 1fr;
+      max-width: fit-content;
+    }
+    .images-two-side .image-wrapper {
+      aspect-ratio: 1.5 / .9;;
+    }
+    .images-two-side {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .flexible-section-inner {
+      flex-direction: column !important;
+      gap: 48px;
+    }
+
+    .flexible-section-features.two-columns {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .feature-item {
+      text-align: start;
+    }
+
+    .flexible-section-content,
+    .flexible-section-images {
+      width: 100%;
+    }
+
+    .flexible-section-content {
+      align-items: center;
+      text-align: center;
+    }
+
+    .flexible-section-features.two-columns {
+      width: 100%;
+      justify-content: center;
+      min-width: 330px;
+    }
+
+    .images-two-side .image-wrapper {
+      aspect-ratio: auto;
+      max-height: 176px;
+    }
+
+    .flexible-section-heading {
+      font-size: 32px;
+    }
+
+    /* Grid layout adjustments for mobile */
+    .images-grid .image-large {
+      aspect-ratio: 1 / 1.2;
+    }
+
+    .images-grid .image-small {
+      aspect-ratio: 1 / 0.8;
+    }
+    
+  }
+
+  @media (max-width: 479px) {
+    .flexible-section-features.two-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Text and Images",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_direction",
+      "label": "Layout direction",
+      "options": [
+        {
+          "value": "content_first",
+          "label": "Content left, Images right"
+        },
+        {
+          "value": "images_first",
+          "label": "Images left, Content right"
+        }
+      ],
+      "default": "images_first"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1380
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "Sustainability at every step"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built for life & the planet"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "<p>From reclaimed materials to careful making and minimal waste, sustainability guides how we design, build and deliver every piece.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Features List"
+    },
+    {
+      "type": "select",
+      "id": "features_columns",
+      "label": "Features columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "checkbox",
+      "id": "features_background",
+      "label": "Show features background",
+      "default": true,
+      "info": "Adds white rounded background to features list"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Our approach to sustainability"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "select",
+      "id": "image_layout",
+      "label": "Image layout",
+      "options": [
+        {
+          "value": "two_side_by_side",
+          "label": "Two images side by side"
+        },
+        {
+          "value": "grid_layout",
+          "label": "Grid (1 large + 2 small)"
+        },
+        {
+          "value": "stacked_mobile",
+          "label": "Stacked vertically"
+        }
+      ],
+      "default": "two_side_by_side"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay_features",
+      "label": "Show features overlay on large image",
+      "default": false,
+      "info": "Only applies to Grid layout"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3",
+      "info": "Only used in Grid layout"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature text",
+          "default": "Reclaimed materials"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flexible Content + Images",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Reclaimed materials"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Minimal waste"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Responsible delivery"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Lifetime quality"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

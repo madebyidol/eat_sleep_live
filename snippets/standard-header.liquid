@@ -1,0 +1,49 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:45+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            79bb70f4175f728d86fc30100b17606e
+//      Signature:      eyJpdiI6IkdDRGhjbElEbU5qaGxsa0tcL2lqS3F3PT0iLCJ2YWx1ZSI6IkltZ2FjNXhWampqXC9vcFhMSmJCY2xHOTdMMDVJYkJzSEdRSStFbEQ4a3h5cWFCdEFcL1wvVDcyR20ycUhWeWFLTUZ3MVlGNXNnQmNqZGFLZWNFXC9RMXlidnpBXC9PUEpGNTFoTForOFB4UTFySWJYeXNZd2g1ckt3bWNVNEVUWkw3cGFJb0oxR1BPME9WaHp5VFpQZFJlNjM4aURLVEc3d1ByNktucjJUcWpKRkhvWHA1c0NHMXI4Tk45OHh1NDZucXF3NzdRK0FDQ0ZsZzY4d3g5S2E0TEdCQk9iN0RjZnRRbXEyZlduTUh6MnZ0RXZ6Q3pQMUZDZldBZmJNVWd3YVRQUzBsN2JxWDRaXC9vbnJ6OUtha2F1V3NFaStpSG5yY0ZCOFc1QUVMRjU0eW9OUWVXK2dzVTZhbWtMUzdvNU5Pdml1RjQ5aVJwVUxmRzM1NVdXY1hUbnRNMjRjYUpuYXJWaDJXeit2WFNoMHdwM2R5a1ZldVBQbGUwakVWckNuVHd6eGNQU0o3NzhtTVUwMjAwZVM2RDU1UmltU2RqYjl2cVwvM21XS25pRm14VGpZPSIsIm1hYyI6ImYyNmY0YjIyMTc4MWExMDNhYjdjYzQ5ZTYzNGU5ZjE4Y2EyNmE3OGU4MDBmMWU2NWNmNjM4YWMwY2RhYzQ5MmMifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+Pass the following to create a standard header
+title - Header title
+title-class - Heading class
+description - Header content
+link - Button link
+link-text - Button text
+image - header image
+{% endcomment %}
+
+{% capture child %}
+	<div class="image-overlay"></div>
+	{% if title-class != blank %}
+		<{{title-class}} class="standard-header__title">{{ title }}</{{title-class}}>
+	{% else %}
+		<h1 class="standard-header__title">{{ title }}</h1>
+	{% endif %}
+	{% if description != blank %}
+		<p class="standard-header__description">{{ description }}</p>
+	{% endif %}
+	{% if link != blank %}
+		<a href="{{ link | downcase }}" class="main-button">{{ link-text }}</a>
+	{% endif %}
+{% endcapture %}
+
+{% if image != blank %}
+<div class="standard-header">
+	{% include 'background-image-element' with child: child, image: image, classes: 'flex-center' %}
+</div>
+{% endif %}

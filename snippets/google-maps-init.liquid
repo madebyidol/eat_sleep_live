@@ -1,0 +1,59 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:46+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            aad087064bc7702d36e655fc370d0a8d
+//      Signature:      eyJpdiI6ImVKN0hMS3lTckZLSWNVZXVBekhNV1E9PSIsInZhbHVlIjoiR2VMZlBON2xEaFlwVFNKcXczZjZLdEJnaUQ4Q0lnWFB6SUpoM2k1K2RJWElCRkdadGhBMG5QY3VrN0pFVjE2VGdaOE9UbFwvYzVlRnhYYkRoMVJxYTZnN2pLcjlsMnBUK3AwUW0yMnl6dms4eThEQmdiSDNidGN0cWwwaGEyWmdCV01QRW50aXVBa29oY0tLTGlFaUNkb2M5bXhtT1hXU2dybnh6RGY5TytEaWxjc0RnN01KQnpTbzJMRndjUDBxanN6eWx3QlhIbGQwR0swYWZvOE50QytITXc1c0E0TXhQemxZZjRZUGZVUm54TFhDUFkzQ0FhclwveThGYUVNNXlWdjlmR2VlZmNiWVwvVGR5dVVUaWJTZFwvR29mXC9zekxNQlhOOElzZ1VPdDltdjgxTHVtN2pHZWNRUHFCakNCSkQybk9KdVBGK3JnQ0tpQk02Nk55aG1FOTFaXC9nSUVMc1c4MktZeXMzT1J1amcxNVoySG1Zb3JXd21Lc1U4QmR5RjVnVm9GTjhLSGpSV2VSWWlcL3JXOFhzTXlsK0FiR3k1N3MwVFZWNEpzVnd5ZzA9IiwibWFjIjoiNDJhMThkM2MxN2QzNTIxM2QxOTlmNTljN2VkYTdjMDFjNDA1Y2VmMmU2NGVmYmI5ZDg3ODA3YzA0MzQwOWVkNCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-wuJQusXvpkoc47YqTw2YlcaWLMJPWhQ&callback=initMaps" async defer></script>
+<script>
+
+  function initMaps() {
+    //this code dosen't have to fire if these two element don't exist
+    if(jQuery("#map-left").length>0 && jQuery("#map-right").length>0){
+        "use strict";
+        //Set up map data
+        var mapElements = [
+          document.getElementById('map-left'),
+          document.getElementById('map-right')
+        ];
+        var loc = [
+          {lat: {{settings.map_1_lat}}, lng: {{settings.map_1_lng}} },
+          {lat: {{settings.map_2_lat}}, lng: {{settings.map_2_lng}} }
+        ];
+        var defaultZoom = 12;
+
+        //Create the map
+        for (var i = 0; i < mapElements.length; i++) {
+
+          var mapElement = mapElements[i];
+
+          //Draw map
+          var map = new google.maps.Map(mapElement, {
+            center: loc[i],
+            zoom: defaultZoom
+          });
+
+          //Draw marker
+          var marker = new google.maps.Marker({
+            position: loc[i],
+            map: map,
+            title: "Hello World"
+          });
+          console.log("STOP ALREADY");
+        }
+    }
+  }
+</script>

@@ -1,0 +1,62 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:37+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            ecfedabf133c1b7712fcd682da2398ce
+//      Signature:      eyJpdiI6IlFhUmRDcDRCQUkzazlOZFwvMEk1YlZnPT0iLCJ2YWx1ZSI6ImZUblREWGZhcUpVRUgyejBMUXAwbytsS1prUDM1VE5MbVZDZmloZEl4T3JTK3dkc25wM0VHaHB1VERYY3BaZzNQd0xuRnVmeDd0U3dZSFdRSGVvWUZweTZqVUN3cTdCQWFoc1drR0tMWjJrNnZhNXUrZWRjXC9Lc0ZWc2NXRm5HXC96OGpIa0E2M016cjVHamlPTFwvdFwvdlFnZWh0STRSdndsWHdPSFlTXC9wREJjeVlJTTIwMWZ3TTdOeDdaYXlqTmpHME1FamI3OVVkSjdraktEcUdvRmRlNFFPYWpOcG9TdzdQU3lZcUZpQWR2RkVTcWhJK2NIRkNMSUlaRVpXV1RtT2NYNWpnT2pDV2pQdVNJNk1QWWpvditOM3ZpVzVSaEloTUlzYmVHT0JrMlFsKzZxNklwclJldE5TWUtIbzUxTVJURnNoU1hyaERXNHNpdzhaK2toYTN5V2pwczBYWFJoc3ZvdFVRdll4Wkl2Qk5US1pndlBqMFwveGE2aFVcL0RvbkRwQ3VQU0JqZm5xbDFtQis3cnBRZDd4SXpOYm1JMndcL0x4Vys3RWRtM2lVRT0iLCJtYWMiOiI2NTJiNTBiMDMyNGEzNTdmOGZlNTJmMmY2MTJiZDQyZTdkMzk2ZTEzMzE0OGFjNmFlN2E3N2FiODQ0ZWQzOGQyIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="single-cta product__single-cta">
+	<div class="single-cta__text-container">
+		<h5 class="h5 m-b-10">
+			{%- if product.metafields.custom_fields["text_section_title"] != blank -%}
+				{{ product.metafields.custom_fields["text_section_title"] }}
+			{%- else -%}
+				About The {{ product.title }}
+			{%- endif -%}
+		</h5>
+		{% if product.metafields.custom_fields["text_section_content"] != blank %}
+			<p class="single-cta__text">{{ product.metafields.custom_fields["text_section_content"] | newline_to_br }}</p>
+		{% else %}
+			{% if product_desc_intro != blank %}
+				{% comment %}
+				Workaround to remove erroneous content from old method
+				{% endcomment %}
+				{% if product_desc_intro contains '<div' %}
+					{% assign product_desc_intro_split = product_desc_intro | split: '<div' %}
+					<p class="single-cta__text">{{ product_desc_intro_split[0] | newline_to_br }}</p>
+				{% else %}
+					<p class="single-cta__text">{{ product_desc_intro | newline_to_br }}</p>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+		{% if product.metafields.custom_fields["text_section_link_url"] != blank %}
+			<a class="secondary-text-link main-button secondary-button" href="{{ product.metafields.custom_fields["text_section_link_url"] | downcase }}">
+				{%- if product.metafields.custom_fields["text_section_link_text"] != blank -%}
+					{{ product.metafields.custom_fields["text_section_link_text"] }} >
+				{%- else -%}
+					Request PDF Specification >
+				{%- endif -%}
+			</a>
+		{% else %}
+			<p data-overlay-target="#request-pdf" class="secondary-text-link main-button secondary-button overlay-trigger">
+				{%- if product.metafields.custom_fields["text_section_link_text"] != blank -%}
+					{{ product.metafields.custom_fields["text_section_link_text"] }} >
+				{%- else -%}
+					Request PDF Specification >
+				{%- endif -%}
+			</p>
+		{% endif %}
+	</div>
+</div>

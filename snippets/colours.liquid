@@ -1,0 +1,39 @@
+<div class="product-form__option product-form__option-colour">
+    <div class="product-form__option-name">
+        <p>Choose your <span>Wood Colour</span></p>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.2071 7.79289C20.5976 8.18342 20.5976 8.81658 20.2071 9.20711L13.2071 16.2071C12.8166 16.5976 12.1834 16.5976 11.7929 16.2071L4.79289 9.20711C4.40237 8.81658 4.40237 8.18342 4.79289 7.79289C5.18342 7.40237 5.81658 7.40237 6.20711 7.79289L12.5 14.0858L18.7929 7.79289C19.1834 7.40237 19.8166 7.40237 20.2071 7.79289Z" fill="#434241"/></svg>
+        <div class="product-form__selected-option"></div>
+    </div>
+
+    <div class="product-form__option-wrapper">
+
+        {% assign colour_blocks = section.blocks | where: 'type', 'add-colour' %}
+        {% for block in colour_blocks %}
+
+            <div class="product-form__option-inner">
+
+                <div class="product-form__option-input">
+                    <input
+                        class="c-colour-select__radio product-option__input"
+                        id="SingleOptionSelector-{{ option.name }}-{{ product.handle }}-{{ forloop.index0 }}-{{ collection.handle }}-{{ block.id }}"
+                        name="properties[Colour]"
+                        value="{{ block.settings.name }}"
+                        type="radio"
+                        {% if forloop.index == 1 %} checked="checked" {% endif %}
+                        data-id="{{ var.id }}"
+                        data-colour="{{ block.settings.name | handleize }}"
+                        >
+                    <label
+                        class="c-colour-select__radio-label u-b2"
+                        style="background-image: url('{{ block.settings.colour_image | img_url }}')"
+                        for="SingleOptionSelector-{{ option.name }}-{{ product.handle }}-{{ forloop.index0 }}-{{ collection.handle }}-{{ block.id }}">
+                        {{ block.settings.name }}
+                    </label>
+                </div>
+
+            </div>
+        {% endfor %}
+
+    </div>
+
+</div>

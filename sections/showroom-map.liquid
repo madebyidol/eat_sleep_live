@@ -1,0 +1,304 @@
+{% comment %}
+  Showroom Section
+  Features content with background image and Google Maps embed
+{% endcomment %}
+
+<div class="wrapper showroom-section">
+  <div class="showroom-container">
+    
+    {% if section.settings.background_image != blank %}
+      <div class="showroom-background">
+        <img 
+          src="{{ section.settings.background_image | img_url: '2000x' }}"
+          alt=""
+          loading="lazy"
+          class="showroom-background-image"
+        >
+        <div class="showroom-overlay"></div>
+        <div class="showroom-gradient"></div>
+      </div>
+    {% endif %}
+
+    <div class="showroom-content-wrapper">
+      
+      <div class="showroom-content">
+        
+        {% if section.settings.heading != blank %}
+          <h2 class="showroom-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="showroom-description p-lrg">{{ section.settings.description }}</p>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="main-button">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      {% if section.settings.google_maps_embed != blank %}
+      <div class="showroom-map">
+        <div class="showroom-map-embed">
+          {{ section.settings.google_maps_embed }}
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .showroom-section {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+
+  .showroom-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: {{ section.settings.border_radius }}px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 850px) {
+    .showroom-section {
+      padding: 0;
+    }
+    .showroom-container {
+      border-radius: 0;
+    }
+  }
+
+  /* Background image with overlays */
+  .showroom-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .showroom-background-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .showroom-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    mix-blend-mode: multiply;
+  }
+
+  .showroom-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 20.673%, rgba(0, 0, 0, 0) 50.481%);
+  }
+
+  /* Content wrapper */
+  .showroom-content-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 80px 32px 80px;
+  }
+
+  /* Desktop layout */
+  @media (min-width: 1081px) {
+    .showroom-content-wrapper {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 48px;
+      gap: 40px;
+    }
+
+    .showroom-gradient {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 20.673%, rgba(0, 0, 0, 0) 50.481%);
+    }
+
+    .showroom-content-wrapper .showroom-heading {
+      max-width: 15ch;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .showroom-content-wrapper {
+      padding: 80px 16px;
+    }
+  }
+
+  /* Content section */
+  .showroom-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  @media (min-width: 1080px) {
+    .showroom-content {
+      align-items: flex-start;
+      text-align: left;
+      flex: 0 0 auto;
+      max-width: 50%;
+    }
+  }
+
+  .showroom-heading {
+    color: #FFF;
+    margin: 0;
+    max-width: 30ch;
+  }
+
+  .showroom-description {
+    margin: 0;
+    max-width: 45ch;
+  }
+
+  /* Map section */
+  .showroom-map {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1080px) {
+    .showroom-map {
+      width: auto;
+      flex: 0 0 400px;
+      align-self: stretch;
+      max-width: 50%;
+    }
+  }
+
+  .showroom-map-embed {
+    width: 100%;
+    height: 30vh;
+    border-radius: {{ section.settings.map_border_radius }}px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 1080px) {
+    .showroom-map-embed {
+      min-height: auto;
+      height: 530px;
+    }
+  }
+
+  .showroom-map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Showroom Map",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See where the magic happens"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Come and visit our Nottingham workshop and showroom to see our craftsmen at work. Explore our unique pieces, samples and finishes, we'll even put the kettle on."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Book a visit"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Google Maps"
+    },
+    {
+      "type": "html",
+      "id": "google_maps_embed",
+      "label": "Google Maps embed code",
+      "info": "Paste the complete iframe embed code from Google Maps"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1380
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Container border radius",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "map_border_radius",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Map border radius",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "Showroom Section",
+      "settings": {
+        "heading": "See where the magic happens",
+        "description": "Come and visit our Nottingham workshop and showroom to see our craftsmen at work. Explore our unique pieces, samples and finishes, we'll even put the kettle on.",
+        "button_text": "Book a visit",
+        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2404.1234567890123!2d-1.1234567890123456!3d52.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDA3JzI0LjQiTiAxwrAwNyczMi40Ilc!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+      }
+    }
+  ]
+}
+{% endschema %}

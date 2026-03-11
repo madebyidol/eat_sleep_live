@@ -1,0 +1,68 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:21+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            ec12f51779e29de52accda855dd02e95
+//      Signature:      eyJpdiI6ImoxeDZqalppNDNHdmcxc2dWRmsrckE9PSIsInZhbHVlIjoiaFR4VkF6bVVGRnJIZlY0dG9iRm1WY0xyTXVJejg3cWM4b2VUb2dhUWdFRU9qdUhDcVBcLzVPM1FlQ2xOaTlGd3lTR0FRcUJvXC9IbWVIS3RTUUhXWW10UHVhZThCaXNTWmJtZHhaZnBoYUhaekFxS1Z0SVFNRjJmcndBWFJNN3BOTU56M2l5VWdaekJVVGdLR1E5TEtvNkl4NlVZRTlLRlhMYVB0TldLTHNIMnlzZEZ2akJUNzNWb0x0OHV3bDNjd1wvNllBaVB4WGVlRmFBclpwS1VXZ1p0VkozellPSEltXC9palk4TnVZdHZRaW9GMk9OSUtMSnprTWg5d2NHMnpQYVM2UHcyaUFaTjFQQkQ1OWphbzc1QldTZXdHUmxHMVJ4OGhaNEIwQXJvU1hmcEI0WmhQdmxNVCs4YVNzZUU5VDZRaTZSUCtmOXd5ZDRENFRVVlhKd0x6M3NvN2FSeVwvSjE5NFh4NjdjTHRSK2lUY1NLTEtLQ2lVMWFEa0FpYmEyaVFPaFNkejRkZUxBbXBCak45SlN0c1pnXC9NSFk5amdYb2ljRlpOM3lcL25UMTQ9IiwibWFjIjoiNWE4NDkyYWMzNjMwMDBjYTU1NTIxNThhYTlmYzllN2Y5OWRlMjU0YmMzODRlY2FiMGI2NjBkM2ZjNjllMzdkZCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="js-component__slick product__slider slick-hide slick-arrows" data-slick='
+	{
+		"slidesToShow": 1,
+		"slidesToScroll": 1,
+		"centerPadding": "100px",
+		"infinite": true,
+		"centerPadding": 0,
+		"centerMode": true,
+		"variableWidth": true,
+		"rows": 0,
+		"draggable": true,
+		"arrows": true,
+		"nextArrow": "<button type=\"button\" class=\"slick-next\"></button>",
+		"prevArrow": "<button type=\"button\" class=\"slick-prev\"></button>",
+		"responsive": [{
+			"breakpoint": 768,
+			"settings": {
+				"rows": 0,
+				"slidesToShow": 1,
+				"arrows": false
+			}
+		}]
+	}'>
+	{% for block in section.blocks %}
+		{% if block.type == 'slider' %}
+			{% capture child %}
+				<div class="image-overlay"></div>
+				<div class="single-cta__text-container">
+					{% if block.settings.title %}<h3 class="h5">{{ block.settings.title }}</h3>{% endif %}
+					{% if block.settings.content %}<p>{{ block.settings.content | newline_to_br }}</p>{% endif %}
+					{% if block.settings.link-url %}
+						<a class="main-button" href="{{ block.settings.link-url | downcase }}">{{ block.settings.link-title }}</a>
+					{% endif %}
+				</div>
+			{% endcapture %}
+
+			{% assign cta-classes = 'single-cta' %}
+			{% if section.settings.full == true %}
+				{% assign cta-classes = 'single-cta--full-width single-cta' %}
+			{% endif %}
+
+			{% if block.settings.image != blank %}
+				<div>
+				{% include 'background-image-element' with image: block.settings.image, classes: cta-classes %}
+				</div>
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+</div>

@@ -1,0 +1,110 @@
+.sample-text-and-image {
+  background-color: {{ settings.color_section_bg }};
+  display: grid;
+  grid-template-areas: ". . text text text img img";
+  grid-auto-columns: 1fr;
+  padding: 100px 0 110px 0;
+  box-shadow: 0px 8px 15px rgba(96, 97, 112, 0.1);
+
+  @media screen and (max-width: 768px) {
+    padding: 56px 0 120px 0;
+    margin-bottom: 95px;
+    grid-template-areas:
+      "text text"
+      ". img";
+  }
+
+  .sample--text-content {
+    grid-area: text;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+      padding: 0 28px;
+    }
+
+    .normal-spaced {
+      font-weight: 400;
+      color: #808171;
+    }
+
+    p {
+      opacity: 0.5;
+    }
+
+    .sample--buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a.main-button,
+      a.main-button-text {
+        text-transform: lowercase;
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        font-weight: normal;
+        line-height: 1.6;
+        height: initial;
+        padding-top: 12px;
+        padding-bottom: 12px;
+
+        svg {
+          width: 12px;
+          height: 12px;
+          margin-left: 8px;
+          position: relative;
+          top: 1px;
+        }
+
+        & + a {
+          margin-left: 56px;
+        }
+      }
+
+      a.main-button-text {
+        color: #9f5130;
+        display: flex;
+        align-items: center;
+        padding-left: 25px;
+        padding-right: 25px;
+        border: 1px solid #9f5130;
+      }
+
+      @media screen and (max-width: 1080px) {
+        justify-content: space-around;
+
+        a.main-button + a,
+        a.main-button-text + a {
+          margin-left: 0;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        flex-flow: column;
+
+        a + a {
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+
+  .sample--image-container {
+    grid-area: img;
+    position: relative;
+
+    .sample--image {
+      max-width: 400px;
+      height: auto;
+      position: absolute;
+      width: 90%;
+      top: -80px;
+      right: 0;
+
+      @media screen and (max-width: 768px) {
+        top: -10px;
+        max-width: 200px;
+      }
+    }
+  }
+}
+

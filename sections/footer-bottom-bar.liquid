@@ -1,0 +1,423 @@
+{% comment %}
+  Footer Bottom Bar
+  Email signup, contact info, help links, and social media
+{% endcomment %}
+
+<div class="footer-bottom-bar">
+  <div class="wrapper">
+    <div class="footer-bottom-content">
+      
+      {% comment %} Left Side: Info Columns {% endcomment %}
+      <div class="footer-info-columns">
+        
+        {% comment %} Visit Us {% endcomment %}
+        {% if section.settings.show_visit_us %}
+          <div class="footer-info-column">
+            <h4 class="footer-info-title sml-caps">{{ section.settings.visit_title }}</h4>
+            <div class="footer-info-text">
+              {{ section.settings.visit_address }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% comment %} Contact {% endcomment %}
+        {% if section.settings.show_contact %}
+          <div class="footer-info-column">
+            <h4 class="footer-info-title sml-caps">{{ section.settings.contact_title }}</h4>
+            <div class="footer-info-links">
+              {% if section.settings.live_chat_text != blank %}
+                <p class="m-0"><span>{{ section.settings.live-chat }}</span><a style="cursor: pointer;" onclick="const chatElement = document?.getElementById(`ShopifyChat`)?.shadowRoot?.querySelector(`.chat-app>button`)
+    chatElement && chatElement.click()">{{ section.settings.live_chat_text }}</a></p>
+              {% endif %}
+              
+              {% if section.settings.phone != blank %}
+                <a target="_blank" href="tel:{{ section.settings.phone | replace: ' ', '' }}">{{ section.settings.phone }}</a>
+              {% endif %}
+              
+              {% if section.settings.email != blank %}
+                <a target="_blank" href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% comment %} Help {% endcomment %}
+        {% if section.settings.show_help %}
+          <div class="footer-info-column">
+            <h4 class="footer-info-title sml-caps">{{ section.settings.help_title }}</h4>
+            {% if section.settings.help_menu != blank %}
+              <ul class="footer-info-links">
+                {% for link in linklists[section.settings.help_menu].links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
+
+      </div>
+
+      {% comment %} Right Side: Email Signup {% endcomment %}
+      {% if section.settings.show_email_signup %}
+        <div class="footer-email-signup">
+          {% comment %} Klaviyo Form Integration {% endcomment %}
+          <div class="klaviyo-form-TXrYs3"></div>
+        </div>
+      {% endif %}
+
+    </div>
+    {% comment %} Social Icons {% endcomment %}
+        {% if section.settings.show_social %}
+          <div class="footer-social">
+            {% if section.settings.facebook_url != blank %}
+              <a href="{{ section.settings.facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" fill="#808171"/>
+                </svg>
+              </a>
+            {% endif %}
+
+            {% if section.settings.instagram_url != blank %}
+              <a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg width="18px" height="24px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>Instagram icon</title><path fill="#808171" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+              </a>
+            {% endif %}
+
+            {% if section.settings.pinterest_url != blank %}
+              <a href="{{ section.settings.pinterest_url }}" target="_blank" rel="noopener" aria-label="Pinterest">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.67 15.097C10.164 17.823 9.548 20.437 7.72 21.802C7.157 17.682 8.549 14.587 9.195 11.302C8.093 9.392 9.328 5.547 11.652 6.494C14.512 7.66 9.175 13.596 12.758 14.338C16.499 15.112 18.027 7.655 15.707 5.229C12.355 1.728 5.95 5.15 6.738 10.163C6.93 11.389 8.159 11.761 7.229 13.453C5.084 12.962 4.444 11.22 4.527 8.897C4.659 5.097 7.844 2.435 11.038 2.067C15.078 1.601 18.869 3.594 19.392 7.507C19.982 11.923 17.569 16.707 13.25 16.362C12.079 16.269 11.587 15.672 10.67 15.097Z" fill="#808171"/>
+                </svg>
+              </a>
+            {% endif %}
+
+            {% if section.settings.twitter_url != blank %}
+              <a href="{{ section.settings.twitter_url }}" target="_blank" rel="noopener" aria-label="Twitter/X">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip-twitter)">
+                    <path d="M9.4895 6.775L15.3178 0H13.9365L8.876 5.8825L4.834 0H0.172L6.28425 8.8955L0.172 16H1.55325L6.8975 9.78788L11.166 16H15.828L9.48913 6.775H9.4895ZM7.59775 8.97375L6.97838 8.088L2.05087 1.03975H4.17238L8.14875 6.728L8.768 7.61375L13.9371 15.0075H11.8159L7.59775 8.97412V8.97375Z" fill="#808171"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip-twitter">
+                      <rect width="16" height="16" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+  </div>
+</div>
+
+<style>
+  .footer-bottom-bar {
+    background: #f1eeea;
+    padding: 50px 0;
+  }
+
+  .footer-bottom-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1380px;
+    margin: 0 auto;
+  }
+
+  /* Info Columns */
+  .footer-info-columns {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+    min-width: fit-content;
+  }
+
+  .footer-info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+  }
+
+  .footer-info-column:last-child {
+    min-width: fit-content;
+  }
+
+  .footer-info-title {
+    margin: 0;
+    font-size: 13px;
+    color: #808171;
+  }
+
+  .footer-info-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #808171;
+    font-weight: 300;
+  }
+
+  .footer-info-text p {
+    margin: 0;
+  }
+
+  .footer-info-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-info-links li {
+    margin: 0;
+  }
+
+  .footer-info-links a,
+  .footer-info-links p {
+    color: #424341;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+    transition: color 0.2s ease;
+  }
+
+  .footer-info-links a:hover {
+    color: #808171;
+  }
+
+  /* Social Icons */
+  .footer-social {
+    display: flex;
+    gap: 16px;
+    align-items: start;
+    padding-top: 24px;
+  }
+
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-social a:hover {
+    opacity: 0.7;
+  }
+
+  .footer-social svg {
+    display: block;
+  }
+
+  /* Email Signup */
+  .footer-email-signup {
+    width: 100%;
+    max-width: 452px;
+  }
+
+  .footer-email-signup .klaviyo-form-TXrYs3 {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .footer-email-signup .klaviyo-form-TXrYs3 label {
+    display: none;
+  }
+
+  .footer-email-signup .klaviyo-form-TXrYs3 input {
+    border: none !important;
+    border-radius: 16px !important;
+    height: 50px !important;
+    font-family: Lexend Exa, sans-serif !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+  }
+  
+  .footer-email-signup .klaviyo-form-TXrYs3 div[data-testid="form-component"] {
+    padding: 0 !important;
+  }
+
+  .footer-email-signup .klaviyo-form-TXrYs3 [data-testid="form-row"] {
+    height: 50px;
+  }
+
+  .footer-email-signup .klaviyo-form-TXrYs3 button {
+    font-family: Lexend Exa, sans-serif !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+    height: 50px !important;
+    min-height: fit-content !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    transition: background .3s ease;
+  }
+
+  /* Responsive */
+  @media (max-width: 1080px) {
+    .footer-bottom-content {
+      flex-direction: column-reverse;
+    }
+
+    .footer-email-signup {
+      max-width: 100%;
+    }
+
+  }
+
+  @media (max-width: 767px) {
+    .footer-bottom-bar {
+      padding-top: 50px;
+      padding-bottom: 100px;
+    }
+
+    .footer-info-columns {
+      flex-direction: column;
+    }
+
+    .footer-social {
+      margin-top: 32px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Footer Bottom Bar",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Email Signup"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_email_signup",
+      "label": "Show email signup",
+      "default": true,
+      "info": "Uses Klaviyo form with class 'klaviyo-form-TXrYs3'"
+    },
+    {
+      "type": "header",
+      "content": "Visit Us"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_visit_us",
+      "label": "Show visit us section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "visit_title",
+      "label": "Visit us title",
+      "default": "Visit us"
+    },
+    {
+      "type": "html",
+      "id": "visit_address",
+      "label": "Address",
+      "default": "<p>The Old Joinery Mill<br>2 Nuthall Road<br>Nottingham<br>NG8 5AZ</p>"
+    },
+    {
+      "type": "header",
+      "content": "Contact"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact",
+      "label": "Show contact section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact title",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "live_chat_text",
+      "label": "Live chat text",
+      "default": "Live chat"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone number",
+      "default": "01159 700 060"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email address",
+      "default": "hello@eatsleeplive.co.uk"
+    },
+    {
+      "type": "header",
+      "content": "Help"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_help",
+      "label": "Show help section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "help_title",
+      "label": "Help title",
+      "default": "Help"
+    },
+    {
+      "type": "link_list",
+      "id": "help_menu",
+      "label": "Help menu"
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social icons",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest URL"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter/X URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Bottom Bar"
+    }
+  ]
+}
+{% endschema %}

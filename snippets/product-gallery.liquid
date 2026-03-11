@@ -1,0 +1,147 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:16+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            a94329bf27b720872da9b6d4803f3db8
+//      Signature:      eyJpdiI6IjAyS0dhVW9TdGZ0YUp0b1hiT1lWOWc9PSIsInZhbHVlIjoiXC9ubTNjNVVFdzBwc290M3I5TWEzSHJSZndjUFhITVNrdVQrY0FJT0toT0lmeGQ1aE92TWFOcjRoc0dWSzBZQ3N1NWYrZ1hibzA3bGVmU1lnOUd6VzFqanB2NXJXODRKeWRjZVpaSUp2RlB1MkZkOWYzeWZxSHFUdElhK0xzbGtybzJXUjJiZ1NqbUpSd3hnWDJcL2hWTVVzdDZ3aWlPMzJsaUZYbWVqYzVYUmh1cjVGV3g4VnhGMUl6YkFcL0lVSm5KcnFkSXc1N0dYXC85WThWbW5OWTdFUFlFNUNnb211ZDhYMG5XdXJkb3RZQjkwNkgrOUlNTlNsc0lRdEt2XC9lWlJlbFFtcERcL2g0c3Z3dEpSWFZ1NGhxWkdwWHQ1cFZBbEFJODU5TE9yN1ZNYWxcL2NTS1hOempJQzlDVFlBZEpXZE42YUxFTjZvMDlkY1ZiaTBzeE5BUzRhNDlJY093WHhnTFdieUorc1VJcWlmbG5qdk9yd1FKSTNHNmtvSzZ0UmVDcmFBb3Z4N1BLUUx3S2VYYlhJQ092clE5V2FGZVZpYVBRVFwvSThyVVZHbVFJPSIsIm1hYyI6ImEyMmExZDRhNWQ3OGY2YzA1NmQwYmFmZjI2YWI1MGNjNzViZmE0OGE2NGZmYmE5N2FjYjc4YjdmZTc2MjBkOWUifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}Desktop image/video slides{% endcomment %}
+{% assign desktop_slides = '' %}
+
+{% assign slide_check = 0 %}
+{% assign media_length = product.media | size %}
+
+{% for media in product.media %}
+	{% if forloop.index == 1 or forloop.index == 2 %}{% continue %}{% endif %}
+    {% if media.media_type == 'image' or media.media_type == 'video' %}
+
+	    {% comment %}Find next media{% endcomment %}
+	    {% assign next_media = null %}
+	    {% for i in (forloop.index..media_length) %}
+	      {% if product.media[i].media_type == 'image' or product.media[i].media_type == 'video' %}
+	      	{% assign next_media = product.media[i] %}
+	      	{% break %}
+	      {% endif %}
+	    {% endfor %}
+
+	    {% case media.media_type %}
+	      {% when 'image' %}
+	      	{% capture temp_slide %}
+	      			<div class="product-gallery__slide
+	      			{% unless slide_check == 0 and media.aspect_ratio != next_media.aspect_ratio %}product-gallery__slide--half{% endunless %}"
+	      			>
+	      		{% include 'image-element' with image_object: media %}
+	      		</div>
+	        {% endcapture %}
+	      {% when 'video' %}
+	      	{% capture temp_slide %}
+	        	<div {% include 'dynamic-gallery-width' with: size: 'full', aspect_ratio: media.aspect_ratio %} class="video-switch block-video product-gallery__slide">
+		      		<div class="video-switch-play block-video__play">
+		      			{% include 'play-icon' %}
+		      		</div>
+		      		{{ media | video_tag: class: 'non-autoplay', image_size: '600x', controls_list: 'nofullscreen nodownload noremoteplayback' }}
+		      	</div>
+	        {% endcapture %}
+	    {% endcase %}
+
+    	{% assign desktop_slides = desktop_slides | append: temp_slide %}
+    	{% assign slide_check = slide_check | plus: 1 %}
+
+    	{% comment %}
+    	If 2nd image/video or the next image/video aspect ratio doesn't match current image/video then a new slide is started
+    	{% endcomment %}
+
+    	{% if slide_check == 2 or media.aspect_ratio != next_media.aspect_ratio %}
+    		{% assign slide_check = 0 %}
+    		{% assign desktop_slides = desktop_slides | append: '###SPLIT####' %}
+    	{% endif %}
+    {% endif %}
+{% endfor %}
+
+<div class="js-component__slick slick-hide slick-arrows product__gallery slick-same-height responsive-slides" data-slick='
+	{
+		"slidesToShow": 2,
+		"slidesToScroll": 1,
+		"infinite": false,
+		"variableWidth": true,
+		"rows": 0,
+		"draggable": true,
+		"arrows": true,
+		"nextArrow": "<button type=\"button\" class=\"slick-next product-gallery__arrow slick-arrow-full\"></button>",
+		"prevArrow": "<button type=\"button\" class=\"slick-prev product-gallery__arrow slick-arrow-full\"></button>",
+		"responsive": [{
+			"breakpoint": 768,
+			"settings": {
+				"rows": 0,
+				"slidesToShow": 1.2,
+				"arrows": false
+			}
+		}]
+	}'
+	data-responsive-breakpoint="768">
+	{% comment %}First slide{% endcomment %}
+	<div class="slide-desktop">
+		{% for media in product.media %}
+			{% if forloop.index == 1 %}{% continue %}{% endif %}
+			{% case media.media_type %}
+		      {% when 'image' %}
+		      	<div {% include 'dynamic-gallery-width' with: size: 'full', aspect_ratio: media.aspect_ratio %} class="product-gallery__slide">
+		        	{% include 'image-element' with image_object: media %}
+		        </div>
+		        {% break %}
+
+		      {% when 'video' %}
+		      	<div {% include 'dynamic-gallery-width' with: size: 'full', aspect_ratio: media.aspect_ratio %} class="video-switch block-video product-gallery__slide">
+		      		<div class="video-switch-play block-video__play">
+		      			{% include 'play-icon' %}
+		      		</div>
+		      		{{ media | video_tag: class: 'non-autoplay', image_size: '600x', controls_list: 'nofullscreen nodownload noremoteplayback' }}
+		      	</div>
+		        {% break %}
+		    {% endcase %}
+		{% endfor %}
+	</div>
+	{% if desktop_slides != '' %}
+		{% assign desktop_slides_loop = desktop_slides | split: '###SPLIT####' %}
+		{% for desktop_slide in desktop_slides_loop %}
+			<div class="slide-desktop">
+				{{ desktop_slide }}
+			</div>
+		{% endfor %}
+	{% endif %}
+
+	{% for media in product.media %}
+		{% if forloop.index == 1 %}{% continue %}{% endif %}
+			{% case media.media_type %}
+		      {% when 'image' %}
+		      	<div class="slide-mobile">
+		      		<div class="product-gallery__slide
+		      			{% unless slide_check == 0 and media.aspect_ratio != next_media.aspect_ratio %}product-gallery__slide--half{% endunless %}"
+		      			>
+		      		{% include 'image-element' with image_object: media %}
+		      		</div>
+	      		</div>
+		      {% when 'video' %}
+		      	<div class="slide-mobile">
+		        	<div {% include 'dynamic-gallery-width' with: size: 'full', aspect_ratio: media.aspect_ratio %} class="video-switch block-video product-gallery__slide">
+			      		<div class="video-switch-play block-video__play">
+			      			{% include 'play-icon' %}
+			      		</div>
+			      		{{ media | video_tag: class: 'non-autoplay', image_size: '600x' }}
+			      	</div>
+		        </div>
+		    {% endcase %}
+	{% endfor %}
+</div>

@@ -1,0 +1,52 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-25T10:13:35+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148343
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            80cc859dd4afb09ab9823732e22a0b57
+//      Signature:      eyJpdiI6InNJUFYweUNYdEttMGVjYTVPZ1g2dlE9PSIsInZhbHVlIjoibkRvSWNsbWRxNXF2VGJsU0hJWjVSQ0xISEtwOE9WOEIrUldxY1h3dlFyVmxIQWxRd3pqMXE4clZtZnREXC9aQ1ZqZnE3NVB3NGlnXC90SVZpcjQyZ050XC96QXRxbENNdjVyeDRKRUZQTVAxYVAramdsdTFhT255QXhCRWNzK3hORXM1MlwvdzRzNEtNakVcL2F3bVgwYjR4VTVyS3greXdKczc3MG0zdVJrd3RjMmFhQk5WVDBSTzNHeGl1SVZEQ1l4U01CS2FtWHAzN3BiMmtnbnVIalNjUHRuWk5oejk1czdmamhvWTVFMzQ4K1VpRjd2Q2xra0ZOMlwvUDd3TlwvcEtXNFZwQnFzamlHRGRzcllLMk5ZQThGRkh2aXBcLytHWldpQ0JWbTd2M2NLd25EcDR3RW91Yld0STA3NHZkWW9sRVMrWDBzWGJMZG9BVjFFM3FFMEkxd2RcLzVENzFjaWlkakJiWlJaOVNuWHBYQUlKb1hRVFFid1luT2ttWUF5NGttcEdhXC96aVZDREx5bExIclhiaUJOREdRajk1TUUrdUlySUdsUE5NaXhCUm0yUXM9IiwibWFjIjoiODE4ZTA3YzBhZmU2MDE2MjA1NDkzOTQ0MWM3MmQxMTY4MTc0ZGU3N2MxM2M2NmIxNzJiZDM1MjU0MzMzODI4ZCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if featured_products_background_array[featured_products_index] != blank %}
+	<style> #section-featured_{{ featured_products_index }} { background-color: {{featured_products_background_array[featured_products_index]}};}</style>
+{% endif %}
+<div id="section-featured_{{ featured_products_index }}" class="article-content block-featured">
+	{% if sp_products_title_array[featured_products_index] != blank %}<h4>{{ sp_products_title_array[featured_products_index] }}</h4>{% endif %}
+	<div class="js-component__slick slick-hide slick-arrows" data-slick='
+	  	{
+	  		"slidesToShow": {% if slides %}{{ slides }}{% else %}4{% endif %},
+	  		"slidesToScroll": {% if slides %}{{ slides }}{% else %}4{% endif %},
+	  		"infinite": false,
+	  		"variableWidth": false,
+	  		"arrows": true,
+	  		"nextArrow": "<button type=\"button\" class=\"slick-next {% if full_arrow == true %}slick-arrow-full{% endif %}\"></button>",
+	  		"prevArrow": "<button type=\"button\" class=\"slick-prev {% if full_arrow == true %}slick-arrow-full{% endif %}\"></button>",
+	  		"responsive": [
+	  			{
+		  			"breakpoint": 768,
+		  			"settings": {
+		  				"arrows": false,
+		  				"slidesToShow": 1.2,
+		  				"slidesToScroll": 1
+	  			}
+	  		}]
+	  	}'>
+	  		{% assign featured_products_array_split = featured_products_array[featured_products_index] | split: '|' %}
+	  		{% for featured_product in featured_products_array_split %}
+	  			{% assign product = all_products[featured_product] %}
+	  			{% if product != blank %}
+	  				{% include 'product-block' %}
+	  			{% endif %}
+	  		{% endfor %}
+	  	</div>
+</div>

@@ -1,0 +1,69 @@
+<section class="request m-t-60 m-b-60" id="requestSamples">
+	<div class="page-wrap">
+
+		<div id="requestSamplesFix"></div>
+
+		{% unless section.settings.title == blank %}
+			<h2 class="h4">{{ section.settings.title }}</h2>
+		{% endunless %}
+
+		{% if section.settings.paragraph != blank %}
+			{{ section.settings.paragraph }}
+		{% else %}
+			<p>
+				{{ settings.colours_and_samples }}
+			</p>
+		{% endif %}
+
+		<div class="constrained">
+			<!--[if lte IE 8]>
+				<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+			<![endif]-->
+			<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+			<script defer>
+        $(document).ready(function() {
+          hbspt.forms.create({
+            portalId: "2821538",
+            formId: "91da4124-8268-431e-83e8-dd07e37106c9"
+          });
+        });
+			</script>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+  "name": "Request samples form",
+  "class": "page-content",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Request a set of colour samples"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    }
+  ],
+  "blocks": [
+
+  ],
+  "presets": [
+    {
+      "name": "Request samples form",
+      "category": "Blocks",
+      "blocks": [
+
+      ]
+    }
+  ],
+  "templates": [
+    "page"
+  ]
+}
+{% endschema %}

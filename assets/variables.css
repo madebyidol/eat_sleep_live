@@ -1,0 +1,28 @@
+:root {
+    /* Colors */
+    --esl-orange: #9f5130;
+    --esl-olive: #808171;
+    --esl-grey-dark: #424341;
+    --esl-grey-light: #F8F8F8;
+    --esl-off-white: #F1EEEA;
+    --white: #FFFFFF;
+
+    --header-height: 196px;
+
+    /* Spacing */
+    --section-padding: 140px;
+
+}
+@media only screen and (max-width: 1080px) {
+    :root {
+        /* Spacing */
+        --section-padding: 100px;
+        --header-height: 136px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    :root {
+        /* Spacing */
+        --section-padding: 80px;
+    }
+}

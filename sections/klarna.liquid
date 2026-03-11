@@ -1,0 +1,63 @@
+<div class="klarna__inner">
+
+    {% if section.settings.klarna_type == "bar" %}
+
+         <!-- Placement v2 -->
+
+<klarna-placement
+
+  data-key="top-strip-promotion-badge"
+
+data-locale="en-GB"
+
+></klarna-placement>
+
+<!-- end Placement -->
+
+    {% else %}
+
+        <!-- Placement v2 -->
+
+        <klarna-placement
+
+        data-key="info-page"
+
+        data-locale="en-GB"
+
+        ></klarna-placement>
+
+        <!-- end Placement -->
+
+    {% endif %}
+
+</div>
+
+{% schema %}
+    {
+    "name": "Klarna",
+    "class": "klarna",
+    "settings": [
+      {
+        "type": "select",
+        "id": "klarna_type",
+        "label": "Type",
+        "options": [
+            {
+                "value": "bar",
+                "label": "Bar"
+            },
+            {
+                "value": "full",
+                "label": "Full"
+            }
+        ],
+        "default": "bar"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Klarna Widget"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "32d85190-30e4-44c1-9b33-58d52a97f6bd": {
+      "type": "newsletter",
+      "settings": {
+        "title": "Subscribe and receive 10% off your first order...",
+        "paragraph": "<p>Join the Eat Sleep Live community by signing up to our newsletter and receive 10% off your first order!<br/><br/>If you are happy to receive marketing communications and ESL news including special offers, inspiration, collection launches and exciting new products... simply enter your email address.<br/><br/>We'll send your code over by email after you've subscribed.<br/><br/><em>*Offer can't be used in conjunction with any other promotion or code. Offer not available with V12 finance but you can place an order by a deposit, BACS, Klarna and Split it.  </em></p>"
+      }
+    },
+    "main": {
+      "type": "default-header",
+      "blocks": {
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "<p>Join the Eat Sleep Live community by signing up to our newsletter and receive 10% off your first order!<br/><br/>If you are happy to receive marketing communications and ESL news including special offers, inspiration, collection launches and exciting new products - please fill out the form below.</p><p><em>*Offer can't be used in conjunction with any other promotion or code. Offer not available with V12 finance but you can place an order by a deposit, BACS, Klarna and Split it.  </em><br/><br/>Why not order one of our wood colour samples too?</p>"
+          }
+        },
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed": {
+          "type": "request-samples",
+          "disabled": true,
+          "settings": {
+            "button-text": "Shop now"
+          }
+        }
+      },
+      "block_order": [
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0",
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Subscribe and receive 10% off your first order..."
+      }
+    },
+    "3c455ca5-19d8-4430-997e-6abe3cb6dfe4": {
+      "type": "two-column-images",
+      "blocks": {
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1_15a8554d-a021-4264-b833-a3c3285698d6.png"
+          }
+        },
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ESL_Grantham_Jade_Selected_Edit-65-2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-0",
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-1"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "45899389-2e03-40bc-9676-fae466667b3f": {
+      "type": "samples-form",
+      "disabled": true,
+      "settings": {
+        "title": "Ordering a sample box?",
+        "paragraph": "<p><em>Please fill out the below form and we'll post your samples same day!</em></p>"
+      }
+    },
+    "8f0d4361-463c-448f-a054-708344f76776": {
+      "type": "product-carousel",
+      "blocks": {
+        "65238e8a-3773-4de8-9547-6b10d0afff30": {
+          "type": "Product",
+          "settings": {
+            "select_product": "branson-1-drawer-bedside-table"
+          }
+        },
+        "7b0b2d5a-f4df-4e36-b34c-a3bdd5ebe38c": {
+          "type": "Product",
+          "settings": {
+            "select_product": "branson-coffee-table"
+          }
+        },
+        "04808c0c-716e-41c4-9a8d-feb357ab08ad": {
+          "type": "Product",
+          "settings": {
+            "select_product": "cavendish-coffee-table-with-shelf"
+          }
+        },
+        "f9e3ae63-96ce-425a-91af-30e0eb0321f2": {
+          "type": "Product",
+          "settings": {
+            "select_product": "cavendish-dining-table-long-overhang"
+          }
+        },
+        "17c3af72-e11b-4e32-ad91-d9c1370a4c24": {
+          "type": "Product",
+          "settings": {
+            "select_product": "hudson-bed-with-low-end"
+          }
+        },
+        "e258bee6-258d-427f-a049-53b3e9d05e55": {
+          "type": "Product",
+          "settings": {
+            "select_product": "hudson-mirror"
+          }
+        }
+      },
+      "block_order": [
+        "65238e8a-3773-4de8-9547-6b10d0afff30",
+        "7b0b2d5a-f4df-4e36-b34c-a3bdd5ebe38c",
+        "04808c0c-716e-41c4-9a8d-feb357ab08ad",
+        "f9e3ae63-96ce-425a-91af-30e0eb0321f2",
+        "17c3af72-e11b-4e32-ad91-d9c1370a4c24",
+        "e258bee6-258d-427f-a049-53b3e9d05e55"
+      ],
+      "settings": {
+        "heading": "Popular pieces",
+        "content": "",
+        "btn_text": "",
+        "btn_link": ""
+      }
+    }
+  },
+  "order": [
+    "32d85190-30e4-44c1-9b33-58d52a97f6bd",
+    "main",
+    "3c455ca5-19d8-4430-997e-6abe3cb6dfe4",
+    "45899389-2e03-40bc-9676-fae466667b3f",
+    "8f0d4361-463c-448f-a054-708344f76776"
+  ]
+}

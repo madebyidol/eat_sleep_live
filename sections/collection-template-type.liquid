@@ -1,0 +1,130 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:51+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            63098e34500c48aa86dcfe6cc638a967
+//      Signature:      eyJpdiI6Iit1XC85VVVaem92MFdIUjBSQ1gyeVwvQT09IiwidmFsdWUiOiJQeWpPYndYYWtuM3h0K1czdExieXlDVGZuVGk3bnNZT3ZPZkZOdlVEcWhtUHdjOXE1aHlvVGxva2hGUFZONUZrYU9iVm5hbURWbUt0Wm5yRXRSbmNuTkttaldXaGF1ekFucHIzUXUwUEl2KzZUSnF5VWlTNEYyUXcwU2ZEbXZycUo1STgzMjFSWlFjb2dxR3FQY2ltckxlRXcyVmRQak9VeExyWVdNRUJWTTkremhvM3RGTU52aFladkMrTSsxUEhCRWZrSTdIb1BGM09lNzhoUXdjc1VZSk9QbjRibHJmNGJUUnBqNG96amVNRmF1RlBlTkt0N256NTdDZE40MGVZOEkwVmpKR3owS0JaSFV4OU5QRENoUEgwekR6ZnZDR053YkNvenBscWdGdzdBMGNwV0FLT0JVVDNldHBSUFwvblltalRld2FET3kyTG50VlRtV1V4VFR2Tm4xQkM2bjhXem43SkRxZ1dBRG1uY2Y1eitIZG5qXC9uczdDWXA1RnA1TWJjTHBKWDVqajducEFZMitUZ3VESlFVWDRkNTRseXBVbUxVY2FUaHAyNGM9IiwibWFjIjoiNjA5Njg4MDNjNTYwNjU0ZmY4MDFjMTFjYjAzOTg3MzQ4MDhhZmNmZjNmNTM1NWZhNzdmMzUxNjZiODhlMmNjZCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% include 'collection-header' %}
+
+<!-- Filters: Products -->
+<!-- 
+	To add filter options, tags products accordingly:
+		- filter_product_x (e.g. filter_product_Chest-of-Drawers)
+		- (Use - for spaces, option text is case sensitive)
+	To add an icon, either: 
+        - use the name of the filter option (e.g. chest-of-drawers) as the name of a snippet SVG in the theme
+        - add the image to the Filter Product Icon global metafields in Custom Fields
+-->
+
+{% if shop.metafields.custom_fields["filter_product_icon"] != blank %}
+      {% assign separator = "|###|" %}
+      {% assign option_tag_array = shop.metafields.custom_fields["option_tag"] | split: separator %}
+      {% assign option_icon_array = shop.metafields.custom_fields["option_icon"] | split: separator %}
+      {% assign option_icon_dark_array = shop.metafields.custom_fields["option_icon_dark"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["filter_product_icon"] | split: "," %}
+{% endif %}
+
+{% comment %}
+Create a list of all tags that'll be used in the filters
+{% endcomment %}
+{% assign tags = '' %}
+{% for tag in collection.all_tags %}
+    {% if tag contains 'filter_product' %}
+        {% assign tags = tags | append: tag | append: '#####' %}
+    {% endif %}
+{% endfor %}
+{% assign tags = tags | append: 'END' %}
+{% assign tags = tags | replace: '#####END', '' %}
+{% assign tag_list = tags | split: '#####' %}
+
+{% include 'mobile-filter-type' %}
+
+{% include 'desktop-filter-type' %}
+
+{% paginate collection.products by 25 %}
+<div class="wrapper">
+	<div class="grid flex flex-wrap">
+		{% for product in collection.products %}
+			<div class="grid__item small--one-half medium--one-half one-third">
+				{% include 'product-block' with collection_block: true %}
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% endpaginate %}
+
+<div class="rv-container rv_collection-container">
+    <div class="recently-viewed js-component__recently-viewed slick-hide block-featured slick-arrows rv_collection" data-title="{{ section.settings.rv-title }}">
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Standard",
+    "settings": [
+    	{
+    		"type": "header",
+    		"content": "Collection Header"
+    	},
+    	{
+    		"type": "checkbox",
+    		"id": "default-height",
+    		"label": "Default Image Height",
+    		"info": "Select whether the collection header image use its image's height or the collection design's default height.",
+    		"default": true
+    	},
+    	{
+    		"type": "header",
+    		"content": "Products"
+    	},
+    	{
+    		"type": "text",
+    		"id": "button-text",
+    		"label": "Button Text",
+    		"default": "SELECT YOURS"
+    	},
+        {
+            "type": "text",
+            "id": "size-variant",
+            "label": "Size Variant Name",
+            "default": "Choose Your Size",
+            "info": "In order to display the number of sizes available, enter the option name sizes are classed under for your products (e.g. Choose Your Size) (Note: Case sensitive)"
+        },
+        {
+            "type": "header",
+            "content": "Filter"
+        },
+        {
+            "type": "paragraph",
+            "content": "To add options to the filter, tag products with their type in the following format: filter_product_x. For example, tag all coffee tables with 'filter_product_Coffee-Tables' (Note: Use '-' for spaces)."
+        },
+        {
+            "type": "paragraph",
+            "content": "A number of filter option default icons are part of the theme. To add new icons to a filter option, add the svg file and option name to the 'Filter Product Icon' option in [Custom Fields Global metafields](https://customfields.bonify.io/dashboard/eat-sleep-live-2.myshopify.com/globals)"
+        },
+        {
+            "type": "header",
+            "content": "Products"
+        },
+        {
+            "type": "text",
+            "id": "rv-title",
+            "label": "Recently Viewed Title",
+            "default": "Recently Viewed Products"
+        }
+    ]
+  }
+{% endschema %}

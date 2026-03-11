@@ -1,0 +1,99 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-21T09:38:19+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148043
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            3e223c13b885f159ebc7525d7790df26
+//      Signature:      eyJpdiI6Im5OcVlHR3FaWHRESVFLVm80NXAyM3c9PSIsInZhbHVlIjoiVUZIbVwvRVM0aVlteElWUEdvUTYwQmtOcnVcL1ByOXF0V0xrUjlUTWJiN29EZEdMM0FlNWtjYnNaN2RcLzBpemYxNTM1bG5UWnNqMkNOU2NhY0hQNXRXNWlnUUQ5TU1TbEdDalR6d1k0bGZEUkJPSGtpR0FIZUJYd1JlY3V4Q2dva25nYjRVMGV2RUVRcThNWDFnYThZMEpmNjBxMmdYMVwvUFZISXRKdlMxbkVzeXR2NThxakFleEJlYkpWNEJIc0hmVnV5NkVURUZ3WXppUlBiU1B4cUJVNytMQ05zZWJrZHdtZ04zZGhDSDNnWHhnTUpTWEpGVVFoYmRabkJkNXk1R2tuUnhxYTFwMGN3VXo0eTBUdmtQK3JOcWZNR1pCRldET1hzbE9BYWJWTE5vR0FiUGFvQU9XcWJ1S1JDXC9VQXVUVU01NGhPb1ZZbHkxNmQ0YnBcL1J5SUd0TmVCNFZwSGEzMHFEU1d5bStoUitZZ3NlaXBrWFNWOXNcL0x5ZXd0M3NYS1FmZ2hPWjUyXC94YmtEMVltODBJZCtnPT0iLCJtYWMiOiJiZDg2NjVlY2UyYTE0MTVkMzZiOTU0ODA3NmZiNTFhOWU5MWM2OWU3YWY2YTNmZWIwNGIxYWFmZmY0MTEyYmZhIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div>
+  <div class="large--flex js-component__slick slick-hide slick-hide-mobile" data-slick='{"mobileOnly": true, "slidesToShow": 1.3, "infinite": false, "rows": 0}'>
+  	{% for block in section.blocks %}
+  		{% capture child %}
+  		{% if block.settings.video-url != blank %}
+	  		<div class="background-video__container">
+				<video autoplay loop muted playsinline>
+					<source src="{{ block.settings.video-url }}" type="video/mp4">
+				</video>
+			</div>
+		{% endif %}
+  		<div class="slim-carousel__text-container"  data-aos-delay="50">
+  			<h3 class="main-title h1 slim-carousel__text-title">{{ block.settings.title }}</h3>
+  			<p class='fade-in fade-in-desktop m-b-40'>{{ block.settings.subtitle }}</p>
+  			<div class="fade-in fade-in-desktop">
+  				<a class="main-button" href="{{ block.settings.button-url | downcase }}">{{ block.settings.button-text }}</a>
+  			</div>
+  		</div>
+  		{% endcapture %}
+  		{% include 'background-image-element' with image: block.settings.image, classes: 'slim-carousel large--one-third fade-in-container', child: child %}
+  	{% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Slim Carousel",
+    "max_blocks": 3,
+    "blocks": [
+    	{
+    		"type": "carousel",
+			"name": "Carousel Item",
+    		"settings": [
+    			{
+    				"type": "paragraph",
+    				"content": "A video or image aspect ratio of 3:5 is recommended"
+    			},
+    			{
+    			  "type": "text",
+    			  "id": "title",
+    			  "label": "Title"
+    			},
+    			{
+    			  "type": "text",
+    			  "id": "subtitle",
+    			  "label": "Subtitle"
+    			},
+    			{
+    			  "type": "image_picker",
+    			  "id": "image",
+    			  "label": "Image"
+    			},
+    			{
+    			  "type": "text",
+    			  "id": "button-text",
+    			  "label": "Button Text"
+    			},
+    			{
+    			  "type": "url",
+    			  "id": "button-url",
+    			  "label": "Button Link"
+    			},
+    			{
+    			  "type": "text",
+    			  "id": "video-url",
+    			  "label": "Video URL",
+    			  "info": "Upload your video into the files section of Shopify and paste the URL here. Selecting a video will override any hero images (MP4 only)."
+    			}
+    		]
+    	}
+    ],
+    "presets": [
+      {
+        "name": "Slim Carousel",
+        "category": "Blocks"
+      }
+    ]
+  }
+{% endschema %}

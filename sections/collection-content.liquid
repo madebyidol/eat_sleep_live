@@ -1,0 +1,154 @@
+<div class="process-content">
+
+  {% if section.settings.title != blank or section.settings.text != blank %}
+    <div class="process__text-content" data-aos-anchor-placement="top-center"  data-aos-delay="50">
+
+      <p class="subtitle secondary-color">
+        {% if collection.metafields["custom_fields"]["collection_content_subheading"] != blank %}
+          {{ collection.metafields["custom_fields"]["collection_content_subheading"] }}
+        {% elsif section.settings.subtitle != blank %}
+          {{ section.settings.subtitle }}
+        {% endif %}
+      </p>
+
+      <h4 class=" m-b-10">
+        {% if collection.metafields["custom_fields"]["collection_content_heading"] != blank %}
+          {{ collection.metafields["custom_fields"]["collection_content_heading"] }}
+        {% elsif section.settings.title != blank %}
+          {{ section.settings.title }}
+        {% endif %}
+      </h4>
+
+      {%- if collection.metafields["custom_fields"]["collection_content_text"] != blank and collection.metafields["custom_fields"]["collection_content_read_more"] != blank -%}
+        <div class="secondary-color">
+          {{ collection.metafields["custom_fields"]["collection_content_text"] }}
+          <div id="read_more_text" style="display: none;">
+           {{ collection.metafields["custom_fields"]["collection_content_read_more"] }}
+          </div>
+          <button id="readmore_button" class="m-b-10" onclick="toggleReadMore()">Read more</button>
+        </div>
+
+        <script>
+          function toggleReadMore() {
+            var moreText = document.getElementById("read_more_text");
+            var btnText = document.getElementById("readmore_button");
+          
+            if (moreText.style.display === "none") {
+              btnText.innerHTML = "Read less"; 
+              moreText.style.display = "block";
+            } else {
+              btnText.innerHTML = "Read more"; 
+              moreText.style.display = "none";
+            }
+          }
+        </script>
+
+      {%- elsif collection.metafields["custom_fields"]["collection_content_text"] != blank -%}
+        <div class="secondary-color">
+          {{ collection.metafields["custom_fields"]["collection_content_text"] }}
+        </div>
+      {%- else -%}
+        <div class="secondary-color">
+          {{ section.settings.text }}
+        </div>
+      {% endif %}
+
+    </div>
+  {% endif %}
+
+  {% assign delay = 200 %}
+
+  {% if collection.metafields["custom_fields"]["collection_content_new"] != blank %}
+
+    {% for item in collection.metafields["custom_fields"]["collection_content_new"] %}
+      {% assign delay = delay | plus: 250 %}
+
+      {% if item.image != blank %}
+        <div 
+          class="process__image-content" 
+          data-aos-anchor-placement="top-center" 
+          data-aos-delay="{{ delay }}" 
+          style="background-image:url('{{ item.image }}')"
+          loading="lazy">
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  {% else %}
+
+    {% for block in section.blocks %}
+      {% assign delay = delay | plus: 250 %}
+
+      {% if block.settings.image != blank %}
+        <div 
+          class="process__image-content" 
+          data-aos-anchor-placement="top-center" 
+          data-aos-delay="{{ delay }}" 
+          style="background-image:url('{{ block.settings.image.src | img_url: 'x750' }}')"​​​​​
+          loading="lazy"​>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  {% endif %}
+
+</div>
+
+{% schema %}
+  {
+  "name": "Collection Content",
+  "class": "process-content--section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "BRITISH MADE"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Forget flat-pack, our furniture is hand-crafted to order."
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Text",
+      "default": "<p>See where the magic happens and visit our HQ in Nottingham. This is where you’ll see us create you the perfect piece based on your colour, size and handle choices.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Content",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ],
+  "templates": ["collection"]
+}
+{% endschema %}

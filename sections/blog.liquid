@@ -1,0 +1,218 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:57+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            8b5d033ad74ec8637194cbb43d874207
+//      Signature:      eyJpdiI6IkdpTEJqNEpYSFdSWlRhUllWeEgwTmc9PSIsInZhbHVlIjoiUUZPZUd3cXp6alc5TzliUlBhZCtkcU1kSXREUitFVzV2MmRTenhZOTJQU0Myd0plVFUzRUFjM1wvUWFCQUx0QW9GZytQRHdaYXVNRzJvZUdmdFQ0ZTYzdGFUUVdId0loY0RkWkh4VThkZzlZdmhRcWR3VWszNEZkSFlEVE1mSVRZcVg4Q25qcTlYQjlGSXFQNko4SDZVT21oTW5QcTBmM3E5WUtNRzFtZVNWN0ZJRm1TOG9XT0pram9GS0xEeUh5czNBTHI2SHlYRjJwVFwvU3lDdVluV0lJbVRld0s1RnE3UVF3RnpUTFJ1d0JCdWZxS1FcL1RDNW85SkxYM1Vxam1zXC90WVV3anhzNUhtSStYakt5MWlmZlM5a2R4b1d1Z2o0NklwMDlMYm84MTJsd1diQm1ZNjE1R0ZmdUtmTEdnRTRnS2g4ZFNDZHpCRkNyYjNNMHN3ZWVTMm9BMUxpbkZNMGMzRFhYNWVkaHFyOERZamVhKzk0S2ZQV3h3SUNhM0tQWDdCaXdGejA2UXd4eUVaY1pTTmN0U2c9PSIsIm1hYyI6Ijg0MWZlYTE3NmJlNjhiMDQ2ZDFmN2ZkMGY0ZTAwMmE0MTkyZjMwMjJiNjY2ZjE2NGQwNWI5NDhhZjJiODM5MjEifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="js-component__blog">
+	<div class="js-component__slick slick-hide slick-arrows featured-blog" data-slick='
+	  	{
+	  		"centerMode": true,
+	  		"centerPadding": "20px",
+	  		"slidesToShow": 1,
+	  		"infinite": true,
+	  		"variableWidth": true,
+	  		"arrows": true,
+	  		"nextArrow": "<button type=\"button\" class=\"slick-next\"></button>",
+	  		"prevArrow": "<button type=\"button\" class=\"slick-prev\"></button>",
+	  		"responsive": [{
+	  			"breakpoint": 768,
+	  			"settings": {
+	  				"arrows": false,
+	  				"centerPadding": "10px"
+	  			}
+	  		}]
+	  	}'>
+	{% for block in section.blocks %}
+		{% assign article = articles[block.settings.article] %}
+		{% if article != blank %}
+			{% if block.settings.show-all == true or block.settings.category == blog.handle %}
+				{% capture slider_text %}
+					<div class="image-overlay image-overlay--solid"></div>
+					<p class="standard-header__description featured-header__description featured-header__date">{% assign date = article.published_at | date: "%d %B, %Y" %}{{ date | capitalize }}</p>
+					<h2 class="standard-header__title featured-header__title">{{ article.title }}</h2>
+					<p class="standard-header__description featured-header__description hide large--show">{% if article.excerpt != blank %}{{ article.excerpt }}{% else %}{{ article.content | strip_html | truncate: 200 }}{% endif %}</p>
+				{% endcapture %}
+				<a class="featured-blog__article standard-header" href="{{ article.url | downcase }}">
+					<div class="featured-blog__image-container">
+						{% include 'background-image-element' with image: article.image, classes: 'featured-blog__image flex-center flex', child: slider_text %}
+					</div>
+				</a>
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+	</div>
+
+	<div>
+	{% if section.settings.tags != blank or section.settings.all-tags == true %}
+	<div class='blog-filter'>
+		<div class="filter-text">
+			<div class="filter-text__options flex large--flex-center">
+				{% if section.settings.all-tags == true %}
+				{% for tag in blog.all_tags %}
+					<div class="filter-text__option">
+						<a class="anchor-link" {% if current_tags contains tag %}href="{{ blog.url | downcase }}"{% else %}href="{{ blog.url | downcase }}/tagged/{{ tag | handleize }}"{% endif %}>
+							<p class="{% if current_tags contains tag %}filter-text__selected{% endif %}">{{ tag }}</p>
+						</a>
+					</div>
+				{% endfor %}
+				{% else %}
+					{% assign tags = section.settings.tags | split: ',' %}
+					{% for tag in tags %}
+						{% if blog.all_tags contains tag %}
+							<div class="filter-text__option">
+								<a class="anchor-link" {% if current_tags contains tag %}href="{{ blog.url }}"{% else %}href="{{ blog.url | downcase }}/tagged/{{ tag | handleize }}"{% endif %}>
+									<p class="{% if current_tags contains tag %}filter-text__selected{% endif %}">{{ tag }}</p>
+								</a>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	{% endif %}
+
+	{% assign article = blog.articles | first %}
+	{% if article != blank %}
+	<a href="{{ article.url | downcase }}">
+	<div class="featured-blogs">
+	  	<div class="grid grid--gutterless featured-blogs__blog featured-blogs__blog--first">
+	  		<div class="grid__item grid__item--gutterless one-half small--one-whole medium--one-whole">
+	  			{% include 'background-image-element' with image: article.image, classes: 'featured-blogs__image', child: '' %}
+	  		</div>
+	  		<div class="grid__item grid__item--gutterless one-half small--one-whole medium--one-whole featured-blogs__text-half">
+	  			<div class="featured-blogs__text-container">
+	  				<p class="blogs__byline-text m-b-10 hide small--show medium--show">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
+	  				<h5>{{ article.title }}</h5>
+		  			<p class="featured-blogs__description--small light-description">{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+		  			<p class="featured-blogs__description--large light-description">{{ article.excerpt_or_content | strip_html | truncate: 266 }}</p>
+		  			<div class="blogs__byline flex">
+		  				{% if section.settings.image %}
+		  					{% include 'image-element' with image_object: section.settings.image, classes: 'blogs__byline-icon' %}
+		  				{% endif %}
+		  				<p class="blogs__byline-text">BY <span>{% if section.settings.byline != blank %}{{ section.settings.byline }}{% else %}{{ article.author }}{% endif %}</span><span class="small--hide medium--hide"> | {{ article.published_at | date: format: 'abbreviated_date' }}</span></p>
+		  			</div>
+	  			</div>
+	  		</div>
+	  	</div>
+	</div>
+	</a>
+	{% endif %}
+
+	{% if current_page == 1 %}
+		{% assign offset_article = blog.articles[13] %}
+	{% endif %}
+
+	{% paginate blog.articles by 12 %}
+	<div class="wrapper">
+		<div id="js-blog-items" class="blogs grid flex flex-wrap m-t-60">
+			{% for article in blog.articles %}
+				{% unless current_page == 1 and forloop.index == 1 %}
+					{% include 'blog-item' with article_item: article, section: section %}
+				{% endunless %}
+			{% endfor %}
+
+			{% if current_page == 1 %}
+				{% if offset_article != blank %}
+					{% include 'blog-item' with article_item: offset_article, section: section %}
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+
+	<div id="js-blogs-load" class="blogs-load">
+		<p data-next-page="{{ paginate.next.url }}" class="main-button secondary-button {% if paginate.next.url == blank %}main-button-disabled{% else %}js-load-more-button{% endif %}">LOAD MORE</p>
+		{% assign previous_blogs_size = blog.articles | size %}
+		{% assign current_blogs_size = previous_blogs_size | plus: paginate.current_offset %}
+		{% assign total_blogs_size = blog.articles_count %}
+		<p class="text-center">Showing <span>{{ current_blogs_size }}</span> of {{ total_blogs_size }} articles</p>
+		<div class="blogs-load__meter">
+			{% assign fl_total_blogs_size = total_blogs_size | times: 1.0 %}
+			{% assign fl_current_blogs_size = current_blogs_size | times: 1.0 %}
+			<div style="width: {{ fl_current_blogs_size | divided_by: fl_total_blogs_size | times: 100.00 }}%;" class="blogs-load__meter-amount"></div>
+		</div>
+	</div>
+	</div>
+	{% endpaginate %}
+</div>
+
+{% schema %}
+  {
+    "name": "Blog",
+    "blocks": [
+    	{
+    		"type": "blog",
+			"name": "Fetured Article",
+    		"settings": [
+    			{
+    			  "type": "article",
+    			  "id": "article",
+    			  "label": "Article"
+    			},
+    			{
+    				"type": "checkbox",
+    				"id": "show-all",
+    				"label": "Show on all categories",
+    				"info": "Select whether you'd like to show this featured article on every blog category, or just one (selectable below).",
+    				"default": true
+    			},
+    			{
+    			  "type": "blog",
+    			  "id": "category",
+    			  "label": "Blog Category",
+    			  "info": "Select which blog category this featured article should show on (if the above option hasn't been selected"
+    			}
+    		]
+    	}
+    ],
+    "settings": [
+    	{
+    		"type": "checkbox",
+    		"id": "all-tags",
+    		"label": "Use All Blog Tags",
+    		"info": "Select whether you'd like to use every blog tag in the blog filter or select them manually below.",
+    		"default": false
+    	},
+    	{
+    	  "type": "text",
+    	  "id": "tags",
+    	  "label": "Manual Tags For Filter",
+    	  "info": "List the tags that you'd like to feature in the filter section separated by a comma (e.g. tips,furniture trends). Remember to [tag the blogs](https://help.shopify.com/en/manual/online-store/os/blogs/writing-blogs#add-tags-to-a-blog-post) appropriately in the Shopify backend. Only tags used by blogs in the category will show."
+    	},
+    	{
+		  "type": "image_picker",
+		  "id": "image",
+		  "label": "Byline Icon Override",
+		  "info": "1x1 recommended",
+		  "info": "By default, blogs will be have the author image in the byline, override this by entering an image here"
+		},
+		{
+		  "type": "text",
+		  "id": "byline",
+		  "label": "Byline Override",
+		  "info": "By default, blogs will be have the author name in the byline, override this by entering text here"
+		},
+		{
+			"type": "checkbox",
+			"id": "same-size",
+			"label": "Enforce Same Height Images",
+			"info": "If blog featured images are different heights and you'd like them all to be the same, select this option.",
+			"default": false
+		}
+    ]
+  }
+{% endschema %}

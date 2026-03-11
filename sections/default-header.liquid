@@ -1,0 +1,101 @@
+<div class="header m-t-30 m-b-60">
+	{% unless section.settings.title == blank %}
+		<h1 class="h3">{{ section.settings.title }}</h1>
+	{% endunless %}
+
+	{% for block in section.blocks %}
+
+		{% if block.type == 'paragraph' %}
+			{% if block.settings.paragraph != blank %}
+				{{ block.settings.paragraph }}
+			{% else %}
+				<p>
+					{{ settings.colours_and_samples_description }}
+				</p>
+			{% endif %}
+		{% endif %}
+
+		{% if block.type == 'request-samples' %}
+			{% unless block.settings.button-text == blank %}
+				<a class="m-t-40 scrollTo main-button" href="#requestSamples">{{ block.settings.button-text }}</a>
+
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('a.scrollTo[href^="#"]').on('click',function (e) {
+							e.preventDefault();
+
+							var target = this.hash;
+							var $target = $(target);
+
+							$('html, body').stop().animate({
+								'scrollTop': $target.offset().top - 116
+							}, 575, 'swing', function () {
+								window.location.hash = target;
+							});
+						});
+					});
+				</script>
+			{% endunless %}
+		{% endif %}
+
+	{% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Default header",
+  "max_blocks": 2,
+  "class": "page-content",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Colours and Samples"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "paragraph",
+          "label": "Paragraph"
+        }
+      ]
+    },
+    {
+      "type": "request-samples",
+      "name": "Request samples button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button-text",
+          "label": "Button text",
+          "default": "Request colour samples"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default header",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "paragraph"
+        },
+        {
+          "type": "request-samples"
+        }
+      ]
+    }
+  ],
+  "templates": [
+    "page"
+  ]
+}
+{% endschema %}

@@ -1,0 +1,120 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-banner",
+      "settings": {
+        "banner_heading": "after care"
+      }
+    },
+    "19860175-5d1d-47b1-b940-0f2e79992576": {
+      "type": "content-tabs",
+      "blocks": {
+        "0aba6928-ad16-4dfa-a6af-6b54917b3bff": {
+          "type": "tab",
+          "settings": {
+            "icon": "shopify://shop_images/wax.png",
+            "title": "Waxing",
+            "content": "<p>Regular waxing will improve the protection and overall appearance. You can wax your furniture as much as you want but every few months is adequate.</p><p>Waxing is very simple and quick and shouldn’t take you long at all. It smells great too.</p><ul><li>Using an old rag or similar lint free cloth apply the wax generously in a circular motion firstly to spread the wax evenly over the surface and then following the grain to remove any excess.</li><li>After giving the furniture a coat of wax all over you should notice it looking dull, don’t worry this is normal.</li><li>Let it dry for about 10 minutes.</li><li>Then with another clean rag, cloth or buffing brush give all surfaces a buff. Its up to you how shiny you want it, it doesn’t take much effort to get a mid-sheen(like when you received your furniture) or continue to buff for a more glossy finish.</li></ul>",
+            "image": "shopify://shop_images/image_4.png"
+          }
+        },
+        "c64e6638-d9f1-4030-bcf6-7f8375de2626": {
+          "type": "tab",
+          "settings": {
+            "icon": "shopify://shop_images/wax.png",
+            "title": "Wax supplies",
+            "content": "<p>Eat Sleep Live supplies 400ml replacement tins of wax at £9.50 inc p&p.</p>",
+            "image": "shopify://shop_images/hand-waxed-reclaimed-wood-furniture2_d34af15e-b3a2-4ac3-8f78-26c2cfa27e59.jpg"
+          }
+        },
+        "dc739563-53a6-417b-af67-aad73342c98e": {
+          "type": "tab",
+          "settings": {
+            "icon": "shopify://shop_images/wax.png",
+            "title": "Things to be careful of...",
+            "content": "<p>Placing hot or wet items such as pans, plates etc directly onto the surface.</p><p>We recommend the use of placemats or coasters to avoid unwanted stains and marks.</p><p>But don't worry if you get any marks it is always possible to remove them.</p>",
+            "image": "shopify://shop_images/image_3e8637ac-da5f-476d-bb18-9001fbfee663.png"
+          }
+        },
+        "a934e100-fd48-4a24-9649-bbcb928b665d": {
+          "type": "tab",
+          "settings": {
+            "icon": "shopify://shop_images/wax.png",
+            "title": "Please note",
+            "content": "<p>If small cracks appear(known as shakes) on the surface of your furniture this is quite normal and part of the character of reclaimed wood. It is nothing to be concerned about but if you would like them to be more subtle simply wax over them which will fill the shakes with wax.</p><p>Over time the wax will dry out and the shakes will start to appear again, this is a good indication its wax time again!</p>",
+            "image": "shopify://shop_images/hand-waxed-reclaimed-wood-furniture1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "0aba6928-ad16-4dfa-a6af-6b54917b3bff",
+        "c64e6638-d9f1-4030-bcf6-7f8375de2626",
+        "dc739563-53a6-417b-af67-aad73342c98e",
+        "a934e100-fd48-4a24-9649-bbcb928b665d"
+      ],
+      "settings": {
+        "heading": "",
+        "content": "",
+        "alignment": "left"
+      }
+    },
+    "1ef29464-1435-472e-ba84-3bd078ae1790": {
+      "type": "faq",
+      "blocks": {
+        "e93e5130-abe9-4423-b83d-afb3095acf5f": {
+          "type": "faq",
+          "settings": {
+            "question": "Lorem ipsum dolor amet?",
+            "answer": "By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver."
+          }
+        },
+        "b7dafeb1-c89f-4c9c-914c-69b71a057099": {
+          "type": "faq",
+          "settings": {
+            "question": "Lorem ipsum dolor amet?",
+            "answer": "By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver."
+          }
+        },
+        "d7c3b55c-cb6f-47d2-b4ad-2dd11aa39d2d": {
+          "type": "faq",
+          "settings": {
+            "question": "Lorem ipsum dolor amet?",
+            "answer": "By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver."
+          }
+        }
+      },
+      "block_order": [
+        "e93e5130-abe9-4423-b83d-afb3095acf5f",
+        "b7dafeb1-c89f-4c9c-914c-69b71a057099",
+        "d7c3b55c-cb6f-47d2-b4ad-2dd11aa39d2d"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions"
+      }
+    },
+    "efe8e776-4099-4f0e-9178-5c21b9ea3287": {
+      "type": "section-cta",
+      "settings": {
+        "heading": "Any questions?",
+        "description": "<p>Get in touch with us, we will be happy to help.</p>",
+        "button_text": "Get in touch",
+        "button_link": "shopify://pages/get-in-touch"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "19860175-5d1d-47b1-b940-0f2e79992576",
+    "1ef29464-1435-472e-ba84-3bd078ae1790",
+    "efe8e776-4099-4f0e-9178-5c21b9ea3287"
+  ]
+}

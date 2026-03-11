@@ -1,0 +1,220 @@
+
+{% case section.settings.per_row %}
+	{% when 1 %}
+		{% assign width = 'one-whole' %}
+	{% when 2 %}
+		{% assign width = 'one-half' %}
+	{% when 3 %}
+		{% assign width = 'one-third' %}
+	{% when 4 %}
+		{% assign width = 'one-quarter' %}
+	{% else %}
+		{% assign width = 'one-third' %}
+{% endcase %}
+
+<div class="text-and-usps wrapper">
+
+	<div class="{% if section.settings.background %}grey-section-bg{% endif %}">
+
+		{% if section.settings.title != blank or section.settings.text != blank %}
+			<div class="flex flex-wrap flex-center"  data-aos-delay="50">
+				<div class="two-thirds medium--four-fifths small--one-whole text-center">
+					{% if section.settings.title != blank %}
+						<h4 class=" m-b-10">{{ section.settings.title }}</h4>
+					{% endif %}
+
+					{% if section.settings.text != blank %}
+						<div class="text-and-usps_text">{{ section.settings.text }}</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="flex flex-wrap flex-stretch">
+
+      {% assign delay = 50 %}
+
+			{% for block in section.blocks %}
+
+        {% assign delay = delay | plus: 250 %}
+
+				{% if block.type == 'usp' %} 
+
+					<div class="usp__point {{ width }} medium--five-sixths small--one-whole"  data-aos-delay="{{ delay }}">
+
+						{% if block.settings.link != blank %}
+							<a href="{{ block.settings.link | downcase }}" class="usp__link">
+            {% else %}
+              <div class="usp__link">
+						{% endif %}
+
+							<div class="usp__text-content">
+								{% if block.settings.title %}
+									<h6 class="text-left normal-spaced">
+										{% if block.settings.icon-image != blank %}
+                      {% comment %}
+											{% render 'image-element' with image_object: block.settings.icon-image, classes: 'usp__icon' %}
+                      {% endcomment %}
+                      {{
+                        block.settings.icon-image
+                        | image_url: width: 48
+                        | image_tag:
+                          class: 'usp__icon',
+                          loading: 'lazy'
+                          
+                      }}
+										{% endif %}
+
+										<span>{{ block.settings.title }}</span>
+									</h6>
+								{% endif %}
+								
+								{% if block.settings.description %}
+									<p class="usp__text-content_description">{{ block.settings.description }}</p>
+								{% endif %}
+							</div>
+
+							{% if block.settings.image != blank %}
+                {% liquid
+                  assign mobile_image = block.settings.image
+                  if block.settings.mobile_image != blank 
+                  assign mobile_image = block.settings.mobile_image
+                  endif 
+                %}
+								<div class="usp__image-container">
+                  {% comment %}
+                  <img class="usp__image" src="{{ block.settings.image | img_url: '380x228', crop: 'center', scale: 2 }}" alt="{{ block.settings.image.alt }}" width="380" height="228" loading="lazy">
+                  {% endcomment %}
+                  <picture >
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="
+                        {{ mobile_image | image_url: width: 300 }} 300w,
+                        {{ mobile_image | image_url: width: 700 }} 700w,
+                        ">
+                      {{ block.settings.image |
+                        image_url: width: 700 |
+                        image_tag:
+                          widths: '300, 700',
+                          sizes: '(min-width: 400px) 700px, 78.75vw',
+                          class: "usp__image",
+                          alt: block.settings.image.alt
+                          }}
+                  </picture>
+                
+                </div>
+							{% endif %}
+
+						{% if block.settings.link != blank %}
+							</a>
+              {% else %}
+            </div>
+						{% endif %}
+						
+					</div>
+				
+				{% endif %}
+
+			{% endfor %}
+		</div>
+
+	</div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Text Area and USPs",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Lorem ipsum dolor sit amet consectetur adipiscing elit."
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut quam euismod, commodo orci sed, placerat nisi. Ut porta at justo et consectetur. In hac habitasse</p>"
+    },
+    {
+      "type": "range",
+      "id": "per_row",
+      "label": "USPs per row",
+      "default": 3,
+      "min": 1,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "background",
+      "label": "Show background colour",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Select an image for the icon (1:1 png recommended)"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon-image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Lorem ipsum dolor"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectur adipiscing elit."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "USP link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Area and USPs",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "usp"
+        },
+        {
+          "type": "usp"
+        },
+        {
+          "type": "usp"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

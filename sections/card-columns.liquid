@@ -1,0 +1,92 @@
+<section class="card-column wrapper">
+    <div class="card-column__container">
+        <h4 class="card-column__heading"> {{ section.settings.heading }} </h4>
+
+        {% if section.settings.sub_heading != blank %}
+          <p class="card-column__sub_heading text-center"> {{ section.settings.sub_heading }} </p>
+        {% endif %}
+
+        {% assign count = 0 %}
+        {% for block in section.blocks %}
+               {% assign count = count | plus: 1 %}
+        {% endfor %}
+
+        <div class="card-column__content-container {% if count == 4 %}quad-block{% endif %}">
+            {% for block in section.blocks %}
+            <div class="card-column__card">
+                <div class="card-column__thumbnail">
+                    <img class="card-column__img" alt="{{block.settings.card_image.alt}}" width="579" height="336" src="{{ block.settings.card_image | image_url: width: 579, height: 336 }}"/>
+                </div>
+                <div class="card-column__card__content">
+                    <h6 class="card-column__card__heading"> {{ block.settings.card_heading }} </h6>
+                    <p class="card-column__card__description"> {{ block.settings.card_description }} </p>
+                    {% if block.settings.card_link != blank %}
+                      <a href="{{ block.settings.card_link | downcase }}">
+                        <span>{{ block.settings.link_text }}</span>
+                      </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Card Columns",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_heading",
+      "label": "Sub Heading"
+    }
+  ],
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Image",
+          "info": "Minimum size: 580x340px"
+        },
+        {
+          "type": "text",
+          "id": "card_heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "card_description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "card_link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Card Columns",
+      "category": "Blocks"
+    }
+  ]
+}
+{% endschema %}

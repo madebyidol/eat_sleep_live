@@ -1,0 +1,161 @@
+{% comment %} {{ 'offer-banner.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+{% if section.settings.enable_banner == true %}
+
+    <div class="offer-banner__inner {% if section.settings.enable_animation == true %}offer-banner__animated{% endif %}">
+
+        {% for block in section.blocks %}
+
+            {% case block.type %}
+                {% when "text" %}
+                    {% if block.settings.link != blank%}<a href="{{ block.settings.link}}" title="{{ block.settings.text }}">{% endif %}
+                    <div class="offer-banner__item offer-banner__text">{{ block.settings.text }}</div>
+                    {% if block.settings.link != blank%}</a>{% endif %}
+                {% when "trustpilot" %}
+                    <div class="offer-banner__item offer-banner__trustpilot">
+                        <div
+                            class="trustpilot-widget"
+                            data-locale="en-GB"
+                            data-template-id="5419b732fbfb950b10de65e5"
+                            data-businessunit-id="4d5ff8fc00006400050eb7e5"
+                            data-style-height="18px"
+                            data-style-width="100%"
+                            data-theme="{{ block.settings.tp_colourscheme }}"
+                            data-text-color="{% if block.settings.tp_colourscheme == 'light'%}#FFFFFF{% else %}#000000{% endif %}">
+                            <a
+                            href="https://uk.trustpilot.com/review/www.eatsleeplive.co.uk"
+                            target="_blank"
+                            rel="noopener">Trustpilot</a>
+                        </div>
+                    </div>
+
+            {% endcase %}
+        {% endfor %}
+
+    </div>
+
+{% endif %}
+
+{% style %}
+
+  .offer-banner{width:100vw;overflow:hidden;position:relative;padding:5px 20px}.offer-banner:after,.offer-banner:before{position:absolute;top:0;width:10rem;height:100%;content:"";z-index:1}.offer-banner:before{left:0;background:linear-gradient(to right,var(--esl-off-white) 0,transparent 100%)}.offer-banner:after{right:0;background:linear-gradient(to left,var(--esl-off-white) 0,transparent 100%)}.offer-banner__inner{list-style:none;height:100%;display:flex;justify-content:center}.offer-banner__animated{animation:scrolling var(--marquee-animation-duration) linear infinite}.offer-banner__item{display:flex;justify-content:center;align-items:center;flex-shrink:0;width:var(--marquee-element-width);max-height:100%;white-space:nowrap;padding:0 30px}@media only screen and (max-width:768px){.offer-banner__item{width:100vw}.offer-banner__inner{animation:scrolling var(--marquee-animation-duration) linear infinite}}
+  
+    :root {
+        --marquee-width: 100vw;
+        --marquee-height: 20vh;
+        --marquee-elements-displayed: 3;
+        --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+        --marquee-animation-duration: calc(var(--marquee-elements) * 8s);
+    }
+
+    @media only screen and (max-width: 768px) {
+        :root {
+            --marquee-width: 100vw;
+            --marquee-height: 20vh;
+            --marquee-elements-displayed: 3;
+            --marquee-element-width: 100vw;
+            --marquee-animation-duration: calc(var(--marquee-elements) * 12s);
+        }
+    }
+
+    @keyframes scrolling {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+    }
+{% endstyle %}
+
+<script>
+    var _hasRendered = false;
+    window.addEventListener('resize', function(event) {
+        console.log(event);
+
+        if (event.target.innerWidth <= 768 && _hasRendered == false) {
+            _hasRendered = true;
+            const root = document.documentElement;
+            const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+            const marqueeContent = document.querySelector(".offer-banner__inner");
+        
+            root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+        
+            for (let i = 0; i < marqueeElementsDisplayed; i++) {
+                marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+            }
+        }
+
+    }, true);
+
+    if (window.innerWidth <= 768) {
+        const root = document.documentElement;
+        const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+        const marqueeContent = document.querySelector(".offer-banner__inner");
+    
+        root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+    
+        for (let i = 0; i < marqueeElementsDisplayed; i++) {
+            marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+        }
+    }
+
+</script>
+
+{% schema %}
+    {
+        "name": "Offer Banner",
+        "class": "offer-banner",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "enable_banner",
+                "label": "Enable Offer Banner",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_animation",
+                "label": "Enable Animation",
+                "info": "Enables the banner scrolling animation",
+                "default": false
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Text",
+                "type": "text",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Link"
+                    }
+                ]
+            },
+            {
+                "name": "Trust Pilot",
+                "type": "trustpilot",
+                "settings": [
+                    {
+                        "type": "select",
+                        "label": "Trust Pilot Colour Scheme",
+                        "id": "tp_colourscheme",
+                        "options": [
+                            {
+                                "label": "Light",
+                                "value": "light"
+                            },
+                            {
+                                "label": "Dark",
+                                "value": "dark"
+                            }
+                        ],
+                        "default": "light"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

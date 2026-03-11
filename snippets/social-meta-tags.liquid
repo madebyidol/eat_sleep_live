@@ -1,0 +1,106 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:35+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            e7c97d7cb76c7925dd144dfb7b188cac
+//      Signature:      eyJpdiI6IkJHaXNjSmpGT0NOTkxBRTh2TjQ2V2c9PSIsInZhbHVlIjoiMWhkcFloWHc4SnNieUh6SGpidnFqU2FOcDltaTRGWmhWdzRNeU9UVkZHbGtaKzVlTDdwd04zcWROQTA5dEVJdGJQQU4ySFh2YmRFTDVoNHcycExwVnNiUStLbjQxdzRYb2VQK1pleVMyR2QxYmFObk1ZQXVwSzNmU01MaDRVaThhek5DRW5OeTY5ZnU4TjZoQ0ZURFFkQmduYmdRZCtRUEJzS0VZQ2NRK0xDTWNqd3g3aGlmb05UaFFqbUcwVVlJdkJHZXRpbzBtMXVBUmVsNU5hS0xPQ3pJbHhzdm54QjkxKzVXVVF5Z3IwRlwvdjQ1THM3b0tzTE95OW5EZ2tJMzREMXp1c093dXNucjNRZTM1MlpXa0VpXC9kWWFSOWRoNUlxSWl3dEFLcVlsT0xKUTRWSXVPUjNuK0FHSThVYVVoUDMrU2llOHd5eWpISCtkT0dcL1QyeWFUNXd0ZCtjOXFvVElKRUs3ejQyYXVLMUxWVVlGelVoQ2RJak9xZ1B2bVdNQjkzN2pDc0J6NWFRaW96T1UrVG40UHFMREFLNkxXNzMzU3FtTmVjN0g5az0iLCJtYWMiOiJmMWQ1MzI1OWYyMmUxZmIzNThlZDBlYmJmNzcyNjY0NmUxODc0N2U3MjRiYzVjYmQ0YTk1YmE4ZjE0ZmI4NDkzIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<!-- /snippets/social-meta-tags.liquid -->
+{% comment %}
+  Open graph tags
+{% endcomment %}
+{% if template == 'index' %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta name="description" content="{{ page_description }}">
+
+{% elsif template contains 'product' %}
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="{{ product.title | strip_html | escape }}">
+  <meta name="description" content="{{ product.description | strip_html | escape }}">
+  <meta property="og:price:amount" content="{{ product.selected_or_first_available_variant.price | money_without_currency }}">
+  <meta property="og:price:currency" content="{{ shop.currency }}">
+  {% for image in product.images reversed limit: 3 %}
+    <meta property="og:image" content="http:{{ image | img_url: 'grande' }}">
+    <meta property="og:image:secure_url" content="https:{{ image | img_url: 'grande' }}">
+  {% endfor %}
+
+{% elsif template contains 'page' %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | strip_html | escape }}">
+  <meta name="description" content="{{ page.metafields.global.description_tag | strip_html | escape }}">
+
+{% elsif template contains 'article' %}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ article.title | strip_html | escape }}">
+  <meta name="description" content="{{ article.excerpt_or_content | strip_html | escape }}">
+  {% if article.image %}
+    <meta property="og:image" content="http:{{ article.image | img_url: '1024x1024' }}">
+    <meta property="og:image:secure_url" content="https:{{ article.image | img_url: '1024x1024' }}">
+  {% endif %}
+
+{% elsif template contains 'collection' %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ collection.title | strip_html | escape }}">
+  <meta name="description" content="{{ collection.metafields.global.description_tag | strip_html | escape }}">
+  {% if collection.image %}
+    <meta property="og:image" content="http:{{ collection.image | img_url: 'grande' }}">
+    <meta property="og:image:secure_url" content="https:{{ collection.image | img_url: 'grande' }}">
+  {% endif %}
+
+{% elsif template contains 'blog' %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ blog.title | strip_html | escape }}">
+  <meta name="description" content="{{ blog.metafields.global.description_tag | strip_html | escape }}">
+
+{% else %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  {% if settings.logo_use_image %}
+    <meta property="og:image" content="http:{{ 'logo.png' | asset_url }}">
+    <meta property="og:image:secure_url" content="https:{{ 'logo.png' | asset_url }}">
+  {% endif %}
+{% endif %}
+
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:site_name" content="{{ shop.name }}">
+
+{% comment %}
+  Twitter card
+{% endcomment %}
+{% unless settings.social_twitter_link == blank %}
+  <meta name="twitter:site" content="@{{ settings.social_twitter_link | split: 'twitter.com/' | last }}">
+{% endunless %}
+{% if template contains 'article' and article.image %}
+  <meta name="twitter:card" content="summary_large_image">
+{% else %}
+  <meta name="twitter:card" content="summary">
+{% endif %}
+{% if template == 'index' %}
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ page_description | escape }}">
+{% elsif template contains 'product' %}
+  <meta name="twitter:title" content="{{ product.title | strip_html | escape }}">
+  <meta name="twitter:description" content="{{ product.description | strip_html | truncate: 200, '' | escape }}">
+  <meta name="twitter:image" content="https:{{ product | img_url: 'grande' }}">
+  <meta name="twitter:image:width" content="600">
+  <meta name="twitter:image:height" content="600">
+{% elsif template contains 'article' %}
+  <meta name="twitter:title" content="{{ article.title | strip_html | escape }}">
+  <meta name="twitter:description" content="{{ article.excerpt_or_content | strip_html | truncate: 200, '' | escape }}">
+  {% if article.image %}
+    <meta property="twitter:image" content="https:{{ article | img_url: '1024x1024' }}">
+  {% endif %}
+{% endif %}

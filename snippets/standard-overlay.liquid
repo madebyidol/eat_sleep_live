@@ -1,0 +1,40 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:40+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            63f11febcf89f3d21b185b309bbd196e
+//      Signature:      eyJpdiI6Im1iY1RpTFplc2pmNXgwOVZ2WkQyTGc9PSIsInZhbHVlIjoiMmFOYXloZnFhS2FtNVhFZ3gyUVRsQ01vbTZWQjFzdXR5NGVvdmhsSk03ZzFsQlF3ckFvUDNhbkQ5Q2JlK05LejJpTHliXC90czN4NXdWZURKNlJtRnlHVTNDdUpjaTlDcHk1TWpoUmhMVUZ0UEVCcktsR0I4MllaeGtqbERFdDlHZGxnRE10dXFhYlNqUVwvWmViTVJJQWxtR3NPZEVYUVYxZHRBRUQ2aTRkZUFmWnRSNE9RR2VWd1NsOWl3cmFqQWxBQVlZMTFTUCtYNWtLdk9kNThiS1djd0xVRXB4ekdYUVg1ZVRJcXJad3ViN0xRMU9UeUllUW9UakpOTmlxbjFuclJlT1BYTk5yWFpUVTk4WHc1SGlxS2RkRktuZlJDR0h6TFVcLzVzdWhVRTV3WUd2V0UxMVAySGdMYUVBYVlsWGtmcEpXWnhseUNOKzBWWXI3XC82c1IrMFYrUFFPQkFpVzM5T0pBMTY5ODlqdEtpZTdZRnFTM25Rc0UwYVlzRTFnN3hUYkozUFJZN0hRZkswQkRXUGhIa0pocXBFVWw2bURjZjVaaGVzRUsya1E9IiwibWFjIjoiZmMxZDk5NDk3YjNmYjA4ZTJjY2ZjYjFhYWFiYzM3NmFhNmY1YTllMTM4MjRkZDRmOWYyMWUwN2FlMDg2MjZjYyJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<!-- 
+Assign overlay_title for the title 
+Assign overlay_content for the content 
+Assign a unique ID to overlay_id 
+
+To show overlay, add overlay-trigger class to button 
+As well as overlay ID (with #) to data-overlay-target attribute
+-->
+
+
+<div id="{{ overlay_id }}" data-overlay-target="#{{ overlay_id }}" class="standard-overlay Fixed standard-overlay--hide overlay-close">
+	<div class="standard-overlay__container p-r-40 p-l-40 p-t-35 p-b-45">
+		<div class="flex m-0 flex-align-center">
+			<p class="standard-overlay__bold-title m-0">{{ overlay_title }}</p>
+			<img class="overlay-close  standard-overlay__close" alt="close icon" src="{{ 'close-icon-black.svg' | asset_url }}" alt="Close overlay" data-overlay-target="#{{ overlay_id }}">
+		</div>
+		<div>
+			{{ overlay_content }}
+		</div>
+	</div>
+</div>

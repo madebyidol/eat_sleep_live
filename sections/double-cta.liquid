@@ -1,0 +1,156 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-21T09:38:13+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148043
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            47ebfc52cf801e30b2bafbb380a0e69e
+//      Signature:      eyJpdiI6IjVJMHQ4elg4dHlQVUpDUGI0UjJBXC9RPT0iLCJ2YWx1ZSI6Im1WXC8ySUpkQXUzdHhqNDZOa2FoSEN0OTZrc1NOSVZnbVlmY2RzOVNlRVdqYklPOFpxME12WHFwVGF5OFQ5SHlcL1V0UE8yQ0hwWUNXRmxSXC9xVERXUEpzQm1Pa1RBa1pxTWJpcGhEK2VBelg0NVFHdEl0ZjF0Tk5OXC94dFJxeVJWWnNuUTdXSWJBaTYxOEswQjA2RE1YWVhGbGYzTFEzcGVqRmZsM0RHRkJ6V0V1amxaeEgzN0k3b3J0d0I0ZGh3MEFJeG1lRWhIeWlSZGVmNmd2UkQrbGhjeEJDeTV0SWZmUW5XZ1hxdU1GM1BDVXNOdDRBNkZRMXdMTmprNyttMitHWlpybytua2dQUXFOKzBuYW8rS3g1bFZQbVlSM2FYXC9Pd2pPZFlXaitVY1RCcFEydGNkRUJzTmt5QjNVMURKOXF5Tkx3eG5GU0FGR2t4YkRUYzdrUkp5ZEtXUnVDWUpQWitCXC9mSlYyQW81K2RaZkJiQWc0ZGRjaDZZMitFQUN2bmtxd2Z2a29PaWF4OHN6VlpWQm1vaVE9PSIsIm1hYyI6IjdjMGQxNGY4ODBhYWM2NmE3NDE1MjlmZjVmYjNhY2M5MTExYTIzZGE3Mzc0OTQzMDZkY2RhNWQ0N2M5MGM1NDkifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="grid grid--gutterless double-cta">
+	{% if section.settings.image-1 != blank %}
+	{% capture child %}
+	    <div class="image-overlay"></div>
+		<div class="double-cta__title">
+			<h5 class="normal-spaced"  data-aos-delay="50" data-aos-anchor-placement="top-center">{{section.settings.title-1}}</h5>
+		</div>
+		<div class="double-cta__description">
+			<p  data-aos-delay="50">{{section.settings.content-1}}</p>
+			{% if section.settings.button-url-1 != blank %}
+			<a class="main-button" href="{{ section.settings.button-url-1 | downcase }}" data-aos-anchor-placement="top-center"  data-aos-delay="100">{{ section.settings.button-text-1 }}</a>
+			{% endif %}
+		</div>
+        {% if section.settings.video-url-1 != blank %}
+            <div class="background-video__container">
+                <video autoplay loop muted playsinline>
+                    <source src="{{ section.settings.video-url-1 }}" type="video/mp4">
+                </video>
+            </div>
+        {% endif %}
+	{% endcapture %}
+	<div class="medium--one-whole small--one-whole one-half grid__item grid__item--gutterless double-cta__left"  data-aos-anchor-placement="top-center">
+		{% include 'background-image-element' with image: section.settings.image-1, child: child, classes: 'double-cta__image hover-video' %}
+	</div>
+	{% endif %}
+
+	{% if section.settings.image-2 != blank %}
+	{% capture child %}
+	    <div class="image-overlay"></div>
+		<div class="double-cta__title">
+			<h5 class="normal-spaced"  data-aos-delay="50" data-aos-anchor-placement="top-center">{{section.settings.title-2}}</h5>
+		</div>
+		<div class="double-cta__description">
+			<p  data-aos-delay="50" data-aos-anchor-placement="top-center">{{section.settings.content-2}}</p>
+			{% if section.settings.button-url-2 != blank %}
+			<a class="main-button" href="{{ section.settings.button-url-2 | downcase }}"  data-aos-anchor-placement="top-center" data-aos-delay="100">{{ section.settings.button-text-2 }}</a>
+			{% endif %}
+		</div>
+        {% if section.settings.video-url-2 != blank %}
+            <div class="background-video__container">
+                <video autoplay loop muted playsinline>
+                    <source src="{{ section.settings.video-url-2 }}" type="video/mp4">
+                </video>
+            </div>
+        {% endif %}
+	{% endcapture %}
+	<div class="medium--one-whole small--one-whole one-half grid__item grid__item--gutterless double-cta__right"  data-aos-anchor-placement="top-center">
+		{% include 'background-image-element' with image: section.settings.image-2, child: child, classes: 'double-cta__image hover-video' %}
+	</div>
+	{% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Double CTA",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Upload your video into the files section of Shopify and paste the URL here. If video and image are both uploaded, video will play on hover."
+      },
+      {
+      	"type": "header",
+      	"content": "Block 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-1",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "video-url-1",
+        "label": "Video URL"
+      },
+      {
+        "type": "text",
+        "id": "title-1",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "content-1",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "button-text-1",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button-url-1",
+        "label": "Button Link"
+      },
+      {
+      	"type": "header",
+      	"content": "Block 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-2",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "video-url-2",
+        "label": "Video URL"
+      },
+      {
+        "type": "text",
+        "id": "title-2",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "content-2",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "button-text-2",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button-url-2",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Double CTA",
+        "category": "Blocks"
+      }
+    ]
+  }
+{% endschema %}

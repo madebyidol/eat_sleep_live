@@ -1,0 +1,188 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "callout_video_4RBKR3": {
+      "type": "callout-video",
+      "custom_css": [
+        "h1,h2,h3 {font-family: \"Lexend\", sans-serif; font-weight: 400; margin: 0 0 0.5em; display: block;}",
+        "h1 {font-size: 50px; /* Adjust the size as needed */}",
+        "h2 {font-size: 28px;}",
+        "h3 {font-size: 24px;}",
+        ".video-container {background: url(\"https://cdn.shopify.com/s/files/1/1230/4400/files/MG_3316-Edit_1400x.jpg?v=1684418724\") center/cover !important;}",
+        ".video-content svg {display: none !important;}",
+        ".video-content img {width: 100%; height: auto; display: block; object-fit: cover; background: none !important;}"
+      ],
+      "settings": {
+        "title": "",
+        "title_heading_type": "h4",
+        "title_heading_size": "h4",
+        "text": "<h1>Eat Sleep Live's story making luxury reclaimed wood furniture</h1><p>Discover below a little bit about us, our values and processes to how we always have and always will continue to craft the most luxurious and highest quality reclaimed wood furniture in the UK.<br/><br/>For metal frame options please call us on <a href=\"tel:01159 700 060\" title=\"tel:01159 700 060\">01159 700 060</a> to discuss options.</p>",
+        "button-text": "",
+        "button-url": "",
+        "image": "shopify://shop_images/MG_3316-Edit.jpg",
+        "youtube_url": ""
+      }
+    },
+    "callout_video_U3KdHx": {
+      "type": "callout-video",
+      "custom_css": [
+        "h2,h3 {font-family: \"Lexend\", sans-serif; font-weight: 400; margin: 0 0 0.5em; display: block;}",
+        "h2 {font-size: 45px;}",
+        "h3 {font-size: 30px;}",
+        ".video-container {background: url(\"https://cdn.shopify.com/s/files/1/1230/4400/files/learn-our-story-1_1400x.jpg?v=1613529588\") center/cover !important;}",
+        ".video-content svg {display: none !important;}",
+        ".video-content img {width: 100%; height: auto; display: block; object-fit: cover; background: none !important;}"
+      ],
+      "settings": {
+        "title": "",
+        "title_heading_type": "h4",
+        "title_heading_size": "h4",
+        "text": "<h2>How we view furniture</h2><p>“Friends are the family you choose.”<br/><br/>Great friends are reliable and loyal. They are unique and we love them. They are always there when we need them.<br/><br/>We believe furniture shouldn’t be “here today, gone tomorrow”. It should be lovingly crafted to last a lifetime.<br/><br/>Much like a great friend, it becomes part of the family.<br/><br/>This is how we view furniture. Furniture with soul!</p>",
+        "button-text": "",
+        "button-url": "",
+        "image": "shopify://shop_images/learn-our-story-1.jpg",
+        "youtube_url": ""
+      }
+    },
+    "callout_video_AhPRQW": {
+      "type": "callout-video",
+      "custom_css": [
+        "h2,h3 {font-family: \"Lexend\", sans-serif; font-weight: 400; margin: 0 0 0.5em; display: block;}",
+        "h2 {font-size: 45px;}",
+        "h3 {font-size: 30px;}",
+        ".video-container {background: url(\"https://cdn.shopify.com/s/files/1/1230/4400/files/ESL_17.05.16-191_800x.jpg?v=1663752706\") center/cover !important;}",
+        "button[aria-label=\"video play button\"] svg {display: none !important;}",
+        ".video-content img {width: 100%; height: auto; display: block; object-fit: cover; background: none !important;}"
+      ],
+      "settings": {
+        "title": "",
+        "title_heading_type": "h4",
+        "title_heading_size": "h4",
+        "text": "<h2>Eat sleep live founded in 2004</h2><p>Eat Sleep Live was founded in 2004 by Mark Godsell-Fletcher. Driven by a lack of high quality wooden furniture to rival the mass produced alternatives, Mark saw the need for a more personal approach, working closely with our customers to create unique furniture solely made in the UK that will last a lifetime and beyond.<br/><br/>His first design was the Hudson dining table, hand-crafted from solid British reclaimed wood in a timeless design that is still going strong today. Seeing the incredible journey this beautiful wood had been on, a passion to give it a new lease of life was born.</p>",
+        "button-text": "",
+        "button-url": "",
+        "image": "shopify://shop_images/ESL_17.05.16-191.jpg",
+        "youtube_url": ""
+      }
+    },
+    "callout_video_b4ATGW": {
+      "type": "callout-video",
+      "custom_css": [
+        "h2,h3 {font-family: \"Lexend\", sans-serif; font-weight: 400; margin: 0 0 0.5em; display: block;}",
+        "h2 {font-size: 45px;}",
+        "h3 {font-size: 30px;}",
+        ".video-container {background: url(\"https://cdn.shopify.com/s/files/1/1230/4400/files/our-story-5_800x.jpg?v=1613529588\") center/cover !important;}",
+        "button[aria-label=\"video play button\"] svg {display: none !important;}",
+        ".video-content img {width: 100%; height: auto; display: block; object-fit: cover; background: none !important;}"
+      ],
+      "settings": {
+        "title": "",
+        "title_heading_type": "h4",
+        "title_heading_size": "h4",
+        "text": "<h2>Passionate skilled craftsmen</h2><p>Eat Sleep Live now has several collections and an enthusiastic team of passionate skilled craftsman who ensure every piece is given the same care and attention as that very first piece.<br/><br/>We love to share our passion for furniture, so <a href=\"https://www.eatsleeplive.co.uk/pages/get-in-touch\" title=\"https://www.eatsleeplive.co.uk/pages/get-in-touch\">contact one of our experts</a> for a more personal customer experience.<br/><br/>Eat Sleep Live. Love your furniture.</p>",
+        "button-text": "",
+        "button-url": "",
+        "image": "shopify://shop_images/learn-our-story-5.jpg",
+        "youtube_url": ""
+      }
+    },
+    "callout_video_PkdtFg": {
+      "type": "callout-video",
+      "custom_css": [
+        "h2,h3 {font-family: \"Lexend\", sans-serif; font-weight: 400; margin: 0 0 0.5em; display: block;}",
+        "h2 {font-size: 45px;}",
+        "h3 {font-size: 30px;}",
+        ".video-container {background: url(\"https://cdn.shopify.com/s/files/1/1230/4400/files/natural-284cm-x-117cm-Cavendish-Dining-table-with-end-and-side-benches_1400x.jpg?v=1719324736\") center/cover !important;}",
+        "button[aria-label=\"video play button\"] svg {display: none !important;}"
+      ],
+      "settings": {
+        "title": "",
+        "title_heading_type": "h4",
+        "title_heading_size": "h4",
+        "text": "<h2>Eat Sleep Live's story</h2><p>Our handmade wooden furniture starts its journey many years<br/>before it arrives in your home. We source our solid wood from beautiful, historic buildings all over the UK. The average age of our reclaimed wood is<br/>between 100-200 years and its natural character comes through in every individual piece of luxury rustic furniture - each beam has its own<br/>history and story to tell. [/split]</p><p></p><h2>Furniture Built To Last a Lifetime</h2><p>Every piece of furniture we craft is built to last a lifetime. Since we were founded in 2004, we have designed furniture collections that have their own unique style, but all have one thing in common: a personal touch from a passionate skilled craftsman. </p><h3>Reclaimed Wood Dining Tables</h3><p>Our <a href=\"https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-dining-tables\" title=\"https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-dining-tables\">reclaimed wood dining tables</a> are particularly popular. Our Hudson dining table was the first piece of furniture that started our incredible journey, and it is still going strong today. Our dining tables all have a rustic quality with a twist of modern style, which looks stunning in any setting. </p><h3>Solid Wood Beds</h3><p>Our <a href=\"https://www.eatsleeplive.co.uk/collections/reclaimed-wooden-bedroom-furniture/Bed\" title=\"https://www.eatsleeplive.co.uk/collections/reclaimed-wooden-bedroom-furniture/Bed\">solid wood beds</a> are also a focal point in every bedroom. If you're looking for a handmade, solid chunky wood bed, all our beds exude this rustic style. Whether you're looking for a bed that has a classic finish, a trendy grey finish or a warm, natural finish, a bed with a low-end or a foot-end, or a bed with matching underbed storage; you have come to the right place. We also have reclaimed wood bedsides, chests and beautiful, reclaimed wood mirrors that will give your bedroom the finishing touch. </p><h3>Living Room Furniture</h3><p>For the <a href=\"https://www.eatsleeplive.co.uk/collections/reclaimed-wooden-living-room-furniture\" title=\"https://www.eatsleeplive.co.uk/collections/reclaimed-wooden-living-room-furniture\">living room</a> we design <a href=\"https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-coffee-tables\" title=\"https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-coffee-tables\">reclaimed coffee tables</a>, <a href=\"https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-bookcases\" title=\"https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-bookcases\">wooden bookcases</a>, <a href=\"https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-tv-stands\" title=\"https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-tv-stands\">tv stands</a> and lots more. Most of our furniture comes in various colours and sizes, and we are also able to craft furniture bespoke to you; the possibilities are endless – simply get in touch!</p>",
+        "button-text": "",
+        "button-url": "",
+        "image": "shopify://shop_images/natural-284cm-x-117cm-Cavendish-Dining-table-with-end-and-side-benches.jpg",
+        "youtube_url": ""
+      }
+    },
+    "colours_and_samples_header_eqCdHY": {
+      "type": "colours-and-samples-header",
+      "blocks": {
+        "wood_type_yjtxXq": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": ""
+          }
+        },
+        "wood_type_KNgeDV": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": ""
+          }
+        },
+        "wood_type_9L7tYi": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": ""
+          }
+        },
+        "wood_type_UNCtJF": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": ""
+          }
+        },
+        "wood_type_PjGR7e": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": ""
+          }
+        },
+        "wood_type_axMiwi": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "wood_type_yjtxXq",
+        "wood_type_KNgeDV",
+        "wood_type_9L7tYi",
+        "wood_type_UNCtJF",
+        "wood_type_PjGR7e",
+        "wood_type_axMiwi"
+      ],
+      "custom_css": [
+        "h2 {display: block; margin: 0; font-weight: 500; font-size: 56px; line-height: 67px; letter-spacing: 0.5px; font-family: \"Averia Serif Libre\", cursive;}"
+      ],
+      "settings": {
+        "title": "",
+        "paragraph": "<h2>Colours and samples</h2><p>Order our free wood colour samples to find the perfect colour for your space.</p>",
+        "zapier_url": "https://hooks.zapier.com/hooks/catch/12158034/3brb9mm/",
+        "form_title": "Ordering a sample box?",
+        "form_paragraph": "<p>Please fill out the below form and we'll post your set of samples the same day!</p>",
+        "form_buttom": "Request colour samples",
+        "form_small": "*Please note our samples are to be used as a guide to colour & texture only. They are not example of the solid, chunky reclaimed wood we use to hand craft our furniture.",
+        "posted_successfully": "Thanks for contacting us. We'll get back to you as soon as possible."
+      }
+    }
+  },
+  "order": [
+    "callout_video_4RBKR3",
+    "callout_video_U3KdHx",
+    "callout_video_AhPRQW",
+    "callout_video_b4ATGW",
+    "callout_video_PkdtFg",
+    "colours_and_samples_header_eqCdHY"
+  ]
+}

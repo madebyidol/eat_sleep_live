@@ -1,0 +1,97 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:48+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            d71be4439c2bd0eb215dea076cdb4818
+//      Signature:      eyJpdiI6Im1PbHEzZlBSamdwOXpwVlQ1VGVzV2c9PSIsInZhbHVlIjoiZU9SWG5RNERjQnRab2VublJBNExVSDJ4S1JlS083cGxlZkFIQVwvd2RwY1pRNEc1RndGdmRcL21uQ014UWk0aXF4QUtSaVJCdzlsMWR0RXpaV0cySXBUZXZYYUdYUnlPOEFUekxncFJxT0xSbDltNEpXMWxZbWsrVVpKVm4xQ0tLTjZxbjlmWDZpQ09yc25URU5NM00rTWZaV2JNbzBYdWVxVGxtREdwRlFVNFwvcWN2N2d3XC9mNUhNWkpGMlwvaHdQTklWQm5kdmo4cklYWjk0V2ZIMVN1aUZueG9OdlRjTWNDRW5zWUZxQythSkdQem9NcHlzSXdFWjIrVmhRYkxtWEtKeHduM2dsSWx2Y1JicVBCQmZ4UWg3OFdkTk53SktRQThHZUNyTWk4bENib013QWFzV2ZFc2x4SndMcjh2ZURkU2tXTVcyUUs3TjhPVUpVNTRydjQ2bXBQTlN4RWwrRFJrMWtlU0FreU9BOEtFa0d5aWNcL21HRGJDODZqTEdObjdMN3dSOERpUUZ3R2pBWjBVVldYMW8zaG9Pd1N0VUNLRlV2RXRhSU15UHFqRT0iLCJtYWMiOiI5OTA1ZTBhOTk1NjhiNmJiNTY5NDk1YTRiZDYxNDZhNjc0MDZhYjE3NGUxMjA5ZTc5Y2IxMDg1NTNiOWQyNWYyIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div id="product-overlay" class="product-overlay Fixed product-overlay--hide">
+	<div class="product-overlay__container p-r-40 p-l-40 p-t-35 p-b-45">
+		<div class="flex m-b-35">
+			<img src="{{ 'feature_check.svg' | asset_url }}" alt="Close filter overlay">
+			<h6 class="m-b-0 product-overlay__title m-l-15">{{ section.settings.upsell-title }}</h6>
+			<img class="product-overlay__close" src="{{ 'close-icon.svg' | asset_url }}" alt="Close filter overlay">
+		</div>
+		<div class="grid grid--gutterless m-b-40 nav-breakpoint--flex">
+			<div class="grid__item grid__item--gutterless three-fifths p-r-30 flex product-overlay__product-details nav-breakpoint-down--one-whole">
+				
+				<img src="" data-default="{{ product.featured_image | img_url }}" data-customimage="" class="product-overlay__image" loading="lazy"/>
+
+				{% comment %} {% include 'image-element' with image_object: product.featured_image, classes: 'product-overlay__image hidden small--hide medium--hide' %} {% endcomment %}
+				
+				<div class="product-overlay__mobile-image-container">
+					<div class="small--flex medium--flex">
+						{%- comment -%} <div class="product-overlay__mobile-image hidden">
+							<img src="" data-default="{{ product.featured_image | img_url }}" class="product-overlay__image" loading="lazy"/>
+						</div> {%- endcomment -%}
+						<p class="product-overlay__bold-title m-b-5">{{ product.title }}</p>
+					</div>
+					<div class="upsell-selected-options product-overlay__options-container">
+					</div>
+				</div>
+			</div>
+			<div class="grid__item grid__item--gutterless two-fifths p-l-30 nav-breakpoint-down--one-whole product-overlay__price-and-buttons">
+				<div class="large--flex large--flex-align-center-wrapless">
+					<div class="product-overlay__price-container">
+						<p class="m-0">Basket subtotal:</p>
+						<p class="m-0 product-overlay__bold-title"><span class="product-price">{% if product.first_available_variant == blank %}Sold Out{% else %}{{ product.first_available_variant.price | money_without_trailing_zeros }}{% endif %}</span></p>
+						<p class="product__price m-0"><span class="product__price-prefix"> {{ section.settings.price-prefix }}</span></p>
+					</div>
+					<div class="product-overlay__buttons">
+						<a href='/checkout' class="main-button m-b-10">CHECKOUT</a>
+						<a href='/cart' class="main-button secondary-button">VIEW BASKET ></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% if product.metafields.custom_fields["overlay_upsell"] != blank %}
+		    {% assign product_refs = product.metafields.custom_fields["overlay_upsell"] | split: "|" %}
+		    <div class="product-overlay__upsell">
+		    	<div class="m-t-40 m-b-40">
+		    		<h6 class="product-overlay__title text-center">{{ section.settings.upsell-slider-title }}</h6>
+		    	</div>
+		    	<div>
+		    		<div class="js-component__slick slick-hide slick-arrows" data-slick='
+		    		  	{
+		    		  		"slidesToShow": 4,
+		    		  		"slidesToScroll": 4,
+		    		  		"infinite": false,
+		    		  		"variableWidth": false,
+		    		  		"arrows": true,
+		    		  		"nextArrow": "<button type=\"button\" class=\"slick-next\"></button>",
+		    		  		"prevArrow": "<button type=\"button\" class=\"slick-prev\"></button>",
+		    		  		"responsive": [
+		    		  			{
+		    			  			"breakpoint": 768,
+		    			  			"settings": {
+		    			  				"arrows": false,
+		    			  				"slidesToShow": 1.2,
+		    			  				"slidesToScroll": 1
+		    		  			}
+		    		  		}]
+		    		  	}'>
+		    		  		{% for product_handle in product_refs %}
+		    		  		    {% assign product_ref = all_products[product_handle] %}
+		    		  		    {% if product_ref != blank %}
+		    		  		    	{% include 'product-block' with product: product_ref %}
+		    		  		    {% endif %}
+		    		  		{% endfor %}
+		    		</div>
+		    	</div>
+		    </div>
+		{% endif %}
+
+	</div>
+</div>

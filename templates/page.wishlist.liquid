@@ -1,0 +1,45 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:25:16+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            b92fe0d16d573c43170be68f4337b372
+//      Signature:      eyJpdiI6IldBTGR0SDNyZ3ZwanRveW13RUEwb2c9PSIsInZhbHVlIjoieFRhWllDYTJ5dzAwSUFzSndrUFd1QThMMzhcLzl1cVZDNE1tK1R2XC96dk1qTHMyZHJsRWpaOE1VRkc4U0tKYmt0V3k2SEswM0RzOFA1WGRncXExT0NLVkYrTk9yZUFwZkRJZ1RnQW1UTExJR0JFaDA1Vmd2U0tWSGROcUpVRVFGbXprSWdVeHIxYmJ5aVVja2NrVVJ3R1lsM1VGRnFScWFrWkN3UWFnVGZPeVwvMFFaeXJnT3VGNjVsaXFTcmVDVDBkM2YwOTh4cDNUdnEwcEdMaGREelhTQm1YRzRpbnIxYW5aWU9BTWhGSTdBazk4NlwvYkJzY3JlcjdoMTBHdjFSYkgzTjFtRlwvOTBwUUxmUWFMbTJ5N01MNExVTGI5OW5wTEZ2bWFVXC8wMmdnYXVyUlJoUVdtMjZwWndhMG0wQ1FOR1YrR3o4R3FcL1YwQm5LT2t0QzEzTmtYbVkyS05RajBmVjYwRklhY04xSlRTXC9QYmp1a25VZE01RW0rVldCVFVicDgrWjNLd0JhVzJaZ0lDam1PU2JxUFNBPT0iLCJtYWMiOiJjNmMxOGRmYzc5Njc5YTU2MzVlMDkxYTMwZGVlYTYzZDk5Y2U2Zjg1ODdjOTFlOTgyN2E2MGVmZjc1NjRhNWQyIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %} // Uncomment if option_selection.js is missing
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+{% endcomment %}
+
+<div id="wishlist-king" class="wk-row">
+  <div class="wk-span12">
+
+    <h1 id="pagetitle">{{ page.title }}</h1>
+
+    {{ page.content }}
+
+    <h3 id="wk-share-head">Share Wishlist</h3>
+
+    <ul id="wk-share-list">
+        <li><!-- include 'wishlist-share-button-fb' --></li>
+        <li><!-- include 'wishlist-share-button-pinterest' --></li>
+        <li><!-- include 'wishlist-share-button-twitter' --></li>
+      <li><!-- include 'wishlist-share-button-email' --></li>
+      <li><!-- include 'wishlist-share-button-whatsapp' --></li>
+    </ul>
+
+    <!-- include 'wishlist-collection' -->
+
+  </div>
+
+</div>

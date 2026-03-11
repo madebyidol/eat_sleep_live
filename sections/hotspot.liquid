@@ -1,0 +1,233 @@
+{{ 'slick.js' | asset_url | script_tag }}
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+	{% for block in section.blocks %}
+		#shopify-section-{{ section.id }} .slick-dots button[data-dot="{{ forloop.index | minus: 1 }}"] {
+			top: {{ block.settings.y_axis }}%;
+			left: {{ block.settings.x_axis }}%;
+		}
+
+		@media screen and (max-width: 768px) {
+			#shopify-section-{{ section.id }} .slick-dots button[data-dot="{{ forloop.index | minus: 1 }}"] {
+				top: {{ block.settings.y_axis_mobile }}%;
+				left: {{ block.settings.x_axis_mobile }}%;
+			}
+		}
+	{% endfor %}
+{% endstyle %}
+
+<div class="wrapper">
+	<div class="main_menu_heading menu-banner-heading">
+		{% if section.settings.heading != blank %}
+			<h2>{{ section.settings.heading }}</h2>
+		{% endif %}
+
+		{% if section.settings.button_link != blank and section.settings.button_text != blank %}
+			<a class="small--hide medium--hide" href="{{ section.settings.button_link | downcase }}">
+				<span>{{ section.settings.button_text }}</span>
+				<div class="icon icon--gold">
+					{% render 'chevron-right' %}
+				</div>
+			</a>
+		{% endif %}
+	</div>
+</div>
+
+{% if section.settings.image != blank %}
+	<div class="hotspot" {{ section.shopify_attributes }}>
+		<div class="hotspot__image-container">
+
+			<img class="hotspot__image" alt="{{ section.settings.image.alt}}" src="{{ section.settings.image | image_url: height: 1000 }}" loading="lazy" />
+
+			<img class="hotspot__image-mobile" alt="{{ section.settings.image_mobile.alt}}" src="{{ section.settings.image_mobile | image_url: height: 800 }}" loading="lazy" />
+						
+		</div>
+		
+		<div class="hotspot__slider-container">
+			<div id="hotspot__slider-{{ section.id }}" class="hotspot__slider">
+				{% for block in section.blocks %}
+					{% assign product = all_products[block.settings.select_product] %}
+					
+					<div class="cust_tab_box" title="{{ product.title }}">
+						<a href="{{ product.url | downcase }}">
+							<img class="cust_slider_img" alt="{{ product.featured_image.alt}}" src="{{ product.featured_image | product_img_url: '417x218', crop: 'center' }}" alt="">
+			
+							<div class="menu_item_text">
+								<h3 class="menu_heading">{{ product.title }}</h3>
+								<p class="collection-item-type">{{ product.type }}</p>
+								<h4 class="menu_price">From {{ product.price | money_with_currency }}</h4>
+							</div>
+						
+							{% include 'variation-custom' %}
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+			
+		<div class="hotspot__slick-buttons"></div>
+	</div>
+{% endif %}
+
+{% if section.settings.button_link != blank and section.settings.button_text != blank %}
+  <div class="wrapper large--hide">
+    <div class="main_menu_heading menu-banner-heading">
+			<a href="{{ section.settings.button_link | downcase }}">
+				<span>{{ section.settings.button_text }}</span>
+				<div class="icon icon--gold">
+					{% render 'chevron-right' %}
+				</div>
+			</a>
+    </div>
+  </div>
+{% endif %}
+
+<script>
+	function getSliderSettings() {
+		return {
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			infinite: true,
+			autoplay: false,
+			arrows: true,
+			appendArrows: $('.hotspot__slick-buttons'),
+			prevArrow: '<button type="button" class="slick-prev">{% render 'chevron-left' %}</button>',
+			nextArrow: '<button type="button" class="slick-next">{% render 'chevron-left' %}</button>',
+			dots: true,
+			appendDots: $('.hotspot__image-container'),
+			customPaging: function(slick,index) {
+				var title = slick.$slides.eq(index).attr('title');
+				return '<button title="' + title + '" data-dot="' + index + '"><span class="hotspot__hotspot-label">'+ title +'</span></button>';
+			},
+			infinite: false
+		}
+	}
+
+    $(document).ready(function() {
+		var hotspotslider = $('#hotspot__slider-{{ section.id }}');
+		hotspotslider.slick(getSliderSettings());
+
+		{% if request.design_mode %}
+			document.addEventListener("shopify:section:load", function(event) {
+				if(event.detail.sectionId === '{{ section.id }}') {
+					$('#hotspot__slider-{{ section.id }}').slick(getSliderSettings());
+				}
+			});
+		{% endif %}
+    });
+
+  </script>
+  
+{% schema %}
+{
+  "name": "Hotspot",
+  "class": "hotspot-section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button label",
+      "default": "View collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link "
+    },
+    {
+      "type": "header",
+      "content": "Hotspot Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "slide",
+      "type": "slide",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "product",
+          "id": "select_product",
+          "label": "X and Y Axis product"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Position"
+        },
+        {
+          "type": "range",
+          "id": "x_axis",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X axis",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "y_axis",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Y axis",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "Mobile Position"
+        },
+        {
+          "type": "range",
+          "id": "x_axis_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "X axis",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "y_axis_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "%",
+          "label": "Y Axis",
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hotspot",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,101 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-21T09:38:18+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148043
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            04f671f5921d8ca7c02a4f7bb787be79
+//      Signature:      eyJpdiI6ImhlN3ZLRXRkWjdGdHVBbzRuNW5DUkE9PSIsInZhbHVlIjoicTU1QVplT2xSMStyVmJQZTIySm85dmNoaU5HYTR0MGhyeUdpY1wvdXg1TkZRcE0zcXpzXC9NcnYrWFF4NkRHc1lkRnhiV1dxSGF0Y0h2RTBTeHFWaFp1a21nZTk2cEo0VnlNSXoxUnVXXC9WNG9XbWgxOWE1QnBhSGFTNHA3UEVSUW50QllxZFFyYktsMXNYMkVHd1RWREh6VWxVYUdpd05jdGdwY2oxWXNWOEpDQ000aG9DK0dLRTVnN2tXaWR5Sk02cmdkSWpSN25nVWYrbmdmMzJYMkVzOTlWbXdETXZ3NzM4RGwwNG10MWlIYVdrV2loUCsrYUYxV0xcL1lOaTVSdG55RnJvVEN1a2JHeGRVaEhxalJmWUdRYTFXY20zT0p0U0dCQldCdVVUalAzRW5FZmZiQlVORGhyNGxLQXh5ckRDdFA2cFpuVWEwcGhlc2xGVUhmRGhxbzNZVHZ3VXlTM25DXC9OSFdsQWlcL2xKM0FwRlJFSDI1N2NYSWhNeXM5R0Q4ZDNRcExYc0hcL2lGcWlsVms2SWtVRHc9PSIsIm1hYyI6Ijg2OGU1NDg2Y2Y5Y2RkMGVmMTUxMDRkY2I0MjlhZjlkYjUxMTJjZTc2M2FhNTM2OTQwMGFkMmJiNzliZmE3NDQifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% capture child %}
+	<div class="image-overlay"></div>
+	<div class="single-cta__text-container" >
+		{% if section.settings.preheader %}<p class="{% if section.settings.full == true %}h1{% else %}h3{% endif %} jenna-sue normal-spaced"  data-aos-delay="20">{{ section.settings.preheader }}</p>{% endif %}
+		{% if section.settings.title %}<h3 class="h5 normal-spaced"  data-aos-delay="40">{{ section.settings.title }}</h3>{% endif %}
+		{% if section.settings.content %}<p  data-aos-delay="60">{{ section.settings.content | newline_to_br }}</p>{% endif %}
+		{% if section.settings.button-url %}
+			<a class="main-button" href="{{ section.settings.button-url | downcase }}"  data-aos-delay="80">{{ section.settings.button-text }}</a>
+		{% endif %}
+	</div>
+    {% if section.settings.video-url != blank %}
+        <div class="background-video__container">
+            <video autoplay loop muted playsinline>
+                <source src="{{ section.settings.video-url }}" type="video/mp4">
+            </video>
+        </div>
+    {% endif %}
+{% endcapture %}
+
+{% assign cta-classes = 'single-cta hover-video' %}
+{% if section.settings.full == true %}
+	{% assign cta-classes = 'single-cta--full-width single-cta hover-video' %}
+{% endif %}
+
+{% if section.settings.image != blank %}
+    {% include 'background-image-element' with image: section.settings.image, classes: cta-classes, child: child %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Single CTA",
+    "settings": [
+      {
+      	"type": "checkbox",
+      	"id": "full",
+      	"label": "Large & Full Width"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "preheader",
+        "label": "Preheader"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "text",
+        "id": "button-text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button-url",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "video-url",
+        "label": "Video URL",
+        "info": "Upload your video into the files section of Shopify and paste the URL here. If video and image are both uploaded, video will play on hover."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Single CTA",
+        "category": "Blocks"
+      }
+    ]
+  }
+{% endschema %}

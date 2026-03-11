@@ -1,0 +1,84 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-21T09:38:14+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148043
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            2ff716dfea32ba5eed9f98d9bfff4522
+//      Signature:      eyJpdiI6IlVVTVYzTW5IUU5kbG85ZHFNZitBbGc9PSIsInZhbHVlIjoiVGI3QVZ2dHp4VzJXN3FNRVBENEVVU0EybytwbElRWHlTUjc5cVdGRnJ2dVwvWEFrOWRRM3J0c09ZM3pKWmxZUUxBQnZXUkdsYnlJQXVxemNxS0hGTWt3Qmc3MHIzRms3aUloQXFtWmdUXC95ZjhZdEZ4RkdNYmNyalBhWldvbjJINHVCMzZTK1V0RGZqekkyZDcyT1VOOWhVOGpxQndURWFtK2lNbXhCaEVScTd4Q0MrOEkydzB6XC9HZmFVRURtdVhDb1dMbThkV0JyR1gxVlVFbWJ3MksxQlVqKzB3NjlEcXh6SXFTRmlsaVRwRk1PdFJPcnhpWnRaNEZiekpWR0RLVEpiZVZXXC9pXC9oZkhaRWluODRaZ3p2V2llbjhsMWZmV2tiS0xwUm12S1BuYWtDV3JzMHN5Nm03WWxzN0tLSGV1K3d4c1V1XC9nbUtzWTZRN1F3dnc2T0tsUWhldUNZQkRSV0U4WjhCZUNlSHJ0YWZRTnpSZUJkMEhcL25aSys4QmRqd2orU1hoZ2lNWVVWdDVYd3gxNzJuUlE9PSIsIm1hYyI6ImM3YzA0OTY1MzYyZmNiNjJjNmI0N2QxMWNkMTdmYWNiNGMxOTZlNDU4Mjk4N2NiNWY1YThkMDgwMmYyY2ZhOTAifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if section.settings.blog != blank %}
+<div class="featured-blogs section-padding">
+	{% if section.settings.title != blank %}
+		<div class="section-title"  data-aos-delay="50" data-aos-anchor-placement="top-center"><h4>{{ section.settings.title }}</h4></div>
+	{% endif %} 
+	<div class="js-component__slick slick-hide slick-arrows" data-slick='
+  	{
+  		"slidesToShow": 1,
+  		"infinite": false,
+  		"draggable": true,
+  		"arrows": true,
+  		"nextArrow": "<button type=\"button\" class=\"slick-next\"></button>",
+  		"prevArrow": "<button type=\"button\" class=\"slick-prev\"></button>",
+  		"responsive": [{
+  			"breakpoint": 768,
+  			"settings": {
+  				"slidesToShow": 1.1,
+  				"arrows": false
+  			}
+  		}]
+  	}'>
+	  	{% for article in blogs[section.settings.blog].articles limit: 3 %}
+	  	<div class="{% if forloop.index == 1 %}featured-blogs__blog--first{% endif %} grid grid--gutterless featured-blogs__blog">
+	  		<div class="grid__item grid__item--gutterless one-half small--one-whole medium--one-whole" >
+	  			{% include 'background-image-element' with image: article.image, classes: 'featured-blogs__image' %}
+	  		</div>
+	  		<div class="grid__item grid__item--gutterless one-half small--one-whole medium--one-whole featured-blogs__text-half">
+	  			<div class="featured-blogs__text-container"  data-aos-delay="150" data-aos-anchor-placement="top-center">
+	  				<p class="date-preheader">{{ article.updated_at | date: format: 'abbreviated_date' }}</p>
+	  				<h5>{{ article.title }}</h5>
+		  			<p class="featured-blogs__description--small light-description">{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+		  			<p class="featured-blogs__description--large light-description">{{ article.excerpt_or_content | strip_html | truncate: 266 }}</p>
+		  			<a href="{{ article.url | downcase }}" class="main-button-text">READ MORE ></a>
+	  			</div>
+	  		</div>
+	  	</div>
+	  	{% endfor %}
+	</div>
+</div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Featured Blogs",
+    "settings": [
+    	{
+    		"type": "blog",
+    		"id": "blog",
+    		"label": "Blog Category"
+    	},
+    	{
+    		"type": "text",
+    		"id": "title",
+    		"label": "Section Title"
+    	}
+    ],
+    "presets": [
+      {
+        "name": "Featured Blogs",
+        "category": "Blocks"
+      }
+    ]
+  }
+{% endschema %}

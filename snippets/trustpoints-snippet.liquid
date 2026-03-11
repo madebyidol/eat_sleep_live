@@ -1,0 +1,129 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-21T09:38:13+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148043
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            19c86a11a3673dd59e8f1177cc08b805
+//      Signature:      eyJpdiI6InlZQ0NJUmpZek1zNW1Cd3d4cm85b3c9PSIsInZhbHVlIjoiSXRUNGJuSjd5Rkc1N2d3WjRNdkpZTjFaZE9vTFZWWmNZdzBISkNkQ0JnVmZlcU1YKzFNVUM4Q0h3Q0FFanNcL3p5Q1grNURXUGlKZlRcL2tsSUR6K0lJRTlKbkdqM1VcL3Y5WngzZDJhalRRdk8zaTdYeFk2T01CSGU5YTM0aDgyMzZ1RU9RUllTUUJlYk80TXVFM2lGSXM1K3JaMWhmM3F3TndyVlBIMWhLQ1ZpRTRydTh1R1hQQmtOTkpTV1dlMEsrR0lNajJxVXByeEF0U0hKdjhEeUJmaUdQMHR2NHRGVEhEVjAzMGt2OG9MaEdzZkJNVHM2NU5TYmlaXC91eUJ4c290TXo0ekRaSjVLTitBSlRHYStUdkJodklaVGw0azJ5RHRTSEcyRlwvN2MyN2E3SnhGUENZdmNpVmtrZVpuXC9QWXhUTE9oRjlhRnlDYUN1eUF0MTRjeW13d1ZcL0t0QWxIWitlQ3VMRUs5Y204d2xLNVlNMmRwcDQyZDFpd04wdUd6OEhPQXZQMEROa1wvYlQyTTdCMzBZanpGcXZOeTd3KytTcXRrMlhyOVczbzFvPSIsIm1hYyI6ImY1MDc5NTA2OGViZjZhNWQwM2JlNDNmZjg2MGFmMWE1Y2M0OWQ3MWJmMjkwMzVkMGRmYzVhNGI5M2VjNTMyMzkifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+
+{% if product.metafields.custom_fields["trustpoints"] != blank %}
+	
+	{% assign separator = "|###|" %}
+	{% assign trustpoint_title_array = product.metafields.custom_fields["trustpoint_title"] | split: separator %}
+	{% assign trustpoint_image_array = product.metafields.custom_fields["trustpoint_image"] | split: separator %}
+	{% assign trustpoint_description_array = product.metafields.custom_fields["trustpoint_description"] | split: separator %}
+	{% assign trustpoint_link_text_array = product.metafields.custom_fields["trustpoint_link_text"] | split: separator %}
+	{% assign trustpoint_link_url_array = product.metafields.custom_fields["trustpoint_link_url"] | split: separator %}
+	{% assign fc_keys = product.metafields.custom_fields["trustpoints"] | split: "," %}
+
+	{% case fc_keys.size %}
+		{% when 1 %}
+			{% assign width = 'one-whole' %}
+		{% when 2 %}
+			{% assign width = 'one-half' %}
+		{% when 3 %}
+			{% assign width = 'one-third' %}
+	{% endcase %}
+	
+	<div class="grid grid--gutterless trustpoints">
+		{% for i in fc_keys %}
+		  {% assign index = i | plus: 0 %}
+		  	<div class="{% if template contains 'product' %}small--hide medium--hide show{% endif %} grid__item grid__item--gutterless {{width}} small--one-whole">
+		  		<div class="trustpoints__point {% if trustpoint_link_text_array[index] != blank and trustpoint_link_url_array[index] != blank %}trustpoints__point-hover{% endif %}">
+		  			{% if trustpoint_image_array[index] != blank %}
+		  				<img class="trustpoints__image" src="{{trustpoint_image_array[index]}}" alt="{{ trustpoint_title_array[index] }}" >
+		  			{% endif %}
+		  			{% if trustpoint_title_array[index] %}<h6 class="text-center normal-spaced"  data-aos-delay="50">{{ trustpoint_title_array[index] }}</h6>{% endif %}
+		  			{% if trustpoint_description_array[index] %}<p class="m-0 secondary-color text-center"  data-aos-delay="50">{{ trustpoint_description_array[index] }}</p>{% endif %}
+		  			{% if trustpoint_link_text_array[index] != blank and trustpoint_link_url_array[index] != blank %}<a href="{{ trustpoint_link_url_array[index] }}" class="main-button secondary-button secondary-text-link text-center trustpoints__link m-t-10">{{ trustpoint_link_text_array[index] }} ></a>{% endif %}
+		  		</div>
+		  		</div> 
+		{% endfor %}
+
+		{% if template contains 'product' %}
+			{% for i in fc_keys %}
+			  {% assign index = i | plus: 0 %}
+			  	<div class="grid__item grid__item--gutterless show large--hide small--one-whole">
+			  		{% if trustpoint_link_url_array[index] != blank %}<a href="{{ trustpoint_link_url_array[index] }}">{% endif %}
+				  		<div class="trustpoints__point trustpoints__point--mobile flex flex-align-center">
+				  			{% if trustpoint_image_array[index] != blank %}
+				  				<img class="trustpoints__image" src="{{trustpoint_image_array[index]}}" alt="{{ trustpoint_title_array[index] }}" >
+				  			{% endif %}
+				  			{% if trustpoint_title_array[index] %}<h6 class="text-center"  data-aos-delay="50">{{ trustpoint_title_array[index] }}</h6>{% endif %}
+				  		</div>
+			  		{% if trustpoint_link_url_array[index] != blank %}</a>{% endif %}
+			  	</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+
+
+
+{% else %}
+	{% assign blocks_size = 0 %}
+	{% for block in section.blocks %}
+		{% if block.type == 'trustpoints' %}
+			{% assign blocks_size = blocks_size | plus: 1 %}
+		{% endif %}
+	{% endfor %}
+
+	{% case blocks_size %}
+		{% when 1 %}
+			{% assign width = 'one-whole' %}
+		{% when 2 %}
+			{% assign width = 'one-half' %}
+		{% when 3 %}
+			{% assign width = 'one-third' %}
+	{% endcase %}
+
+	<div class="grid grid--gutterless trustpoints">
+	{% for block in section.blocks %}
+		{% if block.type == 'trustpoints' %}
+		<div class="{% if template contains 'product' %}small--hide medium--hide show{% endif %} grid__item grid__item--gutterless {{width}} small--one-whole">
+			<div class="trustpoints__point {% if block.settings.link-url != blank and block.settings.link-text != blank %}trustpoints__point-hover{% endif %}">
+				{% if block.settings.icon-image != blank %}
+					{% include 'image-element' with image_object: block.settings.icon-image, classes: 'trustpoints__image' %}
+				{% elsif block.settings.icon-svg != blank %}
+					<div class="trustpoints__image" style="background-image: url('{{ block.settings.icon-svg }}')" ></div>
+				{% endif %}
+				{% if block.settings.title %}<h6 class="text-center normal-spaced"  data-aos-delay="50">{{block.settings.title}}</h6>{% endif %}
+				{% if block.settings.description %}<p class="m-0 secondary-color text-center"  data-aos-delay="50">{{ block.settings.description }}</p>{% endif %}
+				{% if block.settings.link-url != blank and block.settings.link-text != blank %}<a href="{{ block.settings.link-url | downcase }}" class="main-button secondary-button secondary-text-link text-center trustpoints__link m-t-10"  data-aos-delay="50">{{ block.settings.link-text }} ></a>{% endif %}
+			</div>
+		</div>
+		{% endif %}
+	{% endfor %}
+
+	{% if template contains 'product' %}
+		{% for block in section.blocks %}
+			{% if block.type == 'trustpoints' %}
+		  	<div class="grid__item grid__item--gutterless show large--hide small--one-whole">
+		  		{% if block.settings.link-url != blank %}<a href="{{ block.settings.link-url | downcase }}">{% endif %}
+			  		<div class="trustpoints__point trustpoints__point--mobile flex flex-align-center">
+			  			{% if block.settings.icon-image != blank %}
+			  				{% include 'image-element' with image_object: block.settings.icon-image, classes: 'trustpoints__image' %}
+			  			{% elsif block.settings.icon-svg != blank %}
+			  				<div class="trustpoints__image" style="background-image: url('{{ block.settings.icon-svg }}')"></div>
+			  			{% endif %}
+			  			{% if block.settings.title %}<h6 class="text-center normal-spaced">{{ block.settings.title }}</h6>{% endif %}
+			  		</div>
+		  		{% if block.settings.link-url != blank %}</a>{% endif %}
+		  	</div>
+		  	{% endif %}
+		{% endfor %}
+	{% endif %}
+	</div>
+
+{% endif %}

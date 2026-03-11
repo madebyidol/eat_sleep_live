@@ -1,0 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "callout_video_yW4EFc": {
+      "type": "callout-video",
+      "custom_css": [],
+      "settings": {
+        "title": "Each beautiful reclaimed beam has a spectacular story of survival and restoration",
+        "title_heading_type": "h1",
+        "title_heading_size": "h3",
+        "text": "<p>Hundreds of years ago, only mature trees were used in buildings across Britain. Long after the buildings started to crumble, these timeless beams still stood proud, waiting to be carefully extracted to start a new life in stylish bedrooms and living rooms and to become loved again - this time in the form of beautiful rustic furniture.</p>",
+        "button-text": "",
+        "button-url": "",
+        "image": "shopify://shop_images/kirton-lindsey.jpg",
+        "youtube_url": ""
+      }
+    },
+    "text_image_column_AmBd7e": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/denailing.jpg",
+        "heading": "Treating the wood right",
+        "description": "<p>Using time-honoured techniques, we painstakingly de-nail, prepare and sand each wooden beam by hand, ensuring it keeps its natural character before it is ready to be lovingly handcrafted into our unique furniture. The beauty of reclaimed solid wood is in its exposed fibres and rough natural look which we preserve by using only transparent finishes, that do not hide the natural beauty of the wood.</p>",
+        "image_position": "text image"
+      }
+    },
+    "text_image_column_Rizmkp": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/waxing.jpg",
+        "heading": "Lasts a lifetime",
+        "description": "<p>When it's taken shape, it’s time for our passionate craftsman to wax each piece by hand and add the finishing touches to ensure it lasts a lifetime. Our reclaimed wood won’t weaken as it’s been already proven over the years. This chunky timber will only get better with the passing of time.</p>",
+        "image_position": "image text"
+      }
+    },
+    "text_image_column_tqV4b7": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/waxed-furniture.jpg",
+        "heading": "Being sustainable with reclaimed wood",
+        "description": "<p>Though any wood is considered to be a sustainable material, it still takes many years to grow a tree. Re-using the wood that was cut many years ago and has been in use in a previous life is a great way to stay sustainable with your furniture choices.</p>",
+        "image_position": "text image"
+      }
+    },
+    "custom_image_text_aDTiGn": {
+      "type": "custom-image-text",
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/delivery-and-assembly_bcdde181-e361-41d1-a516-7ff0dcc3e39d.jpg",
+        "content": "<h4>A new chapter...</h4><p>Finally, our skilled team carefully deliver your new reclaimed wood furniture straight to your home to begin a new chapter of its life.<br/><br/>What a journey!</p>",
+        "button_text": "",
+        "button_link": ""
+      }
+    }
+  },
+  "order": [
+    "callout_video_yW4EFc",
+    "text_image_column_AmBd7e",
+    "text_image_column_Rizmkp",
+    "text_image_column_tqV4b7",
+    "custom_image_text_aDTiGn"
+  ]
+}

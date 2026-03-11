@@ -1,0 +1,100 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:01+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            7096e98b4a3d7f52ef53cc0a6664bffc
+//      Signature:      eyJpdiI6IlY1XC9NbDdcL3Iwd1NFRTZjTG9xS0Y0QT09IiwidmFsdWUiOiIyK2Z4Y3dpczl3OWdpMjhWOG41U3ZKQklmOWR4dUZ5bEtLUmVLR3hqZzd0UVM0bFlXNWZsbGFUMGk3NnNZWnlrZjBZUmZYbWY0WXFNV2dRcmJ6cHBnblpFd002QmZqM3FWdnc3WnRyT2VZb3ZNVklrWCsybFFNcjhjTVl0YklLUkhGcmc5QVB0bVwva1VscDVLR3habXhyYldLbEZoQm1UR3pRcjMwdkladEp1S1MwZmRhelpXa2hQQnNSTSt5bVMxUTI4bzlydkJnbFVLSGRrN2ZsUmZpSGZ5TmNTQnhaMVcxRVdBeWN1WGlDWm9Wdk50bzhBWm05dG1WMW1BOUpJUm43alQzNmordmNNYUJVSSs1eXRSMVpYSTFKV1g4cnZKZHB6YUVINTdkaUFpMFZDajg2MzFZVjZkOTI4b0NuUGZNbnd5Nm9vek9NQ1RUYjdMazBcLytDeDQ3bGcyamQ0dFlhQVFWdkRIXC9cLzhNc3FsUDgwZHBKc3ZHaGdEYmZ0VE1WRFwvRlBJaUlQSkxqTXVKb0t6YmErWG1QVHB6RWZBbitGQmd0d0JkbDRkWUE9IiwibWFjIjoiZTFmZjkwZDNlODlmNmJmNDQ5ODA0OGI0MTNlZWVhZDUwN2E4ZTY5YjA5MDI4NjkzMGRkOTQwZGI2ODQzMjI0ZSJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div id="m-filter-overlay-{{ forloop.index }}" class="cart-overlay overlay-toggle-element hide small--show medium--show Fixed m-filter">
+    <div class="m-filter-type-overlay__header m-b-40">
+        <p class="content-heading">Edit Item</p>
+        <div data-overlay-toggle="#m-filter-overlay-{{ forloop.index }}" class="overlay-toggle flex m-filter-type-overlay__close">
+            <p>Close</p>
+            <img src="{{ 'close-icon-black.svg' | asset_url }}" alt="Close filter overlay">
+        </div>
+    </div>
+    <div class="grid grid--gutterless">
+    	<div data-line-item="#cart-line-item-{{ mobile_line_item_id }}" class="fade-in main-button mobile-overlay-submit">UPDATE CART</div>
+        <div>
+        	{% unless overlay_item.product.has_only_default_variant %}
+        	  {% for option in overlay_item.product.options_with_values %}
+        	  	{% assign option_i_mobile = forloop.index0 | plus: 0 %}
+        	  		<div data-solo="true" class="filter-standard__selector flex accordion p-b-15 m-t-30">
+        	  		    <p class="filter-standard__filter-text">{{ option.name }}</p>
+        	  		    <p class="filter-standard__selected"><span>{{ overlay_item.variant.options[option_i_mobile] }}</span></p>
+        	  		</div>
+
+        	  		<div class="filter-standard__options accordion-panel">
+        	  		    <div>
+        	  		    	{% for value in option.values %}
+        	  		    	 <p 
+        	  		    	 	data-overlay-link="#ProductSelect-option-{{ mobile_line_item_id }}-{{ option.name | handleize }}" 
+        	  		    	 	data-value="{{ value | escape }}"
+        	  		    	 	data-line-item="#cart-line-item-{{ mobile_line_item_id }}" 
+        	  		    	 	class="m-b-15 {% if overlay_item.variant.options[option_i_mobile] == value %}filter-standard__option-selected{% endif %} filter-standard__cart-trigger mobile-overlay-trigger">
+        	  		    	 {{value}}
+        	  		    	</p>
+        	  		    	{% endfor %}      
+        	  		    </div>
+        	  		</div>
+        	  {% endfor %}
+        	{% endunless %}
+
+        	{% for name in uniq_name_array %}
+			<div data-solo="true" class="
+				{%- assign hidden = true -%}  
+				{%- for i in fc_keys -%}
+			        {%- assign index = i | plus: 0 -%}
+			        {%- if name_array[index] == name and overlay_item.product.tags contains configuration_tag_array[index] -%} 
+			        	{%- assign hidden = false -%}  
+			        	{%- break -%}
+			        {%- endif -%}
+			    {%- endfor -%} {% if hidden == true %}hide {% endif %} filter-standard__selector flex accordion p-b-15 m-t-30">
+			    <p class="filter-standard__filter-text">{{ name }}</p>
+			    {% for i in fc_keys %}
+			        {% assign index_mobile = i | plus: 0 %}
+		        	{% assign handle_name = name | handleize %}
+		        	{% if overlay_item.properties[handle_name] == configuration_option_name_array[index_mobile] %}
+		        		<p class="filter-standard__selected filter-standard__selected flex flex-center">
+		        		<img class="product-sticky__property-image m-r-5"
+		        		src="{{configuration_option_image_array[index_mobile]}}" alt="{{ configuration_option_name_array[index_mobile] | escape }}">
+		        		<span>{{configuration_option_name_array[index_mobile]}}</span></p>
+		        		{% break %}	
+		        	{% endif %}
+			    {% endfor %}
+			</div>
+
+			<div class="filter-standard__options accordion-panel">
+				{% if hidden != true %}
+			    {% for i in fc_keys %}
+		        {% assign index = i | plus: 0 %}
+		        {% if name_array[index] == name and overlay_item.product.tags contains configuration_tag_array[index] %}
+		        	<p 
+		        	class="m-b-15 flex flex-align-center {% if overlay_item.properties[handle_name] == configuration_option_name_array[index] %}filter-standard__option-selected{% endif %} product-sticky__property-image filter-standard__cart-trigger mobile-overlay-trigger"
+		        	data-overlay-link="#customProperty-{{ mobile_line_item_id }}-{{name | handleize }}" 
+		        	data-line-item="#cart-line-item-{{ mobile_line_item_id }}" 
+		        	data-image-src="{{configuration_option_image_array[index]}}" 
+		        	data-value="{{ configuration_option_name_array[index] | escape }}"
+		        	>
+		        	<img src="{{configuration_option_image_array[index]}}" alt="{{ configuration_option_name_array[index_mobile] | escape }}" class="m-r-5">{{configuration_option_name_array[index]}}</p>
+		        {% endif %}
+	     		{% endfor %}
+	     		{% endif %}
+			</div>
+
+			{% endfor %}
+        </div>
+    </div>
+</div>

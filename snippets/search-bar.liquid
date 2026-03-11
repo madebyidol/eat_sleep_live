@@ -1,0 +1,45 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:30+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            733af687725a8174f1348c58f0d5a3e4
+//      Signature:      eyJpdiI6IlVUdGVcL1lhUTlZdjNTVUpyYlQxdkJRPT0iLCJ2YWx1ZSI6Ikp5ZmZtTmRTd2NqRnlcL2ZMbVk4bjhYVm1YRE1Lc2NuSTBhWTI3N1lEaEE5VForNWlJQXB1SzJMNzZmZTdqdmhLSnFtNldcL21MMnV1aktjS0lzQyswRTRIdVBxT3lmMlJxV2VnYzV5eXRMc2JBbHZ6YUdZZTBtSWNvZGNyeVwvYjVxOHlKaktOc1ZRXC8rUEJ6YzhWY3BNbGFmTmpVZzZhaHo1eTdPb3BnSkpxQ2RibXBkZjV4Z0lvbm1FZVJXQ204TzVFMHJxTHhMXC9ycVhxTXZBYWs3VTBXdnZLc1M0dGM2Wnc3dVROTWRXS2dVQnpPVklkVUFDeUVCalN3ZERNSWtsUXNRWXVcL09vUHdSMnFcL09sVWcxdG9LT21GdGFuQ2FvV29QYUR4ZXo5OU9TMWpNZWRpS2RKUWlKNmw4SnNKS215SDgwazB1UnU4MWxcLzBLN1NLXC9OOWVVSlJ0NHloYStFa28xalBpbWZQd2dJV1hSMG1EaTlsMEY2U3c5R3d1VEhaZUJrQ2l4bm1UOXIyWTE1NTlWT3ZYQnc9PSIsIm1hYyI6ImUxYmY0ZWQxYzI4ZDI3MTQ1OGM4NzNiMTU3ZWFlMGQ0YzE5YWQ3NDM2ZmQyYmNjMzkyNGQwOGFjNDM4YTE2N2QifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<!-- /snippets/search-bar.liquid -->
+{% comment %}
+
+  A snippet to include a search bar anywhere in your theme.
+  Note we are using 'input-group' for the layout. Look under Forms > Input Groups for some demos.
+
+  More information:
+   - http://docs.shopify.com/themes/liquid-variables/search
+
+  To return only products in results:
+    - http://docs.shopify.com/manual/configuration/store-customization/return-only-product-in-storefront-search-results
+    - Or manually add type=product to the search URL as a query parameter
+    - Uncomment hidden input with value="product" below
+
+{% endcomment %}
+
+<form action="/search" method="get" class="input-group search-bar" role="search">
+  {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+  <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
+  <span class="input-group-btn">
+    <button type="submit" class="btn main-button icon-fallback-text">
+      <span class="icon icon-search" aria-hidden="true"></span>
+      <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+    </button>
+  </span>
+</form>

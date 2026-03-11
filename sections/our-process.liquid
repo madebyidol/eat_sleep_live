@@ -1,0 +1,305 @@
+{% comment %}
+  Our Process Section
+  Displays a heading with three feature items highlighting craftsmanship
+{% endcomment %}
+
+<div class="our-process-container wrapper">
+  
+  {% if section.settings.show_heading %}
+  <div class="our-process-header">
+    {% if section.settings.overline != blank %}
+      <p class="our-process-overline sml-caps">{{ section.settings.overline }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="our-process-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="our-process-features">
+    {% for block in section.blocks %}
+      <div class="our-process-feature" {{ block.shopify_attributes }}>
+        
+        {% if block.settings.icon != blank %}
+        <div class="our-process-icon">
+          <img 
+            src="{{ block.settings.icon | img_url: '200x' }}"
+            alt="{{ block.settings.title }}"
+            loading="lazy"
+            width="90"
+            height="90"
+          >
+        </div>
+        {% endif %}
+
+        <div class="our-process-content">
+          {% if block.settings.title != blank %}
+            <h6 class="our-process-title">{{ block.settings.title }}</h6>
+          {% endif %}
+
+          {% if block.settings.description != blank %}
+            <p class="our-process-description">{{ block.settings.description }}</p>
+          {% endif %}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if section.settings.button_text != blank %}
+    <div class="our-process-cta">
+      <a href="{{ section.settings.button_link }}" class="main-button">
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+  {% endif %}
+
+</div>
+
+<style>
+  /* Layout CSS only - minimal styling */
+    #shopify-section-{{  section.id }} {
+        background-color: {{ section.settings.background_color }};
+    }   
+  .our-process-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+
+  .our-process-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .our-process-overline {
+    margin: 0;
+  }
+
+  .our-process-heading {
+    margin: 0;
+    max-width: 28ch;
+  }
+
+  /* Features grid */
+  .our-process-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: fit-content;
+  }
+
+  /* Desktop: horizontal layout */
+  @media (min-width: 768px) {
+    .our-process-features {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: {{ section.settings.feature_gap }}px;
+      max-width: 100%;
+    }
+
+    .our-process-container {
+      gap: 48px;
+    }
+  }
+
+  .our-process-feature {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  /* Desktop: center align and stack */
+  @media (min-width: 768px) {
+    .our-process-feature {
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  .our-process-icon {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+  }
+
+  @media (min-width: 768px) {
+    .our-process-icon {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .our-process-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .our-process-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .our-process-title {
+    margin: 0;
+  }
+
+  .our-process-description {
+    margin: 0;
+    max-width: 25ch;
+  }
+
+  .our-process-cta {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Our Process Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#F8F8F8"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "Made to measure just for you"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our craftsmanship & process"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Learn about our process"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1380
+    },
+    {
+      "type": "range",
+      "id": "feature_gap",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Feature gap (desktop)",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Handcrafted in Nottingham"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Reclaimed wood from historic UK buildings"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Process Section",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+
+            "title": "Handcrafted in Nottingham",
+            "description": "Reclaimed wood from historic UK buildings"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+
+            "title": "Made from reclaimed wood",
+            "description": "Giving new life to beautiful, well-aged timber"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+
+            "title": "Lifetime guarantee",
+            "description": "Designed to be lived with and enjoyed for years to come"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

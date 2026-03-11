@@ -1,0 +1,115 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:03+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            2d83f5d9d9dd15d889fbb14f0f8a3541
+//      Signature:      eyJpdiI6IlRpekc3ZTRFb3poblwvekIzREtwWHpnPT0iLCJ2YWx1ZSI6IkVHdkJvWXFxRk9uNkVCenI4dTlqZG02NWtcL2U1UWwyelFTXC9QSXZod1dcL0grTjFMbFlEVEJjakwrRE00V0ZReU1VXC9Iazl6T3YxUEo3dnRwa1dLbWdYMzRia1ptM2R3VzVFcmhvTUxBMVwvaGJcLzEyb1FNc2lxTGRuakRyODdJa0NsZ1pCN2tTSElTNFBrakxOaE02RGxoVU92NG0xTmEzdDVKKzJpeER0YTZiZE5qK1lpSURqTERcLzNQSklyb0NOZzFNc0RyemprKzV1YlUzd0cwMDh1emFjQ3RoaXVHTnBVempqWjVYU1k2YTJYc2NTeDZCSXpzQUh2clhJQ3h2THlSYStQT3RaMHk0a3NmK0p5MWFcLzNXb3BGMEZ1VGZkMm9rUmdVSVIxeHRqMStQRW9RS0xiZ3pPNzVlOWh2UU1vcVFFN1FwTmVuRnBHMXF1ZDBqcFloaGlualJLMGIwTWI1UlN3WHRNSG82MjhwV0VYcVwvaGdKVTlHQkU1cWZ5TTY3d2hmblRFYW9jYldqdTZjZkpXWCtRcFE9PSIsIm1hYyI6IjQ4YjAxNWZkMGI5OTJiMWQxYTZhMmI3ZWMwMjU4NDlmNjRhZWVlNWExZDJiODJhZDAwYTZmNzM4ODkyMjkwYTQifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<footer class="footer">
+
+  <div class="footer-flex-wrap">
+    <ul class="footer-linklist">
+      {% for link in linklists.footer.links %}
+        <li class="footer-linklist__item"><a class="footer-linklist__link" href="{{ link.url | downcase }}">{{ link.title }}</a><li>
+      {% endfor %}
+    </ul>
+   <div class="footer-contain">
+    <div id="mailchimp"> {% include 'mailchimp-signup' %} </div>
+
+    <div class="images-britain" >
+
+		  {% for i in (1..3) %}
+			{% capture footerImg %}footer-image-{{i}}.png{% endcapture %}
+			{% if forloop.index == 1 %}
+
+			{% endif %}
+
+			{% if forloop.index > 1 %}
+				<img id="britain-images" src="{{ footerImg | file_url }}">
+			{% endif %}
+		  {% endfor %}
+
+      	</div>
+    </div>
+     <div class="address">
+        <ul>
+              <li>The Old Joinery Mill</li>
+              <li>2 Nuthall Road</li>
+              <li>Nottingham</li>
+              <li>NG8 5AZ</li>
+        </ul>
+   			 </div>
+
+  </div>
+
+
+
+
+
+  	<!--
+	<div class="sub-bar">
+	  <p>© Eat Sleep Live Ltd {{ 'now' | date: "%Y" }} <span class="footer-mobile-oneline">Designed by <a href="http://eastsideco.com" target="_blank">Eastside Co</a><span></p>
+	</div>
+	-->
+
+</footer>
+{% if template contains "index" %}
+	<div class="footer-return-top">
+		<a href="#home-top" class="footer-return-top__btn">
+			<img src="{{ 'slim-up.png' | asset_img_url: 'master' }}" alt="Back to Top">
+			<span class="footer-return-top__title">Return to Top</span>
+		</a>
+	</div>
+{% endif %}
+
+
+<script>
+	// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+</script>

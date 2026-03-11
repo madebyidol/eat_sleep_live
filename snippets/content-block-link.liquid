@@ -1,0 +1,30 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-25T10:13:35+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148343
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            93c50cdb632fb4edffa27778349604d4
+//      Signature:      eyJpdiI6Ilk4ZFZabTQ2ZldjRTIxQUNHQkl1Q0E9PSIsInZhbHVlIjoiQ1BJSHBOdjFMcEhwNExFamJzc1NjS1JtSTZFOXZjUHplR0NDc3lXVUZsZmo3UkFjbjZXSGxzcFh1NU1NU3RRUnZEZHE0XC9pbGFRK2FSdlZTaDZGbnF1V1FGMXNYK2tCeXF4eDIzbTRjS3NLZWZLSWVUcjZwc3hYWURJTnVZdEJcL1JxUWdhdnFRZUZLZmlvMVdLZjdHNSthTEg5ZFFNNG0yVXBjbHRVSnVVS2ZhUzFKcmJjdGJ0MWJ4Nm5WVWNhK3BrV2RwMEI3cXpTbEx0NVpqWXV4QlB5TGVsU1crMTJsTVk4QXZKUDhSTkNtTzU2OGRvWk1rVFhDc01DdDF0ZjhWbXlTVEg1clROSVROUllaSWp5Y3A5eDZqTDhOa0tGYXN1bVwvNTNRVzNra2JTK2Y2eVNlWVZ1RGU4djdPUHdMZ1pCTHp5cndpNEFpNDFlbnB2U0hoUVdpTlkzQU5cL056dXlnMkdBUVhodUg1SHZoSXRQYnJ4QThQRG1nTDBpV2o4N3dHdmlnZjBEQ2FZMnpsd2ZocTZrbDRSaU0rdlwvVEE4ZThERVwvNDk4MVBXOD0iLCJtYWMiOiI2YjU4M2EyN2ZjM2EwNTliMTJiNGFkN2FjZWZlMDFlYWRiNzFlYmIyZjMzMTQyODhhYWZkNDdkOGZjYTY4YjU5In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if sp_cta_background_array[cta_button_index] != blank %}
+	<style>#section-content-block-link_{{ cta_button_index }} { background-color: {{sp_cta_background_array[cta_button_index]}}; }</style>
+{% endif %}
+<div id="section-content-block-link_{{ cta_button_index }}" class="content-block__link content-block__standard content-block__close">
+	<div class="article-content {{ cta_classes }}">
+		<a class="main-button" 
+			{% if cta_button_colour_array[cta_button_index] != blank %}
+			style="background-color: {{cta_button_colour_array[cta_button_index]}};"{% endif %}
+			href="{{ cta_button_link_array[cta_button_index] | downcase }}">{{cta_button_text_array[cta_button_index]}}</a>
+	</div>
+</div>

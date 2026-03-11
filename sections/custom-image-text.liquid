@@ -1,0 +1,64 @@
+<div class="product__description">
+    <div class="product__description-inner">
+        <div class="product__description-content">
+            
+            {{ section.settings.content }}
+
+            {% if section.settings.button_text != blank %}
+          
+                  <a href="{{ section.settings.button_link }}" class="main-button">
+                      <span>
+                          {{ section.settings.button_text }}
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                  d="M6.31034 7.17241C5.23448 8.28965 3.77586 10.3793 3.2069 11.3103C3.77586 10.9483 4.86207 10.3276 6.41379 8.82759C6.9853 8.27513 8.7069 6.72414 9.46552 5.98276C8.75862 5.2931 7.15452 3.75286 6.41379 3.08621C4.86207 1.68966 3.67241 0.913793 3 0.5C3.36207 1.27586 4.7069 2.87931 5.17241 3.5C5.54483 3.99655 6.84483 5.39655 7.44828 6.03448L6.31034 7.17241Z"
+                                  fill="white" />
+                          </svg>
+                      </span>
+                  </a>
+             
+            {% endif %}
+        </div>
+
+        <div class="product__description-image">
+            <img src="{{ section.settings.image | image_url }}" alt="{{section.settings.image.alt}}" width="{{ section.settings.image.width}}" height="{{ section.settings.image.height}}">
+        </div>
+
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Custom Image Text",
+  "class": "custom-image-text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Text",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

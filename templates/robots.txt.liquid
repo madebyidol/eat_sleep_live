@@ -1,0 +1,66 @@
+# we use Shopify as our ecommerce platform
+{%- comment -%}
+# Caution! Please read https://help.shopify.com/en/manual/promoting-marketing/seo/editing-robots-txt before proceeding to make changes to this file.
+{% endcomment %}
+{% for group in robots.default_groups %}
+  {{- group.user_agent -}}
+
+  {% for rule in group.rules %}
+    {{- rule -}}
+  {% endfor %}
+
+  {%- if group.sitemap != blank -%}
+    {{ group.sitemap }}
+  {%- endif -%}
+{% endfor %}
+
+# Custom rules to disallow broken image links
+User-agent: *
+Disallow: /files/Stacked_Green0_b478dd5d-7325-41b3-abe7-cc1a6231ce47.svg
+Disallow: /cdn/shop/t/234/assets/close-icon-black.svg
+Disallow: /cdn/shop/products/CavendishCoffeeTablewithShelfStainlessStreelframe_2_1080x.jpg
+Disallow: /cdn/shop/products/cavcoffeetablewithoutshelf_1080x.jpg
+Disallow: /cdn/shop/files/f77b4983985b--warm-wood-colour-swatch-3-e7d16b.jpg
+Disallow: /cdn/shop/files/f77b4983985b--grey-wood-colour-swatch-3fb5c8.jpg
+Disallow: /cdn/shop/files/f77b4983985b--natural-wood-colour-swatch-3-993137.jpg
+Disallow: /cdn/shop/files/f77b4983985b--classic-wood-colour-swatch-0e7a2f.jpg
+Disallow: /cdn/shop/files/f77b4983985b--limed-wood-colour-swatch-2-dbcde5.jpg
+Disallow: /cdn/shop/files/f77b4983985b--smoked-wood-colour-swatch-2-7afc9f.jpg
+Disallow: /cdn/shop/files/ESLBirminghamEditJadeSelection-90_1080x.jpg
+Disallow: /cdn/shop/files/ESLBirminghamEditJadeSelection-84-2_1080x.jpg
+Disallow: /cdn/shop/products/MG_7887-Edit_1080x.jpg
+Disallow: /cdn/shop/products/hudsoncoffeetable_1080x.jpg
+Disallow: /cdn/shop/products/MG_7892-Edit-2_1080x.jpg
+Disallow: /cdn/shop/products/hudsoncoffeetablewithshelfgrey2_1080x.jpg
+Disallow: /cdn/shop/files/hudsonsidetable3_1080x.jpg
+Disallow: /cdn/shop/files/MG_3316-Edit_1080x.jpg
+Disallow: /cdn/shop/files/bransonsidetable_1080x.jpg
+Disallow: /cdn/shop/files/MG_3586-Edit_108b243a-6497-4905-a58f-f2b71b096c83_1080x.jpg
+Disallow: /cdn/shop/files/Samples_1_1080x.png
+Disallow: /cdn/shop/articles/esl3-p-1080_ea1f8e33-17c5-4636-b1cc-fa42df68fa3d.jpg
+Disallow: /cdn/shop/articles/5b39e09d99d87d6043026da5_Section3-p-1600_d5fb7a36-4c70-461b-98a8-835e88c95664.png
+Disallow: /cdn/shop/articles/5b168931e18c9d1c2272357f_banner232_72b92cd2-5cd0-4f10-b7a1-7f3905cb3b9b.jpg
+Disallow: /cdn/shop/articles/5b6853095fc94c953d491dac_Section9_fab405f1-2456-4e5b-981f-e9efd980cae8.png
+Disallow: /cdn/shop/articles/Sunny_sky_864107b9-5ddb-4399-a285-87535154ebe1.jpg
+Disallow: /cdn/shop/files/britishfurnituremanufacturers_x35_2x_c0694ee2-7cd6-430c-9e59-cd6ee2a51e96_x35@2x.webp
+Disallow: /cdn/shop/t/234/assets/search-icon.svg
+Disallow: /cdn/shop/t/234/assets/close-icon.svg
+Disallow: /pages/your-wishlist
+Disallow: /blogs/competitions
+Disallow: /pages/privacy
+Disallow: /pages/christmas-delivery-finance
+Disallow: /pages/payment-options-tab
+Disallow: /pages/frontpage
+
+
+# New broken image links to disallow
+Disallow: /cdn/shop/products/MG_8289-Edit-2_1080x.jpg
+Disallow: /cdn/shop/products/EatSleepLive28.05.15-16-2_1080x.jpg
+Disallow: /cdn/shop/products/MG_8294-Edit-2_1080x.jpg
+Disallow: /cdn/shop/products/hudsonlargedeskmocha_1080x.jpg
+Disallow: /cdn/shop/files/cavendishsmalldesk_1080x.jpg
+Disallow: /cdn/shop/files/cavendishsmalldeskroom_1080x.jpg
+Disallow: /cdn/shop/products/ESL15.11.18-68-2_1080x.jpg
+Disallow: /cdn/shop/files/cavendishmediumdesk1_1080x.jpg
+Disallow: /cdn/shop/files/cavendishlargedesk1_1080x.jpg
+Disallow: /cdn/shop/files/cavendishlargedesk2_1080x.jpg

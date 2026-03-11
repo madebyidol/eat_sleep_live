@@ -1,0 +1,49 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-25T10:13:34+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148343
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            9ed26ee730effe09c57b3383a49ac14a
+//      Signature:      eyJpdiI6Ik53Y1NBclVyc0cyWE1LbWgrdTc3YUE9PSIsInZhbHVlIjoiWVBoWUFQcm1KSWg0MHBBNWpjNHVIN2p1ZnVWUUdPbm1LQVRQXC9oOUhId3phMWhNOWtKOE1JS1YyTHV5a2puOFpuQStFVXBIV1wvNVEyemVMaHFEYmN1cWc3WVVjZkNMSDdzTjhZVlVtTktNQjJHNzNZdDVtZzNQOVppQTJJM3lmdHRINjBhc2Zhdlp0ZjFYVnNTeFE1MCtQc25TNUVSeW91RVBYVVg4WGZha3hXUENhSnprQUxpMEFmeU4zOStUckVZcyttSGJRSnVcL2xRSitRMDE0NmN0Y3oxYTJwTGhSWlhzb1ZkUEo2SFwvTlMrSWNDNlB1T0g4bGxLeGZDaGQreDQxOUg0VUhUUVM2NzUxeW1Da2hOajhcL2V2VEFqRHMwS0VNcUhUd1BhRWtxNElGY3R2VUZMNVNYUUxjMW11eHFZWE8zV2lTdXFcL1RwSWdENE13dk5ZbHFYOVVmTDAyVzZoaG5UZXFaaDBOVFBzWmozNVVhU21UdGRPaEtzRE5TUU1mRXRjRGg1RFJXa2FNRlJkZ3l2cFpQSG1oUjFONWo3QU9UZDlaTkNpSmkwZz0iLCJtYWMiOiIzMWUzYTA4YjU2MzYxMmM0OTBjNmViNTQ0MzNhNDAxMmE3NWZmYTYzN2ZkNjY3MDM3NDQ5NDhlNTcxMTdiNzc1In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<style>#section-images_{{ images_index }} { background-color: {{background_colour_array[images_index]}} }</style>
+<div id="section-images_{{ images_index }}" class="block-images content-block__standard">
+	<div class="block-images__container article-content grid">
+		{% assign image_2 = image_2_array[images_index] %}
+		{% if image_1_array[images_index] != blank %}
+			<div class="grid__item grid__item--gutterless {% if image_2 != blank %}small--one-whole one-half block-images--padding-right{% else %}one-whole{% endif %}">
+				{% if force_1x1_aspect_ratio_array[images_index] %}
+					<div
+						style="background-image: url({{image_1_array[images_index]}})"
+						class="block-images__background-image">
+					</div>
+				{% else %}
+					<img class="block-images__image" src="{{image_1_array[images_index]}}">
+				{% endif %}
+			</div>
+			{% if image_2 != blank %}
+				<div class="grid__item grid__item--gutterless small--one-whole one-half block-images--padding-left">
+					{% if force_1x1_aspect_ratio_array[images_index] %}
+						<div 
+							style="background-image: url({{image_2}})"
+							class="block-images__background-image block-images--padding-left">
+						</div>
+					{% else %}
+						<img class="block-images__image" src="{{image_2}}">
+					{% endif %}
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+</div>

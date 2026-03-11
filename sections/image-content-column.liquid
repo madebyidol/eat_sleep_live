@@ -1,0 +1,130 @@
+<section id="image-content-column--{{ section.id }}" class="wrapper">
+
+    <div class="image-content-column__container">
+
+        <div class="image-content-column--image-container">
+            {% if section.settings.image != blank %}
+                <img src="{{ section.settings.image | image_url }}" alt="{{ section.settings.imag.alt }}" class="image-content-column--image" />
+            {% endif %}
+
+            {% if section.settings.warranty_text != blank %}
+                <p class="image-content-column--warranty-text-mobile secondary-color">{{ section.settings.warranty_text }}</p>
+            {% endif %}
+        </div>
+
+        <div class="image-content-column-content__container">
+
+            {% if section.settings.heading != blank %}
+                <h4 class="image-content-column--heading">{{ section.settings.heading }}</h4>
+            {% endif %}
+
+            {% if section.settings.description != blank %}
+                <div class="secondary-color">{{ section.settings.description }}</div>
+            {% endif %}
+
+            {% if section.settings.phone != blank %}
+                <div class="image-content-column--content">
+                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.5 19C6.05625 19 0 12.9438 0 5.50001C0.00281471 4.22319 0.469194 2.99083 1.31243 2.03206C2.15566 1.07329 3.31837 0.453355 4.58437 0.287507C4.90711 0.251724 5.23284 0.319672 5.51435 0.481498C5.79586 0.643324 6.01851 0.890614 6.15 1.18751L8.03437 5.58438C8.13212 5.81261 8.17131 6.06163 8.14839 6.30885C8.12547 6.55607 8.04116 6.79364 7.90312 7.00001L6.34687 9.38126C7.05158 10.8114 8.21273 11.966 9.64687 12.6625L12 11.0969C12.2061 10.9579 12.4443 10.8738 12.692 10.8525C12.9397 10.8312 13.1888 10.8733 13.4156 10.975L17.8125 12.85C18.1094 12.9815 18.3567 13.2041 18.5185 13.4857C18.6803 13.7672 18.7483 14.0929 18.7125 14.4156C18.5467 15.6816 17.9267 16.8443 16.9679 17.6876C16.0092 18.5308 14.7768 18.9972 13.5 19ZM4.77187 1.77813C3.86714 1.89443 3.03582 2.33652 2.43356 3.02161C1.8313 3.70671 1.4994 4.58783 1.5 5.50001C1.50248 8.68184 2.76756 11.7326 5.01746 13.9825C7.26736 16.2324 10.3182 17.4975 13.5 17.5C14.4122 17.5006 15.2933 17.1687 15.9784 16.5665C16.6635 15.9642 17.1056 15.1329 17.2219 14.2281L12.825 12.3531L10.4812 13.9188C10.2656 14.0613 10.0168 14.1457 9.75887 14.1638C9.50098 14.1819 9.2428 14.133 9.00937 14.0219C7.26276 13.177 5.84994 11.7708 4.99687 10.0281C4.8844 9.7955 4.83393 9.53775 4.85036 9.27988C4.86678 9.022 4.94955 8.77274 5.09062 8.55626L6.65625 6.17501L4.77187 1.77813Z"
+                            fill="#434241" />
+                    </svg>
+
+                    <p><a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a></p>
+                </div>
+            {% endif %}
+
+            {% if section.settings.email != blank %}
+                <div class="image-content-column--content">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.125 5.25C3.50368 5.25 3 5.75368 3 6.375V17.625C3 18.2463 3.50368 18.75 4.125 18.75H19.875C20.4963 18.75 21 18.2463 21 17.625V6.375C21 5.75368 20.4963 5.25 19.875 5.25H4.125ZM1.5 6.375C1.5 4.92525 2.67525 3.75 4.125 3.75H19.875C21.3247 3.75 22.5 4.92525 22.5 6.375V17.625C22.5 19.0747 21.3247 20.25 19.875 20.25H4.125C2.67525 20.25 1.5 19.0747 1.5 17.625V6.375Z"
+                            fill="#434241" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.65802 7.03958C4.91232 6.71262 5.38353 6.65372 5.71049 6.90802L12 11.7999L18.2896 6.90802C18.6165 6.65372 19.0877 6.71262 19.342 7.03958C19.5964 7.36654 19.5375 7.83775 19.2105 8.09205L12.4605 13.342C12.1897 13.5527 11.8104 13.5527 11.5396 13.342L4.78958 8.09205C4.46262 7.83775 4.40372 7.36654 4.65802 7.03958Z"
+                            fill="#434241" />
+                    </svg>
+
+                    <p><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+                </div>
+            {% endif %}
+
+            {% if section.settings.button_text != blank %}
+                <div class="image-content-column--cta">
+                    <a href="{{ section.settings.button_link }}" class="main-button">
+                        <span>
+                            {{ section.settings.button_text }}
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.31034 7.17241C5.23448 8.28965 3.77586 10.3793 3.2069 11.3103C3.77586 10.9483 4.86207 10.3276 6.41379 8.82759C6.9853 8.27513 8.7069 6.72414 9.46552 5.98276C8.75862 5.2931 7.15452 3.75286 6.41379 3.08621C4.86207 1.68966 3.67241 0.913793 3 0.5C3.36207 1.27586 4.7069 2.87931 5.17241 3.5C5.54483 3.99655 6.84483 5.39655 7.44828 6.03448L6.31034 7.17241Z"
+                                    fill="white" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            {% endif %}
+
+            {% if section.settings.warranty_text %}
+                <p class="image-content-column--warranty-text-desktop secondary-color">{{ section.settings.warranty_text }}</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Text Image Column",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "warranty_text",
+      "label": "Warranty Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Image Column",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

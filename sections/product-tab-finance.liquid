@@ -1,0 +1,202 @@
+{% comment %} {{ 'product-tab-finance.scss' | asset_url | stylesheet_tag }} {% endcomment %}
+
+{% unless product.tags contains "pdp:hide-finance" %}
+    
+    <div class="product__tab">
+
+        <div class="product__finance">
+
+            <div class="product__finance-inner">
+
+                <div class="product__finance-header">
+                    <div class="product__finance-subtitle">{{ section.settings.subtitle }}</div>
+                    <div class="product__finance-title">{{ section.settings.title }}</div>
+                    <div class="product__finance-content">{{ section.settings.description }}</div>
+                </div>
+
+                <div class="flex flex-wrap flex-align-center cart__payment-icons">
+                    {%- for type in shop.enabled_payment_types -%}
+                        {% capture payment_icon %}{% include type %}{% endcapture %}
+                        {% unless payment_icon contains "Liquid error" %}
+                            {{ payment_icon }}
+                        {% endunless %}
+                    {%- endfor -%}
+                    
+                </div>
+
+                <div class="product__finance-list">
+                    {% for block in section.blocks %}
+                        {% include block.type %}
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endunless %}
+
+<style>
+  .product__finance {
+	 width: 100%;
+	 background: #f1eeea;
+	 padding: 60px 20px 128px 20px;
+}
+ .product__finance .product__finance-inner {
+	 width: 100%;
+	 max-width: 1200px;
+	 margin: 0 auto;
+	 display: flex;
+	 flex-flow: column nowrap;
+}
+ .product__finance .product__finance-header {
+	 display: flex;
+	 flex-flow: column nowrap;
+	 width: 100%;
+	 max-width: 500px;
+	 margin-bottom: 10px;
+}
+ .product__finance .cart__payment-icons {
+	 column-gap: 16px;
+	 row-gap: 24px;
+	 margin-bottom: 55px;
+}
+ .product__finance .product__finance-subtitle {
+	 text-transform: uppercase;
+	 font-size: 14px;
+	 line-height: 20px;
+	 letter-spacing: 1.6px;
+	 margin-bottom: 10px;
+}
+ .product__finance .product__finance-title {
+	 font-size: 28px;
+	 line-height: 36px;
+	 font-weight: 600;
+	 margin-bottom: 15px;
+}
+ .product__finance .product__finance-content {
+	 font-weight: 400;
+	 font-size: 16px;
+	 line-height: 24px;
+	 letter-spacing: 0.25px;
+}
+ .product__finance .product__finance-list {
+	 display: flex;
+	 flex-flow: column nowrap;
+	 border-top: 1px solid #a0a0a0;
+	 border-bottom: 1px solid #a0a0a0;
+}
+ .product__finance .finance__option {
+	 width: 100%;
+	 display: flex;
+	 flex-flow: row nowrap;
+	 padding: 30px 20px;
+	 border-bottom: 1px solid #a0a0a0;
+}
+ .product__finance .finance__option .finance__option-image {
+	 width: 109px;
+	 margin-right: 20px;
+	 display: inherit;
+	 align-items: center;
+}
+ .product__finance .finance__option .finance__option-image img {
+	 display: block;
+	 width: 100%;
+	 flex-grow: 0;
+	 height: auto;
+}
+ .product__finance .finance__option .finance__option-content {
+	 display: flex;
+	 flex-flow: column nowrap;
+	 justify-content: center;
+}
+ .product__finance .finance__option .finance__option-content span {
+	 font-weight: 400;
+	 font-size: 14px;
+	 line-height: 20px;
+	 letter-spacing: 1.6px;
+	 color: #434241;
+	 text-transform: uppercase;
+}
+ .product__finance .finance__option .finance__option-content .finance__option-price {
+	 font-weight: 600;
+	 font-size: 18px;
+	 line-height: 24px;
+	 letter-spacing: 0.25px;
+	 text-transform: none;
+}
+ .product__finance .finance__option .finance__option-content .finance__option-description {
+	 font-weight: 400;
+	 font-size: 16px;
+	 line-height: 24px;
+	 letter-spacing: 0.25px;
+	 color: #434241;
+	 padding-right: 35px;
+}
+ .product__finance .finance__option .finance__option-content .finance__option-description p {
+	 margin: 0;
+}
+ .product__finance .finance__option .finance__option-links {
+	 margin-left: auto;
+	 display: flex;
+	 align-items: center;
+}
+ .product__finance .finance__option .finance__option-links a {
+	 color: #434241;
+	 font-size: 15px;
+	 line-height: 17px;
+	 letter-spacing: 0.5px;
+	 text-decoration: underline;
+	 text-decoration-color: #434241;
+}
+ .product__finance .finance__option:last-child {
+	 border-bottom: 0;
+}
+ 
+</style>
+
+{% schema %}
+{
+    "name": "Finance Tab",
+    "settings": [
+       {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+       },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "finance-option",
+            "name": "Finance Option",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "price",
+                    "label": "Price"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,141 @@
+<div class="process-content">
+
+  {% if section.settings.title != blank or section.settings.text != blank %}
+    <div class="process__text-content" data-aos-anchor-placement="top-center"  data-aos-delay="50">
+
+      {% if section.settings.subtitle != blank %}
+        <p class="subtitle secondary-color">{{ section.settings.subtitle }}</p>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h4 class=" m-b-10">{{ section.settings.title }}</h4>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+        <div class="secondary-color">{{ section.settings.text }}</div>
+      {% endif %}
+
+      {% if section.settings.button-url != blank %}
+        <a class="main-button" href="{{ section.settings.button-url | downcase }}">
+          <span>{{ section.settings.button-text }}</span>
+          <img alt="arrow right" src="{{ 'icon-arrow-right.svg' | asset_url }}" width="18" height="18" alt="">
+        </a>
+      {% endif %}
+
+    </div>
+  {% endif %}
+
+  {% assign delay = 200 %}
+
+  {% for block in section.blocks %}
+    {% assign delay = delay | plus: 250 %}
+
+    {% if block.settings.image != blank %}
+      <div class="process__image-content" data-bgimage="{{ block.settings.image.src | img_url: 'x750' }}" data-aos-anchor-placement="top-center"  data-aos-delay="{{ delay }}" ​ loading="lazy"​></div>
+    {% endif %}
+  {% endfor %}
+
+</div>
+
+<script>
+  //this code allows us to lazy load a background image
+  //style="background-image:url(' block.settings.image.src | img_url: 'x750' ')"​​​​
+  // Check for IntersectionObserver support
+  if ('IntersectionObserver' in window) {
+    document.addEventListener("DOMContentLoaded", function() {
+  
+      function handleIntersection(entries) {
+        entries.map((entry) => {
+          if (entry.isIntersecting) {
+            // Item has crossed our observation
+            // threshold - load src from data-src
+            entry.target.style.backgroundImage = "url('"+entry.target.dataset.bgimage+"')";
+            // Job done for this item - no need to watch it!
+            observer.unobserve(entry.target);
+          }
+        });
+      }
+  
+      const headers = document.querySelectorAll('.process__image-content');
+      const observer = new IntersectionObserver(
+        handleIntersection,
+        { rootMargin: "100px" }
+      );
+      headers.forEach(header => observer.observe(header));
+    });
+  } else {
+    // No interaction support? Load all background images automatically
+    const headers = document.querySelectorAll('.process__image-content');
+    headers.forEach(header => {
+      header.style.backgroundImage = "url('"+header.dataset.bgimage+"')";
+    });
+  }
+  </script>
+
+{% schema %}
+{
+  "name": "Process Content",
+  "class": "process-content--section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Process"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit, nunc sed iaculis iaculis, turpis neque varius nibh, sed ullamcorper felis tortor at mi. Suspendisse vehicula.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button-text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button-url",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Process Content",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "16575407328f8b0180": {
+      "type": "samples-text-image",
+      "settings": {
+        "title": "Can't decide on colour?",
+        "text": "<p>Order our free wood colour samples to find the perfect colour for your space.</p>",
+        "button-text": "Order your samples",
+        "button-url": "shopify://pages/colours-samples",
+        "button-text-2": "Visit our workshop",
+        "button-url-2": "shopify://pages/get-in-touch",
+        "image": "shopify://shop_images/Samples_1.png"
+      }
+    },
+    "collection-template": {
+      "type": "collection-template",
+      "settings": {
+        "default-height": true,
+        "button-text": "SELECT YOURS",
+        "size-variant": "Choose Your Size",
+        "rv-title": "Recently Viewed Products"
+      }
+    },
+    "1662135380e1268515": {
+      "type": "collection-content",
+      "blocks": {
+        "1662135380ec8b02a0-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ESL_17.05.16-7.jpg"
+          }
+        },
+        "1662135380ec8b02a0-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ESL_17.05.16-225.jpg"
+          }
+        },
+        "1662135380ec8b02a0-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ESL_17.05.16-191.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "1662135380ec8b02a0-0",
+        "1662135380ec8b02a0-1",
+        "1662135380ec8b02a0-2"
+      ],
+      "settings": {
+        "subtitle": "BRITISH MADE",
+        "title": "Forget flat-pack, our furniture is hand-crafted to order.",
+        "text": "<p>See where the magic happens and visit our HQ in Nottingham. This is where you’ll see us create you the perfect piece based on your colour, size and handle choices.</p>"
+      }
+    },
+    "1662376209a21c3bbf": {
+      "type": "trustpilot-container",
+      "settings": {}
+    },
+    "165754084509daeb65": {
+      "type": "text-area-usps",
+      "blocks": {
+        "16575408452c806757-0": {
+          "type": "usp",
+          "settings": {
+            "icon-image": "shopify://shop_images/guarantee-2.png",
+            "title": "Lifetime guarantee",
+            "description": "We’re that confident our furniture will last you a lifetime, we guarantee it.",
+            "image": "shopify://shop_images/Branson-Coffee-Table.jpg",
+            "link": ""
+          }
+        },
+        "16575408452c806757-1": {
+          "type": "usp",
+          "settings": {
+            "icon-image": "shopify://shop_images/tool-2.png",
+            "title": "Handcrafted to order",
+            "description": "By our experienced artisans who put their heart and soul into each piece.",
+            "image": "shopify://shop_images/ESL_18.02.19-107.jpg",
+            "link": ""
+          }
+        },
+        "16575408452c806757-2": {
+          "type": "usp",
+          "settings": {
+            "icon-image": "shopify://shop_images/delivery.png",
+            "title": "Free delivery & assembly",
+            "description": "Carried out by our craftsmen - we not only make it, but we also deliver it.",
+            "image": "shopify://shop_images/ESL_Grantham_Master_Jade-156-2.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16575408452c806757-0",
+        "16575408452c806757-1",
+        "16575408452c806757-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "From great british beams… to great british classics",
+        "text": "<p>Rustic wooden beams from the beating heart of great British buildings – reclaimed, re-designed, and re-crafted into unique and timeless statement pieces. </p><p>Specialising in reclaimed wood furniture since 2004 - we are Eat Sleep Live, and this is contemporary furniture with an old soul. </p>",
+        "per_row": 3,
+        "background": true
+      }
+    },
+    "16623761783c0455d2": {
+      "type": "collection-content",
+      "blocks": {
+        "16623761782ae84306-0": {
+          "type": "image",
+          "settings": {}
+        },
+        "16623761782ae84306-1": {
+          "type": "image",
+          "settings": {}
+        },
+        "16623761782ae84306-2": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "16623761782ae84306-0",
+        "16623761782ae84306-1",
+        "16623761782ae84306-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "subtitle": "BRITISH MADE",
+        "title": "Forget flat-pack, our furniture is hand-crafted to order.",
+        "text": "<p>See where the magic happens and visit our HQ in Nottingham. This is where you’ll see us create you the perfect piece based on your colour, size and handle choices.</p>"
+      }
+    }
+  },
+  "order": [
+    "collection-template",
+    "16575407328f8b0180",
+    "1662135380e1268515",
+    "1662376209a21c3bbf",
+    "165754084509daeb65",
+    "16623761783c0455d2"
+  ]
+}

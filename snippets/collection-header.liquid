@@ -1,0 +1,41 @@
+<style>
+	.header-{{block.id}} > .collection-header__background-image {
+		background-image:url('{{ collection.image.src | img_url: '1600x' }}');
+	}
+
+	@media screen and (max-width: 768px) {
+		.header-{{block.id}} > .collection-header__background-image {
+			{% if collection.metafields.custom_fields["mobile_banner_image"] != blank %}
+				background-image:url('{{ collection.metafields.custom_fields["mobile_banner_image"] }}');
+			{% else %}
+				background-image:url('{{ collection.image.src | img_url: '768x' }}');
+			{% endif %}
+		}
+	}
+</style>
+
+<div class="collection-header header-{{block.id}}">
+	{% if collection.metafields.custom_fields["banner_video_url"] != blank %}
+		<div class="collection-header__video-container">
+			<div class="background-video background-image__video">
+				<div class="background-video__container">
+				<video autoplay loop muted playsinline>
+					<source src="{{ collection.metafields.custom_fields["banner_video_url"] }}" type="video/mp4">
+					{% include 'background-image-element' with image: collection.image.src | img_url: '1600x', classes: 'homepage-hero hide large--show' %}
+					{% include 'background-image-element' with image: collection.image.src | img_url: '768x', classes: 'homepage-hero homepage-hero-mobile show large--hide' %}
+				</video>
+				</div>
+			</div>
+		</div>
+	{% elsif collection.image != blank %}
+		<div class="collection-header__background-image"​​​​​​></div>
+	{% endif %}
+
+	<div class="collection-header__text-container">
+		{% if collection.metafields.custom_fields["sub_title"] != blank %}
+			<p class="collection-header__sub-title normal-spaced">{{ collection.metafields.custom_fields["sub_title"] }}</p>
+		{% endif %}
+
+		<h1 class="normal-spaced">{{ collection.title }}</h1>
+	</div>
+</div>

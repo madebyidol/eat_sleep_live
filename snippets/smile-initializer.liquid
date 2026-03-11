@@ -1,0 +1,56 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:34+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            d25db1a07607450c7e019711abfc12e5
+//      Signature:      eyJpdiI6InhzSEFsWHBoNk9sR0dPU2JPTU5VQ0E9PSIsInZhbHVlIjoiRld5WFc1TmlVQkxYbnRkT01SVmFxSDEzQTI4YWQzOVBNemhBR3dZR0dvNVVGOW9ScXl1bTFlbm5MQlBlSDFBdmFcL0RJYktYV1VabUJXYk90eVBkam1JQW9DWmxnV05odVBDRGw1bTYyd2E0TE9NbjZTSlZkK1NBVVFpRkllU2tDeVwvN0I4TmtiUFpTUlpLSjc0b2dYUmhGSTVUZzdkUFwvZ09ING9GWElHTFlXN0pacG4xNlpOeDlzMytneXBQc2RFa0J2NEZKbEdrVTluQlNteFVDa3kzRk9WZEdoRXFSbllwTnl3R2xmZTVuR3JwK2p5M3FzMnpyWmZQcFltcXpqd2RLWjdcL1pYcU5SWlNEeThKOEVnSXVCSXFiNVNwMUVNWnpxSzJHK0RYOGhjQXZoWTNoYytMSkV1RnVFck1vT0poSkg2SXY1czFqTGpiUUFjUmREaGRERnk3elloMFc1Vm5saWx1azVyNFptTXJzbE5GaGpTSXBrMjVVWTR6TkhUblwvYzZ5SnkrOUdHTnR2dmNFcktyVlUzYndJNldUYldDNlMwbTRwb3VTMkx3PSIsIm1hYyI6ImViMWRiOGRlZjk0ODQ1MTE0NjU2MTczM2ZlOTdkYTYyOTRlN2VhNDA0Y2Y4OTgwMzNhNGZkMmM4YmZjZGVkOGIifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% assign smile_channel_key = shop.metafields['smile'].channel_key %}
+{% if customer %}
+  {% assign smile_api_secret = shop.metafields['smile'].api_secret %}
+  {% assign smile_customer_accepts_marketing = customer.accepts_marketing %}
+  {% assign smile_customer_email = customer.email %}
+  {% assign smile_customer_first_name = customer.first_name %}
+  {% assign smile_customer_id = customer.id %}
+  {% assign smile_customer_last_name = customer.last_name %}
+  {% assign smile_customer_orders_count = customer.orders_count %}
+  {% assign smile_customer_tags = customer.tags | join: "," %}
+  {% assign smile_customer_total_spent = customer.total_spent %}
+  {% assign smile_digest = smile_channel_key
+    | append: smile_customer_accepts_marketing
+    | append: smile_customer_email
+    | append: smile_customer_first_name
+    | append: smile_customer_id
+    | append: smile_customer_last_name
+    | append: smile_customer_orders_count
+    | append: smile_customer_tags
+    | append: smile_customer_total_spent
+    | hmac_sha256: smile_api_secret %}
+{% endif %}
+
+<div class="smile-shopify-init"
+  data-channel-key="{{ smile_channel_key }}"
+{% if customer %}
+  data-customer-accepts-marketing="{{ smile_customer_accepts_marketing | escape }}"
+  data-customer-email="{{ smile_customer_email | escape }}"
+  data-customer-first-name="{{ smile_customer_first_name | escape }}"
+  data-customer-id="{{ smile_customer_id | escape }}"
+  data-customer-last-name="{{ smile_customer_last_name | escape }}"
+  data-customer-orders-count="{{ smile_customer_orders_count | escape }}"
+  data-customer-tags="{{ smile_customer_tags | escape }}"
+  data-customer-total-spent="{{ smile_customer_total_spent | escape }}"
+  data-digest="{{ smile_digest }}"
+{% endif %}
+></div>

@@ -1,0 +1,235 @@
+{% unless product.tags contains "pdp:hide-aftercare" %}
+    
+    <div class="product__tab">
+
+        {% if product.metafields.custom_fields.product_aftercare != blank %}
+
+            <div class="product__details">
+                {{ product.metafields.custom_fields.product_aftercare }}
+            </div>
+
+        {% endif %}
+
+        {% for block in section.blocks %}
+            {% include block.type %}
+        {% endfor %}
+    </div>
+
+{% endunless %}
+
+
+{% schema %}
+{
+  "name": "Product Aftercare Tab",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "image-text",
+      "name": "Image & Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "usp",
+      "name": "USP's",
+      "settings": [
+        {
+          "type": "header",
+          "content": "USP One"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "medal",
+              "label": "Medal"
+            },
+            {
+              "value": "spanner",
+              "label": "Spanner"
+            },
+            {
+              "value": "hand",
+              "label": "Hand"
+            }
+          ],
+          "default": "medal"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "header",
+          "content": "USP Two"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_two",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "icon_two",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "medal",
+              "label": "Medal"
+            },
+            {
+              "value": "spanner",
+              "label": "Spanner"
+            },
+            {
+              "value": "hand",
+              "label": "Hand"
+            }
+          ],
+          "default": "medal"
+        },
+        {
+          "type": "text",
+          "id": "title_two",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_two",
+          "label": "Content"
+        },
+        {
+          "type": "header",
+          "content": "USP Three"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_three",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "icon_three",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "medal",
+              "label": "Medal"
+            },
+            {
+              "value": "spanner",
+              "label": "Spanner"
+            },
+            {
+              "value": "hand",
+              "label": "Hand"
+            }
+          ],
+          "default": "medal"
+        },
+        {
+          "type": "text",
+          "id": "title_three",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_three",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "product-feature",
+      "name": "Product Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "features",
+          "label": "Features"
+        },
+        {
+            "type": "image_picker",
+            "id": "feature_image",
+            "label": "Image"
+         }
+      ]
+    },
+    {
+      "type": "blogs",
+      "name": "Blog Grid",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Blog Articles"
+        },
+        {
+          "type": "article",
+          "id": "guide_article_one",
+          "label": "Guide Article One"
+        },
+        {
+          "type": "article",
+          "id": "guide_article_two",
+          "label": "Guide Article Two"
+        },
+        {
+          "type": "article",
+          "id": "article_guide_one",
+          "label": "Article One"
+        },
+        {
+          "type": "article",
+          "id": "article_guide_two",
+          "label": "Article Two"
+        },
+        {
+          "type": "article",
+          "id": "article_guide_three",
+          "label": "Article Three"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

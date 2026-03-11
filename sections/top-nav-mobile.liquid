@@ -1,0 +1,178 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:52+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            98b21ceeca5dddd702f0d9be1d5af85f
+//      Signature:      eyJpdiI6ImZiTDNpQXpiT0luRG9FTUZJNG1HZkE9PSIsInZhbHVlIjoiYWFrTzVJU3R0b3ZLUU5lcWVwOENTaUh6cE8rYjVtZjNOY09hXC9pY01mVWdFT2VaeE9XK0tYeWZKMFFVMVVTRkRoNUwxXC9uUHJHaHUrYUExQmRUTHFHMlA5SzRNN3hseGlTRmV0cWFJRDlPbVlyM3Z1YXM2azlZTHh5ZkFxXC9qeEpDZnczYWNCblBiVEYyVVMwVStFRFllQWU1ZjZ0QUFLb1FCUEE0REtIXC9OR0x6ZXB1R3d2QUFLUW9nejN0RW54Zjh1Z2xpaHFQQ2pEOWZEck5mK1hrSXNyMkNnMjIzWEtaNG1JMkN5VWt4VXJzUEFzc2pjRnZBYUswVnNRRG9QUTM4N09McDZrXC92d3F6UW9OSFwveTE0aTZ3MHNzTnFZREdFUldaQnBvT240ekcxVjNuUG5QbDIrTzRuY053bEx4TFFtNlAybWp3NUs0eit4U2E5bnp5QzZNamFRUjNvYnRqTzN3eGJQc2lwK0ZCdUFXelVGbkt2eUYydnN3OWdBM2ZlbElveTVhdmJGaVcwN0V0cXR6S0xIZz09IiwibWFjIjoiODQ4Mzk3MmM1M2M3YjkxNmNiNTNlYjNlNWUyZGZhNTA4MzcxYTA1MTljZGMzMjA5OGJkNGQ0ZDkxYzY3ZGYxYyJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}String of menu asset data{% endcomment %}
+{% assign mobile_layer_1_data = '' %}
+{% if shop.metafields.custom_fields["mobile_menu_1"] != blank %}
+  {% assign separator = "|###|" %}
+  {% assign menu_name_array = shop.metafields.custom_fields["menu_name"] | split: separator %}
+  {% assign option_type_array = shop.metafields.custom_fields["option_type"] | split: separator %}
+  {% assign image_array = shop.metafields.custom_fields["image"] | split: separator %}
+  {% assign icon_array = shop.metafields.custom_fields["icon"] | split: separator %}
+  {% assign fc_keys = shop.metafields.custom_fields["mobile_menu_1"] | split: "," %}
+  {% for i in fc_keys %}
+    {% assign index = i | plus: 0 %}
+    {% if menu_name_array[index] != blank and option_type_array[index] != blank %}
+      {% assign asset = image_array[index] %}
+      {% if option_type_array[index] == 'Icon' %}{% assign asset = icon_array[index] %}{% endif %}
+      {% if asset != blank %}
+        {% assign temp_string = '#ITEM#' | append: menu_name_array[index] | append: '#TYPE#' | append: option_type_array[index] | append: '#ASSET#' | append:  asset | append: "#SPLIT#" %}
+        {% assign mobile_layer_1_data = mobile_layer_1_data | append: temp_string %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign mobile_layer_1_array = mobile_layer_1_data  | split: '#SPLIT#' %}
+
+{% comment %}Layer 2 image menu options{% endcomment %}
+{% assign image_options_2 = section.settings.image_menu_options_2 | downcase %}
+{% assign image_options_1 = section.settings.image_menu_options_1 | downcase %}
+
+{% comment %}Data attributes have been used for some custom styling
+due to mmenu overriding classes{% endcomment %}
+
+<!-- <nav class="drawer drawer--left" id="NavDrawer">
+ -->
+ <nav class="hide" id="mobile-nav">
+  <ul>
+    {% assign top_menu = linklists[section.settings.top_mobile_menu] %}
+    {% for link in top_menu.links %}
+      {% assign menu_image = '' %}
+      {% assign icon_option = false %}
+      {% assign menu_lower = '#item#' | append: link.title | downcase %}
+      {% for option in mobile_layer_1_array %}
+        {% assign option_lower = option | downcase %}
+        {% if option_lower contains menu_lower %}
+            {% assign asset_array = option | split: '#ASSET#' %}
+            {% assign menu_image = asset_array[1] %}
+            {% if option_lower contains '#type#icon' %}{% assign icon_option = true %}{% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %}Section 1{% endcomment %}
+      {% if link.links == blank %}
+      <li data-icon-option="{{icon_option}}" class="mobile-menu__option-one">
+        <a href="{{ link.url | downcase }}">
+        {% if menu_image != '' %}<img src="{{ asset_array[1] }}" alt="{{link.title}}" loading="lazy">{% endif %}
+        {{ link.title }}
+        </a>
+      </li>
+      {% else %}
+        <li data-icon-option="{{icon_option}}">
+          {% if menu_image != '' %}<img src="{{ asset_array[1] }}" alt="{{link.title}}" loading="lazy">{% endif %}
+          <span>{{ link.title }}</span>
+          {% assign title_lower = link.title | downcase %}
+          {% assign option-type = 'text' %}
+          {% if image_options_2 contains title_lower %}
+            {% assign option-type = 'half-image' %}
+          {% elsif image_options_1 contains title_lower %}
+            {% assign option-type = 'full-image' %}
+          {% endif %}
+
+          {% comment %}Section 2{% endcomment %}
+          <ul data-image-only="{{option-type}}">
+          {% for link2 in link.links %}
+            {% if link2.links == blank %}
+              <li data-image-title="false">
+                <a href="{{ link2.url | downcase }}">
+                  {{ link2.title }}
+                </a>
+              </li>
+            {% else %}
+              {% if link2.title != '#' %}<li data-image-title="true"><span>{{ link2.title }}</span></li>{% endif %}
+
+              {% comment %}Section 3{% endcomment %}
+              {% for link3 in link2.links %}
+                {% assign cycle_name = 'cycle' | append: link2.title | handleize %}
+                <li {% if option-type == 'half-image' %}data-image-position="{% cycle cycle_name: 'odd', 'even' %}"{% endif %}>
+                  <a href="{{ link3.url | downcase }}">
+
+                    {% if option-type == 'half-image' or option-type == 'full-image' %}
+                      {% assign collection-image = blank %}
+                      {% assign option-collection = collections[link3.object.handle] %}
+                      {% if option-collection.metafields.custom_fields["mobile_menu_image"] != blank %}
+                        {% assign collection-image = option-collection.metafields.custom_fields["mobile_menu_image"] %}
+                      {% elsif option-collection.image != blank %}
+                        {% assign collection-image = option-collection.image | img_url: '600x' %}
+                      {% endif %}
+                      <div 
+                      {% if collection-image %} style="background-image: url('{{ collection-image }}')"{% endif %} class="mobile-nav__image-option">
+                        <div class="mobile-nav__image-overlay"></div>
+                        <p>{{ link3.title }}</p>
+                      </div>
+                    {% else %}
+                      <p>{{ link3.title }}</p>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+          </ul>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
+
+<div id="mobile-nav-header" class="hide">
+  <form class="mobile-nav__search" action="/search">
+    <input
+      type="text"
+      placeholder="Search"
+      name="q"
+      value="{{ search.terms | escape }}"
+    />
+    <button class="mobile-nav__search-button"><img src="{{ 'search-icon.svg' | asset_url }}" alt="Search"></button>
+  </form>
+  {% include 'cart-button' with classes: 'mobile-mobile__cart' %}
+  <a class="mobile-mobile__close" id="close-mobile-menu">
+    <img src="{{ 'close-icon.svg' | asset_url }}" alt="Close mobile menu">
+  </a>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Mobile Nav",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "top_mobile_menu",
+        "label": "Menu"
+      },
+      {
+        "type": "text",
+        "id": "image_menu_options_2",
+        "label": "Image Menu (2 Images per Row)",
+        "info": "Enter the names of top level menu options that should use an image only sub-menu (separated by a comma) (e.g. beds,tables,storage)"
+      },
+      {
+        "type": "text",
+        "id": "image_menu_options_1",
+        "label": "Image Menu (1 Images per Row)"
+      },
+      {
+        "type": "paragraph",
+        "content": "By default, menu options will use the collection image, this can be overridden by changing the collection's 'mobile menu image' property in Custom Fields"
+      }
+    ]
+  }
+{% endschema %}

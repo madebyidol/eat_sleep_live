@@ -1,0 +1,30 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:12+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            f928dcba0e91ba4a7d2493163b75748b
+//      Signature:      eyJpdiI6IjN6RVplNmNDU0dvSU41aDBRdWNIcXc9PSIsInZhbHVlIjoiRFpwR0txejVEM1R5WGFsNERHZE9Zd2NlOGMzVnRtc3docUIwaXdcL25wWTdNK0JqU3JmWldxQXlcLzJPVTUzZXFZd21kTGxSdzI5aVoybGZkNUVwelpcLzJ6SXRKRENzMXJCZDI0ajJrMUJoY0JDcXMrT0RhalBFSEJPSjUybzdhWFZncHJNcm1wT1pBRkJTTzk5YTVnK0VseDNCQ2ZxSE5BNDBqR0lObHlzSVwvU0VwelF0bXdMNzhNUjNDbllZYWFFZ2lKdFJqYkdib3FmUEdYRGlVbkJGcXNjQTNvOUo1OFg4VnVUbWFCdUxmXC9LRkw0a1lYTDVJQW5rc1JYYmE1TFwvS2p3SUx3dUJSKytIRUJzSkpyQVJzWmIxY2pNMjBuQmNhQXZIUllaajEwYmpseHFpRlhvd2w4STEyVUZrRHFvK3BqY2luS1F3MVlja2IrVkhaVksrUXZoSUNiTUNjT3VwcFwvaHVXdlBxZGk2bGNyWUFza0Z3RnVoMUYwMUtmcnlnV3NsNFgrZFM3SkNxSUhEZ1RHd0gxblRvSkxyOHRhT3p2NkN5SkJwNkFkRHM9IiwibWFjIjoiNjVhNDQ3NTUzOWQ4ZjJjMzk0OWQwNzRiODczMzhhNTdlYjA0Y2FkNjBiYzg1ZjYwNTY3ZTUyMWViNmU0YmNkMiJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="flex product__title-price">
+	<div>
+		<h1 class="h5 product__title">{{ product.title }}</h1>
+		<p class="product__price" content="{{ product.selected_or_first_available_variant.price | divided_by: 100 }}"><span class="product-price">{% if product.first_available_variant == blank %}Sold Out{% else %}{{ product.first_available_variant.price | money_without_trailing_zeros }}{% endif %}</span><span class="product__price-prefix"> {{ section.settings.price-prefix }}</span></p>
+	</div>
+	{% comment %}
+	<div class="product-block__wishlist">
+		{% include 'wishl-wishlist', wishl_adder: 'atomic' %}
+	</div>
+{% endcomment %}
+</div>

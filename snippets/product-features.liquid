@@ -1,0 +1,20 @@
+<div class="product__feature">
+
+    <div class="product__feature-image">
+        {{ featured.image }}
+    </div>
+
+    <div class="product__feature-content">
+
+        <span class="product__feature-category">{{ featured.category }}</span>
+        <span class="product__feature-title">{{ featured.title }}</span>
+
+        <ul class="product__feature-list">
+            {% for item in featured.feature_list %}
+                <li>{{ item.feature_list }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+</div>

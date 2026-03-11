@@ -1,0 +1,65 @@
+{%- assign feature_image = section.settings.feature_image -%}
+
+<div class="product__features">
+
+    <div class="product__features-image">
+		{%- if feature_image != blank -%}
+			{% render 'image-element' with image_object: feature_image %}
+		{%- else -%}
+			{{ 'image' | placeholder_svg_tag }}
+		{%- endif -%}
+    </div>
+
+    <div class="product__features-content">
+        <div class="product__features-content-inner">
+			{%- if section.settings.subtitle != blank -%}
+				<div class="product__features-subtitle">{{ section.settings.subtitle }}</div>
+			{%- endif -%}
+
+            <div class="product__features-title">{{ section.settings.title }}</div>
+
+            <div class="product__features-features">
+                {{ section.settings.features }}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Product features",
+  "class": "product-features-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+	  "default": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+	  "default": "Title text"
+    },
+    {
+      "type": "richtext",
+      "id": "features",
+      "label": "Features",
+	  "default": "<p>Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Features",
+      "category": "Blocks"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,77 @@
+{% if section.settings.enable_banner != false %}
+
+    <div class="promotion-banner" style="background-color: {{ section.settings.background_colour }}">
+
+        {% if section.settings.link != blank %}
+            <a href="{{ section.settings.link }}">
+        {% endif %}        
+
+        <div class="promotion-banner__inner promotion-banner__inner--{{ section.settings.alignment }}">
+            <div class="promotion-banner__text sml-caps" style="color: {{ section.settings.text_colour }}">
+                {{ section.settings.text }}
+            </div>
+        </div>
+
+        {% if section.settings.link != blank %}
+            </a>
+        {% endif %}  
+
+    </div>
+
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Promotion Banner",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "enable_banner",
+                "label": "Enable Banner",
+                "default": false
+            },
+            {
+                "type": "text",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "url",
+                "id": "link",
+                "label": "Link"
+            },
+            {
+                "type": "select",
+                "id": "alignment",
+                "label": "Alignment",
+                "options": [
+                    {
+                        "label": "Left",
+                        "value": "left"
+                    },
+                    {
+                        "label": "Center",
+                        "value": "center"
+                    },
+                    {
+                        "label": "Right",
+                        "value": "right"
+                    }
+                ],
+                "default": "center"
+            },
+            {
+                "type": "color",
+                "id": "background_colour",
+                "label": "Background Colour",
+                "default": "#000000"
+            },
+            {
+                "type": "color",
+                "id": "text_colour",
+                "label": "Text Colour",
+                "default": "#ffffff"
+            }
+        ]
+    }
+{% endschema %}

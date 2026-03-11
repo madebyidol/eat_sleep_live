@@ -1,0 +1,241 @@
+<div class="footer-blog">
+
+    <div class="footer-blog__inner">
+
+        <div class="footer-blog__articles">
+
+            <div class="footer-blog__article-stack">
+
+                {% if block.settings.guide_article_one != blank %}
+                <div class="footer-blog__article footer-blog__article--half">
+
+                    <a href="{{ block.settings.guide_article_one.url | downcase }}">
+                        <div class="footer-blog__article-image">
+
+                            <img src="{{ block.settings.guide_article_one.image | image_url: width: 310 }}"
+                                loading="lazy" alt="{{ section.settings.guide_article_one.image.alt }}" width="310"
+                                height="135">
+
+                        </div>
+
+                        <div class="footer-blog__article-title">
+                            {{ block.settings.guide_article_one.title }}
+                        </div>
+                    </a>
+
+                </div>
+                {% endif %}
+
+                {% if block.settings.guide_article_two != blank %}
+                <div class="footer-blog__article footer-blog__article--half">
+
+                    <a href="{{ block.settings.guide_article_two.url | downcase }}">
+                        <div class="footer-blog__article-image">
+
+                            <img src="{{ block.settings.guide_article_two.image | image_url: width: 310 }}"
+                                loading="lazy" alt="{{ section.settings.guide_article_two.image.alt }}" width="310"
+                                height="135">
+
+                        </div>
+
+                        <div class="footer-blog__article-title">
+                            {{ block.settings.guide_article_two.title }}
+                        </div>
+                    </a>
+
+                </div>
+                {% endif %}
+
+            </div>
+
+
+            {% if block.settings.article_one != empty %}
+
+                {%
+                liquid
+                    assign articleClass = "footer-blog__article--full"
+                    assign articleContentClass = ""
+                    assign imageHeight = 294
+                    assign art = block.settings.article_one
+                
+                    for tag in art.tags
+                        if tag contains "guide"
+                            assign articleClass = "footer-blog__article--guide"
+                            assign articleContentClass = "footer-blog__article-title--full"
+                            assign imageHeight = 135
+                        endif
+                    
+                        if tag contains "tag:"
+                            assign blockTag = tag | replace: "tag:", "" | capitalize
+                        endif
+                    
+                    endfor
+                
+                %}
+
+                <div class="footer-blog__article {{ articleClass }}">
+                
+                    <a href="{{ art.url | downcase }}">
+                        <div class="footer-blog__article-image">
+                
+                            {% if art.tags contains "guide" %}
+                            <div class="footer-blog__article-image--tag">
+                                <div class="icon icon--white">
+                                    {% include 'icon-tag' %}
+                                </div>
+                                <span>{{ blockTag }}</span>
+                            </div>
+                            {% endif %}
+                
+                            <img src="{{ art.image | image_url: width: 310 }}" loading="lazy"
+                                alt="{{ art.image.alt }}" width="310" height="{{ imageHeight }}">
+                
+                        </div>
+                
+                        <div class="footer-blog__article-title {{ articleContentClass }}">
+                            {{ art.title }}
+                
+                
+                            {% if art.tags contains "guide" %}
+                            <div class="footer-blog__article-title--link">
+                                <span>{{ 'blogs.article.read_more' | t }}</span>
+                                <div class="icon icon--light-grey">
+                                    {% include 'chevron-right' %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </a>
+                
+                </div>
+
+            {% endif %}
+
+            {% if block.settings.article_two != empty %}
+
+                {%
+                liquid
+                    assign articleClass = "footer-blog__article--full"
+                    assign articleContentClass = ""
+                    assign imageHeight = 294
+                    assign art = block.settings.article_two
+                
+                    for tag in art.tags
+                        if tag contains "guide"
+                            assign articleClass = "footer-blog__article--guide"
+                            assign articleContentClass = "footer-blog__article-title--full"
+                            assign imageHeight = 135
+                        endif
+                    
+                        if tag contains "tag:"
+                            assign blockTag = tag | replace: "tag:", "" | capitalize
+                        endif
+                    
+                    endfor
+                
+                %}
+
+                <div class="footer-blog__article {{ articleClass }}">
+                
+                    <a href="{{ art.url | downcase }}">
+                        <div class="footer-blog__article-image">
+                
+                            {% if art.tags contains "guide" %}
+                            <div class="footer-blog__article-image--tag">
+                                <div class="icon icon--white">
+                                    {% include 'icon-tag' %}
+                                </div>
+                                <span>{{ blockTag }}</span>
+                            </div>
+                            {% endif %}
+                
+                            <img src="{{ art.image | image_url: width: 310 }}" loading="lazy"
+                                alt="{{ art.image.alt }}" width="310" height="{{ imageHeight }}">
+                
+                        </div>
+                
+                        <div class="footer-blog__article-title {{ articleContentClass }}">
+                            {{ art.title }}
+                
+                
+                            {% if art.tags contains "guide" %}
+                            <div class="footer-blog__article-title--link">
+                                <span>{{ 'blogs.article.read_more' | t }}</span>
+                                <div class="icon icon--light-grey">
+                                    {% include 'chevron-right' %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </a>
+                
+                </div>
+
+            {% endif %}
+
+            {% if block.settings.article_three != empty %}
+
+                {%
+                liquid
+                    assign articleClass = "footer-blog__article--full"
+                    assign articleContentClass = ""
+                    assign imageHeight = 294
+                    assign art = block.settings.article_three
+                
+                    for tag in art.tags
+                        if tag contains "guide"
+                            assign articleClass = "footer-blog__article--guide"
+                            assign articleContentClass = "footer-blog__article-title--full"
+                            assign imageHeight = 135
+                        endif
+                    
+                        if tag contains "tag:"
+                            assign blockTag = tag | replace: "tag:", "" | capitalize
+                        endif
+                    
+                    endfor
+                
+                %}
+
+                <div class="footer-blog__article {{ articleClass }}">
+                
+                    <a href="{{ art.url | downcase }}">
+                        <div class="footer-blog__article-image">
+                
+                            {% if art.tags contains "guide" %}
+                            <div class="footer-blog__article-image--tag">
+                                <div class="icon icon--white">
+                                    {% include 'icon-tag' %}
+                                </div>
+                                <span>{{ blockTag }}</span>
+                            </div>
+                            {% endif %}
+                
+                            <img src="{{ art.image | image_url: width: 310 }}" loading="lazy"
+                                alt="{{ art.image.alt }}" width="310" height="{{ imageHeight }}">
+                
+                        </div>
+                
+                        <div class="footer-blog__article-title {{ articleContentClass }}">
+                            {{ art.title }}
+                
+                
+                            {% if art.tags contains "guide" %}
+                            <div class="footer-blog__article-title--link">
+                                <span>{{ 'blogs.article.read_more' | t }}</span>
+                                <div class="icon icon--light-grey">
+                                    {% include 'chevron-right' %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </a>
+                
+                </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>

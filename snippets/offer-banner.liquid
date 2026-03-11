@@ -1,0 +1,175 @@
+{%- comment -%}
+  //    !!!! - DO NOT MODIFY - !!!!
+  //    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+  //    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+  //
+  //    Deployment info:
+  //      Updated at:     2022-01-18T16:24:22+00:00
+  //      Cause:          Manual deployment.
+  //      Deployment ID:  147891
+  //      Project:        310
+  //      Environment:    1410 - qa-testing
+  //      MD5:            4da8809970228bd6c2bbc58ad423cc2a
+  //      Signature:      eyJpdiI6IlVTcVwvSkp0QjVObTdrUXA2d3pYeUNBPT0iLCJ2YWx1ZSI6IkxEREdhRGwwUm1cL3RCVzVFUklxNWloV3FzcWNtbEtJY05NaVpVbFZoMWtDN3ZlWDA3Mlo1dFJoeFBpNkZZc1pvNlQ4WjJnSndPcUNlSDM5U1pEcjRHeXpXMkNOT3pLUTdkU0lMZTl4M3VPd1FnbklZdnc3MVBzMnZ2b2I0SFpEanRyRnRSbkYyd2ZwMEE2dTVPUXYrSmpHZ1ZYN3hIK3ZRRkk2cmx5Z1d3ZGo3ZVZxWEt4Q3I2a24yNGZBa1J5eWFIa3hrbTZVVUpxTkNMMm56cHQzQUpkUXJFSlVtMkRrY0pxUTZPUEVCQ3R4RmQySkZVbUptSGZtOTZ2QTczSzRBTklMcnVMdE1XK0NodWtISDlSWTJTNjZERFNaa2FiVGQ2c3UzMEtSVDQzTEViVnA1MldTNnRISWYwNEJUdmN3SnIwY2RkSEtuYTZvWSt6RnZYTjFCdzBPdEJcL3FaUXg5WUxUOFZVNU05SjRQNzBGZnZ4R25UYmN3OFI1azZcL0xvSGliYzFqYVwvRUVKK2YrbFg3XC9mbHRLQT09IiwibWFjIjoiZmRlMTQ1NTE1ZTNmY2U4MjUxOGIwOTk1NGQ2NjFiMjlkYWE3ZTZjOTYzNjBlOGQwNzJkZDY0MWRhNDE1MGIwMyJ9
+  //
+  //    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+  //    It is used to provide version control and reliable deployment environments.
+  //
+  //    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if settings.offer_banner_show == true %}
+  <div class="home-offer-section color_secondary_body_text">
+    <div class="row">
+      <div class="desktop-12 flexbox marquee">
+        <div class="marquee__inner">
+        
+          {% assign max_loop_count = 10 %}
+          {% for i in (1..max_loop_count) %}
+            <div class="marquee__part">
+              <div class="flex  home-offer-section__points">
+                <div class="announcement__title">
+                  {% if settings.offer_banner_link_1 != blank %}
+                    <a href="{{ settings.offer_banner_link_1 }}" title="{{ settings.offer_banner_txt_1 }}">
+                    {% endif %}
+  
+                    <span>{{ settings.offer_banner_txt_1 }}</span>
+  
+                    {% if settings.offer_banner_link_1 != blank %}
+                    </a>
+                  {% endif %}
+                </div>
+                <div class="announcement__title listitem">
+                  <div
+                    class="trustpilot-widget trustpilot-widget--white"
+                    data-locale="en-GB"
+                    data-template-id="5419b732fbfb950b10de65e5"
+                    data-businessunit-id="4d5ff8fc00006400050eb7e5"
+                    data-style-height="18px"
+                    data-style-width="100%"
+                    data-theme="light">
+                    <a
+                      href="https://uk.trustpilot.com/review/www.eatsleeplive.co.uk"
+                      target="_blank"
+                      rel="noopener">Trustpilot</a>
+                  </div>
+                  <div
+                    class="trustpilot-widget"
+                    data-locale="en-GB"
+                    data-template-id="5419b732fbfb950b10de65e5"
+                    data-businessunit-id="4d5ff8fc00006400050eb7e5"
+                    data-style-height="18px"
+                    data-style-width="100%"
+                    data-theme="dark">
+                    <a
+                      href="https://uk.trustpilot.com/review/www.eatsleeplive.co.uk"
+                      target="_blank"
+                      rel="noopener">Trustpilot</a>
+                  </div>
+                </div>
+                <!-- End TrustBox widget -->
+                <div class="announcement__title listitem">
+                  {% if settings.offer_banner_link_2 != blank %}
+                    <a href="{{ settings.offer_banner_link_2 }}" title="{{ settings.offer_banner_txt_2 }}">
+                    {% endif %}
+  
+                    <span>{{ settings.offer_banner_txt_2 }}</span>
+  
+                    {% if settings.offer_banner_link_2 != blank %}
+                    </a>
+                  {% endif %}
+                </div>
+  
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+
+        <div class="hide  medium--hide small--hide js-component__slick slick-hide slick-arrows home-offer-section__slider home-offer-section__points" data-slick='   {
+                                  
+                                  "slidesToShow": 3,
+                                  "infinite": true,
+                                  "draggable": true,
+                                  "rows": 0,
+                                  "autoplay": true,
+                                  "arrows": false,
+                                  "responsive": [
+                                    {
+                                      "breakpoint": 9999,
+                                      "settings": "unslick"
+                                    },
+                                    {
+                                      "breakpoint": 768,
+                                      "settings": {
+                                        "slidesToShow": 1,
+                                        "arrows": false
+                                      }
+                                    }
+                                  ]
+                                }'>
+          <span>{{ settings.offer_banner_txt_1 }}</span>
+          <div>
+            <div
+              class="trustpilot-widget trustpilot-widget--white"
+              data-locale="en-GB"
+              data-template-id="5419b732fbfb950b10de65e5"
+              data-businessunit-id="4d5ff8fc00006400050eb7e5"
+              data-style-height="18px"
+              data-style-width="100%"
+              data-theme="light">
+              <a
+                href="https://uk.trustpilot.com/review/www.eatsleeplive.co.uk"
+                target="_blank"
+                rel="noopener">Trustpilot</a>
+            </div>
+            <div
+              class="trustpilot-widget"
+              data-locale="en-GB"
+              data-template-id="5419b732fbfb950b10de65e5"
+              data-businessunit-id="4d5ff8fc00006400050eb7e5"
+              data-style-height="18px"
+              data-style-width="100%"
+              data-theme="dark">
+              <a
+                href="https://uk.trustpilot.com/review/www.eatsleeplive.co.uk"
+                target="_blank"
+                rel="noopener">Trustpilot</a>
+            </div>
+          </div>
+          <span>{{ settings.offer_banner_txt_2 }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if settings.offer_banner_annimation == true %}
+
+  <script>
+
+    let currentScroll = 0;
+    let isScrollingDown = true;
+
+    let tween = gsap.to(".marquee__part", {xPercent: -100, repeat: -1, duration: 29, ease: "linear"}).totalProgress(0.5);
+
+    gsap.set(".marquee__inner", {xPercent: -16});
+
+    window.addEventListener("scroll", function(){
+      
+      if ( window.pageYOffset > currentScroll ) {
+        isScrollingDown = true;
+      } else {
+        isScrollingDown = false;
+      }
+      
+      gsap.to(tween, {
+        timeScale: isScrollingDown ? 1 : -1
+      });
+      
+      currentScroll = window.pageYOffset
+    });
+
+
+  </script>
+
+{% endif %}

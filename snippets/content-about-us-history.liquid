@@ -1,0 +1,62 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:18+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            77c28e15076d2f1e326fce80e45d6e86
+//      Signature:      eyJpdiI6ImErR2ZMaHJJOW5CVnJKaE43MmMrVEE9PSIsInZhbHVlIjoia0pzM0p5MHh2NSsrTWkzN1V6cE1tKzZtaU1nTVptTVJ3Mnp5cVlcL2UrUkF0N0w4UjFaSmxuSnhMRlB6bTNJY2djV0pzMVZNNUdXbkVqeGR4blZEZ3hSZHZKRG9ndm5lbnY5WVdLVHkzZDRNUkNOQWZNTWtjcHBMSEpPRWRyWnhITVhEQ0w2XC9HVHlRd3p5bTJEOVl4S1FXd0dVeXZrblBRK1VcL0VSTFMwTnBPYzdKNnNXRWVEVFBcL3FQZTNnSm8yUzRkK1wvczJKQnRzT2VKd3JIMWZhQ01qZzZmVVlyc3RRZlUwd2NUdVZXZks0em8wNjBJRlZ1TEtBY3JyS2F1V3ladlNLUUkrWHhDUFwva25URm1sWUJNVGhzellUN1pUZmVuZ0puaWRKWG0yWXh3T05cL3Qwd0p4SGtNcGxXVUF2MzNZYTV1XC9YTFVndmdDSVY2cHZHTCs1b1RJbXluVnlPQXE1WjF6XC9Qb3ZMb2hmSmVVRlVXY1RsYUVLc0V5ckNlT0dZc3UraGRWUDlseUQrbVVkK1lycjc4U3JzVVJFT2NPaEFydVhKOXQyQmQ5TT0iLCJtYWMiOiJlZTQ1NjQ4MTgyZTA1OWYxZTMyZWVjZDIyNGJjZjc5NWNjMjMzMGY0MTMwNzQxYTk0N2FlMzZiNzE1NGM4YTIzIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if shop.metafields.custom_fields["about_us_history_slider"] != blank %}
+  {% assign history_image_array = shop.metafields.custom_fields["history_image"] | split: separator %}
+  {% assign history_title_array = shop.metafields.custom_fields["history_title"] | split: separator %}
+  {% assign history_description_array = shop.metafields.custom_fields["history_description"] | split: separator %}
+  {% assign about_us_slides = shop.metafields.custom_fields["about_us_history_slider"] | split: "," %}
+
+  <div class="article-content block-featured">
+  	{% if page.metafields.custom_fields["about_us_history_title"] != blank %}<h4>{{ page.metafields.custom_fields["about_us_history_title"] }}</h4>{% endif %}
+  	<div class="js-component__slick slick-hide slick-arrows" data-progress-bar="#history-slider-{{au_history_position_check}}" data-slick='
+  	  	{
+  	  		"slidesToShow": 3,
+  	  		"slidesToScroll": 3,
+  	  		"infinite": false,
+  	  		"variableWidth": false,
+  	  		"arrows": true,
+  	  		"nextArrow": "<button type=\"button\" class=\"slick-next {% if full_arrow == true %}slick-arrow-full{% endif %}\"></button>",
+  	  		"prevArrow": "<button type=\"button\" class=\"slick-prev {% if full_arrow == true %}slick-arrow-full{% endif %}\"></button>",
+  	  		"responsive": [
+  	  			{
+  		  			"breakpoint": 768,
+  		  			"settings": {
+  		  				"arrows": false,
+  		  				"slidesToShow": 1.2,
+  		  				"slidesToScroll": 1
+  	  			}
+  	  		}]
+  	  	}'>
+	      {% for slide in about_us_slides %}
+	        {% assign slides_index = slide | plus: 0 %}
+	  		<div class="product-block">
+	  			<img src="{{ history_image_array[slides_index] }}" alt="{{ history_title_array[slides_index] }}">
+  				<h5 class="product-block__title about-us__history-title m-t-20 m-b-10">{{ history_title_array[slides_index] }}</h5>
+  				<p class="product-block__price about-us__history-desc">{{ history_description_array[slides_index] }}</p>
+	  		</div>
+	      {% endfor %}
+  	</div>
+  	<div class="slick-progress-bar m-t-45">
+  		<div id="history-slider-{{au_history_position_check}}" class="slick-progress-bar-value"></div>
+  	</div>
+  </div>
+{% else %}
+<p>Ensure history slides have been added on <a href="https://customfields.bonify.io/dashboard/eat-sleep-live-2.myshopify.com/globals">custom fields</a></p>
+{% endif %}

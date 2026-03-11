@@ -1,0 +1,142 @@
+<div class="collection-signposting-carousel">
+	{% if section.settings.title != blank %}
+		<div class="flex flex-wrap flex-center"  data-aos-delay="50">
+			<div class="one-half medium--four-fifths small--one-whole text-center">
+				{% if section.settings.title != blank %}
+					<h4 class=" m-b-10">{{ section.settings.title }}</h4>
+				{% endif %}
+			</div>
+		</div>
+
+    <div class="flex flex-wrap flex-center"  data-aos-delay="50">
+			<div class="one-third medium--four-fifths small--four-fifths text-center">
+        <form action="/search" class="form-group-header form-group-header--open">
+          <input name="q" placeholder="Search" type="text">
+          <button aria-label="search button" type="submit">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C13.3137 16 16 13.3137 16 10C16 6.68629 13.3137 4 10 4ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z" fill="#808171"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2929 14.2929C14.6834 13.9024 15.3166 13.9024 15.7071 14.2929L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0976 20.6834 22.0976 20.2929 21.7071L14.2929 15.7071C13.9024 15.3166 13.9024 14.6834 14.2929 14.2929Z" fill="#808171"/>
+            </svg>              
+          </button>
+        </form>
+      </div>
+		</div>
+	{% endif %}
+
+	<div class="wrapper">
+		<div class="collection-slider" data-slick='{
+			"slidesToShow": 5, 
+      "lazyLoad": "ondemand",
+			"slidesToScroll": 2, 
+			"swipe": true,
+			"infinite": false,
+			"arrows": true,
+      "prevArrow": "#prev-{{ section.id }}",
+      "nextArrow": "#next-{{ section.id }}",
+      "responsive": [
+        {
+          "breakpoint": 1200,
+          "settings": {
+            "slidesToShow": 4
+          }
+        },
+        {
+          "breakpoint": 1080,
+          "settings": {
+            "slidesToShow": 3
+          }
+        },
+        {
+          "breakpoint": 768,
+          "settings": {
+            "slidesToShow": 2
+          }
+        },
+        {
+          "breakpoint": 640,
+          "settings": {
+            "slidesToShow": 1,
+            "slidesToScroll": 1 
+          }
+        }
+      ]
+		}'>
+			{% for block in section.blocks %}
+				{% capture child %}
+					<div class="slim-carousel__text-container"  data-aos-delay="50">
+						<a class="main-button" href="{{ block.settings.collection-url | downcase }}">{{ block.settings.title }}</a>
+					</div>
+				{% endcapture %}
+
+				{% include 'background-image-element' with image: block.settings.image, classes: 'slim-carousel large--one-fifth fade-in-container', child: child %}
+			{% endfor %}
+		</div>
+
+    <div class="collection-slick-buttons">
+      <button aria-label="collection signposting carousel prev button" type="button" id="prev-{{ section.id }}" class="slick-prev">{% render 'chevron-left' %}</button>
+      <button aria-label="collection signposting carousel next button" type="button" id="next-{{ section.id }}" class="slick-next">{% render 'chevron-left' %}</button>
+    </div>
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Signposting",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What are you searching for today?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection-slide",
+      "name": "Carousel Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Collection Title"
+        },
+        {
+          "type": "url",
+          "id": "collection-url",
+          "label": "Collection Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Signposting",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "collection-slide"
+        },
+        {
+          "type": "collection-slide"
+        },
+        {
+          "type": "collection-slide"
+        },
+        {
+          "type": "collection-slide"
+        },
+        {
+          "type": "collection-slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

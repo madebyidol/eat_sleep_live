@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "default-header",
+      "blocks": {
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "<p></p><p>We're celebrating our 19th year of handcrafting beautiful reclaimed wood furniture and so it only felt right to offer <strong>19% off everything</strong>* in celebration! <br/><br/>You asked and we've listened, due to overwhelming demand we have extended this offer. It wont be extended again and is only valid for orders placed between the <strong>6th March - midnight on the 15th March 2023.</strong> There is no minimum order value. All orders must be paid in full**.  </p><p>For custom sizing or bespoke furniture,<em> </em>please call us on <a href=\"tel:01159700060\" title=\"tel:01159700060\"><strong>01159 700 060</strong></a> to discuss options.</p><p>*reclaimed wood furniture only, excludes Annabel dining chairs. </p><p>**Klarna and Splitit available for online orders only, V12 finance plans excluded from offer.<br/><br/>For our wood colour samples, simply fill out the form below.</p>"
+          }
+        },
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed": {
+          "type": "request-samples",
+          "disabled": true,
+          "settings": {
+            "button-text": "Shop now"
+          }
+        }
+      },
+      "block_order": [
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0",
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed"
+      ],
+      "settings": {
+        "title": "Promotion - terms & conditions"
+      }
+    },
+    "3c455ca5-19d8-4430-997e-6abe3cb6dfe4": {
+      "type": "two-column-images",
+      "blocks": {
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1_15a8554d-a021-4264-b833-a3c3285698d6.png"
+          }
+        },
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ESL_Grantham_Jade_Selected_Edit-65-2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-0",
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-1"
+      ],
+      "settings": {}
+    },
+    "45899389-2e03-40bc-9676-fae466667b3f": {
+      "type": "samples-form",
+      "settings": {
+        "title": "Ordering a sample box?",
+        "paragraph": "<p><em>Please fill out the below form and we'll post your samples same day!</em></p>"
+      }
+    },
+    "de2aa6e6-f13a-4e38-bfb4-c792dec6c2e6": {
+      "type": "product-carousel",
+      "blocks": {
+        "728ebca4-b19d-4945-8c51-24b214801d81": {
+          "type": "Product",
+          "settings": {
+            "select_product": "branson-1-drawer-bedside-table"
+          }
+        },
+        "93b36585-acfd-4b1d-bc3a-5c92c9ae45cc": {
+          "type": "Product",
+          "settings": {
+            "select_product": "branson-coffee-table"
+          }
+        },
+        "fe0adbf5-6c4c-4003-a92a-014890d32e45": {
+          "type": "Product",
+          "settings": {
+            "select_product": "cavendish-coffee-table-with-shelf"
+          }
+        },
+        "dc185c8e-6a9f-4973-a0e8-7167fd4afa80": {
+          "type": "Product",
+          "settings": {
+            "select_product": "cavendish-dining-table-long-overhang"
+          }
+        },
+        "1efad515-c623-4b05-9c1b-10b5f0ac01c9": {
+          "type": "Product",
+          "settings": {
+            "select_product": "hudson-bed-with-low-end"
+          }
+        },
+        "9ed7e47b-a6a3-40fe-bf7d-45b616872a1e": {
+          "type": "Product",
+          "settings": {
+            "select_product": "hudson-mirror"
+          }
+        }
+      },
+      "block_order": [
+        "728ebca4-b19d-4945-8c51-24b214801d81",
+        "93b36585-acfd-4b1d-bc3a-5c92c9ae45cc",
+        "fe0adbf5-6c4c-4003-a92a-014890d32e45",
+        "dc185c8e-6a9f-4973-a0e8-7167fd4afa80",
+        "1efad515-c623-4b05-9c1b-10b5f0ac01c9",
+        "9ed7e47b-a6a3-40fe-bf7d-45b616872a1e"
+      ],
+      "settings": {
+        "heading": "Popular pieces",
+        "content": "",
+        "btn_text": "",
+        "btn_link": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "3c455ca5-19d8-4430-997e-6abe3cb6dfe4",
+    "45899389-2e03-40bc-9676-fae466667b3f",
+    "de2aa6e6-f13a-4e38-bfb4-c792dec6c2e6"
+  ]
+}

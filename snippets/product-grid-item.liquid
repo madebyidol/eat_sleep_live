@@ -1,0 +1,200 @@
+<!-- /snippets/product-grid-item.liquid -->
+{% comment %}
+
+  This snippet is used to showcase each product during the loop,
+  'for product in collection.products' in collection.liquid.
+
+  A liquid variable (grid_item_width) is set just before the this
+  snippet is included to change the size of the container.
+  Once the variable is set on a page, all future instances of this
+  snippet will use that width. Overwrite the variable to adjust this.
+
+  Example
+    - assign grid_item_width = 'large--one-quarter medium--one-half'
+
+{% endcomment %}
+
+{% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  
+  {% comment %}
+    Default
+  {% endcomment %}
+  {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+  
+  {% comment %}
+    Collection Page
+  {% endcomment %}
+  {% if template == 'collection' %}
+    {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+  {% elsif template == 'collection.eat' or template == 'collection.sleep' or template == 'collection.live' %}
+    {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+  {% elsif template == 'cart' %}
+    {% assign grid_item_width = 'large--one-third medium--one-full' %}
+  {% endif %}
+
+{% endunless %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+<div class="custom_grid_class">
+<div class="grid__item {{ grid_item_width }} eq-height col-item">
+
+  {% comment %}
+    Link to your product with the 'within: collection' filter for the link to be aware of the collection.
+    This allows you to create collection-based navigation on the product page.
+
+    Results of using 'within: collection':
+    - Instead of a URL with /products/product-handle
+      you would get /collections/collection-handle/products/product-handle
+
+    For more info on navigation within a collection
+      - http://docs.shopify.com/support/your-store/collections/how-to-navigate-within-a-collection
+
+    ESC notes: All product URLs have had the 'within' filter removed to promote the use of canonical URLS
+
+  {% endcomment %}
+  <div class="item-cont">
+      <a href="{{ product.url | downcase }}" class="grid__image custom_image_hover">
+        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy">
+      {%comment%}  <span>
+
+            {% for variant in product.variants %}
+                {% capture sizeNum %}{{ forloop.index }}{% endcapture %}
+                <!-- {{ sizeNum }} -->
+            {% endfor %}
+
+            {% if sizeNum != '1' %}
+              {% if sizeNum == 1 %}
+                <p>{{ sizeNum }} Variation Available</p> 
+              {% else %}
+                <p>{{ sizeNum }} Variations Available</p> 
+              {% endif %}
+            {% endif %}
+        </span> {% endcomment %} 
+        {% for image in product.images offset:1 limit:1 %}
+               <img class="cust_slider_img product_image_hover" alt="{{ image.alt }}"src="{{ image.src | product_img_url: '500X' }}" loading="lazy">
+              {% endfor %}
+      </a>
+  </div>
+
+  <p class="collection-item-title">
+    <a href="{{ product.url | downcase }}">{{ product.title }}</a>
+  </p>
+    <p class="product-item-description">{{product.description | truncatewords: 5}}</p>
+
+  <p class="collection-item-title price-title">
+    {% comment %}
+      You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+      if your variants have different prices.
+    {% endcomment %}
+    {% if on_sale %}
+      {% if product.price_varies %}
+        {% assign sale_price = product.price | money %}
+        {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+      {% else %}
+        <strong>{{ 'products.product.on_sale' | t }}</strong>
+        {{ product.price | money }}
+      {% endif %}
+    {% else %}
+      {% if product.price_varies %}
+        {% assign price = product.price | money %}
+        {{ 'products.general.from_text_html' | t: price: price }}
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+    {% endif %}
+    {% if sold_out %}
+      <br><strong>{{ 'products.product.sold_out' | t }}</strong>
+    {% endif %}
+    {% if on_sale %}
+      <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+      <br><s>{{ product.compare_at_price | money }}</s>
+    {% endif %}
+  </p>
+
+
+ {%comment%} {% if template contains "collection" or "product" %}
+    <a href="{{ product.url }}" class="btn-blue">Shop Now</a>
+  {% endif %} {%endcomment%}
+
+    <div class="product_variant_cst">
+               {% for tag in product.tags %}
+                {% if tag == "show_colours" %}
+                  {% assign show_colours = tag %}
+                {% endif %}
+                {% endfor %}
+          <select name="id" id="productSelect" class="product-single__variants" >
+            {% for variant in product.variants %}
+               {% if variant.available %}
+                 	<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                   {% else %}
+              <option disabled="disabled">
+                {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+              </option>
+             {% endif %}
+          {% endfor %}
+        </select>
+      <a class="cst_grid_confi" href="{{ product.url | downcase }}"><img src="https://cdn.shopify.com/s/files/1/1230/4400/files/icon.png?v=1653383767" loading="lazy"> Configurable</a>
+            {% if show_colours == "show_colours" %}
+               <div class="metafield-selectors mfs-color">
+                   <div class="line-item-property__field option">
+                      <div class="meta-options">
+						 {% capture assetUrl %}bench-1-warm.png{% endcapture %}
+                          {% capture assetName %}warm{% endcapture %}
+                          <label for="colour-{{ assetName | replace: '-', ' ' }}" class="colour">
+                            <img src="{{ assetUrl | asset_url }}" loading="lazy">
+                            <span class="review-heading">{{ assetName | replace: '-', ' ' | capitalize }}</span>
+                          </label>
+
+                          {% capture assetUrl %}bench-1-grey.png{% endcapture %}
+                          {% capture assetName %}grey{% endcapture %}
+                          <label for="colour-{{ assetName | replace: '-', ' ' }}" class="colour">
+                            <img src="{{ assetUrl | asset_url }}" loading="lazy">
+                            <span class="review-heading">{{ assetName | replace: '-', ' ' | capitalize }}</span>
+                          </label>
+
+                          {% capture assetUrl %}bench-1-natural.png{% endcapture %}
+                          {% capture assetName %}natural{% endcapture %}
+                          <label for="colour-{{ assetName | replace: '-', ' ' }}" class="colour">
+                           <img src="{{ assetUrl | asset_url }}" loading="lazy">
+                            <span class="review-heading">{{ assetName | replace: '-', ' ' | capitalize }}</span>
+                          </label>
+
+                          {% capture assetUrl %}bench-1-classic.png{% endcapture %}
+                          {% capture assetName %}classic{% endcapture %}
+                          <label for="colour-{{ assetName | replace: '-', ' ' }}" class="colour">
+                            <img src="{{ assetUrl | asset_url }}" loading="lazy">
+                            <span class="review-heading">{{ assetName | replace: '-', ' ' | capitalize }}</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                 <div class="size_variant_count">
+                 {% assign variantcount = 0 %}
+                   {% for variant in product.variants %}
+                       {% assign variantcount = variantcount | plus: 1 %}
+                   {% endfor %}
+                {{variantcount}} Size
+                 </div>
+              <a class="cst_grid_btn" href="{{ product.url | downcase }}">build yours</a>
+               </div>
+  
+</div>
+</div>

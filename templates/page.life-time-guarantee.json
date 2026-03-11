@@ -1,0 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "default-header",
+      "blocks": {
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "paragraph": ""
+          }
+        },
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed": {
+          "type": "request-samples",
+          "disabled": true,
+          "settings": {
+            "button-text": "Request colour samples"
+          }
+        }
+      },
+      "block_order": [
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0",
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed"
+      ],
+      "settings": {
+        "title": "Learn our story "
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

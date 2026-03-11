@@ -1,0 +1,387 @@
+{% comment %}
+  Featured Products
+  Displays a carousel of featured product cards
+{% endcomment %}
+
+<div class="wrapper featured-products">
+  
+  {% if section.settings.show_heading %}
+  <div class="featured-products-header">
+    {% if section.settings.overline != blank %}
+      <p class="featured-products-overline sml-caps">{{ section.settings.overline }}</p>
+    {% endif %}
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="featured-products-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="featured-products-slider-container">
+    {% render 'slider-arrows', 
+      slider_class: 'featured-products-slider-container',
+      prev_class: 'js-featured-products-prev',
+      next_class: 'js-featured-products-next'
+    %}
+
+    <div class="splide js-featured-products-slider" aria-label="Featured products slider">
+      <div class="splide__track">
+        <div class="splide__list">
+          {% for block in section.blocks %}
+            {% assign product = block.settings.product %}
+            {% if product != blank %}
+            <div class="splide__slide featured-products-card" {{ block.shopify_attributes }}>
+              {% render 'product-card', 
+                product: product, 
+                button_text: block.settings.button_text 
+              %}
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .featured-products {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+
+  .featured-products-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .featured-products-overline {
+    margin: 0;
+  }
+
+  .featured-products-heading {
+    margin: 0;
+    max-width: 28ch;
+  }
+
+  /* Slider container with arrows */
+  .featured-products-slider-container {
+    position: relative;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .featured-products-slider-container .slider-arrow {
+    top: 48%;
+    z-index: 10;
+    transform-origin: center;
+  }
+
+  /* Product card wrapper */
+  .featured-products-card {
+    overflow: hidden;
+    border-radius: {{ section.settings.card_border_radius }}px;
+    background: #fff;
+  }
+
+  /* Product card styles */
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .product-card-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  .product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+    flex: 1;
+  }
+
+  .product-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .product-card-title {
+    margin: 0;
+  }
+
+  .product-card-title a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-card-price {
+    margin: 0;
+  }
+</style>
+
+<script>
+  (function() {
+    if (typeof Splide === 'undefined') {
+      console.warn('Splide.js not loaded');
+      return;
+    }
+
+    var sectionId = '{{ section.id }}';
+    var splideInstance = null;
+
+    function getSliderElement() {
+      return document.querySelector('#shopify-section-' + sectionId + ' .js-featured-products-slider');
+    }
+
+    function getPrevBtn() {
+      return document.querySelector('#shopify-section-' + sectionId + ' .js-featured-products-prev');
+    }
+
+    function getNextBtn() {
+      return document.querySelector('#shopify-section-' + sectionId + ' .js-featured-products-next');
+    }
+
+    // --- Arrow disabled state ---
+
+    function updateArrowStates() {
+      var prevBtn = getPrevBtn();
+      var nextBtn = getNextBtn();
+      if (!prevBtn || !nextBtn || !splideInstance) return;
+    }
+
+    // --- Init ---
+
+    function initSplide() {
+      var sliderElement = getSliderElement();
+      var prevBtn = getPrevBtn();
+      var nextBtn = getNextBtn();
+      if (!sliderElement || !prevBtn || !nextBtn) return;
+
+      splideInstance = new Splide(sliderElement, {
+        type: 'loop',
+        perPage: 4,
+        perMove: 1,
+        gap: '{{ section.settings.card_gap }}px',
+        arrows: false,
+        pagination: false,
+        drag: true,
+        snap: true,
+        trimSpace: false,
+        loop: true,
+        breakpoints: {
+          767: {
+            perPage: 2,
+            padding: 0,
+            focus: 0
+          },
+          1079: {
+            perPage: 3,
+            padding: 0,
+            gap: '16px',
+            focus: 0
+          }
+        }
+      });
+
+      splideInstance.mount();
+
+      // Set initial arrow states and update after every slide move.
+      // Also listen to 'updated' so perPage changes at breakpoints
+      // recalculate lastIndex correctly.
+      updateArrowStates();
+      splideInstance.on('moved', updateArrowStates);
+      splideInstance.on('updated', updateArrowStates);
+
+      prevBtn.addEventListener('click', function() {
+        splideInstance.go('<');
+      });
+
+      nextBtn.addEventListener('click', function() {
+        splideInstance.go('>');
+      });
+    }
+
+    // --- Bootstrap ---
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSplide);
+    } else {
+      initSplide();
+    }
+
+    // Shopify theme editor events
+    if (typeof Shopify !== 'undefined' && Shopify.designMode) {
+      document.addEventListener('shopify:section:load', function(event) {
+        if (event.detail.sectionId === sectionId) {
+          setTimeout(function() {
+            if (splideInstance) {
+              splideInstance.destroy(true);
+              splideInstance = null;
+            }
+            initSplide();
+          }, 100);
+        }
+      });
+
+      document.addEventListener('shopify:section:unload', function(event) {
+        if (event.detail.sectionId === sectionId && splideInstance) {
+          splideInstance.destroy(true);
+          splideInstance = null;
+        }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "Featured furniture"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our bestselling pieces"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1380
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Card gap",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Card border radius",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Build yours"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "product": "Hudson Bed",
+            "button_text": "Build yours"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product": "Branson Chest Of Drawers",
+            "button_text": "Build yours"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product": "Hudson Bookcase",
+            "button_text": "Build yours"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product": "Hudson Dining Table",
+            "button_text": "Build yours"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

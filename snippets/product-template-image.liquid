@@ -1,0 +1,41 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:42+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            c5af0f12e415c9770e0eb654d7461145
+//      Signature:      eyJpdiI6ImhwRkdHM3Q1MlNRTmNFa01uUkhcL3BRPT0iLCJ2YWx1ZSI6ImVTMHZlTENZZ09Ya21lQjQrdlloOGJJa0dSYncybzd5cVpVbHBDY3NYejBSeWRnXC81SExpQUQyTEJiblZqaG41UElKdW50WXZaUFRpZ0JSMlI4OXUwNWpOQVhSUG02N3BibitXa0ppa01XOUZKQmlKSitYM0QyT0xUWkdcLzhUcE5WelhaMGFmNzZBcm8yd1lBM3NZSk9RR3R4TEJWdWJTVjVhRStnTUJCZTY5bW9GQkFIS01tZFVvRWt1ckV2M1VtOGpnRzB6dHZOb2dCZmJvUlpSdVNWdWFHWjdMdGhzdXBMd0g2T0lYY0w0cXRZWmpFY0FBQlRiRHdMWGY4UGZVaktjUGxvWlVZaTFGMWE4ZVVkOEpjdzB2dnF0S3NCYTJGUUg4RUFZaE9cL0R6Z1wvdXp1QldcL0NBYVNDZHZtTUVsUGI1dXpPajNuXC9FRUtrU1NaTm1lXC9Od0JQbUJqaVlCNzhwU3F0Qzh2R1BVWXd6ZHNtMDhuSFUzQ0FRQzVFUWlUWU96XC9WTDdvbEV2MFZtZzU2ZlFmbXdXYXRDbkZVUFN2a3dNRGZ3M0VkbW53Yz0iLCJtYWMiOiI5NmUyYjIwNjliZjM1NjE2M2RlMDgwNmZjYWVkZGZjNDdlNjEzZTg2YWViZWIyODkzMGIzN2NhNDY3ZGI3OGU5In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="{% if model_3d != blank %}product-image__model-container{% else %}product-image__image-container{% endif %} 1" id="variant-image-target">
+	{% if model_3d != blank %}
+		{{model_3d | model_viewer_tag }}
+	{% comment %} <model-viewer 
+		class='product-image__model'
+		src='{{ model_3d.sources[0].url }}' 
+		ar ar-modes='webxr scene-viewer quick-look' 
+		shadow-intensity='1' 
+		shadow-softness='0.3'
+		ar-scale='auto' 
+		camera-controls 
+		alt='{{product.title}}'
+		ios-src='{{ model_3d.sources[0].url }}' 
+	>
+			<div class='model-error hide'>
+				{% include 'image-element' with image_object: product.featured_image %}
+			</div>
+		</model-viewer> {% endcomment %}
+	{% else %}
+		{% include 'image-element' with image_object: product.featured_image, is_product: true %}
+	{% endif %}
+</div>

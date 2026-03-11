@@ -1,0 +1,437 @@
+{%- comment -%}
+  // !!!! - DO NOT MODIFY - !!!!
+  // THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+  // CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+  //
+  // Deployment info:
+  // Updated at: 2022-01-18T16:24:58+00:00
+  // Cause: Manual deployment.
+  // Deployment ID: 147891
+  // Project: 310
+  // Environment: 1410 - qa-testing
+  // MD5: 853aab797279f17921e06a0c04d104c2
+  // Signature: eyJpdiI6IjZ1M2tkMzJxZ09QSkxBaEVlYmQ4N2c9PSIsInZhbHVlIjoiWENBZHJSWUxMUlwvQTFYS1Z2TFM5ejhcLzh5MmZSOEFOZVN0RDJjSHJuVUNQU1wvRzB3RloxaVZvNjBLM3d3aXZXbkFlWm9sMzJcL2s3NVlvMlwvVm45TEFHNGNBM0J5dzBQbFBDM3JtZ0d4Qml2M3FoR3dSbnVRa1EyXC9BeUNLbXpsczFYTXhrODd3dEFWTVY5WXIzRTYwXC9lYkV1Uzg4c01TQkhialBWcmpRKzZlYjE2RzdYNHV6K1p5Y2RmdTVJSGtvV2dQdUQ0VVZsdytGcXN5R2VqZWRXMzU2UWpMdUthRzF2dmtsd09nSVQrYjBmXC9UTExrN002aEM0QVwvbVFtV0srcmhzZ1lwZXRXb2ZibmFMN1wvcWRQanJ3cTA2OVwvbk9NdDNcL3dyYVN1MVwvOHlOVzdlS1hJd2VydGxLODlmajBlOVpiUWxLVE5YQzdvdVhWZE9nUnlXMEhSMWlWSUk4NG9neFhBUTU0ZWsxNjBHTldURGh3VWtRblBXVXcwQzdtQ3JzM3VoYThySUJweE55bERNdWtGY2xybEhnV2N3cHZac1YzMGlwaWx3THl1N0U9IiwibWFjIjoiOWI4YjgyYjBmZWM4MDVmZGJkYWMyZTkwYmYxNWI1MzEyZGRiMDcxYzNjMGU3YWI2ZjgzZmZjMGVjODI0ODdlYiJ9
+  //
+  // MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+  // It is used to provide version control and reliable deployment environments.
+  //
+  // If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+
+{% assign model_3d = product.media | where: "media_type", "model" | first %}
+
+{% comment %}
+  Image sizes parameters
+{% endcomment %}
+{% assign img_size = '600x455' %}
+{% assign img_modal_size = '900x' %}
+{% assign img_crop = 'center' %}
+{% assign img_scale = 2 %}
+{% assign p = "" %}
+
+{% if shop.metafields.custom_fields["product_configuration"] != blank %}
+  {% assign separator = "|###|" %}
+  {% assign name_array = shop.metafields.custom_fields["name"] | split: separator %}
+  {% assign configuration_tag_array = shop.metafields.custom_fields["configuration_tag"] | split: separator %}
+  {% assign configuration_option_name_array = shop.metafields.custom_fields["configuration_option_name"] | split: separator %}
+  {% assign configuration_option_image_array = shop.metafields.custom_fields["configuration_option_image"] | split: separator %}
+  {% assign configuration_option_img_name_array = shop.metafields.custom_fields["configuration_option_img_name"] | split: separator %}
+  {% assign fc_keys = shop.metafields.custom_fields["product_configuration"] | split: "," %}
+{% endif %}
+
+{% for t in product.tags %}
+  {% if t contains "prod:" %}
+    {% assign p = t | replace: "prod:" %}
+  {% endif %}
+{% endfor %}
+
+{%- comment -%}
+// Get the selected color
+{%- endcomment -%}
+{% assign selected_color = product.selected_or_first_available_variant.option1 | downcase %}
+
+<div class="js-component__product product">
+
+  {% include 'product-overlay' %}
+
+  {% include 'product-sticky' %}
+
+  <div class="product-overview wrapper">
+    <div class="product-overview__images">
+      <div class="product-image__container">
+        <div class="product-image__image-container slick-slider" id="variant-image-target">
+          {% for image in product.images %}
+            {% assign img_url = image.src | img_url: img_size, crop: img_crop, scale: img_scale %}
+            {% assign modal_img_url = image.src | img_url: img_modal_size, crop: img_crop, scale: img_scale %}
+            {% assign img_name = image.src | split: '/' | last | replace: ".jpg", "" | replace: ".png", "" %}
+            {% assign iurl = image.src | downcase | replace: "_", "-" %}
+
+            {% unless iurl contains p %}
+              {% assign dataImage = img_name | split: "_" %}
+              <div class="img-slide slick-slide img-zoom" data-name="{{ dataImage }}">
+                {%- liquid
+                  assign loading = "eager"
+                  assign fetchpriority = "auto"
+                  assign preload = false
+                  if forloop.index == 1
+                    assign fetchpriority = "high"
+                    assign preload = true
+                  elsif forloop.index > 2
+                    assign loading = "lazy"
+                  endif
+                -%}
+                {{
+                  image
+                  | image_url: width: 1200
+                  | image_tag:
+                    class: 'img-slide__image',
+                    loading: loading,
+                    fetchpriority: fetchpriority,
+                    data-modal: modal_img_url,
+                    preload: preload,
+                    alt: image.alt
+                }}
+                {% unless image.alt == product.title %}
+                  {% assign image_info = image.alt | split: "| " | last %}
+                  {% if image_info != blank %}
+                    <div class="img-slide__info">
+                      <span>{{ image_info }}</span>
+                    </div>
+                  {% endif %}
+                {% endunless %}
+              </div>
+            {% endunless %}
+          {% endfor %}
+        </div>
+
+        <div class="product-image__render-container do-not-display-{{ product.metafields.custom.disable_product_render_features.value }}" id="render-image-target">
+           <style>
+            .product-image__render-container.do-not-display-true {
+              display: none !important;
+            }
+          </style>
+          {% for image in product.images %}
+            {% assign iurl = image.src | downcase | replace: "_", "-" %}
+            {% if iurl contains p %}
+              {% assign img_url = image.src | img_url: img_size, crop: img_crop, scale: img_scale %}
+              {% assign img_name = image.src | split: '/' | last | replace: ".jpg", "" | replace: ".png", "" %}
+              {% assign img_name = img_name | split: "_" | first %}
+
+              <div class="img-slide" data-name="{{ img_name }}">
+                <img class="{{ classes }}" {{ image_style }} src="{{ img_url }}" alt="{{ image.alt | escape }}"{% if id %} id="{{ id }}"{% endif %}>
+              </div>
+            {% endif %}
+          {% endfor %}
+          <div class="product-image__render-message-container">
+            <span class="product-image__render-message">{{ section.settings.render_message }}</span>
+          </div>
+        </div>
+
+        <div class="product-image__thumbnail-container slick-slider" id="product__thumbnails">
+          {% for image in product.images %}
+            {% assign img_thumb_url = image.src | img_url: '148x126', crop: 'center' %}
+            {% assign iurl = image.src | downcase | replace: "_", "-" %}
+
+            {% unless iurl contains p %}
+              <div class="slick-slide">
+                {%- liquid
+                  assign loadingThumbnail = "eager"
+                  assign fetchpriorityThumbnail = "auto"
+                  if forloop.index == 1
+                    assign fetchpriorityThumbnail = "high"
+                  elsif forloop.index > 2
+                    assign loadingThumbnail = "lazy"
+                  endif
+                -%}
+                {{
+                  image
+                  | image_url: width: 148
+                  | image_tag:
+                    alt: image.alt
+                }}
+              </div>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="product-form product-overview__summary">
+ <div class="product-form product-overview__summary">
+  {%- comment -%}
+    // Get the selected color
+  {%- endcomment -%}
+  {% assign selected_color = product.selected_or_first_available_variant.option1 | downcase %}
+
+  {%- comment -%}
+  // Map the color to its corresponding display name
+  {%- endcomment -%}
+  {% assign color_display_name = "" %}
+  {% assign color_map = "natural:Natural, mocha:Mocha, limed:Limed, grey:Grey, warm:Warm, smoked:Smoked" %}
+  {% assign color_array = color_map | split: ", " %}
+  {% for color_pair in color_array %}
+    {% assign pair = color_pair | split: ":" %}
+    {% if pair[0] == selected_color %}
+      {% assign color_display_name = pair[1] %}
+    {% endif %}
+  {% endfor %}
+
+  {%- comment -%}
+  // Update the H1 tag to include the selected color
+  {%- endcomment -%}
+  <h1 class="product-overview__title" style="margin-bottom: .4em !important;">
+    {% if color_display_name != blank %}
+      {{ color_display_name }} 
+    {% endif %}
+    {{ product.title }}
+  </h1>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <a href="https://uk.trustpilot.com/review/www.eatsleeplive.co.uk" target="_blank" style="max-width: fit-content;">
+    <div style="display: flex; gap: 4px;" >
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </div>
+    <p class="product-form__legend" style="font-size: 11px; margin: .5em 0 0;">Trustpilot rated</p>
+  </a>
+
+  <div class="product-price product-overview__price">
+    {% if product.first_available_variant == blank %}
+      Sold Out
+    {% elsif product.selected_or_first_available_variant.compare_at_price != blank %}
+      <span class="sale_red">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros | strip_html | escape }}</span>
+      <span class="strike">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros | strip_html | escape }}</span>
+    {% else %}
+      {{ product.selected_or_first_available_variant.price | money_without_trailing_zeros | strip_html | escape }}
+    {% endif %}
+  </div>
+
+  <span class="product-overview__tagline">{{ 'products.general.tag_line' | t }}</span>
+
+  {% include 'product-form' %}
+</div>
+
+
+  <div class="product__modal">
+    <button class="product__modal-close">{% render 'close' %}</button>
+    <div class="product__modal-inner">
+      <div class="product-image__image-containers slick-slider" id="variant-image-target" style="">
+        {% for image in product.images %}
+          {% assign img_url = image.src | img_url: img_size, crop: img_crop, scale: img_scale %}
+          {% assign modal_img_url = image.src | img_url: img_modal_size, crop: img_crop, scale: img_scale %}
+          {% assign img_name = image.src | split: '/' | last | replace: ".jpg", "" | replace: ".png", "" %}
+          {% assign iurl = image.src | downcase | replace: "_", "-" %}
+
+          {% unless iurl contains p %}
+            {% assign dataImage = img_name | split: "_" %}
+            <div class="img-slide slick-slide" data-name="{{ dataImage }}">
+              {{
+                image
+                | image_url: width: 900
+                | image_tag:
+                  class: 'img-slide__image',
+                  loading: 'lazy',
+                  alt: image.alt
+              }}
+            </div>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Product Details"
+    },
+    {
+      "type": "text",
+      "id": "submit",
+      "label": "Add to Cart Text",
+      "default": "Add to Basket"
+    },
+    {
+      "type": "text",
+      "id": "samples",
+      "label": "Request Sample Text",
+      "default": "Order your Free Sample"
+    },
+    {
+      "type": "url",
+      "id": "samples_link",
+      "label": "Request Samples Link"
+    },
+    {
+      "type": "text",
+      "id": "custom_text",
+      "label": "Customisations Text",
+      "default": "Talk to us about your customisations"
+    },
+    {
+      "type": "url",
+      "id": "custom_url",
+      "label": "Customisations Link"
+    },
+    {
+      "type": "header",
+      "content": "Trust Points"
+    },
+    {
+      "type": "text",
+      "id": "tp_one_label",
+      "label": "Trust Point Label",
+      "default": "Lifetime Guarantee"
+    },
+    {
+      "type": "select",
+      "id": "tp_one_icon",
+      "label": "Trust Point Icon",
+      "options": [
+        {
+          "value": "medal",
+          "label": "Medal"
+        },
+        {
+          "value": "spanner",
+          "label": "Spanner"
+        },
+        {
+          "value": "hand",
+          "label": "Hand"
+        }
+      ],
+      "default": "medal"
+    },
+    {
+      "type": "text",
+      "id": "tp_two_label",
+      "label": "Trust Point Label",
+      "default": "Lifetime Guarantee"
+    },
+    {
+      "type": "select",
+      "id": "tp_two_icon",
+      "label": "Trust Point Icon",
+      "options": [
+        {
+          "value": "medal",
+          "label": "Medal"
+        },
+        {
+          "value": "spanner",
+          "label": "Spanner"
+        },
+        {
+          "value": "hand",
+          "label": "Hand"
+        }
+      ],
+      "default": "medal"
+    },
+    {
+      "type": "image_picker",
+      "id": "wood_colour_image",
+      "label": "Wood Colour Image"
+    },
+    {
+      "type": "text",
+      "id": "wood_heading",
+      "label": "Wood Colour Heading",
+      "default": "Lorem ipsum"
+    },
+    {
+      "type": "text",
+      "id": "wood_sub",
+      "label": "Wood Colour Sub Heading",
+      "default": "Lorem ipsum"
+    },
+    {
+      "type": "text",
+      "id": "wood_btn_text",
+      "label": "Wood Button Label",
+      "default": "Lorem ipsum"
+    },
+    {
+      "type": "select",
+      "id": "tp_three_icon",
+      "label": "Trust Point Icon",
+      "options": [
+        {
+          "value": "medal",
+          "label": "Medal"
+        },
+        {
+          "value": "spanner",
+          "label": "Spanner"
+        },
+        {
+          "value": "hand",
+          "label": "Hand"
+        }
+      ],
+      "default": "medal"
+    },
+    {
+      "type": "text",
+      "id": "tp_three_label",
+      "label": "Trust Point Label",
+      "default": "Lifetime Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "render_message",
+      "label": "Rendered image message",
+      "default": "Digitally rendered image used for illustration purposes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "add-colour",
+      "name": "Colour",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Colour Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "colour_image",
+          "label": "Colour Image"
+        }
+      ]
+    },
+    {
+      "type": "add-handle",
+      "name": "Handle",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Handle Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "handle_image",
+          "label": "Handle Image"
+        },
+        {
+          "type": "text",
+          "id": "identifier",
+          "label": "Identifier",
+          "info": "The text used in the image URL to identify what handle is used. E.g. 'antiqueH'"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

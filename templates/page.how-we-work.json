@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "default-header",
+      "blocks": {
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "paragraph": ""
+          }
+        },
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed": {
+          "type": "request-samples",
+          "disabled": true,
+          "settings": {
+            "button-text": "Request colour samples"
+          }
+        }
+      },
+      "block_order": [
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0",
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed"
+      ],
+      "settings": {
+        "title": "How we work"
+      }
+    },
+    "c00878f5-65a5-4b09-90ad-ccda26cdef62": {
+      "type": "single-cta",
+      "settings": {
+        "full": false,
+        "image": "shopify://shop_images/Bitmap_41.png",
+        "preheader": "1. Get the ball rolling",
+        "title": "",
+        "content": "You can order online, pop into our workshop & showroom or chat over the phone - we are here to help.\n\nYour order is then scheduled to be lovingly hand crafted.",
+        "button-text": "Get in touch",
+        "button-url": "shopify://pages/get-in-touch",
+        "video-url": ""
+      }
+    },
+    "9696c68c-6765-4126-97e0-a9d0f90f2c0a": {
+      "type": "single-cta",
+      "settings": {
+        "full": false,
+        "image": "shopify://shop_images/ESL_Grantham_Master_Jade-156-2_6ad63432-cd3a-431b-8cec-90dee7c9e72a.jpg",
+        "preheader": "2. Personally delivered by us",
+        "title": "",
+        "content": "We will keep you in the loop and once your unique furniture is complete our own expert 2 man team will deliver and install it carefully in your home.",
+        "button-text": "Learn more",
+        "button-url": "shopify://pages/delivery-assembly-tab",
+        "video-url": ""
+      }
+    },
+    "1a6bfa8d-3c7d-4ee9-985d-93683225717d": {
+      "type": "single-cta",
+      "settings": {
+        "full": false,
+        "image": "shopify://shop_images/ESL_17.05.16-277.jpg",
+        "preheader": "3. Always there for you",
+        "title": "",
+        "content": "Our friendly delivery duo will fit any protective pads where needed and give you aftercare advice, why not purchase some wax to be delivered with your furniture.\n\nThey will have had a hand in either hand crafting or finishing your furniture so can answer any questions you may have.\n\nAfterwards we will make sure you are completely happy and we will always be there if you need us.",
+        "button-text": "Aftercare",
+        "button-url": "shopify://pages/aftercare",
+        "video-url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "c00878f5-65a5-4b09-90ad-ccda26cdef62",
+    "9696c68c-6765-4126-97e0-a9d0f90f2c0a",
+    "1a6bfa8d-3c7d-4ee9-985d-93683225717d"
+  ]
+}

@@ -1,0 +1,222 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:56+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            7523599d266b175488480c740ddf7e5c
+//      Signature:      eyJpdiI6InY5N3VJSStGWmFyYVFWeUxPdHU5Rnc9PSIsInZhbHVlIjoiTzZuN0xSK2tic3FDc3AyYll1QTdSZTRKbnMrVzU5MWVKa051YU1QZUZ5RkV0V0Q4TFwvVTNZVzEwMng2WVZcL1lxSWhZRXZGTllSd01zc1hxRzd6OU9NczlKemd5T1FwQVJTT1FSWm90S1ZXNjJLdmpmYXV5YUdDN1BhVWNKVG4wcHR4VFNPZ3BEeitTUThzSU90eENQK1JrcnY2TzNwSjVxQVlrNFpJd3U0Qkd3UU5NVFZxRm44VElyZ05VOFhyZEkyTzhsVHE0RDdhUkkzYjJYXC9hcTljaVY2MCtVWEdPTmFwQlZkcEM2akFMSFwvbm5qU0lncCtDaFF0OXlmQVBUbDZvb3NuMGJZaWR6dDBiOVZjVnYwRlZkQWp2THpyNGhLa1wvSFYzQWVSTXkxK2FXNWh2cEd2NXV3TVZiOUxiUWNPQ2JJaXc5VmtFaHlsMVFYaCtwcXV5YXBhbVFCSitzYVwvM0Ixa1dTankzR2RTbkgwVjFUZ3dmM01cL3JVSlBNOEZwZGJvSE5VbW5ISTZMb1BVSkFnZEdvYzJHbDkycFg0a05KWE5kSTEycmVjOGM9IiwibWFjIjoiZjM3NjU0M2E0NGMwNjEwZmMyN2IzMjQwZTM3OTZjYmE4ZjFkZWQzNDg2MGY4MjMxODhiMzYyNDZlOTgyZTBkMiJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div id="homeMegamenu">
+    <div class="trigger">{{section.settings.menu-caption}}</div>
+    <div class="megamenu">
+        <div class="megamenu__wrapper">
+            {% assign block_n = section.blocks.size %}
+            <div class="megamenu__menu-block">
+            {% if linklists[section.settings.top-menu] %}
+                {% assign top-menu = linklists[section.settings.top-menu] %}
+                <span class="caption">{{top-menu.title}}</span>
+                <div class="list clearfix spaced">
+                    <ul>
+                    {% assign half-size = top-menu.links.size | divided_by: 2.0 | ceil %}
+                    {% for link in top-menu.links %}
+                        <li ref="{{half-size}}">
+                            <a href="{{ link.url | downcase }}" {% if link.active %}class="active"{% endif %}>{{link.title}}</a>
+                        </li>
+                        {% if forloop.index == half-size %}
+                            </ul>
+                            <ul>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            {% if linklists[section.settings.bottom-menu] %}
+                {% assign bottom-menu = linklists[section.settings.bottom-menu] %}
+                <span class="caption">{{bottom-menu.title}}</span>
+                <div class="list clearfix">
+                    <ul>
+                        {% for link in bottom-menu.links %}
+                        <li>
+                            <a href="{{ link.url | downcase }}" {% if link.active %}class="active"{% endif %}>{{link.title}}</a>
+                        </li>
+                        {% if bottom-menu.links.size > 5 and forloop.index == 5 %}
+                    </ul>
+                    <ul>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            </div>
+            {% if block_n == 0 %}
+                {% assign collection_list_size = "zero" %}
+                {% assign image_block_size = "four" %}
+                {% assign image_size = "1400x" %}
+            {% elsif block_n > 0 and block_n <= 3 %}
+                {% assign collection_list_size = "one" %}
+                {% assign image_block_size = "three" %}
+                {% assign image_size = "1100x" %}
+            {% elsif block_n > 3 and block_n <= 6 %}
+                {% assign collection_list_size = "two" %}
+                {% assign image_block_size = "two" %}
+                {% assign image_size = "800x" %}
+            {% else %}
+                {% assign collection_list_size = "three" %}
+                {% assign image_block_size = "one" %}
+                {% assign image_size = "500x" %}
+            {% endif %}
+
+            {% unless block_n == 0 %}
+                <div class="megamenu__collection-list {{collection_list_size}} clearfix">
+                    <span class="caption">{{section.settings.collection-caption}}</span>
+                    <ul class="{{collection_list_size}}">
+                    {% assign done_blocks = 0 %}
+                    {% for block in section.blocks %}
+                        <li>
+                        {% if collections[block.settings.collection] %}
+                        {% assign done_blocks = done_blocks | plus: 1 %}
+                        {% assign menu_coll = collections[block.settings.collection] %}
+                            {% if block.settings.collection_image and block.settings.collection_image != blank %}
+                                {% assign menu_coll_image = block.settings.collection_image %}
+                            {% else %}
+                                {% assign menu_coll_image = menu_coll.image %}
+                            {% endif %}
+                            {% if block.settings.collection_title and block.settings.collection_title != blank %}
+                                {% assign menu_coll_title = block.settings.collection_title %}
+                            {% else %}
+                                {% assign menu_coll_title = menu_coll.title %}
+                            {% endif %}
+                            <a class="megamenu__collection" style="background-image:url({{menu_coll_image | img_url: '300x'}})" href="{{ menu_coll.url | downcase }}">
+                                <span>{{menu_coll_title}}</span>
+                            </a>
+                        {% endif %}
+                        </li>
+                        {% if forloop.last %}
+                            {% assign dummies = 3 %}
+                            {% assign dummies = dummies | minus: done_blocks %}
+                            {% for i in (1..dummies) %}
+                                <li class="dummy">
+                                    <a class="megamenu__collection dummy" href="javascript:void(0)"></a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if forloop.index == 3 and section.blocks.size > 3 %}
+                            {% assign done_blocks = 0 %}
+                            </ul><ul class="{{collection_list_size}}">
+                        {% elsif forloop.index == 6 and section.blocks.size > 6 %}
+                            {% assign done_blocks = 0 %}
+                            </ul><ul class="{{collection_list_size}}">
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endunless %}
+
+            <a href="{{ section.settings.side-link | downcase }}" class="megamenu__image-block {{image_block_size}}" style="background-image:url({{section.settings.side-img | img_url:image_size }})">
+                <span class="center-text">{{section.settings.side-text}}</span>
+            </a>
+            <!-- TrustBox widget - Horizontal -->
+            <div class="trustpilot-widget" data-locale="en-GB" data-template-id="5406e65db0d04a09e042d5fc" data-businessunit-id="4d5ff8fc00006400050eb7e5" data-style-height="28px" data-style-width="100%" data-theme="dark">
+
+                <a href="https://uk.trustpilot.com/review/www.eatsleeplive.co.uk" target="_blank">Trustpilot</a>
+            </div>
+            <!-- End TrustBox widget -->
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function (){
+        var selector = $("#homeMegamenu");
+        var trigger = $("#homeMegamenu>.trigger");
+        var target = $("#homeMegamenu>.megamenu");
+        trigger.on("mouseenter", function(){
+            target.addClass("active");
+        });
+        target.on("mouseleave", function(){
+            target.removeClass("active");
+        });
+    });
+</script>
+{% schema %}
+    {
+        "name": "Home navigation",
+        "class": "navigation",
+        "max_blocks": 9,
+        "settings": [
+            {
+                "type": "text",
+                "id": "menu-caption",
+                "label": "Menu caption"
+            },
+            {
+                "type": "link_list",
+                "id": "top-menu",
+                "label": "Top menu"
+            },
+            {
+                "type": "link_list",
+                "id": "bottom-menu",
+                "label": "Bottom menu"
+            },
+            {
+                "type": "text",
+                "id": "collection-caption",
+                "label": "Collection caption"
+            },
+            {
+                "type": "header",
+                "content": "Side image"
+            },
+            {
+                "type":"image_picker",
+                "id":"side-img",
+                "label":"Background"
+            },
+            {
+                "type": "text",
+                "id": "side-text",
+                "label": "Caption"
+            },
+            {
+                "type": "url",
+                "id": "side-link",
+                "label": "Link"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "collection",
+                "name": "Collection",
+                "settings": [
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "Collection"
+                    },
+                    {
+                        "type": "text",
+                        "id": "collection_title",
+                        "label": "Caption"
+                    },
+                    {
+                        "type":"image_picker",
+                        "id":"collection_image",
+                        "label":"Image"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

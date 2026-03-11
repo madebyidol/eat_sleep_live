@@ -1,0 +1,449 @@
+{% comment %}
+  Shopify Theme Section: Hero Video Section
+  
+  Installation:
+  1. Save this file as 'hero-video-section.liquid' in your theme's /sections folder
+  2. Add it to your template or use it in the theme customizer
+  
+  Features:
+  - Video background with fallback image
+  - Customizable heading and description
+  - Trustpilot-style review display
+  - Call-to-action button
+  - Fully customizable via theme editor
+{% endcomment %}
+
+<style>
+  .hero-video-section {
+    height: calc(100vh - var(--header-height));
+    min-height: 550px;
+    max-height: 850px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-video-section__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  .hero-video-section__video,
+  .hero-video-section__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+
+  .hero-video-section__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, 0) 50%),
+                rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-video-section__content {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+
+  .hero-video-section__text-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .hero-video-section__text-wrapper h1 {
+    text-shadow: 0 0 16px rgba(0, 0, 0, 0.2)
+  }
+
+  .hero-video-section__text-wrapper .hero-video-section__description {
+    text-shadow: 0 0 16px rgba(0, 0, 0, 1)
+  }
+  
+  .hero-video-section__heading {
+    max-width: 18ch;
+    line-height: 1;
+    margin: 0;
+    color: {{ section.settings.heading_color }};
+  }
+
+  .hero-video-section__description {
+    font-size: {{ section.settings.description_size }}px;
+    line-height: 1.5;
+    max-width: 36ch;
+    margin: 0;
+    color: {{ section.settings.text_color }};
+  }
+
+  .hero-video-section__review-card {
+    backdrop-filter: blur(32px);
+    background: rgb(255 255 255 / 10%);
+    padding: 24px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: fit-content;
+    margin-top: auto;
+  }
+
+  .hero-video-section__reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-video-section__stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .hero-video-section__star {
+    width: 21px;
+    height: 21px;
+  }
+
+  .hero-video-section__rating {
+    font-size: 21px;
+    margin-bottom: -1px;
+    font-weight: bold;
+    color: #FFF;
+    margin-left: 8px;
+    line-height: 1;
+    font-family: Lexend-Exa, sans-serif;
+  }
+
+  .hero-video-section__review-count {
+    color: #FFF;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  .hero-video-section__button:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+
+    .hero-video-section {
+      min-height: calc(100vh - 153px);
+    }
+
+    .hero-video-section__heading {
+      font-size: 44px;
+    }
+
+    .hero-video-section__description {
+      font-size: {{ section.settings.description_size }}px;
+    }
+
+    .hero-video-section__review-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .hero-video-section .main-button {
+      width: 100%;
+    }
+
+    .hero-video-section__overlay {
+    background: linear-gradient(90deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, 0) 100%),
+                rgba(0, 0, 0, 0.3);
+    }
+
+  @media (max-width: 420px) {
+    .hero-video-section__content wrapper {
+      position: relative;
+    }
+    .hero-video-section__heading {
+      font-size: 36px;
+    }
+    .hero-video-section__description {
+      font-size: 18px;
+    }
+    .hero-video-section__text-wrapper {
+      gap: 32px;
+    }
+  }
+  @media (max-height: 670px) {
+    .hero-video-section {
+      height: auto !important;
+    }
+    .hero-video-section__content {
+      position: relative;
+    }
+  }
+</style>
+
+<div class="hero-video-section__background">
+  {% if section.settings.video_url != blank %}
+    <video 
+      class="hero-video-section__video"
+      autoplay 
+      loop 
+      muted 
+      playsinline
+      {% if section.settings.video_poster != blank %}
+        poster="{{ section.settings.video_poster | image_url: width: 2000 }}"
+      {% endif %}
+    >
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+      {% if section.settings.fallback_image != blank %}
+        <img 
+          src="{{ section.settings.fallback_image | image_url: width: 2000 }}" 
+          alt="{{ section.settings.heading }}"
+          class="hero-video-section__image"
+        >
+      {% endif %}
+    </video>
+  {% elsif section.settings.fallback_image != blank %}
+    <img 
+      src="{{ section.settings.fallback_image | image_url: width: 2000 }}" 
+      alt="{{ section.settings.heading }}"
+      class="hero-video-section__image"
+    >
+  {% endif %}
+  
+  <div class="hero-video-section__overlay"></div>
+</div>
+
+<div class="hero-video-section__content wrapper">
+  <div class="hero-video-section__text-wrapper">
+    {% if section.settings.heading != blank %}
+      <h1 class="hero-video-section__heading">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="hero-video-section__description p-lrg">{{ section.settings.description }}</p>
+    {% endif %}
+
+    {% if section.settings.show_reviews %}
+      <div class="hero-video-section__review-card">
+        <a href="https://uk.trustpilot.com/review/www.eatsleeplive.co.uk" target="_blank" class="hero-video-section__reviews">
+          <div class="hero-video-section__stars">
+            {% for i in (1..5) %}
+              <svg class="hero-video-section__star" viewBox="0 0 24 24" fill="none">
+                <path 
+                  fill="{{ section.settings.star_color }}" 
+                  fill-rule="evenodd" 
+                  clip-rule="evenodd" 
+                  d="M14.82 9.3375H24L16.6065 14.5935L12.036 17.817L4.6065 23.073L7.428 14.595L0 9.3375H9.1785L12 0.858L14.82 9.3375ZM17.214 16.5555L12 17.85L19.3935 23.1405L17.214 16.5525V16.5555Z"
+                />
+              </svg>
+            {% endfor %}
+            <span class="hero-video-section__rating">{{ section.settings.rating }}</span>
+          </div>
+          <p class="hero-video-section__review-count sml-caps">{{ section.settings.review_count }}</p>
+        </a>
+
+        {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="main-button lrg-button">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Video",
+  "tag": "section",
+  "class": "hero-video-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "MP4 video URL. Use a CDN or host the video on your Shopify files."
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "Video Poster Image",
+      "info": "Image shown before video loads"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback Image",
+      "info": "Shown if video doesn't load or on unsupported devices"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Reclaimed wood furniture with soul"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "We craft timeless furniture from reclaimed wood, salvaged from historic British buildings and brought to life by our expert hands. Every piece celebrates natural beauty, character, and history."
+    },
+    {
+      "type": "header",
+      "content": "Reviews Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Show Reviews",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Rating",
+      "default": "5.0"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review Count",
+      "default": "912 Reviews"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#00B67A"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore Our Products"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background",
+      "default": "#9f5130"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 30,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading Size",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Description Size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Review Card Background",
+      "default": "#f1eeea"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "hero-video-section",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %}

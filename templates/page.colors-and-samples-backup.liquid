@@ -1,0 +1,179 @@
+<div class="page-content">
+
+<div id="page-colors-and-samples">
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('a.scrollTo[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+
+        var target = this.hash;
+        var $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top - 116
+        }, 575, 'swing', function () {
+            window.location.hash = target;
+        });
+    });
+  });
+</script>
+
+<section class="header">
+  
+  <h1>Colours and Samples</h1>
+  <p>
+    {{settings.colours_and_samples_description}}
+  </p>
+  <a class="scrollTo" href="#requestSamples">Request colour samples</a>
+
+</section>
+
+<section class="request" id="requestSamples">
+  
+  <div class="page-wrap">
+    <div id="requestSamplesFix"></div>
+  <h2>Request a set of colour samples</h2>
+  <p>
+    {{ settings.colours_and_samples }}
+  </p>
+
+    <div class="constrained">
+      <!--[if lte IE 8]>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+      <script defer>
+        $(document).ready(function() {
+          hbspt.forms.create({
+            portalId: "2821538",
+            formId: "91da4124-8268-431e-83e8-dd07e37106c9"
+          });
+        });
+      </script>
+  	</div>
+  </div>
+
+</section>
+
+{%- comment -%} <section class="browse">
+    <div class="browse-box">
+      <h1>While you wait browse our collections</h1>
+      <a href="/pages/shop-by-collection">Browse all collections</a>
+      {% capture page_title %}{{ page.title }}{% endcapture %}
+    </div>
+</section>
+
+<section class="collection-list">
+  
+    <div class="grid__item large--one-whole">
+      <ul class="collections">
+
+        {% for i in (1..4) %}
+          {% capture sample_collection_title %}colours_samples_collection_{{i}}_title{% endcapture %}
+          {% capture sample_collection_image %}colours_samples_collection_{{i}}_bg.jpg{% endcapture %}
+          {% capture sample_handle %}{{ settings[sample_collection_title] | handleize }}-collection{% endcapture %}
+
+          <li style="background-image: url('{{ collections[sample_handle].image | img_url: 'grande' }}');">
+            <div class="main">
+              <a href="{{ shop.url }}/collections/{{ settings.colours_samples_collection_1_title | handleize }}-collection">
+                <span>
+                  {% capture collection_title %}{{ collections[sample_handle].title }}{% endcapture %}
+                  {% assign collection_title_split = collection_title | split: " " %}
+                  <em>{{ collection_title_split[0] }}</em>Collection
+                </span>
+              </a>
+            </div>
+          </li>
+
+        {% endfor %}
+
+      </ul>
+    </div>
+
+</section> {%- endcomment -%}
+
+<script>
+
+  
+  /* Darken collections */
+  $(document).ready(function(){
+    $('.collections li a').mouseover(function(e){
+      $('.collections li a').not($(this)).addClass("darken");
+    });
+    $('.collections li a').bind("mouseleave", function(e){
+      $(".collections li a").not($(this)).removeClass("darken");
+    });
+
+  });
+  /* Darken collections */
+  $(document).ready(function(){
+
+    if ( $(window).width() >= 769 ) {
+      $('.samples-slider').on("mouseover", '.slick-dots li', function(e){
+        $('.samples-slider .slick-dots li').not($(this)).find('a').addClass("darken");
+      });
+      $('.samples-slider').on("mouseleave", '.slick-dots li', function(e){
+        $(".samples-slider .slick-dots li").not($(this)).find('a').removeClass("darken");
+      });
+    }
+    if ( $(window).width() < 768 ) {
+      $('.samples-slider').on("click", '.slick-dots li', function(e){
+        $(".samples-slider .slick-dots li").find('a').addClass("darken");
+        $(this).find('a').removeClass("darken");
+      });
+    }
+
+    if ( $(window).width() < 768 ) {
+      $(".description-contain").on("click",function(){
+        var helper = $(this);
+        helper.addClass("hide-it");
+        var desc = $(this).parent().find(".description");
+        if ($(desc).hasClass("show-it")) {
+          desc.addClass("show-it");
+        } else {
+          desc.removeClass("show-it");
+        }
+        desc.bind("click",function(){
+          desc.removeClass('show-it');
+          helper.removeClass('hide-it');
+          desc.unbind('click');
+        })
+      });
+    }
+
+  });
+
+  /* offset top when form submitted */
+  $(document).ready(function(){
+      var headerHeight = $("header").outerHeight();
+      var contactFormSubmit = window.location.hash;
+      if (contactFormSubmit == "#contact_form") {                 
+        $('html, body').animate({
+            scrollTop: $("#contact_form").offset().top - headerHeight
+        }, 1);
+      }
+
+      $('textarea').keyup(function(){
+        textAreaAdjust(this);
+      });
+
+  });
+
+  function textAreaAdjust(o) {
+    o.style.height = "1px";
+    o.style.height = (25+o.scrollHeight)+"px";
+  }
+
+  /*
+  $(window).load(function() {
+    //Slick mobile responsiveness positioning
+      var mobileList = $('.slick-dots');
+      mobileList.addClass("mobile-dots");
+      console.log("Mobile dots");
+      console.log(mobileList);
+      $(mobileList).insertBefore(".samples-slider");
+  });
+  */
+</script>
+</div>
+</div>

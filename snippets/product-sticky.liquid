@@ -1,0 +1,106 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:43+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            c4aead799b3e3a34467f90241cdf3125
+//      Signature:      eyJpdiI6IkZiS1wvN1lvdXNub0pkbnFUVE9WZXlRPT0iLCJ2YWx1ZSI6IkIxWGM0WU4zZWk2VlRjcFBrN2pTVE1waUc2NzdTYVRMNVlDVHoya0g0b3hBWlk2TUxLQlRaSmVHZUZRTGg5elM4bUdPS3AySElKK0phdzZwbU8zUDNYVklqVXd3MGwwWU15MzRMU1VWUGlrMHlXUnpOSHFZZjl5MWRTTHdRXC8xRWRDOFJORVlOU2JaTWRYcjd2aUhINGtGUDdkRTF0UjVIbG16ek5NZ3hVRElDMU1FSVwvOU9mUVEyYkNSQ3E5ZStXQ2c2ckhxbk9xakVFTnNQaUdqWHBpXC9sbDBTeUpcLzFrN1ZpaUZkaHJuQXM3S0l0ZEc4QlVENHE0THdjWUN3blwvVnAwK1pkSW1oOEpSdHBzM3JnbGpweHZkdGR3dmlMSjdhOGpicmtIeWxWMWtadG5rbmdJWFBSeDZ1OTd1OU5xbzJaUlF4Z1VEV1pLdzhVVVN0UzBKUkNhd1hsNUI1XC92ZkJIYzh4Y2JBU2pGMFFoVk1qQVwvR2ZQSXRrWWZPMW5CM2RZUWt0TmJYZmpLcDFsUW5UXC9JQmU3UT09IiwibWFjIjoiNzIwNjJkODQ1NmE2ZjdhZDQzN2RiOTE5YzVjNmRiZTUyNjAzMjQ5YzBkN2NhMDhlNzAyNjU2YWY2NWYxN2ZhMiJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div id="product-sticky" class="product-sticky hide large--show">
+	<div class="flex flex-wrap product-sticky__container">
+		<h6 class="p-r-20">{{ product.title }}</h6>
+
+		<form autocomplete="off" class="flex-wrap flex">
+		{% unless product.has_only_default_variant %}
+		  {% for option in product.options_with_values %}
+		  		<div class="product-form__variants-container p-l-20 p-r-20">
+					<legend class="product-sticky__legend">
+					  {{ option.name | escape }}
+					</legend>
+					<div class="flex product-sticky__select-container">
+					<select id="ProductSelect-option-{{ option.name | handleize }}" class="product-form__select product-form-sticky">
+						{% for value in option.values %}
+						  {% assign variant_label_state = true %}
+
+						  {% if product.options.size == 1 %}
+							{% unless product.variants[forloop.index0].available %}
+							  {% assign variant_label_state = false %}
+							{% endunless %}
+						  {% endif %}
+						  <option data-reference="#ProductSelect-option-{{ option.name | handleize }}-{{ value | escape | handleize }}" value="{{ value | escape }}">
+						  	{{value}}
+						  </option>
+						{% endfor %}
+					</select>
+					{% include 'chevron-down' %}
+					</div>
+				</div>
+		  {% endfor %}
+		{% endunless %}
+
+		{% assign uniq_name_array = name_array | uniq %}
+		{% for name in uniq_name_array %}
+		<div class="
+			{%- assign hidden = true -%}  
+			{%- for i in fc_keys -%}
+		        {%- assign index = i | plus: 0 -%}
+		        {%- if name_array[index] == name and product.tags contains configuration_tag_array[index] -%} 
+		        	{%- assign hidden = false -%}  
+		        	{%- break -%}
+		        {%- endif -%}
+		    {%- endfor -%} {% if hidden == true %}hide {% endif %} product-form__variants-container p-l-20 p-r-20 flex flex-center">
+		    {% if hidden != true %}
+				<img id="stickyImage-{{name | handleize }}"  class="product-sticky__property-image" src="{{ 'custom-property-null.png' | asset_img_url: '300x' }}" alt="{{ configuration_option_name_array[0] | escape }}">
+				<div>
+				<legend class="product-sticky__legend">
+				  {{ name }}
+				</legend>
+
+				<div class="flex product-sticky__select-container">
+					<select id="customProperty-{{name | handleize }}" class="product-form__select product-form-sticky" data-image-reference="#stickyImage-{{name | handleize }}">
+						{% for i in fc_keys %}
+				        {% assign index = i | plus: 0 %}
+				        {% if name_array[index] == name and product.tags contains configuration_tag_array[index] %} 
+				        	<option 
+				        		data-reference="#{{name | handleize }}-{{ i }}-{{ configuration_option_name_array[index] | handleize }}" 
+				        		data-name-reference="properties[{{name}}]"
+				        		data-image="{{configuration_option_image_array[index]}}"
+				        		value="{{ configuration_option_name_array[index] | escape }}">{{ configuration_option_name_array[index] }}</option>
+				        {% endif %}
+			     		{% endfor %}
+					</select>
+					{% include 'chevron-down' %}
+				</div>
+		     	</div>
+		     {% endif %}
+	     </div>
+		{% endfor %}
+		</form>
+
+		<div class="flex product-sticky__submit-container">
+			<p class="product__price" content="{{ product.selected_or_first_available_variant.price | divided_by: 100 }}"><span class="product-price">{% if product.first_available_variant == blank %}Sold Out{% else %}{{ product.first_available_variant.price | money_without_trailing_zeros }}{% endif %}</span></p>
+			<div class="product-form__controls-group flex m-l-20">
+				<div class="product-form__item product-form__quantity flex number-input m-r-5">
+				  <button class="number-input-minus" type="button">-</button>
+				  <input type="number" id="Quantity-{{ section.id }}"
+					name="quantity" value="1" min="1" pattern="[0-9]*"
+					class="product-form__input product-form__input--quantity sticky-number-input number-input-target" data-quantity-input
+				  >
+				  <button class="number-input-plus" type="button">+</button>
+				</div>
+				<button {% if product.available != true %}disabled="true"{% endif %} data-button-text="{{ section.settings.submit }}" id="sticky-add-to-cart-button" class="main-button add-to-cart-button product-form__submit product-sticky-submit" type="submit" name="add">{% if product.available != true %}UNAVAILABLE{% else %}{{ section.settings.submit }}{% endif %}</button>
+			</div>
+		</div>
+	</div>
+</div>

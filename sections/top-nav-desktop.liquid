@@ -1,0 +1,185 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:25:01+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            c506fe568201d27d864a634aed17208d
+//      Signature:      eyJpdiI6InFXZGxWUjVHNlFTbmVXZHFGc0NiM2c9PSIsInZhbHVlIjoickRFUDdYMGRqMCtmRUU3QmMxcVpmUlBXQzRKY05jT3pUUXhzT3k0UDRuMWh1ZjhZQTNDclpFdHVsTUY2T2RYaXo4cE9MNk44MUNDZDREdVwvTndsT3VydFlhWGxGQkRxd2w5OGF1dHVsVElTRzlvUXY4N3BhOWtjdWF2cHhXTXVMQmpFRW83ZzdHbFJPVTlUVXgwVlluR2t4UGZ0RnA5WFh0eFlWbHNndjhtSm1NUndHV1pIVTJla1pGWG5rak95VkYwNzhiZkxSSDJyek9yV1MySVNYbVJ6N3lvTGZiOFhhaUFBcnQxRjZrY3VVVFwvMndkaUlEcTIyelpUUGQrbnpnOVpqRHB1cHdtNlwva3F4MytoK1J5ZUJNeDdoYlBhdWk1eVFtNDJQQWdyU2JST3I5M3RjbWt3QkgyUEFkNFNPXC9NaTJUKzdXOEtlOU9sWlZqSUsxQlhScEMzM3BMWWVkWjRUNTYwbHpYdnZDY1JDR3NQMUY2TDcrUVhNa2kzV0k3RGtKU2JDaTZvUWRxN3k2ajlrMXpEcHR2M0NNc3prbjk2NjZWTFBKVFQxYzQ9IiwibWFjIjoiZTcxZjIwOWRlN2JlOWNhMGJjZDZjNTdlYjc0OTU1ZjA2Y2M3OWI3OWRlYzQwOWM4YTYxODY0MzVjMDJjMTU0YyJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<nav class="site-header__desktop">
+
+  <div class="mobile-button">
+    <a style="display: flex;" aria-label="Click to open menu" style="cursor: pointer;" id="mobile-trigger">
+      {% include 'menu-icon' %}
+    </a>
+  </div>
+
+	<!-- Logo -->
+	<div class="site-header__logo__grid {% unless settings.logo_use_image %}site-header__logo__grid-text{% endunless %}">
+
+  {% if settings.logo_use_image %}
+		{% comment %}
+			Use the uploaded logo from theme settings if enabled.
+			Site name gets precedence with H1 tag on homepage, div on other pages.
+		{% endcomment %}
+		{% include 'shop-logo' %}
+
+  {% else %}
+
+    <a href="/" itemprop="url" title="{{ shop.name }}" class="site-header__logo-link">
+
+      <span>{{ shop.name }}</span>
+
+    </a>
+  
+  {% endif %}
+
+	</div>
+
+	{% comment %} Menu {% endcomment %}
+	{% include 'desktop-menu' blocks: section.blocks %}
+	
+	{% comment %} Icons {% endcomment %}
+	<ul class="customer-links">
+		<li class="contact_link"><a class="sml-caps" style="margin-right: 8px" href="/pages/get-in-touch">Get in touch</a></li>
+    <li>
+			<a aria-label="Click here to view your account" href="/search">{% include 'search-icon' %}</a>
+		</li>
+		{% if shop.customer_accounts_enabled %}
+			<li class="account_link">
+				{% if customer %}
+					<a aria-label="Click here to view your account" href="https://account.eatsleeplive.co.uk">{% include 'account-icon' %}</a>
+				{% else %}
+					<a aria-label="Click here to view your account" href="https://account.eatsleeplive.co.uk">{% include 'account-icon' %}</a>
+				{% endif %}
+			</li>
+		{% endif %}
+		{% comment %}
+			Keep this comment here as wishlist king requires it to work.
+		{% endcomment %}
+		<!-- include 'wishlist-link-li' -->
+    {% comment %}
+		<li class="wishlist_link">
+			<a href="/a/wishl-wishlist">
+				{% include 'wishlist-icon' %}
+			</a>
+		</li>
+  {% endcomment %}
+		<li>
+			{% include 'cart-button' %}
+		</li>
+	</ul>
+</nav>
+
+<script>
+  var mobileImgs = $('.swapimgMobile');
+  var imgs = $('.swapimg');
+
+$(document).on("click", ".mobile-button #mobile-trigger", function(){ 
+
+  if (mobileImgs.attr("src") != mobileImgs.attr("data-swap")) {
+    mobileImgs.each(function () {
+      $(this).attr('src', $(this).attr("data-swap"));
+    });
+  }
+
+});
+
+$(".site-header__navigation-item").hover(function () {
+  if (imgs.attr("src") != imgs.attr("data-swap")) {
+
+      imgs.each(function () {
+          $(this).attr('src', $(this).attr("data-swap"));
+      });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Desktop Nav",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "top_desktop_menu",
+      "label": "Menu"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "dropdown_image",
+      "name": "Dropdown Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "nav_link",
+          "label": "Navigation Link",
+          "info": "Enter the name of the top level link you want the image to appear on."
+        },
+        {
+          "type": "image_picker",
+          "id": "nav_image",
+          "label": "Dropdown Image",
+          "info": "Recommended minimum size: 527x330px"
+        },
+        {
+          "type": "header",
+          "content": "Button Under Links"
+        },
+        {
+          "type": "url",
+          "id": "lower_button_url",
+          "label": "Lower Button URL"
+        },
+        {
+          "type": "text",
+          "id": "lower_button_label",
+          "label": "Lower Button Label"
+        },
+        {
+          "type": "header",
+          "content": "Button Over Image"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Image Button URL"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Image Button Label"
+        }
+      ]
+    },
+    {
+      "type": "collection_list",
+      "name": "Collection List",
+      "settings": [
+        {
+          "type": "text",
+          "id": "nav_link",
+          "label": "Navigation Link",
+          "info": "Enter the name of the top level link you want the list to appear on."
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_collection_list",
+          "label": "Enable Collection List"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

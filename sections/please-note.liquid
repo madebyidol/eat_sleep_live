@@ -1,0 +1,60 @@
+{% liquid
+    assign title = section.settings.title
+    assign text1 = section.settings.text1
+    assign text2 = section.settings.text2
+%}
+
+<div class="notes notes-wrapper wrapper">
+    
+    {% if title %}
+        <div class="notes__title" data-aos-delay="40">
+            <p><strong>{{ title }}</strong></p>
+        </div>
+    {% endif %}
+
+    {% if text1 %}
+        <div class="notes__text" data-aos-delay="40">
+            {{ text1 }}
+        </div>
+    {% endif %}
+
+    {% if text2 %}
+        <div class="notes__text notes__text-md notes__text-larger" data-aos-delay="40">
+            {{ text2 }}
+        </div>
+    {% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Please Note",
+  "class": "samples-note--section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Please Note"
+    },
+    {
+      "id": "text1",
+      "type": "richtext",
+      "label": "Text 1",
+      "default": "<p>Eat Sleep Live Limited is authorised and regulated by the Financial Conduct Authority. Firm Reference number - 698300. We are a broker and not a lender. If you are not happy with the service we have received, you have the right to refer your complaint to the Financial Ombudsman Service.</p>"
+    },
+    {
+      "id": "text2",
+      "type": "richtext",
+      "label": "Text 2",
+      "default": "<p>The Financial Ombudsman Service<br>Exchange Tower<br>London<br>E14 9SR<br>0800 023 4 567<br><a href='http://www.financial-ombudsman.org.uk'>http://www.financial-ombudsman.org.uk</a></p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Please Note",
+      "category": "Blocks"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,112 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "default-header",
+      "blocks": {
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "paragraph": ""
+          }
+        },
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed": {
+          "type": "request-samples",
+          "disabled": true,
+          "settings": {
+            "button-text": "Request colour samples"
+          }
+        }
+      },
+      "block_order": [
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0",
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed"
+      ],
+      "settings": {
+        "title": "The journey of our reclaimed wood"
+      }
+    },
+    "311365eb-cd26-4f71-9c61-194ab3cbfada": {
+      "type": "single-cta",
+      "settings": {
+        "full": false,
+        "image": "shopify://shop_images/kirton_lindsey_mill_-_4.jpg",
+        "preheader": "Each beautiful reclaimed beam has a spectacular story of survival and restoration.",
+        "title": "",
+        "content": "Hundreds of years ago, only mature trees were used in buildings across Britain. Long after the buildings started to crumble, these timeless beams still stood proud, waiting to be carefully extracted to start a new life in stylish bedrooms and living rooms and to become loved again - this time in the form of beautiful rustic furniture.",
+        "button-text": "",
+        "button-url": "",
+        "video-url": ""
+      }
+    },
+    "ebcc943a-7ad2-4f62-8c4f-98460c64ca64": {
+      "type": "single-cta",
+      "settings": {
+        "full": false,
+        "image": "shopify://shop_images/ESL_Email_Titles_6.png",
+        "preheader": "Treating the wood right",
+        "title": "",
+        "content": "Using time-honoured techniques, we painstakingly de-nail, prepare and sand each wooden beam by hand, ensuring it keeps its natural character before it is ready to be lovingly handcrafted into our unique furniture. The beauty of reclaimed solid wood is in its exposed fibers and rough natural look which we preserve by using only transparent finishes, that do not hide the natural beauty of the wood.",
+        "button-text": "",
+        "button-url": "",
+        "video-url": ""
+      }
+    },
+    "2c6f9e16-5f7c-4965-8e58-cf479be77643": {
+      "type": "single-cta",
+      "settings": {
+        "full": false,
+        "image": "shopify://shop_images/how-we-work-3.jpg",
+        "preheader": "Lasts a lifetime",
+        "title": "",
+        "content": "When it's taken shape, it’s time for our passionate craftsman to wax each piece by hand and add the finishing touches to ensure it lasts a lifetime. Our reclaimed wood won’t weaken as it’s been already proven over the years. This chunky timber will only get better with the passing of time.",
+        "button-text": "",
+        "button-url": "",
+        "video-url": ""
+      }
+    },
+    "fb75a1f8-37ed-40dd-87bf-27a93bd7d686": {
+      "type": "single-cta",
+      "settings": {
+        "full": false,
+        "image": "shopify://shop_images/ESL_Email_Titles_6.png",
+        "preheader": "Being sustainable with reclaimed wood",
+        "title": "",
+        "content": "Though any wood is considered to be a sustainable material, it still takes many years to grow a tree. Re-using the wood that was cut many years ago and has been in use in a previous life is a great way to stay sustainable with your furniture choices.",
+        "button-text": "",
+        "button-url": "",
+        "video-url": ""
+      }
+    },
+    "b3921114-0691-4d1a-b2ff-54b318b40a93": {
+      "type": "single-cta",
+      "settings": {
+        "full": false,
+        "image": "shopify://shop_images/ESL_Grantham_Master_Jade-156-2_6ad63432-cd3a-431b-8cec-90dee7c9e72a.jpg",
+        "preheader": "A new chapter",
+        "title": "",
+        "content": "Finally, our skilled team carefully deliver your new reclaimed wood furniture straight to your home to begin a new chapter of its life.\n\nWhat a journey!",
+        "button-text": "",
+        "button-url": "",
+        "video-url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "311365eb-cd26-4f71-9c61-194ab3cbfada",
+    "ebcc943a-7ad2-4f62-8c4f-98460c64ca64",
+    "2c6f9e16-5f7c-4965-8e58-cf479be77643",
+    "fb75a1f8-37ed-40dd-87bf-27a93bd7d686",
+    "b3921114-0691-4d1a-b2ff-54b318b40a93"
+  ]
+}

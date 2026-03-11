@@ -1,0 +1,47 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:04+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            cfabdc18033410326b971d80d2156c57
+//      Signature:      eyJpdiI6Ikg1N0RxMG1nZEZMSDJrVWhpMG5KMVE9PSIsInZhbHVlIjoibFFSM3NlVCtsdDlKZWFBODZ4UFR2TlpPdTVPcjNaTGw1TWZXc3JPVmlXZktxM2crWDJCN2tjRk1pS2diWG9QUFQ2YVMxV0hKNkl3SUNUZ2pGK3dsYklUb2pmODM3eG15YytWbE1JU0lUWUFiT1d5UEdPeEQyQmpJXC9PekR0a1haVG13Z2pjWEdkRzFkUEZxRWl3c1hZdVVRWjBLSlZ0MGhYSmdRY2F6S1NHSkZGOG1jYk5PSXJwbHhBWVJaZXpJSlU5NTkwMHpOM0NjeHg4ODV0bWljYXRiOStEZXNheE5WSFA2UnhuNG9DZ2ZvK1RVZWpMYU5XZmR0OTNEOWtcLzF4TUI3UVQyb3hqUFY2M0NMcXJabGtcL1NSZlFjMGFrWHo2aStSN3Jxb09VTjFlSjA0N3dCQ1lYYU1Vc3duNk9CSEVlanBBU0RBZnpCMVVLbUtmYU9YMWVzVXRXU0U0RVZPUUt2aXhQa2NMRW85KzI4N0lPUkFNOHZESDNRNHhiT29mZExLYm5HVU5ybHZsaG1Ia3QzSjVEZz09IiwibWFjIjoiMjcxYzBlMTFjYzY2MGQyYjRmZWFiYzYxY2E2ZmQ0ODEzZmU5ZWY5YTc2OGYzNmY3ODZlN2E4NjQ5MmQ3MzFkOSJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+
+<div class="article-share">
+	<div class="grid grid--gutterless large--flex">
+		<div class="large--one-third grid__item grid__item--gutterless flex article-share__pagination">
+			{% if blog.previous_article != blank %}
+				<a class="secondary-button secondary-text-link" href="{{ blog.previous_article | downcase }}">{% include 'blog-prev-arrow' %}</a>
+			{% else %}
+				<a class="secondary-button secondary-text-link">{% include 'no-blog-prev-arrow' %}</a>
+			{% endif%}
+		</div>
+		<div class="large--one-third grid__item grid__item--gutterless flex flex-center article-share__share-container">
+				<p>Share</p>
+				<div class="article-share__social-icon" data-href="{{ shop.url }}{{ article.url | downcase }}"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.eatsleeplive.co.uk%2Fblogs%2Ffeatures%2Feastside-blog&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore flex">{% include 'social-facebook-icon' %}</a></div>
+				<a target="_blank" rel="canonical" class="twitter-share-button article-share__social-icon flex"
+				  href="https://twitter.com/intent/tweet?url={{ shop.url | url_encode }}{{ article.url | downcase | url_encode }}&text={{ article.title | url_encode}}">
+				{% include 'social-twitter-icon' %}</a>
+				<a class="article-share__social-icon flex" href="http://pinterest.com/pin/create/button/?url={{ shop.url | url_encode }}{{ article.url | downcase  | url_encode}}&description={{ article.title | url_encode}}">{% include 'social-pinterest-icon' %}</a>
+				
+		</div>
+		<div class="large--one-third grid__item grid__item--gutterless flex article-share__pagination article-share__pagination--right">
+			{% if blog.next_article != blank %}
+				<a class="main-button secondary-button secondary-text-link" href="{{ blog.next_article | downcase }}">{% include 'blog-next-arrow' %}</a>
+			{% else %}
+				<a class="secondary-button secondary-text-link">{% include 'no-blog-next-arrow' %}</a>
+			{% endif %}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,143 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-banner",
+      "settings": {
+        "banner_heading": "20% off all bedroom furniture"
+      }
+    },
+    "93390ffb-5da0-4d97-8504-4aca25eea943": {
+      "type": "custom-image-text",
+      "settings": {
+        "image": "shopify://shop_images/ESL_Birmingham_Edit_Jade_Selection-77.jpg",
+        "content": "<p>Enjoy <strong>20% off</strong> on our entire range of handcrafted reclaimed wood <strong>bedroom furniture</strong>. Spring has sprung and it's the perfect time to renew your sleep sanctuary. <strong>Offer ends at midnight on the 4th June. </strong>Use code: <strong>BEDROOM20</strong><br/><br/>Whether you're looking for a statement bed, a cosy bedside, or a spacious chest, we've got you covered. Our selection of bedroom furniture is designed to provide character, comfort and functionality without sacrificing style. </p><p>For custom sizing or bespoke furniture, please call us on <strong>01159 700 060</strong> to discuss options.<br/><br/>With savings up to £438 on our reclaimed wood beds and £398 on wardrobes, browse our collection now and discover the perfect pieces to elevate your guest or master bedrooms. <br/></p><p><em><strong>Terms and conditions:</strong></em><em> There is no minimum order value required. Klarna available for online orders only, V12 finance plans excluded from offer.</em><br/><br/></p>",
+        "button_text": "shop bedroom",
+        "button_link": "shopify://collections/reclaimed-wooden-bedroom-furniture"
+      }
+    },
+    "01e57f36-979a-46ed-8b9b-bcc58ddb1530": {
+      "type": "card-columns",
+      "blocks": {
+        "9cfced16-8614-4ae7-8be9-5a4498be4919": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/darcy_footboard_bed.jpg",
+            "card_heading": "Find the perfect-fit furniture for your home",
+            "card_description": "We know that life isn’t one size fits all, everyone has different spaces and different needs. It’s why we work around you until you’re nothing short of completely happy, from finding your perfect-fit furniture from our collections, to tweaking existing dimensions to suit your space."
+          }
+        },
+        "8fe2a4dd-7bf5-4f99-b6f6-fb30a8984f8d": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/day_bed-3.jpg",
+            "card_heading": "Bespoke pieces",
+            "card_description": "Why not go fully bespoke to fulfil your bedroom furniture dreams? If you’re interested in something completely unique for your home or business that we don’t currently advertise, look no further. With the character and quality of Eat Sleep Live's reclaimed beams, we can create bespoke pieces to fit your furniture wants and needs."
+          }
+        },
+        "4f2025d9-6323-4ba9-a04a-11afa41498b9": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/ESL_Email_Headers_-_Klayvio_6.png",
+            "card_heading": "Need a little room design support?",
+            "card_description": "Why not bring your paint or fabric samples in or send us a photo of your room pictures and dimensions? We'll be happy to help find and mock-up which pieces will work in your space. After all, we know our products like the back of our hand so we know what palettes complement each wood colour."
+          }
+        },
+        "01cbcc00-1001-4ca0-a451-e2da85fe8f00": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "card_image": "shopify://shop_images/image_3.png",
+            "card_heading": "Interior design support",
+            "card_description": "We know our furniture inside and out and so we also know what it’s best paired with. We’re on hand to help you with those all-important colour and textile decisions that will complement both our furniture and space it will sit in."
+          }
+        },
+        "a1e41192-3099-481c-abd8-84c238c99e76": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "card_image": "shopify://shop_images/british-made-centre-panel_39b25eef-68e7-4621-8096-e34a21720758_large-4.png",
+            "card_heading": "Bespoke pieces",
+            "card_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "9cfced16-8614-4ae7-8be9-5a4498be4919",
+        "8fe2a4dd-7bf5-4f99-b6f6-fb30a8984f8d",
+        "4f2025d9-6323-4ba9-a04a-11afa41498b9",
+        "01cbcc00-1001-4ca0-a451-e2da85fe8f00",
+        "a1e41192-3099-481c-abd8-84c238c99e76"
+      ],
+      "settings": {
+        "heading": "Shopping for your bedroom furniture, made easy."
+      }
+    },
+    "79a48f00-66d3-4a8b-a2c3-28ad201b0556": {
+      "type": "faq",
+      "blocks": {
+        "798e7756-d2b9-4293-96b9-d7803b2c59e5": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you make custom sizes for any bedroom piece?",
+            "answer": "We sure can! We handcraft all the furniture ourselves so, if you let us know what it is you’re interested in, including any drawings/photos showing the style and specifications - we can look into this for you."
+          }
+        },
+        "fe0b7583-ce93-4f86-babb-390cef708158": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you make bespoke bedroom products that aren't featured on your website?",
+            "answer": "Absolutely! As we handmake all the furniture ourselves, if you let us know what it is you're looking for, including any drawings/photos showing the style and specifications, we can look into bringing your idea's to life."
+          }
+        },
+        "368b86d8-c77c-4dfa-b9d4-e8dbab0b4da5": {
+          "type": "faq",
+          "settings": {
+            "question": "Will I still receive 20% off if I need a bespoke/customised piece?",
+            "answer": "Yes, give us a call or drop us a line on LiveChat and we can apply the discount over the phone when taking your order."
+          }
+        },
+        "62c4d250-915c-4771-bb30-616230fc0296": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you help with how the furniture will be best placed in my bedroom?",
+            "answer": "We can! If you have dimensions and images for us to follow, we're more than happy to advise on room layout."
+          }
+        }
+      },
+      "block_order": [
+        "798e7756-d2b9-4293-96b9-d7803b2c59e5",
+        "fe0b7583-ce93-4f86-babb-390cef708158",
+        "368b86d8-c77c-4dfa-b9d4-e8dbab0b4da5",
+        "62c4d250-915c-4771-bb30-616230fc0296"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions"
+      }
+    },
+    "7fe709df-bbc4-420f-86f0-ce2270280cba": {
+      "type": "section-cta",
+      "settings": {
+        "heading": "Book your slot today",
+        "description": "<p>Think of us as your own personal shopper! Book your slot today or visit us to discover your future furniture.</p>",
+        "button_text": "Book now",
+        "button_link": "shopify://pages/book-a-visit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "93390ffb-5da0-4d97-8504-4aca25eea943",
+    "01e57f36-979a-46ed-8b9b-bcc58ddb1530",
+    "79a48f00-66d3-4a8b-a2c3-28ad201b0556",
+    "7fe709df-bbc4-420f-86f0-ce2270280cba"
+  ]
+}

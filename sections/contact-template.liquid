@@ -1,0 +1,408 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:48+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            012d70d04849d65a3400f70bf7588522
+//      Signature:      eyJpdiI6ImE1b1BqbHk1c0hcL1ZGSUFoMTlUWjB3PT0iLCJ2YWx1ZSI6IkJvcDdkZnFrcHVGVTFxcDB5VWlWbXVVTldWM2pOUGNmSVwvYlhYVXp0cDVZY25ER0s4eU9qamlsa0pqZTd4UUpqcFJEOVJQYUtGSzZPS2cxdGhTWFBLYXF2M0I2S21MM0p4YXkzNWZhUGRrRXpHZFZjZjUySXp1VVpZcUUwSWtaR250d2dwbHpiNnlqN2twaHJnR1Q1cVdwN3lSK1J2S0dmVWREelRXT0UzQnlIR0dWbUxkUUVKbzJGazg5VEpidTc3VjZkVnVQKzNPN0hDUXJSVG0rbVorSkNGSFdsNmRyc2hZYzRqXC9ZRmp2KzhYQjVmN0I2RkhUUHlSckU4N3lmdlBwbXJFazRVZmdmMmgrV2l3VnhuNmVGMWwxMURQNEdWMTdoYk1yeVwvYmZNRjVNdlBGZzh4M0d3MU5XZDlhVGxDODdrc1RXd1JCRFQxK1lXZ2NcL2FJQmhvWFhCWlNVTFhcL2FQWkdJQm5lQWVqb1VQUThCd1lyejlJc1pOR3VXRjJINGdUb1hVakpjS1RNWUtLWFdOejZ0WTR2YlR2QTFFN053UDZ5bjRHM1VcL0E9IiwibWFjIjoiNDMwNjU3OGJlODZjZTkxMDY4ZTAxOTYwMWM0NmQ4YzA3ZWU2YmMwYzE2MjQzMWI4MDQxM2I3MDA3MDgzZmFiNCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="contact-us page-template">
+  {% capture page_child %}
+    <div class="image-overlay"></div>
+    <div class="single-cta__text-container">
+      {% if page.title %}<h1 class="h1">{{ page.title }}</h1>{% endif %}
+      {% if section.settings.hero-text != blank %}<p>{{ section.settings.hero-text | newline_to_br }}</p>{% endif %}
+    </div>
+  {% endcapture %}
+
+  {% if section.settings.hero-image %}
+    {% assign banner_image = section.settings.hero-image | image_url: width: 1000 %}
+  {% endif %}
+
+  {% if section.settings.hero-image-mobile %}
+    {% assign banner_image_mobile = section.settings.hero-image-mobile | image_url: width: 500 %}
+    <div class="hide small--show medium--show">
+      {% include 'page-banner' with child: page_child, banner_image: banner_image_mobile, page_title: page.title %}
+    </div>
+  {% endif %}
+
+  <div class="{% if section.settings.hero-image-mobile != blank %}small--hide medium--hide{% endif %} show">
+    {% include 'page-banner' with child: page_child, banner_image: banner_image, page_title: page.title %}
+  </div>
+
+  <div id="contact-form-anchor" class="contact-us__contact">
+    <div class="wrapper">
+      <div class="grid">
+        <div class="grid__item two-thirds medium-down--one-whole contact-us__form-container">
+
+          {% if section.settings.zapier_url != blank %}
+
+            {% if section.settings.form-title != blank %}<h4>{{ section.settings.form-title }}</h4>{% endif %}
+            <div class="contact-us__form">
+
+              <form id="contactForm" class="contact__form" name="contactForm" method="post" data-webhook="{{ section.settings.zapier_url }}" novalidate>
+
+                <p class="posted_successfully" style="display: none;">
+                  {% if section.settings.posted_successfully != blank %}
+                    {{ section.settings.posted_successfully }}
+                  {% else %}
+                    {{ 'contact.form.post_success' | t }}
+                  {% endif %}
+                </p>
+    
+                <p class="posted_error" style="display: none;">
+                  There has been an error. Please try again later.
+                </p>
+
+      
+                <div class="samples-header__form-content">
+
+                    <h4 class="samples-header__form-title">We'd love to hear from you</h4>
+  
+                </div>
+      
+                <div class="samples-header__form-fields">
+      
+                  <input type="hidden" name="contact[form]" value="Contact us form">
+
+                  <input id="first_name" name="contact[first_name]" class="full-width" type="text" placeholder="first name" required>
+                  <span class="error" aria-live="polite"></span>
+                  
+                  <input id="last_name" name="contact[last_name]" class="full-width" type="text" placeholder="last name" required>
+                  <span class="error" aria-live="polite"></span>
+
+                  <input id="email" name="contact[email]" class="full-width" type="email" placeholder="email" required>
+                  <span class="error" aria-live="polite"></span>
+
+                  <input id="phone" name="contact[phone]" class="full-width" type="text" placeholder="phone number" required>
+                  <span class="error" aria-live="polite"></span>
+
+                  <textarea id="howcanwehelp" name="contact[body]" class="full-width" placeholder="how can we help?"></textarea>
+                  <span class="error" aria-live="polite"></span>
+
+                  <div class="samples-header__form-select">
+                    <label for="hearaboutus">how did you hear about us?</label>
+                    <select id="hearaboutus" name="contact[hearaboutus]" class="full-width" >
+                      <option disabled="" value="">Please Select</option>
+                      <option value="Facebook">Facebook</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="Google">Google</option>
+                      <option value="Friends or family">Friends or family </option>
+                      <option value="Events (i.e. Grand Designs)">Events (i.e. Grand Designs)</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+      
+                  <div class="samples-header__form-radio-buttons">
+                    <p>are you?</p>
+                    
+                    <div class="samples-header__form-radio-button">
+                      <input type="radio" id="renovating" name="contact[are_you]" value="Renovating your home" checked>
+                      <label for="renovating">
+                        Renovating your home
+                      </label>
+                    </div>
+
+                    <div class="samples-header__form-radio-button">
+                      <input type="radio" id="moving" name="contact[are_you]" value="Moving house">
+                      <label for="moving">
+                        Moving house
+                      </label>
+                    </div>
+
+                    <div class="samples-header__form-radio-button">
+                      <input type="radio" id="browsing" name="contact[are_you]" value="Just browsing">
+                      <label for="browsing">
+                        Just browsing
+                      </label>
+                    </div>
+
+
+
+                  </div>
+
+                  <div class="samples-header__form-radio-buttons">
+                    <p>are you interested in a bespoke creation?</p>
+                    <div class="samples-header__form-radio-button">
+                      <input type="radio" id="bespokecreation" name="contact[bespokecreation]" value="yes">
+                      <label for="bespokecreation">
+                        yes
+                      </label>
+                    </div>
+                  </div>
+                </div>
+      
+                <button class="main-button has-chevron" type="submit">
+                  <span>Submit</span>
+                  {% render 'chevron-right' %}
+                </button>
+      
+                <p class="samples-header__form-note">
+                  <small>
+                    Eat Sleep Live needs the contact information you provide to us to contact you about our products and services. For information on how to unsubscribe, as well as our commitment to protecting your privacy & data, please review our <a href="/pages/privacy" title="Privacy Policy">Privacy Policy</a>.
+                  </small>
+                </p>
+                
+              </form>
+
+            </div>
+
+          {% endif %}
+
+        </div>
+        <div class="grid__item one-third medium-down--one-whole contact-us__details-container">
+          {% if section.settings.details-title != blank %}<h4>{{ section.settings.details-title }}</h4>{% endif %}
+          <div class="contact-us__details">
+            {% if section.settings.phone-number != blank %}
+              <div class="flex flex-align-center-wrapless m-b-30">
+                <div class='contact-us__details-icon'>{% include 'icon-phone' %}</div>
+                <div>
+                  <a class="m-0 primary" href="tel:{{  section.settings.phone-number  }}">{{section.settings.phone-number}}</a>
+                  {% if section.settings.phone-line != blank %}<div class="italic-text secondary-color m-0">{{ section.settings.phone-line | newline_to_br }}</div>{% endif %}
+                </div>
+              </div>
+            {% endif %}
+            {% if section.settings.email != blank %}
+              <div class="flex flex-align-center-wrapless m-b-30">
+                <div class='contact-us__details-icon'>{% include 'icon-mail' %}</div>
+                <div>
+                  <a class="m-0 primary" href="mailto: {{  section.settings.email  }}">{{section.settings.email}}</a>
+                  {% if section.settings.email-subtext != blank %}<div class="italic-text secondary-color m-0">{{ section.settings.email-subtext | newline_to_br }}</div>{% endif %}
+                </div>
+              </div>
+            {% endif %}
+            {% if section.settings.live-chat != blank %}
+              <div class="flex flex-align-center-wrapless m-b-30">
+                <div class='contact-us__details-icon'>{% include 'icon-chat' %}</div>
+                <div>
+                  <p class="m-0"><span>{{ section.settings.live-chat }} - </span><a style="cursor: pointer;" onclick="const chatElement = document?.getElementById(`ShopifyChat`)?.shadowRoot?.querySelector(`.chat-app>button`)
+    chatElement && chatElement.click()">Chat now</a></p>
+                  {% if section.settings.live-chat-subtext != blank %}<div class="italic-text secondary-color m-0">{{ section.settings.live-chat-subtext | newline_to_br }}</div>{% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+          <div class="m-t-30">
+            <h6>{{ section.settings.social-title }}</h6>
+            <div class="flex footer__social-links">
+              {% for block in section.blocks %}
+                <div class="footer__social-link">
+                  <a href="{{ block.settings.social-url }}">
+                    {% include 'image-element' with image_object: block.settings.social-logo %}
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="visit-our-workshop" class="wrapper contact-us__location">
+    <div class="grid">
+      <div class="grid__item medium-down--one-whole one-half">
+        {% if section.settings.location-title != blank %}<h4>{{ section.settings.location-title }}</h4>{% endif %}
+        {% if section.settings.location-intro != blank %}<div class="contact-us__location-content">{{ section.settings.location-intro | newline_to_br }}</div>{% endif %}
+        {% if section.settings.opening-times != blank %}
+        <p class="contact-us__location-title">Opening Times</p>
+          <div class="contact-us__location-content">{{ section.settings.opening-times | newline_to_br }}</div>
+        {% endif %}
+        {% if section.settings.parking != blank %}
+        <p class="contact-us__location-title">Parking</p>
+          <div class="contact-us__location-content">{{ section.settings.parking | newline_to_br }}</div>
+        {% endif %}
+        {% if section.settings.booking != blank %}
+        <a href="{{ section.settings.booking_link }}" class="main-button">{{ section.settings.booking }}</a>
+        {% endif %}
+      </div>
+      <div class="grid__item medium-down--one-whole one-half">
+        <div class="contact-us__map-container">
+          <div class="contact-us__map">
+            {{ section.settings.google-map }}
+          </div>
+          <div class="contact-us__address">
+            {% if section.settings.address != blank %}
+              <div class="contact-us__location-content">
+                <p class="contact-us__location-title">{{ shop.name }}</p>
+                {{ section.settings.address | newline_to_br }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "text",
+      "id": "hero-text",
+      "label": "Hero Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero-image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero-image-mobile",
+      "label": "Hero Mobile Image",
+      "info": "Note: Optional"
+    },
+    {
+      "type": "header",
+      "content": "Message Form"
+    },
+    {
+      "type": "text",
+      "id": "form-title",
+      "label": "Form Title"
+    },
+    {
+      "type": "header",
+      "content": "Zapier"
+    },
+    {
+      "type": "text",
+      "id": "zapier_url",
+      "label": "Webhook URL",
+      "info": "If left blank, the form will not display.",
+      "default": "https://hooks.zapier.com/hooks/catch/12158034/3brxez7/"
+    },
+    {
+      "type": "header",
+      "content": "Contact Details"
+    },
+    {
+      "type": "text",
+      "id": "details-title",
+      "label": "Details Title"
+    },
+    {
+      "type": "text",
+      "id": "phone-number",
+      "label": "Phone Number"
+    },
+    {
+      "type": "richtext",
+      "id": "phone-line",
+      "label": "Phone Line Opening Times"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email Address"
+    },
+    {
+      "type": "richtext",
+      "id": "email-subtext",
+      "label": "Email Subtext"
+    },
+    {
+      "type": "text",
+      "id": "live-chat",
+      "label": "Live Chat Title"
+    },
+    {
+      "type": "richtext",
+      "id": "live-chat-subtext",
+      "label": "Live Chat Subtext"
+    },
+    {
+      "type": "text",
+      "id": "social-title",
+      "label": "Social Title",
+      "default": "Follow Us"
+    },
+    {
+      "type": "header",
+      "content": "Location Details"
+    },
+    {
+      "type": "text",
+      "id": "location-title",
+      "label": "Location Details Title",
+      "default": "Come and see us"
+    },
+    {
+      "type": "richtext",
+      "id": "location-intro",
+      "label": "Location Details Intro"
+    },
+    {
+      "type": "richtext",
+      "id": "opening-times",
+      "label": "Opening Times"
+    },
+    {
+      "type": "richtext",
+      "id": "parking",
+      "label": "Parking Details"
+    },
+    {
+      "type": "text",
+      "id": "booking",
+      "label": "Booking Button Text"
+    },
+    {
+      "type": "url",
+      "id": "booking_link",
+      "label": "Booking Link"
+    },
+    {
+      "type": "html",
+      "id": "google-map",
+      "label": "Google Map Embed Code"
+    },
+    {
+      "type": "richtext",
+      "id": "address",
+      "label": "Address"
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "social",
+      "name": "Social Links",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "social-logo",
+          "label": "Logo",
+          "info": "1x1 aspect ratio is recommended"
+        },
+        {
+          "type": "url",
+          "id": "social-url",
+          "label": "URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

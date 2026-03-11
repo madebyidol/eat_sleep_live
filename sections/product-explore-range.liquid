@@ -1,0 +1,60 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:41+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            d74ed39d6e302393dcd810e797bdcefd
+//      Signature:      eyJpdiI6IkxKUE5UdnhUN3owTlFhRFhzYW9qVWc9PSIsInZhbHVlIjoiZU9QMWxtYkZPaFwvOG1qUVFcL0tvMGs4V0RyV3c5bEdhRU1cL3lIWTBwXC9uRmxQRytMcE9YVGo2VnBnYTRSMkQxTW9SVEoxZ3Fva2NOZng2TFFGMHVzTnBhK2tcL25zUUhuOGExYVQzaXJyNjBPMGNBNHBxNW9DNjlscVVJbHVhcE95bHV4U0lGbG1USlwvUjdHSjhIeUU0dndtb0Q3UjBYTFpcLzVmSDdOajExRldlUW9LZ1piaTFJQTFjZ09QV2JCaGRUK0pLd0xiNkN0QmVyNmYrQW5aMkd6a3ZXSnRLc1U2M3RMRVVGMjNoM2ZtWUp0bHArak90M1dvMExxOVUyVncySVp3dFhGcEhoZ3Y3S3pQc3FrR2UzbTNEdGRRTVJCU08yZERxTVVmSmFFZ1RUbWRqT3JoMVlOVUxUcGdSRHBBQVVNb1lVRFcwRzhEejZFUFdMM2loeVpTc2VFTjhXd2hRXC9uaGNqN3duNjVNZ1FoVE1ENGNUUDU0R0lTUWUwdFI3cGdScDlxWWZvRFYyaEFFSnAyam05Y2M0aW9RcWI0TDhWK1BEXC9pdVlxQ2Yraz0iLCJtYWMiOiIyYjI2NTdlZTE5YzY1ODIyNGU2NDUxNzhmZTMzOWUyMjFjYzRiZmI1Y2FkMmYxMmEzNjhiYzFmNzk2MTE0YzIyIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+	{% if shop.metafields.custom_fields["explore_range"] != blank %}
+		{% assign separator = "|###|" %}
+      	{% assign product_tag_array = shop.metafields.custom_fields["product_tag"] | split: separator %}
+      	{% assign collection_array = shop.metafields.custom_fields["collection"] | split: separator %}
+      	{% assign collection_title_array = shop.metafields.custom_fields["collection_title"] | split: separator %}
+      	{% assign collection_description_array = shop.metafields.custom_fields["collection_description"] | split: separator %}
+      	{% assign fc_keys = shop.metafields.custom_fields["explore_range"] | split: "," %}
+      	{% for i in fc_keys %}
+      		{% assign index = i | plus: 0 %}
+      		{% if product.tags contains product_tag_array[index] %}
+      			{% assign collection_ref = collections[collection_array[index]] %}
+      			{% if collection_ref != blank %}
+	      			
+	      			{% capture child %}
+	      				<div class="image-overlay"></div>
+	      				<div class="single-cta__text-container">
+	      					<p class="h1 jenna-sue">{% if collection_title_array[index] != blank %}{{ collection_title_array[index] }}{% else %}{{ collection_ref.title }}{% endif %}</p>
+	      				
+	      					<h3 class="h5">Part of the {% if collection_title_array[index] != blank %}{{ collection_title_array[index] }}{% else %}{{ collection_ref.title }}{% endif %} Range</h3>
+
+	      					{% if collection_description_array[index] != blank %}<p>{{  collection_description_array[index] }}</p>{% endif %}
+
+	      					<a class="main-button" href="{{ collection_ref.url | downcase }}">VIEW {% if collection_title_array[index] != blank %}{{ collection_title_array[index] }}{% else %} {{ collection.title }}{% endif %} COLLECTION</a>
+	      				</div>
+	      			{% endcapture %}
+
+	      			{% if collection_ref.image != blank %}
+	      				{% include 'background-image-element' with image: collection_ref.image, classes: 'single-cta--full-width single-cta' %}
+	      			{% endif %}
+	      			{% break %}
+      			{% endif %}
+      		{% endif %}
+      	{% endfor %}
+	{% endif %}
+
+
+{% schema %}
+{
+	"name": "Explore Range"
+}
+{% endschema %}	

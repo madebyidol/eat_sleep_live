@@ -1,0 +1,35 @@
+<section id="text-section{{ section.id }}" class="text-section">
+    <div class="text-section__content wrapper">
+        {% if section.settings.heading != blank %}
+            <h4 class="text-section__heading"> {{ section.settings.heading }} </h4>
+        {% endif %}
+        
+        {% if section.settings.description != blank %}
+            <div class="text-section__description"> {{ section.settings.description }} </div>
+        {% endif %}
+
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Text Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Section"
+    }
+  ]
+}
+{% endschema %}

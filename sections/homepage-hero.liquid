@@ -1,0 +1,89 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-21T09:38:15+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148043
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            f463d1f184a8fc9221cb108a9555b8a3
+//      Signature:      eyJpdiI6Iml1ek8zWTVVaysxWTRDMkFoS0M1aFE9PSIsInZhbHVlIjoiRWlMMXVKdjlMaXRuRW5MZ2xCZTVzQkdxVXNcLzlQMUUzeldnK3NYUXphb1YyVWljYWhpY0htaFdcL2NQVU1BRkQ0UGZMN0dIRTlxXC9XejZvUUgxTkdDXC82KzFwNkUxVHpuVmZcL1ZxXC9BK1FsWlR5NXEwdUUyZnowOHVHRVZSK1wvNWZTU2pJaXVkSE82ZVlyb05NSG1lbUZkVk4xd0l1ZTQ0QnVMbTlkb0JMS1IraGhsWkZXZVdTWlJVRllOWitXXC9VclJZUFhsQjAra0JQUmlpeEM0YXFHWEtuQitHdEFqQlZQSnJCdSs2WVwvUnhtV3RZN1p5eklERGlXd1FHMXJXbGloc21iSVBiRkdoa1BpSDJMTFRMT2RYejZEdm53ZzBUbUdpMWZjc3NoQmtrV3ZaTThOOFhKd0VXZ0xZcWVYWVFCaERVZitFdlUyaFhBOHZ3dmhFMHVoSld1UjNlNSs1a3BKZDlaNklrZkh0WFkxUlJFNjBsdWVZVkVCZXJYdTlcL3RjWXI4cFFoMUZcL1oyVVNuOUMyc1dmdk5BPT0iLCJtYWMiOiIyYzVjZDZlYjJkODA4NWVlYjA4Yjc2ZTI4ZTcxMmM1YjMzZmE1MDhhMmM4MDNmYmQ4YWQyYTE0ZGU2OWYyYzk1In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% capture hero-text %}
+<div class="image-overlay"></div>
+  <div class="homepage-hero__container">
+    <h1 class="homepage-hero__title main-title h1" >{{ section.settings.title }}</h1>
+    <a class="main-button" href="{{ section.settings.button-url | downcase }}" >{{ section.settings.button-text }}</a>
+  </div>
+{% endcapture %}
+
+{% if section.settings.video-url != blank %}
+  <div class="background-video background-image__video">
+    {{ hero-text }}
+    <div class="background-video__container">
+      <video autoplay loop muted playsinline>
+        <source src="{{ section.settings.video-url }}" type="video/mp4">
+          {% include 'background-image-element' with image: section.settings.image, classes: 'homepage-hero hide large--show' %}
+          {% include 'background-image-element' with image: section.settings.image_mobile, classes: 'homepage-hero homepage-hero-mobile show large--hide' %}
+      </video>
+    </div>
+  </div>
+{% elsif section.settings.image != blank %}
+  {% include 'background-image-element' with image: section.settings.image, child: hero-text, classes: 'homepage-hero hide large--show' %}
+
+  {% include 'background-image-element' with image: section.settings.image_mobile, child: hero-text, classes: 'homepage-hero homepage-hero-mobile show large--hide' %}
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "button-text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button-url",
+        "label": "Button Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image Mobile"
+      },
+      {
+        "type": "text",
+        "id": "video-url",
+        "label": "Video URL",
+        "info": "Upload your video into the files section of Shopify and paste the URL here. Selecting a video will override any hero images (MP4 only)."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero",
+        "category": "Blocks"
+      }
+    ]
+  }
+{% endschema %}

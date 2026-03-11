@@ -1,0 +1,85 @@
+<div class="product__usps">
+
+    <div class="product__usps-inner">
+
+        {% if block.settings.image != empty and block.settings.title != empty %}
+
+            {% assign icon = block.settings.icon | append: ".svg" %}
+
+            <div class="product__usp">
+                <div class="product__usp-image">
+                    {{ block.settings.image | image_url: width: 400, crop: 'center' | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+                    {% comment %}
+                    <img src="{{ block.settings.image | img_url: '386x224', crop: 'center', scale: 2 }}" alt="">
+                    {% endcomment %}
+                </div>
+
+                <div class="product__usp-content">
+                    <div class="product__usp-title">
+                        <div class="product__usp-icon">
+                            <img src="https://cdn.shopify.com/s/files/1/1230/4400/files/Parcel_Black_Crop.png?v=1723640029" width="28" height="24" alt="usp icon">
+                        </div>
+                        <span>{{ block.settings.title }}</span>    
+                    </div>
+                    <div class="product__usp-description">{{ block.settings.content }}</div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if block.settings.image_two != empty and block.settings.title_two != empty %}
+
+            {% assign icon = block.settings.icon_two | append: ".svg" %}
+
+            <div class="product__usp">
+                <div class="product__usp-image">
+                    {% comment %}
+                    <img src="{{ block.settings.image_two | img_url: '386x224', crop: 'center', scale: 2 }}" alt="">
+                    {% endcomment %}
+
+                    {{ block.settings.image_two | image_url: width: 386, crop: 'center' | image_tag: loading: 'lazy', alt: block.settings.image_two.alt }}
+
+                </div>
+
+                <div class="product__usp-content">
+                    <div class="product__usp-title">
+                        <div class="product__usp-icon">
+                            <img src="https://cdn.shopify.com/s/files/1/1230/4400/files/Tools_Black.png?v=1677325802" width="28" height="24" alt="usp icon">
+                        </div>
+                        <span>{{ block.settings.title_two }}</span>
+                    </div>
+                    <div class="product__usp-description">{{ block.settings.content_two }}</div>
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if block.settings.image_three != empty and block.settings.title_three != empty %}
+
+            {% assign icon = block.settings.icon_three | append: ".svg" %}
+
+            <div class="product__usp">
+                <div class="product__usp-image">
+                    {% comment %}
+                    <img src="{{ block.settings.image_three | img_url: '386x224', crop: 'center', scale: 2 }}" alt="">
+                    {% endcomment %}
+                    {{ block.settings.image_three | image_url: width: 386, crop: 'center' | image_tag: loading: 'lazy', alt: block.settings.image_three.alt }}
+
+                </div>
+
+                <div class="product__usp-content">
+                    <div class="product__usp-title">
+                        <div class="product__usp-icon">
+                            <img src="https://cdn.shopify.com/s/files/1/1230/4400/files/Truck_Black.png?v=1677325816" width="32" height="24" alt="usp icon">
+                        </div>
+                        <span>{{ block.settings.title_three }}</span>
+                    </div>
+                    <div class="product__usp-description">{{ block.settings.content_three }}</div>
+                </div>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>

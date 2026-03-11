@@ -1,0 +1,116 @@
+<div class="samples_content wrapper">
+
+	<div class="grey-section-bg">
+
+		<div class="flex flex-wrap flex-center">
+
+			{% for block in section.blocks %}
+
+				{% if block.type == 'paragraph' %}
+
+					<div class="samples__content one-half small--one-whole medium--one-whole">
+
+            {% if block.settings.title != blank %}
+              <h1 class="samples__content-title">{{ block.settings.title }}</h1>
+            {% endif %}
+
+            {% if block.settings.paragraph != blank %}
+              <div class="samples__content-text">{{ block.settings.paragraph }}</div>
+            {% else %}
+              <div class="samples__content-text">
+                <p>{{ settings.colours_and_samples_description }}</p>
+              </div>
+            {% endif %}
+
+            {% unless block.settings.button-text == blank %}
+              <a class="samples__content-button m-t-40 scrollTo main-button has-chevron" href="#requestSamples">
+                <span>{{ block.settings.button-text }}</span>
+                {% render 'chevron-right' %}
+              </a>
+            {% endunless %}
+						
+					</div>
+				
+				{% endif %}
+
+        {% if block.type == 'image' %}
+
+					<div class="samples__image one-half small--one-whole medium--one-whole">
+
+            {% if block.settings.image != blank %}
+              <div class="samples__image-image_container">
+                <img class="samples__image-image" src="{{ block.settings.image | img_url: '526x481', crop: 'center', scale: 2 }}" alt="{{ block.settings.image.alt }}" width="526" height="481" loading="lazy">
+              </div>
+            {% endif %}
+						
+					</div>
+				
+				{% endif %}
+
+			{% endfor %}
+		</div>
+
+	</div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Samples content",
+  "max_blocks": 2,
+  "limit": 1,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Our colour samples"
+        },
+        {
+          "type": "richtext",
+          "id": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "label": "Button text",
+          "default": "Request colour samples"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Samples content",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "paragraph"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ],
+  "templates": [
+    "page"
+  ]
+}
+{% endschema %}

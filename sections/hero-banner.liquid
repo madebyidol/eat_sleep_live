@@ -1,0 +1,313 @@
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+
+{{ 'hero-banner.scss' | asset_url | stylesheet_tag }}
+
+<div class="main_hero_section cust_align_tab_{{ section.settings.content_alignment }}">
+    
+  <div class="tabs">
+ <div id="tabs-content" style="position: relative;">
+   <h1 style="color: #FFF; position: absolute; text-align: center; transform: translateY(-50%); top: 50%; right: 0; left: 0; z-index: 1;">Reclaimed Wood Furniture With Soul</h1>
+      {% for block in section.blocks %}
+
+      {% assign variable = variable  | plus: 1 %}
+      {% assign lazy_load = block.settings.should_lazy_load %}
+      <div id="tab{{variable}}" class="tab-content" {% if section.settings.first_tab == block.settings.title %}data-first="true"{% endif %}> 
+        <div class="tab_banner_text">
+          <div class="tab_banner_text_in">
+
+			{% comment %} replace the word sale with the ex display link {% endcomment %}
+			{% liquid 
+				assign x_display_handle = 'ex-display'
+				assign x_display_collection = collections[x_display_handle]
+				
+				if x_display_collection.url	!= blank
+					assign sale_link = '<a class="sale_red" href="###" aria-label="on sale">sale</a>' | replace: "###", x_display_collection.url	
+					assign banner_content = block.settings.banner_content | replace: "sale", sale_link
+				else
+					assign banner_content = block.settings.banner_content
+				endif
+			%}
+          </div>
+        </div>
+        {% comment %}
+        {% if block.settings.mobile_image !=blank %}
+          <img class="mobile__banner-image" src="{{ block.settings.mobile_image | img_url: '650x', crop: 'center' }}"  width="{{block.settings.mobile_image.width}}" height="{{block.settings.mobile_image.height}}"loading="{% if lazy_load == true %}lazy{% endif %}" alt="">
+        {% endif %}
+      {% endcomment %}
+      {% liquid
+      assign mobile_image = block.settings.image
+      if block.settings.mobile_image != blank 
+      assign mobile_image = block.settings.mobile_image
+      endif 
+    %}
+    {%- liquid
+      assign loading = "eager"
+      assign fetchpriority = "high"
+      assign preload = false
+      if section.index == 1
+        assign fetchpriority = "auto"
+        assign preload = true
+        assign loading = "lazy"
+      elsif section.index > 2
+        assign loading = "lazy"
+      endif
+    -%}
+        {% if block.settings.image !=blank %}
+          {% comment %}
+          <img fetchpriority="{% if forloop.index == 1 %}high{% endif %}" src="{{block.settings.image |image_url: width: block.settings.image.width, height:block.settings.image.height}}"  width="{{block.settings.image.width}}" height="{{block.settings.image.height}}" loading="{% if lazy_load == true %}lazy{% endif %}" imalt="">
+          {% endcomment %}
+          <picture>
+            <source
+              media="(max-width: 600px)"
+              srcset="
+                {{ mobile_image | image_url: width: 300 }} 300w,
+                {{ mobile_image | image_url: width: 425 }} 425w,
+                ">
+              {{ block.settings.image |
+                image_url: width: 1400 |
+                image_tag:
+                  widths: '600, 1400',
+                  loading: loading,
+                  fetchpriority: fetchpriority,
+                  sizes: '(min-width: 400px) 1400px, 78.75vw',
+                  style: 'width: 2800px',
+                  preload: preload,
+                  alt: block.settings.image.alt }}
+          </picture>
+          
+          
+          {% else%}
+        <video autoplay muted loop playsinline id="myVideo">
+          <source src="{{block.settings.video_url}}" type="video/mp4">
+        </video>
+        <button id="myBtn" class="myBtn"><img src='https://cdn.shopify.com/s/files/1/0612/0275/9937/files/Repeat_Grid_1.png?v=1649240471'></button>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div> 
+
+    <ul id="tabs-nav">     
+      {% for block in section.blocks %}
+
+      {% assign test_count = test_count  | plus: 1 %}
+      <li><a href="#tab{{test_count}}" aria-label="tab{{test_count}}">
+        <div class="tab-title-box">
+          <a href="{{ block.settings.collectionpro.url | downcase }}" aria-label="Shop for {{ block.settings.title }}">
+            <div class="cst_img_collection"> 
+              {% if block.settings.image_coll != blank %}
+                {% comment %}
+                <img src="{{ block.settings.image_coll | img_url: 'x310' }}" width="209" height="155" alt="{{ block.settings.image_coll.alt }}">
+                {% endcomment %}
+                <style>
+                
+                  @media screen and (min-width: 1000px){
+                    .mobile-size-fix {
+                      width: 200px;
+                    }
+                  }
+                    .mobile-size-fix {
+                    width: 150px;
+                  }
+                </style>
+                <picture>
+                  <source
+                    media="(max-width: 600px)"
+                    srcset="
+                      {{ block.settings.image_coll | image_url: width: 200 }} 1x,
+                      {{ block.settings.image_coll | image_url: width: 400 }} 2x,
+                      ">
+                  {{ block.settings.image_coll |
+                    image_url: width: 400 |
+                    image_tag:
+                      widths: '200, 400',
+                      sizes: '(min-width: 1000px) 760px, (min-width: 800px) calc(100vw - 380px), (min-width: 400px) 298px, 78.75vw',
+                      class: 'mobile-size-fix',
+                      alt: block.settings.image_coll.alt }}
+                 </picture>
+              {% endif %}
+            </div>
+            <div class="home_tab_box_text">
+              <div class="title">
+
+                <h6 style="margin-bottom: 0; color: #434241;">{{ block.settings.title }}</h6>
+
+                <span class="arrow--button">
+                  {% render 'chevron-right' %}
+                </span>
+
+              </div>
+              <div class="hover_content_box">
+                <span class="hover_content">{{ block.settings.content }}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<!--section ends -->
+
+<script>
+
+  var _tabs = $('.tab-content');
+  var _shown = false;
+  
+  $('#tabs-nav li:first-child').addClass('active');
+  _tabs.hide();
+
+  _tabs.each(function(i, e) {
+
+    if ($(e).data('first')) {
+      $(e).show();
+      _shown = true;
+    }
+
+  });
+
+  if (_shown == false) {
+    $('.tab-content:first').show();
+  }
+
+
+
+// Click function
+$('#tabs-nav li').mouseenter(function(){
+  $('#tabs-nav li').removeClass('active');
+ // $(this).addClass('active');
+  $('.tab-content').hide();
+  
+  var activeTab = $(this).find('a').attr('href');
+  $(activeTab).fadeIn();
+  return false;
+});
+  
+var btns = document.getElementsByClassName("myBtn")
+Array.from(btns).forEach((btn) => {
+  btn.addEventListener('click', playOrPause)
+})
+function playOrPause(event) {
+  event.preventDefault();
+  let targetedBtn = event.target.closest('.myBtn')
+  let video = targetedBtn.previousElementSibling
+  if (video.paused) {
+    video.play();
+    targetedBtn.innerHTML = "<img src='https://cdn.shopify.com/s/files/1/1230/4400/files/Repeat_Grid_1_2.webp?v=1652679712'>";
+  } else {
+    video.pause();
+    targetedBtn.innerHTML = "<img src='https://cdn.shopify.com/s/files/1/1230/4400/files/Group_13578.webp?v=1652679712'>";
+  }
+}
+
+
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "left",
+      "label": "Section Content Alignment"
+    },
+    {
+      "type": "text",
+      "id": "first_tab",
+      "label": "First Tab",
+      "info": "Enter the title of the first tab you want to show when the page loads"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collectionpro",
+          "label": "select collection"
+        },
+        {
+          "type": "header",
+          "content": "Main Collection Title"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_coll",
+          "label": "Add Custom Collection Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "should_lazy_load",
+          "label": "Lazy load",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Collection Banner Image",
+          "info": "Overwrites the video on desktop sizes."
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Collection Banner Mobile Image",
+          "info": "Overwrites the video on mobile sizes."
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video url"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "title"
+        },
+        {
+          "type": "text",
+          "id": "banner_content",
+          "label": "content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

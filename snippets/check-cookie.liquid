@@ -1,0 +1,59 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:55+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            7dafa62cc4b1ac3ba9fe36dcbd73d57e
+//      Signature:      eyJpdiI6IkVsNlYycmFxektuYnh2ZjVoRGQ0T0E9PSIsInZhbHVlIjoiT2tFM25TbkxFeTFNVEtkelBUQlhqQUVtYXZsYXpWbnFIRzZlZnFqcWN5XC9KdVVrUlpkbVRxc0tuNHVqd2RnZWRtWEVtT1YxRkRvbHJuMHZIUTV6ekNoTyt4RkRzcUREQlIzcnUrWkZ0R0ZmUTRINHhucnJvaG5oRHk2Um5MNkdyd2pGc1B3RzBOcUdxN1IyMkpwckNITXdqQkZubURCcE9aVzNtdUpBUWVXWVFUSVlINk9ZNHJKaXdYN3VIT3BVTjBicmp4QUJsTWl1VTlSQkdockRkcXB3RTErOUpKT3pTajNJUUJnT05MdHN5WGFlRENBTVwvTytwY0U5XC85azExMEg5d203WUQ4Z0FhVURPXC9BT3NhVmlVbHIwWVpQRDJZZFE1TXNONTNmaGk3VG83NTZcL3RIR2ZLcTV1eXNqdTY0b1BzWmU1VnE3NTVTbWxSWlptcWZ4THo4clV1Q1F3RnBjU2ttbGtcLzBUT1J6OHNETHRVOUxqckM2eU5xZlVnWG1lZ1pNZ2Rqc1wvZHR6UndSZHpJd3FjekE9PSIsIm1hYyI6IjExYzBhNmQ4OTI0MGRlZWMzYjRmNmFkNzRhYzM4YjNkMTJjYWY4YmEzYmRkOGE2YWQyZDVjZGFjMjliNDI3NTAifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<script>
+
+	// POINTLESS CHANGE TO TRIGGER GIT
+	
+	function checkCookie() {
+		var navTemplate = getCookie("navTemplate");
+		if ( navTemplate == "eat" ){
+			$('#navEat').addClass('show-nav');
+		} else if ( navTemplate == "sleep" ) {
+			$('#navSleep').addClass('show-nav');
+		} else if ( navTemplate == "live" ){
+			$('#navLive').addClass('show-nav');
+		}
+	}
+	
+	checkCookie();
+	
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		var expires = "expires="+ d.toUTCString();
+		document.cookie = cname + "=" + cvalue + "; " + expires;
+	}
+	
+	function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+	
+</script>

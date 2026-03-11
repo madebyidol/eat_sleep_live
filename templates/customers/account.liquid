@@ -1,0 +1,125 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:25:14+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            d769e1656b407845dc3e8f5a46158ddb
+//      Signature:      eyJpdiI6IlwvWXhnTU1nOU1DcEpVOUpEZzZkU0xBPT0iLCJ2YWx1ZSI6IjZwaFBNXC9hWm9mU1wvOVA4cGgxaVlaaFFINFFvM1FISXVjWE0xbE5xQk83MVMrbWZGOGNcL0F6blZWK21lWXpYV0k5Y0txa3ZZRW9SOTJjM3d3U21oYnBvYVRTZ0wyMFVEMXpobTdSbWp3R1hSbTRkSlJJdnV4T3UyWXpTMHloWlg0c1YxV0RxcTRaRDIwVGZKWEhoc1d6cW5MMWlMYlhVSUVFeW5CazJ3UkNWdjBTQ2hvSElIUjFZeWFCNUwxQnBkVlVJUDNiaFhyS2xjNERMVHZ1RXZVMVVadldIUTR4T0JkQVBMdVVVTGoyWEVSSFNxd0dXTGxqSmpoSUg3S1FOT28ySmVIQzRvRUxvaUdua3BXckNzaWVKS2dpNmQxdlc2UjlrSWt1UkgyR2QrUXd6aVYrOU5IQmV0czdnbUNnekZIZFM1ZENUaUx2c1kyZGloenZhT1F3dFdkckVpczBmUVl2UE9XbjY0QlwvV0tOaHkreWVIRlBXc3NpU0pKaldHM29qTXpwNjhSUlZ3SjBCdEhCVEViM3RMMloxWWNsMEp3STIwQ2pydHdKU2MwPSIsIm1hYyI6IjBjNTMzYTg1N2FmZDE0MmU3MmFiOGY4MzgyMjU3NmMyMWE0MjAwMDNkZDIxNWI4ZjI1NmEyNjI5MmE1NjFhNTUifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<!-- /templates/customers/account.liquid -->
+{% comment %}
+
+  For all available customer liquid tags:
+    - http://docs.shopify.com/themes/liquid-variables/customer
+
+{% endcomment %}
+
+<div class="wrapper">
+
+<h1>{{ 'customer.account.title' | t }}</h1>
+
+<hr class="hr--small">
+
+<div class="grid">
+
+  <div class="grid__item two-thirds medium-down--one-whole">
+    <h4>{{ 'customer.orders.title' | t }}</h4>
+
+    {% comment %}
+      If we have past orders, loop through each one
+    {% endcomment %}
+    {% paginate customer.orders by 20 %}
+      {% if customer.orders.size != 0 %}
+
+        <div class="table-wrap">
+          <table class="full">
+            <thead>
+              <tr>
+                <th>{{ 'customer.orders.order_number' | t }}</th>
+                <th>{{ 'customer.orders.date' | t }}</th>
+                <th>{{ 'customer.orders.payment_status' | t }}</th>
+                <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                <th>{{ 'customer.orders.total' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr>
+                  <td>{{ order.name | link_to: order.customer_url }}</td>
+                  <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                  <td>{{ order.financial_status_label }}</td>
+                  <td>{{ order.fulfillment_status_label }}</td>
+                  <td>{{ order.total_price | money }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      {% else %}
+
+        <p>{{ 'customer.orders.none' | t }}</p>
+
+      {% endif %}
+      {% if paginate.pages > 1 %}
+        <hr>
+        <div class="pagination">
+          {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+
+  <div class="grid__item one-third medium-down--one-whole">
+    <h4>{{ 'customer.account.details' | t }}</h4>
+
+    <h5>{{ customer.name }} ({{ 'layout.customer.log_out' | t | customer_logout_link }})</h5>
+
+    {% if customer.default_address != nil %}
+      <p>
+      {{ customer.default_address.address1 }}<br>
+
+      {% if customer.default_address.address2 != "" %}
+        {{ customer.default_address.address2 }}<br>
+      {% endif %}
+
+      {% if customer.default_address.city != "" %}
+        {{ customer.default_address.city }}<br>
+      {% endif %}
+
+      {% if customer.default_address.province_code != "" %}
+        {{ customer.default_address.province_code | upcase }}<br>
+      {% endif %}
+
+      {% if customer.default_address.zip != "" %}
+        {{ customer.default_address.zip | upcase }}<br>
+      {% endif %}
+
+      {% if customer.default_address.country != "" %}
+        {{ customer.default_address.country }}<br>
+      {% endif %}
+
+      {% if customer.default_address.phone != "" %}
+        {{ customer.default_address.phone }}
+      {% endif %}
+      </p>
+
+    {% endif %}
+
+    <p><a class="view-addresses" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+  </div>
+
+</div>
+
+</div>

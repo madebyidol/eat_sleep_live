@@ -1,0 +1,19 @@
+<div class="product__usps">
+
+    {% for usp in product.metafields.custom_fields["product_usp"] %}
+        <div class="product__usp">
+            <div class="product__usp-image">
+                {{ usp.image | image_tag: loading: 'lazy' }}
+            </div>
+            <div class="product__usp-content">
+                <div class="product__usp-title">
+                    {{ usp.icon }}
+                    <span>{{ usp.title }}</span>
+                </div>
+        
+                <p>{{ usp.text }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    
+</div>

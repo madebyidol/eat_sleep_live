@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-banner",
+      "settings": {
+        "banner_heading": "lifetime guarantee"
+      }
+    },
+    "7044b010-364c-45c8-be7a-d8296d0d0124": {
+      "type": "process-content",
+      "blocks": {
+        "template--16110558642346__7044b010-364c-45c8-be7a-d8296d0d0124-168070706072c16039-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Cavendish-Shelving-2.jpg"
+          }
+        },
+        "template--16110558642346__7044b010-364c-45c8-be7a-d8296d0d0124-168070706072c16039-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MG_0576-Edit-2.jpg"
+          }
+        },
+        "template--16110558642346__7044b010-364c-45c8-be7a-d8296d0d0124-168070706072c16039-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ESL_Grantham_Jade_Selected_Edit-35.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "template--16110558642346__7044b010-364c-45c8-be7a-d8296d0d0124-168070706072c16039-0",
+        "template--16110558642346__7044b010-364c-45c8-be7a-d8296d0d0124-168070706072c16039-1",
+        "template--16110558642346__7044b010-364c-45c8-be7a-d8296d0d0124-168070706072c16039-2"
+      ],
+      "settings": {
+        "subtitle": "lifetime guarantee",
+        "title": "A promise to last a lifetime.",
+        "text": "<p><br/>The wood we use has been around for many lifetimes and there’s no reason for it not to be around for many more.<br/><br/>That’s why you’ll always have peace of mind of our Lifetime Manufacturing Guarantee that ensures nothing but outstanding quality for all our handcrafted reclaimed wood furniture throughout its life*.<br/><br/><em>*Lifetime Manufacturing Guarantee is for our handcrafted reclaimed wood furniture only and is non-transferable. It does not include upholstered items and covers manufacturing defects only. General wear & tear, accidental damage or misuse are not covered. UK mainland furniture & customers only. Not valid for items taken or delivered abroad.</em><br/><br/></p>",
+        "button-text": "Shop Now",
+        "button-url": "https://www.eatsleeplive.co.uk/"
+      }
+    },
+    "687c2108-b60d-4f68-a156-ba296be5e988": {
+      "type": "image-content-column",
+      "settings": {
+        "image": "shopify://shop_images/ESL_22.02.19-31-2.jpg",
+        "heading": "We're always here for you",
+        "description": "<p>At Eat Sleep Live, we believe that your furniture should last a life time. This is why from the 1st August 2019 our life time manufacturing guarantee was introduced to ensure your furniture will always be part of your family.</p><p>For any furniture queries or questions in relation to our Lifetime Guarantee, get in touch and we'll be more than happy to help!</p>",
+        "phone": "01159 700 060",
+        "email": "info@eatsleeplive.co.uk",
+        "button_text": "get in touch",
+        "button_link": "shopify://pages/get-in-touch",
+        "warranty_text": ""
+      }
+    },
+    "47c48301-20eb-4bdd-8457-02a66df8a6fe": {
+      "type": "faq",
+      "blocks": {
+        "ddbbabed-8ec0-4e10-959f-f3d97e40134a": {
+          "type": "faq",
+          "settings": {
+            "question": "How long is it valid for?",
+            "answer": "Your furniture is covered for life, however it is only valid for the person who purchased the furniture, so if you do sell or pass your furniture on, the lifetime guarantee is non-transferrable. It is also only applicable to UK Mainland customers only and not for any furniture taken or delivered outside of UK mainland."
+          }
+        },
+        "9be4dc6d-a0b2-4db3-9e76-5ea1465b4ea6": {
+          "type": "faq",
+          "settings": {
+            "question": "Is the wood treated for wood worm?",
+            "answer": "All of the reclaimed wood, would have been treated prior to being used for the buildings that it originated from and we do not use reclaimed wood that has any signs of woodworm."
+          }
+        },
+        "8868b2e8-73ec-4077-8a00-df0dff33f239": {
+          "type": "faq",
+          "settings": {
+            "question": "What isn't covered within the Lifetime Guarantee?",
+            "answer": "Our lifetime manufacturing guarantee excludes general wear and tear, accidental damage, misuse (which includes moving furniture by dragging and so on) and items where the aftercare hasnt been followed."
+          }
+        }
+      },
+      "block_order": [
+        "ddbbabed-8ec0-4e10-959f-f3d97e40134a",
+        "9be4dc6d-a0b2-4db3-9e76-5ea1465b4ea6",
+        "8868b2e8-73ec-4077-8a00-df0dff33f239"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "7044b010-364c-45c8-be7a-d8296d0d0124",
+    "687c2108-b60d-4f68-a156-ba296be5e988",
+    "47c48301-20eb-4bdd-8457-02a66df8a6fe"
+  ]
+}

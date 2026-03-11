@@ -1,0 +1,296 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-25T10:13:37+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  148343
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            f11cc726242fc62e103bd0a5b576a464
+//      Signature:      eyJpdiI6IlR4SUp4NzlPdk5hR21WR1V1QTE5NUE9PSIsInZhbHVlIjoicCtBVlpiQWdPMUIwQTR1a1wvOEt3R3RsVmtVdlhaMVZzM3VWNFZRcStlVFVVdG9ITVwvMnV4bDJEUHd2TDA2TUI1clZDTTFGVW5Ha0NZQmtqUkYwTDBDOEpyRlM5ZUZLbFVldWp1RVlRQ21YV3JIZFpka0tkUTk4MEpFOGlhZ1EzakxOa1dvZnFOM1hmKzhqXC8reWtiZEZEZW82Z3Jkc3J5VlNGOHpkc3hFMFwvdVY5NVM3OTJLZ0E2VTl3ZEtMeWkzRmRqV1lnZGxSbXBXZ0pZczFoaXU2bnBvcXZtMEdvMFByRVZUYWpmMnlDWjBZZjgzOFlMWEdIV2ZmcE9CbEtuWjg2cGFMZXdENHVTTFpnUVZaNUViQXBBUlwvTXNlSW1Qc1ZnNWQ3R2JBc2dRcnVtUnpSREY0RXBwU2pIejBERVEyS1wvRTJkQnVaVFhuU2NoUjc1Zk5RZmRsVzErZGdTMk1hTUVTeE5acnJvdW9EUFJRWmtyY01ZMTFHYnVGNSs5S3lOczVCVTUyNm1TZ3l5TUlnVmF5UTRcL1E9PSIsIm1hYyI6IjA0ZjZiYTg1ZTJjY2U3OTc0NjkxNTVhZTg1ZGFjMjgwMmNiODhjNGE5YTQ2MzIxNTgwNTA0NWE1YzVkMzdiMzYifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% assign separator = "|###|" %}
+
+{% comment %}
+Single Image
+{% endcomment %}
+{% if page.metafields.custom_fields["sp_content_block_image"] != blank %}
+      {% assign separator = "|###|" %}
+      {% assign sp_image_position_array = page.metafields.custom_fields["sp_image_position"] | split: separator %}
+      {% assign image_1_array = page.metafields.custom_fields["sp_image_image"] | split: separator %}
+      {% assign background_colour_array = page.metafields.custom_fields["sp_image_custom_background"] | split: separator %}
+      {% assign sp_image_fc_keys = page.metafields.custom_fields["sp_content_block_image"] | split: "," %}
+      {% assign sp_image_fc_keys_size = sp_image_fc_keys | size %}
+	  {% assign sp_image_custom_background_array = page.metafields.custom_fields["sp_image_custom_background"] | split: separator %}
+{% endif %}
+
+{% comment %}
+Text Section
+{% endcomment %}
+{% if page.metafields.custom_fields["sp_text_section"] != blank %}
+  {% assign text_position_array = page.metafields.custom_fields["sp_text_section_position"] | split: separator %}
+  {% assign text_section_content_array = page.metafields.custom_fields["sp_text_section_content"] | split: separator %}
+  {% assign read_more_mobile_array = page.metafields.custom_fields["read_more_mobile"] | split: separator %}
+  {% assign text_fc_keys = page.metafields.custom_fields["sp_text_section"] | split: "," %}
+  {% assign text_fc_keys_size = text_fc_keys | size %}
+  {% assign sp_text_section_background_array = page.metafields.custom_fields["sp_text_section_background"] | split: separator %}
+{% endif %}
+
+{% comment %}
+CTA Button
+{% endcomment %}
+{% if page.metafields.custom_fields["sp_cta"] != blank %}
+      {% assign cta_button_position_array = page.metafields.custom_fields["sp_cta__position"] | split: separator %}
+      {% assign cta_button_text_array = page.metafields.custom_fields["sp_cta_button_text"] | split: separator %}
+      {% assign cta_button_link_array = page.metafields.custom_fields["sp_cta_button_link"] | split: separator %}
+      {% assign cta_button_colour_array = page.metafields.custom_fields["sp_cta_button_colour"] | split: separator %}
+      {% assign cta_button_fc_keys = page.metafields.custom_fields["sp_cta"] | split: "," %}
+      {% assign cta_button_fc_keys_size = cta_button_fc_keys | size %}
+	  {% assign sp_cta_background_array = page.metafields.custom_fields["sp_cta_background"] | split: separator %}
+{% endif %}
+
+{% comment %}
+Text & Image Section
+{% endcomment %}
+{% if page.metafields.custom_fields["sp_text_image_grid"] != blank %}
+      {% assign text_and_image_position_array = page.metafields.custom_fields["text_and_image_position"] | split: separator %}
+      {% assign side_by_side_array = page.metafields.custom_fields["sp_side_by_side"] | split: separator %}
+      {% assign text_and_image_image_array = page.metafields.custom_fields["sp_text_image_image"] | split: separator %}
+      {% assign text_and_image_title_array = page.metafields.custom_fields["sp_text_image_title"] | split: separator %}
+      {% assign text_and_image_text_array = page.metafields.custom_fields["sp_text_image_text"] | split: separator %}
+      {% assign text_and_image_link_text_array = page.metafields.custom_fields["text_and_image_link_text"] | split: separator %}
+      {% assign text_and_image_link_url_array = page.metafields.custom_fields["text_and_image_link_url"] | split: separator %}
+      {% assign text_and_image_fc_keys = page.metafields.custom_fields["sp_text_image_grid"] | split: "," %}
+      {% assign text_and_image_fc_keys_size = text_and_image_fc_keys | size %}
+	  {% assign sp_text_image_bg_array = page.metafields.custom_fields["sp_text_image_bg"] | split: separator %}
+{% endif %}
+
+{% comment %}
+Accordion Section
+{% endcomment %}
+{% if page.metafields.custom_fields["sp_accordian"] != blank %}
+  {% assign accordion_position_array = page.metafields.custom_fields["accordion_position"] | split: separator %}
+  {% assign accordian_titles_and_text_array = page.metafields.custom_fields["accordian_titles_and_text"] | split: separator %}
+  {% assign sp_accordion_title_array = page.metafields.custom_fields["sp_accordion_title"] | split: separator %}
+  {% assign accordion_background_color_array = page.metafields.custom_fields["accordion_background_color"] | split: separator %}
+  {% assign accordion_fc_keys = page.metafields.custom_fields["sp_accordian"] | split: "," %}
+  {% assign accordion_fc_keys_size = accordion_fc_keys | size %}
+  {% assign accordion_background_color_array = page.metafields.custom_fields["accordion_background_color"] | split: separator %}
+{% endif %}
+
+{% comment %}
+Image/Video CTA
+{% endcomment %}
+{% if page.metafields.custom_fields["sp_cta_image"] != blank %}
+      {% assign ivc_position_array = page.metafields.custom_fields["image_video_cta_position"] | split: separator %}
+      {% assign ivc_title_array = page.metafields.custom_fields["imagevideo_cta_title"] | split: separator %}
+      {% assign ivc_description_array = page.metafields.custom_fields["imagevideo_cta_description"] | split: separator %}
+      {% assign ivc_button_text_array = page.metafields.custom_fields["imagevideo_cta_button_text"] | split: separator %}
+      {% assign ivc_url_array = page.metafields.custom_fields["imagevideo_cta_url"] | split: separator %}
+      {% assign ivc_colour_array = page.metafields.custom_fields["imagevideo_cta_colour"] | split: separator %}
+      {% assign ivc_image_array = page.metafields.custom_fields["imagevideo_cta_image_backgroun"] | split: separator %}
+      {% assign ivc_video_array = page.metafields.custom_fields["imagevideo_cta_video_backgroun"] | split: separator %}
+      {% assign image_video_cta_fc_keys = page.metafields.custom_fields["sp_cta_image"] | split: "," %}
+      {% assign image_video_cta_fc_keys_size = image_video_cta_fc_keys | size %}
+	  {% assign imagevideo_cta_video_backgroun_array = page.metafields.custom_fields["imagevideo_cta_video_backgroun"] | split: separator %}
+	  {% assign imagevideo_cta_image_backgroun_array = page.metafields.custom_fields["imagevideo_cta_image_backgroun"] | split: separator %}
+{% endif %}
+
+{% comment %}
+Featured Products
+{% endcomment %}
+{% if page.metafields.custom_fields["sp_products"] != blank %}
+  {% assign sp_products_position_array = page.metafields.custom_fields["sp_products_position"] | split: separator %}
+  {% assign sp_products_title_array = page.metafields.custom_fields["sp_products_title"] | split: separator %}
+  {% assign featured_products_array = page.metafields.custom_fields["sp_products_products"] | split: separator %}
+  {% assign sp_products_fc_keys = page.metafields.custom_fields["sp_products"] | split: "," %}
+  {% assign sp_products_fc_keys_size = sp_products_fc_keys | size %}
+  {% assign featured_products_background_array = page.metafields.custom_fields["featured_products_background"] | split: separator %}
+{% endif %}
+
+{% comment %}
+About Us History Slider
+{% endcomment %}
+{% assign au_history_size = 0 %}
+{% if page.metafields.custom_fields["about_us_history_slider"] != blank %}
+      {% if page.metafields.custom_fields["about_us_history_slider"] == 1 %}
+        {% assign au_history_size = 1 %}
+      {% endif %}
+{% endif %}
+
+{% assign metafields_count = 0 %}
+{% assign metafields_count = metafields_count | plus: sp_image_fc_keys_size | plus: text_fc_keys_size | plus: cta_button_fc_keys_size | plus: text_and_image_fc_keys_size | plus: accordion_fc_keys_size | plus: image_video_cta_fc_keys_size | plus: sp_products_fc_keys_size | plus: au_history_size %}
+
+<div class="page-template">
+
+	{% capture page_child %}
+	  <div class="image-overlay"></div>
+	  <div class="single-cta__text-container">
+	    {% if page.title %}<h1 class="h1">{{ page.title }}</h1>{% endif %}
+	    {% if page.metafields.custom_fields["page_excerpt"] != blank %}<p>{{ page.metafields.custom_fields["page_excerpt"] | newline_to_br }}</p>{% endif %}
+	  </div>
+	{% endcapture %}
+
+	{% include 'page-banner' with child: page_child, banner_image: page.metafields.custom_fields["standard_page_featured_image"], banner_video: page.metafields.custom_fields["standard_page_featured_video"], page_title: page.title %}
+
+	<div class="page-content">
+		<div class="article-content__standard content-block__standard">
+			{{ page.content }}
+		</div>
+	</div>
+
+	{% for i in (1..metafields_count) %}
+	{% assign index = i | plus: 0 %}
+
+		{% comment %}
+		Image Section
+		{% endcomment %}
+		{% for image_i in sp_image_fc_keys %}
+			{% assign images_index = image_i | plus: 0 %}
+			{% assign images_position_check = sp_image_position_array[images_index] | plus: 0 %}
+			{% if i == images_position_check %}
+				{% include 'content-block-images' %}
+			{% endif %}
+		{% endfor %}
+
+		{% comment %}
+		Text Section
+		{% endcomment %}
+		{% for text_i in text_fc_keys %}
+			{% assign text_index = text_i | plus: 0 %}
+			{% assign text_position_check = text_position_array[text_index] | plus: 0 %}
+			{% assign text_section_background = sp_text_section_background_array[text_index] %}
+			{% if i == text_position_check %}
+				{% assign read_more = read_more_mobile_array[text_index] %}
+				<style> #section-text_{{ text_i }} { background-color: {{ text_section_background }} }</style>
+				<div id="section-text_{{ text_i }}" class="text-section grid grid--gutterless content-block__standard">
+					<div {% if read_more %}id="#{{i}}-read-more"{% endif %} class="{% if read_more %}read-more--mobile{% endif %} article-content__standard article-content page-content">
+						{{ text_section_content_array[text_index] }}
+					</div>
+					{% if read_more %}<p data-read-more="#{{i}}-read-more" class="medium--show small--show hide content-block__read-more js-read-more">Read More</p>{% endif %}
+				</div>
+			{% endif %}
+		{% endfor %}
+
+		{% comment %}
+		CTA Button
+		{% endcomment %}
+		{% for cta_button_i in cta_button_fc_keys %}
+			{% assign cta_button_index = cta_button_i | plus: 0 %}
+			{% assign cta_position_check = cta_button_position_array[cta_button_index] | plus: 0 %}
+			{% if i == cta_position_check %}
+				{% include 'content-block-link' with cta_classes: 'page-content' %}
+			{% endif %}
+		{% endfor %}
+
+
+		{% comment %}
+		Text and Image Section
+		{% endcomment %}
+		{% for text_and_image_i in text_and_image_fc_keys %}
+			{% assign text_and_image_index = text_and_image_i | plus: 0 %}
+			{% assign text_and_image_position_check = text_and_image_position_array[text_and_image_index] | plus: 0 %}
+			{% if i == text_and_image_position_check %}
+				{% include 'content-text-and-image' %}
+			{% endif %}
+		{% endfor %}
+
+		{% comment %}
+		Accordion Section
+		{% endcomment %}
+		{% for accordion_i in accordion_fc_keys %}
+			{% assign accordion_index = accordion_i | plus: 0 %}
+			{% assign accordion_position_check = accordion_position_array[accordion_index] | plus: 0 %}
+			{% if i == accordion_position_check %}
+				{% if accordion_background_color_array[accordion_index] != blank %}
+					<style>#section-accordion_{{ accordion_index }} { background-color: {{accordion_background_color_array[accordion_index]}}; }</style>
+				{% endif %}
+				<div id="section-accordion_{{ accordion_index }}" class="content-block__standard block-accordion">
+					<div class="block-accordion__container">
+						<h3 class="block-accordion__title">{{ sp_accordion_title_array[accordion_index] }}</h3>
+						{% assign accordions = accordian_titles_and_text_array[accordion_index] | split: 'TITLE:' %}
+						{% for accordion in accordions %}
+							{% if accordion contains 'TEXT:' %}
+								{% assign accordion_split = accordion | split: 'TEXT:' %}
+						        	<div class="accordion block-accordion__accordion">
+						        		<p>{{ accordion_split[0] }}</p>
+						            </div>
+						            <div class="accordion-panel block-accordion__panel">
+						            	<p>{{ accordion_split[1] }}</p>
+						        	</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+
+		{% comment %}
+		Image/Video CTA
+		{% endcomment %}
+		{% for image_video_cta_i in image_video_cta_fc_keys %}
+			{% assign image_video_cta_index = image_video_cta_i | plus: 0 %}
+			{% assign image_video_cta_position_check = ivc_position_array[image_video_cta_index] | plus: 0 %}
+			{% if i == image_video_cta_position_check %}
+
+				{% capture page_child %}
+				  <div class="image-overlay"></div>
+				  <div class="single-cta__text-container">
+				    {% if ivc_title_array[image_video_cta_index] %}
+				    	<h4 class="h4">{{ ivc_title_array[image_video_cta_index] }}</h4>
+				    {% endif %}
+				    {% if ivc_description_array[image_video_cta_index] != blank %}
+				    	<p>{{ ivc_description_array[image_video_cta_index] | newline_to_br }}</p>
+				    {% endif %}
+				    {% if ivc_url_array[image_video_cta_index] %}
+				    	<a 
+				    		{% if ivc_colour_array[image_video_cta_index] %}
+				    			style="background-color: {{ ivc_colour_array[image_video_cta_index] }};" 
+				    		{% endif %}
+				    		href="{{ ivc_url_array[image_video_cta_index] }}" 
+				    		class="main-button">{{ ivc_button_text_array[image_video_cta_index] }}</a>
+				    {% endif %}
+				  </div>
+				{% endcapture %}
+
+				<div class="block-inpage-banner content-block__standard">
+					{% assign cta-classes = 'single-cta--full-width single-cta single-cta--large' %}
+					{% include 'page-banner' with child: page_child, banner_image: ivc_image_array[image_video_cta_index], banner_video: ivc_video_array[image_video_cta_index], page_title: ivc_title_array[image_video_cta_index] %}
+				</div>
+			{% endif %}
+		{% endfor %}
+
+		{% comment %}
+		Featured Products Section
+		{% endcomment %}
+		{% for featured_products_i in sp_products_fc_keys %}
+			{% assign featured_products_index = featured_products_i | plus: 0 %}
+			{% assign featured_products_position_check = sp_products_position_array[featured_products_index] | plus: 0 %}
+			{% if i == featured_products_position_check %}
+				{% include 'content-featured-products' with slides: 3 %}
+			{% endif %}
+		{% endfor %}
+
+		{% comment %}
+		About Us History Section
+		{% endcomment %}
+		{% if page.metafields.custom_fields["about_us_history_slider"] != blank %}
+			{% assign au_history_position_check = page.metafields.custom_fields["history_slider_position"] | plus: 0 %}
+			{% if i == au_history_position_check %}
+				{% include 'content-about-us-history' %}
+			{% endif %}
+		{% endif %}
+
+	{% endfor %}
+
+		
+
+</div>

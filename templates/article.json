@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "article-dynamic",
+      "blocks": {
+        "5e3c8079-8f53-42fe-8474-15c99fd4d8ab": {
+          "type": "cta",
+          "settings": {
+            "title": "{{ article.metafields.custom.cta_title.value }}",
+            "text": "<p>{{ article.metafields.custom.cta_text | metafield_tag }}</p>",
+            "button-text": "Shop Now",
+            "button-url": "{{ article.metafields.custom.cta_link.value }}",
+            "image": "{{ article.metafields.custom.cta_image.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "5e3c8079-8f53-42fe-8474-15c99fd4d8ab"
+      ],
+      "settings": {
+        "recommendations": true,
+        "byline": "",
+        "recommendations-title": "Suggested stories",
+        "same-size": false
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

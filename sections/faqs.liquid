@@ -1,0 +1,141 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:25:05+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            05e0f9a7f86a56785b12a8efd2ca78ed
+//      Signature:      eyJpdiI6IlwvUitzcmhmWEZDMnNndVFkK1BpeTZ3PT0iLCJ2YWx1ZSI6IjV5d0NSblJCNWJ3MHpKWnA4T3VXWmZ2OWg0Uk5vNFc2YmNsWVZyMUFMdUVvejVGZmV0dmdUNFprZFwvMTJEbklUdURaYkt4dDBId05seHZERlcrUU9xcUJ3M1RoQ28zWDNkK2lZdERqYkc0SlBNUU1sUGw1Rmt0dko0d2NiK2N5NFwvSG5xOEw1aExmenBlaFJJbzRMT2FjZURPTDF4c1lITFpJN2tOTFQ2QlRqSTk1UHNDMGlpckttOWFCdTBTWGYrSTJFRTdcL1NYc3NtRUFKdHZuYlpucko3TnZabTNFNFhiYWdKQWNzZVJNaE1MTld5dFwvVGJYNjA4TTZnejBwSFJKRzUzb2VJdUVcL25RdUdET0dWOVRxNVpmelFZRFRNdWZPeXZpSUtjdlBOeFdabHRHVkpMc0VqUVlhTjhQc2grS29RQk9Vb1BzOWhURUxIU040VG1vTDdkdzJ2VU53bE9ITnZaRVlWNmV1UWc4Y0xWeXpaemNYNlwvK0NFMFo4eXZ2SERPZDc0b3RPUEJxK1VWNnhlcytBSGc9PSIsIm1hYyI6IjA3NWI1YmUwOTk0ODJjZWNmMDNjYjIxZDFhYjhkYjliZjQzZjNkYjMyMGQ0NzY0N2Y3N2YzNjJlYjM5ZjU5ZGUifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+
+{% include 'standard-header' with image: section.settings.background-image, title: section.settings.title %}
+
+{% assign sections = section.settings.groups | split: ',' %}
+
+
+<div class="filter-text">
+	<div class="filter-text__options flex large--flex-center">
+		{% for section in sections %}
+			<div class="filter-text__option">
+				<a class="anchor-link" data-link="{{ section | handleize }}"><p>{{ section }}</p></a>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="faqs">
+{% if shop.metafields.custom_fields["faq_question"] != blank %}
+      {% assign separator = "|###|" %}
+      {% assign question_category_array = shop.metafields.custom_fields["question_category"] | split: separator %}
+      {% assign question_array = shop.metafields.custom_fields["question"] | split: separator %}
+      {% assign answer_array = shop.metafields.custom_fields["answer"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["faq_question"] | split: "," %}
+      
+      {% for section in sections %}
+      <div id="{{ section | handleize }}" class="faqs__container">
+      	<h4>{{section}}</h4>
+	      {% for i in fc_keys %}
+	        {% assign index = i | plus: 0 %}
+	        	{% if section == question_category_array[index] %}
+	        	<div class="faqs_question-answer">
+		        	<div class="accordion">
+		            	<p class="faqs_question"><span class="active-color">Q.</span>{{ question_array[index] }}</p>
+		            </div>
+		            <div class="accordion-panel">
+		            	<p class="secondary-color">{{ answer_array[index] }}</p>
+		        	</div>
+		        </div>
+	            {% endif %}
+	       {% endfor %}
+	    </div>
+	  {% endfor %}
+{% endif %}
+</div>
+
+<div class="faqs-end">
+	{% assign title-class = 'h4' %}
+	{% assign link-text = section.settings.link-text-end %}
+
+	<div {% if section.settings.background-image-end-mobile != blank %}class="small--hide show"{% endif %}>
+		{% include 'standard-header' with image: section.settings.background-image-end, title: section.settings.title-end, description: section.settings.description-end, link: section.settings.link-end, link-text: link-text, title-class: title-class %}
+	</div>	
+	{% if section.settings.background-image-end-mobile != blank %}
+		<div class="small--show hide">
+			{% include 'standard-header' with image: section.settings.background-image-end-mobile, title: section.settings.title-end, description: section.settings.description-end, link: section.settings.link-end, link-text: link-text, title-class: title-class %}
+		</div>
+	{% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "FAQs",
+    "settings": [
+    	{
+    	  "type": "text",
+    	  "id": "title",
+    	  "label": "Page Title",
+    	  "default": "FAQs"
+    	},
+    	{
+    	  "type": "text",
+    	  "id": "groups",
+    	  "label": "FAQ Groups",
+    	  "info": "List of the FAQ groups separated by a comma (e.g. delivery,ordering,assembly) (case sensitive, max 6)"
+    	},
+    	{
+    	  "type": "image_picker",
+    	  "id": "background-image",
+    	  "label": "Background Image"
+    	},
+    	{
+    	  "type": "paragraph",
+    	  "content": "Add your questions in the FAQ Questions of the Global section of the Custom Fields app"
+    	},
+    	{
+    		"type": "header",
+    		"content": "Page Bottom CTA"
+    	},
+    	{
+    		"type": "image_picker",
+    		"id": "background-image-end",
+    		"label": "Background Image"
+    	},
+    	{
+    		"type": "image_picker",
+    		"id": "background-image-end-mobile",
+    		"label": "Background Image Mobile",
+    		"info": "Leave blank to use the desktop background image for mobile too"
+    	},
+    	{
+    	  "type": "text",
+    	  "id": "title-end",
+    	  "label": "Title"
+    	},
+    	{
+    	  "type": "textarea",
+    	  "id": "description-end",
+    	  "label": "Description"
+    	},
+    	{
+    	  "type": "url",
+    	  "id": "link-end",
+    	  "label": "Button Link"
+    	},
+    	{
+    	  "type": "text",
+    	  "id": "link-text-end",
+    	  "label": "Button Text"
+    	}
+    ]
+  }
+{% endschema %}

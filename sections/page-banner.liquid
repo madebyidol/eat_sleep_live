@@ -1,0 +1,38 @@
+{% if section.settings.banner_image != blank %}
+	<style>
+		.general-page__banner {
+			background-image: url("{{ section.settings.banner_image | image_url: width: 1600 }}");
+		}
+	</style>
+  {% endif %}
+  
+  <section id="general-page__banner--{{ section.id }}">
+	  <div class="general-page__banner {% unless section.settings.banner_image != blank %}general-page__banner--no-image{% endunless %}">
+		  <h1 class="general-page--heading"> {{ section.settings.banner_heading }} </h1>
+	  </div>
+  </section>
+  
+  
+{% schema %}
+{
+  "name": "General Page Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_heading",
+      "label": "Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "General Page Banner",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,221 @@
+/* Background Color */
+
+#PageContainer {
+  background-color: var(--esl-off-white);
+}
+
+/* Fonts */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Averia Serif Libre';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/averia-serif-libre-v19-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lexend-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/lexend-v26-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lexend-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/lexend-v26-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lexend-exa-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Lexend Exa';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/lexend-exa-v35-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Buttons */
+.sml-button {
+  padding: 8px 24px 7px;
+  height: 39px;
+}
+
+.light-button {
+  background-color: var(--esl-off-white);
+  color: var(--esl-grey-dark);
+}
+
+.light-button:hover, .light-button:focus, .light-button:active {
+  background-color: #D2CCC3;
+  color: var(--esl-grey-dark);
+}
+
+/* Header */
+header {
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.05);
+}
+
+body.nav-open, html.nav-open, #PageContainer {
+  overflow: clip !important;
+}
+
+html, body, .mm-wrapper {
+  overflow-x: clip;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+}
+
+.site-header .mobile-logo {
+  display: none;
+}
+
+@media screen and (max-width: 1080px) {
+  .site-header__navigation {
+    position: absolute;
+  }
+  .site-header .desktop-logo {
+    display: none;
+  }
+  .site-header .mobile-logo {
+    display: block;
+  }
+}
+
+/* Annoucement CSS */
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee__part {
+  flex-shrink: 0;
+  padding: 0 26px;
+  font-smooth: always;
+  animation: scrollText linear infinite;
+}
+
+.marquee__inner {
+  -webkit-font-smoothing: antialiased;
+  width: fit-content;
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+
+}
+
+@media screen and (max-width: 480px) {
+  .marquee__inner {
+    transform: translate(-40%, 0%) !important;
+  }
+}
+
+#shopify-section-offer-banner.offer-banner {
+  background-color: var(--esl-off-white);
+  color: var(--esl-grey-dark);
+  font-family: "Averia Serif Libre", 'Times New Roman', Times, serif;
+  padding: 6px 20px 4px;
+  height: 32px;
+}
+
+#shopify-section-offer-banner.offer-banner:before,
+#shopify-section-offer-banner.offer-banner:after {
+  display: none;
+}
+
+.offer-banner__inner {
+  align-items: center;
+}
+
+.offer-banner .offer-banner__item {
+  color: var(--esl-grey-dark);
+  font-size: 14px;
+}
+
+.offer-banner a .offer-banner__item  {
+  transition: color 250ms ease;
+}
+
+.offer-banner a:hover .offer-banner__item  {
+  color: var(--esl-orange);
+}
+
+/* Typography CSS */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Averia Serif Libre", 'Times New Roman', Times, serif !important;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw + 1rem, 3.75rem); }   /* 40px → 60px */
+h2 { font-size: clamp(2rem, 3.5vw + 0.75rem, 2.75rem); } /* 32px → 44px */
+h3 { font-size: clamp(1.5rem, 2vw + 0.75rem, 2rem); }    /* 24px → 32px */
+h4 { font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.625rem); } /* 20px → 26px */
+h5 { font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem); }    /* 16px → 20px */
+h6 { font-size: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem); } /* 12px → 14px */
+
+.p-lrg {
+  font-size: 19px;
+}
+
+.caps {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Lexend Exa", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.sml-caps {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Lexend Exa", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+/* Fixes */
+
+.wrapper:after {
+  display: none;
+}
+
+.samples-header__form {
+  border-radius: 8px;
+}
+
+.process__text-content p span,
+.process__text-content li span,
+.process__text-content p,
+.process__text-content li
+{
+  color: var(--esl-grey-dark) !important;
+  font-family: "Lexend", sans-serif !important;
+}
+.process__text-content h1 span,
+.process__text-content h2 span,
+.process__text-content h3 span,
+.process__text-content h4 span,
+.process__text-content h5 span,
+.process__text-content h6 span,
+.process__text-content h1,
+.process__text-content h2,
+.process__text-content h3,
+.process__text-content h4,
+.process__text-content h5,
+.process__text-content h6
+{
+  color: var(--esl-grey-dark) !important;
+  font-family: "Averia Serif Libre", 'Times New Roman', Times, serif !important;
+  line-height: 1.1 !important;
+  font-weight: 400 !important;
+}
+.process__text-content a,
+.process__text-content a span {
+  color: var(--esl-orange) !important;
+}

@@ -1,0 +1,49 @@
+{% assign product_desc_arr = product.description | split: '<!-- split -->' %}
+{% assign product_desc_intro = product_desc_arr[0] %}
+{% assign product_desc_size = product_desc_arr | size %}
+
+{% comment %} Description and Subtitle have been mixed up in ACF... {% endcomment %}
+{% assign product_custom_content = product.metafields["custom_fields"]["product_description"] %}
+{% assign product_custom_subtitle = product_custom_content[0]["description"] %}
+{% assign product_custom_desc = product_custom_content[0]["subtitle"] %}
+
+
+<div class="product__description">
+
+	<div class="product__description-inner">
+
+		<div class="product__description-content">
+			{% if product_custom_content != blank %}
+
+				{% if product_custom_subtitle != blank %}
+					<h6>{{ product_custom_subtitle }}</h6>
+				{% endif %}
+
+				{% if product_custom_desc != blank %}
+					{{ product_custom_desc }}
+				{% endif %}
+
+			{% else %}
+				{% if productDescription.description contains '<!-- split -->' %}
+					{% for i in (1..product_desc_size) %}
+						{{ product_desc_arr[i] }}
+					{% endfor %}
+				{% else %}
+					{{ productDescription.description }}
+				{% endif %}
+			{% endif %}
+		</div>
+
+		<div class="product__description-image">
+			{% if productDescription.images %}
+				{{ productDescription.images[0] | image_url: width: 720 | image_tag: loading: 'lazy' }}
+				{% comment %}
+				<img src="{{ productDescription.images[0].src | image_url: width: 720 }}" loading="lazy">
+				{% endcomment %}
+			{% else %}
+				{{ productDescription.image }}
+			{% endif %}
+		</div>
+
+	</div>
+</div>

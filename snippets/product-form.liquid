@@ -1,0 +1,300 @@
+{% comment %} {% for variant in product.variants %}
+	<script>
+		console.log({{ variant.options | json }});
+	</script>
+{% endfor %} {% endcomment %}
+
+<form autocomplete="off">
+	<div class="product-form__inner">
+		<div class="product-form__options">
+
+			{% unless product.has_only_default_variant %}
+
+				{% for option in product.options_with_values %}
+
+					{%- assign optionNumber = forloop.index0 -%}
+					
+					<div data-upsell-option="{{ option.name }}" class="product-upsell-option">
+
+						<legend class="product-form__legend product-form__option-name">
+							
+								<p>Choose your <span>{{ option.name | capitalize | replace: "Choose your ", "" }}</span></p>
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.2071 7.79289C20.5976 8.18342 20.5976 8.81658 20.2071 9.20711L13.2071 16.2071C12.8166 16.5976 12.1834 16.5976 11.7929 16.2071L4.79289 9.20711C4.40237 8.81658 4.40237 8.18342 4.79289 7.79289C5.18342 7.40237 5.81658 7.40237 6.20711 7.79289L12.5 14.0858L18.7929 7.79289C19.1834 7.40237 19.8166 7.40237 20.2071 7.79289Z" fill="#434241"/></svg>
+							
+							<div class="product-form__selected-option"><span></span></div>
+						</legend>
+			
+						<div class="product-form__option-wrapper">
+
+							{% for value in option.values %}
+
+								{% assign variant_label_state = true %}
+								{% assign value_arr = value | split: '-' %}
+			
+								{% if product.options.size == 1 %}
+									{% unless product.variants[forloop.index0].available %}
+										{% assign variant_label_state = false %}
+									{% endunless %}
+								{% endif %}
+
+								<div class="product-form__option-inner {% unless optionNumber == 0 %}hide {% endunless %} optionNumber__{{ optionNumber }}">
+									<div class="product-form__option-input">
+
+										{% assign var = "" %}
+
+										{% assign options1 = "" %}
+										{% assign options2 = "" %}
+										{% assign options3 = "" %}
+
+										{% for variant in product.variants %}
+											{% for o in variant.options %} 
+												{% if o == value %}
+													{% assign var = variant %}
+
+													{% assign options1 = options1 | append: "," | append: variant.options[0] %}
+													{% assign options2 = options2 | append: "," | append: variant.options[1] %}
+													{% assign options3 = options3 | append: "," | append: variant.options[2] %}
+
+												{% endif %}
+											{% endfor %}
+										{% endfor %}
+
+										{% assign options1 = options1 | remove_first: "," %}
+										{% assign options1 = options1 | split: "," %}
+
+										{% assign options2 = options2 | remove_first: "," %}
+										{% assign options2 = options2 | split: "," %}
+
+										{% assign options3 = options3 | remove_first: "," %}
+										{% assign options3 = options3 | split: "," %}
+				
+										<label class="product-form__option product-form-option {% if option.selected_value == value %}product-form__option--selected{% endif %}" for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape | handleize }}">
+											<input type="radio"
+												{% if option.selected_value == value %} checked="checked"{% endif %}
+												{% unless variant_label_state %} disabled="disabled"{% endunless %}
+												value="{{ value | escape }}"
+												data-index="option{{ forloop.index }}"
+												data-option-num="option{{option.position}}"
+												name="{{ option.name | handleize }}"
+												id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape | handleize }}"
+												data-reference="#ProductSelect-option-{{ option.name | handleize }}"
+												class="hide product-option__input c-size-select__radio"
+												data-sku="{{ var.sku }}"
+												data-variant-id="{{ var.id }}"
+												data-option1="{{ options1 | uniq | join: ", " }}" 
+												data-option2="{{ options2 | uniq | join: ", " }}" 
+												data-option3="{{ options3 | uniq | join: ", " }}"
+											>
+											
+											<div class="flex product-form__variant-name">
+												<div class="product-form__unselected-icon">{% include 'unselected-variant' %}</div>
+												<div class="product-form__selected-icon">{% include 'selected-variant' %}</div>
+
+												<div>
+													<p class="m-0 variant-name">{{ value_arr[0] }}</p>
+												</div>
+
+											</div>
+
+											{% if value_arr.size >= 3 %}
+												<div class="flex product-form__variant-name--light product-form__variant-name p-t-20">
+													{% if value_arr[1] != blank %}
+														<p class="m-0">{{ value_arr[1] }}</p>
+													{% endif %}
+												</div>
+											{% endif %}
+											
+										</label>
+											
+										<div class="product-form__option-price">
+											{% unless value_arr[1] != value_arr.last %}
+												{{ value_arr.last }}
+											{% endunless %}
+										</div>
+
+									</div>
+
+							
+								</div>
+							{% endfor %}	
+						</div>
+
+					</div>
+
+				{% endfor %}
+			{% endunless %}
+
+		</div>
+	</div>
+</form>
+	
+{% form 'product', product, class: 'product-add-cart-form', novalidate: 'novalidate', autocomplete: 'off', data-product-form: '' %}
+	
+{% assign uniq_name_array = name_array | uniq %}
+{% for name in uniq_name_array %}
+	<div data-upsell-option="{{ name }}" class=" 
+		{%- assign hidden = true -%}
+		{%- for i in fc_keys -%}
+			{%- assign index = i | plus: 0 -%}
+			{%- if name_array[index] == name and product.tags contains configuration_tag_array[index] -%} 
+				{%- assign hidden = false -%}
+				{%- break -%}
+			{%- endif -%}
+		{%- endfor -%} {% if hidden == true %} hide{% else %} product-upsell-option{% endif %}">
+	{% assign first_option = true %}
+	{% if hidden != true %}
+
+		<div class="product-form__option product-form__option-colour">
+
+			<legend class="product-form__legend product-form__option-name">
+				<p>Choose your <span>{{ name | capitalize | replace: "Choose your ", "" }}</span></p>
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.2071 7.79289C20.5976 8.18342 20.5976 8.81658 20.2071 9.20711L13.2071 16.2071C12.8166 16.5976 12.1834 16.5976 11.7929 16.2071L4.79289 9.20711C4.40237 8.81658 4.40237 8.18342 4.79289 7.79289C5.18342 7.40237 5.81658 7.40237 6.20711 7.79289L12.5 14.0858L18.7929 7.79289C19.1834 7.40237 19.8166 7.40237 20.2071 7.79289Z" fill="#434241"/></svg>
+				<div class="product-form__selected-option"><span></span></div>
+			</legend>
+
+			<div class="flex-wrap flex product-form__option-wrapper">
+			{% for i in fc_keys %}
+				{% assign index = i | plus: 0 %}
+				{% if name_array[index] == name and product.tags contains configuration_tag_array[index] %} 
+					<div class="product-form__property product-form__option-inner">
+						<div class="product-form__option-input">
+							<input 
+								{% if first_option == true %}checked="checked"{% endif %}
+								class="product-form__property-input product-option__input hide product-sticky-target c-{{ name | handleize }}-select__radio"
+								id="{{name | handleize }}-{{ i }}-{{ configuration_option_name_array[index] | handleize }}"
+								value="{{ configuration_option_name_array[index] | escape }}"
+								name="properties[{{ name | handleize }}]"
+								type="radio"
+								data-reference="#customProperty-{{ name | handleize }}"
+								data-option="{{ configuration_option_img_name_array[index] }}"
+								>
+							<label for="{{name | handleize }}-{{ i }}-{{ configuration_option_name_array[index] | handleize }}">
+								<img class="product-form__property-image" src="{{configuration_option_image_array[index]}}" width="19" height="19" alt="{{ configuration_option_name_array[index] | escape }}">
+								<div class="product-form__property-icon">{% include 'selected-variant' %}</div>
+								<p class="product-form__property-name variant-name">{{ configuration_option_name_array[index] }}</p>
+							</label>
+						</div>
+					</div>
+				{% assign first_option = false %}
+				{% endif %}
+			{% endfor %}
+			</div>
+		</div>
+		{% endif %}
+	</div>
+{% endfor %}
+	
+
+		
+		<!-- Placement v2 -->
+
+		{% comment %} 
+		<script src='https://na-library.klarnaservices.com/merchant.js?data-client-id=a2a2b929-f14f-52fd-aa99-71ab4b4b0693' defer></script>
+		 <!-- Placement v2 -->
+
+		<klarna-placement
+
+		data-key="top-strip-promotion-badge"
+
+		data-locale="en-GB"
+
+		></klarna-placement> {% endcomment %}
+
+		<!-- end Placement -->
+
+		<div class="product-form__controls-group flex m-t-10 product-form__button-padding" id="productFormControlsGroup">
+			<div class="product-form__item product-form__quantity flex number-input">
+				  <button class="number-input-minus" type="button">-</button>
+				  <input type="number" id="Quantity-{{ section.id }}"
+					name="quantity" value="1" min="1" pattern="[0-9]*"
+					class="product-form__input product-form__input--quantity number-input-target sticky-number-input" data-quantity-input
+				  >
+				  <button class="number-input-plus" type="button">+</button>
+			</div>
+				<button id="add-to-cart-button" class="main-button product-form__submit add-to-cart-button" data-button-text="{{ section.settings.submit }}" {% if product.available != true %}disabled="true"{% endif %} type="submit" name="add">{% if product.available != true %}UNAVAILABLE{% else %}{{ section.settings.submit }} {% render 'cart-icon' %}{% endif %}</button>
+		</div>
+		<div class="product-form__sticky flex m-t-10 product-form__button-padding" style="display: none">
+				<div class="product-form__sticky-items">
+					<div class="product-form__sticky-image-container" style="background-image: url('{{ product.featured_image | image_url: width: 160 }}')">
+					</div>
+					<div class="product-form__sticky-button-container">
+						<button id="add-to-cart-button" class="main-button product-form__submit add-to-cart-button" data-button-text="{{ section.settings.submit }}" {% if product.available != true %}disabled="true"{% endif %} type="submit" name="add">{% if product.available != true %}UNAVAILABLE{% else %}{{ section.settings.submit }} {% render 'cart-icon' %}{% endif %}</button>
+					</div>	
+				</div>	
+		</div>
+		<div class="m-t-10 product-form__button-padding">
+			<a href="#made-to-measure-form-wrapper" class="product-form__samples main-button tertiary-button">
+				<p class="m-0">made to measure enquiry</p>
+			</a>
+		</div>
+		{% unless section.settings.samples_link == blank %}
+			<div class="m-t-10 product-form__button-padding">
+				<a href="{{ section.settings.samples_link }}" class="product-form__samples main-button secondary-button">
+					<p class="m-0">{{ section.settings.samples }} {% render 'icon-swatch' %}</p>
+				</a>
+			</div>
+		{% endunless %}
+
+		<div class="product__form-usps">
+
+			<div class="product__form-usp">
+				<div class="product__form-usp-image">
+					<img src="{{ "medal.svg" | asset_url }}" alt="medal">
+				</div>
+				<div class="product__form-usp-title">Lifetime guarantee</div>
+			</div>
+
+			<div class="product__form-usp">
+				<div class="product__form-usp-image">
+					<img src="{{ "spanner.svg" | asset_url }}" alt="spanner">
+				</div>
+				<div class="product__form-usp-title">Handcrafted to order</div>
+			</div>
+
+			<div class="product__form-usp">
+				<div class="product__form-usp-image">
+					<img src="{{ "hand.svg" | asset_url }}" alt="hand">
+				</div>
+				<div class="product__form-usp-title">Free delivery</div>
+			</div>
+  </div>
+  
+		 
+		<select name="id" id="ProductSelect-product-template" class="product-form-variants product-form__variants hide">
+		  {% for variant in product.variants %}
+			{% for o in variant.options %} 
+				{% if o == value %}
+					{% assign var = variant %}
+				{% endif %}
+			{% endfor %}
+
+			<option value="{{ variant.id }}"
+			  {% if variant.id == product.selected_or_first_available_variant.id %} selected="selected" {% endif %}
+			  {% for i in (1..3)%}
+				  {% assign option_selector = 'option' | append: i %}
+				  {% if variant[option_selector] != blank %}
+					  data-option-{{i}}="{{variant[option_selector] | handleize }}"
+					  data-amount="{{ variant.price | money_without_currency | remove: ',' }}" 
+					  data-compare-amount="{{ variant.compare_at_price | money_without_currency | remove: ',' }}"
+					  data-available="{{ variant.available }}"
+					  data-sku="{{ var.sku }}"
+				  {% endif %}
+			  {% endfor %}>
+			  {{ variant.title }}  {% if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+			</option>
+		  {% endfor %}
+		</select>
+	{% endform %}
+
+{%- comment -%}
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    formId: "c888552b-1912-4955-bc66-f2e3fe52c9e1",
+    portalId: 2821538,
+    env: "",
+    region: "na1",
+    embedVersion: ""
+  });
+</script>
+{%- endcomment -%}

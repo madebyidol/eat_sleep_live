@@ -1,0 +1,329 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:43+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            4bcce0f31be889d66f223cf6ea4ed51e
+//      Signature:      eyJpdiI6Ikd3N05BMEE0TFZCcGgrWlVwRG5kXC93PT0iLCJ2YWx1ZSI6IjhQRFBreUNpZmNWMXoxQ0pFa3lGbjJCXC8yTTI2c0JPT3dzT2pDbXZPaVppakYxYnIrS0lPQ1NKQ2liakpzdDJcL0F1MzBYZkI3M3dlZnBQa2pBMVRPUXJPK1hBcFd2S3JRcldJZGVCQ1Z4NGJtYXJ2M28wMEZ4bTFzVU92VGNPWDdZREdZZVp0N25wS1RpM0pyOEZQSVBnWk5QWThXQ0JnaE5hTzFPbkZoanpsTkJnQVBYd0NndmV1THRGR3ZCQ2oxR3JXNm40aDVlQ0UxQndmM0RBN3BqMFQ5TGNVVGtlTnFHWEx2MVlacmxWRFlZWGVRWllNWklTNlNkZE16VUlpVkt2XC9wSDl6ckQyajh0SDVzcFU5ZEwyVVJXY0w2TFVKOVwvZkIyVkJMSXFwUkJQSTFtZ2R4Qm9KZXNBQXk1V2ExS3NYWjhuYlkzWm9meHJWcDA5cjhxN3VlcGF1WXBzYVpGQmwzaDJJNWlPNTlTWVRMcEJrWVR5cHQ2U2VraDk4OHpiZWdtUlVZelg3K2VoeUErYlFxZ0xRPT0iLCJtYWMiOiI3ZjFkMWQxMGNiMmYzMzMwMTJlMGRmM2I3OWNiYWUwMjU1OGViOTdkMzhlZDAyMjVlM2ViZTM0Njg3MTIyMDkyIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="grid__item three-quarters nav-breakpoint-down--two-thirds medium-down--one-whole">
+  	{% assign line_items_by_title = cart.items | sort: 'title' %}	
+  	{% for line_item in line_items_by_title %}
+
+		{% comment %}As the cart is alphabetised, the line item position needs to be set using the following liquid{% endcomment %}
+		{% assign line_item_id = 0 %}
+		{% for line_item_finder in cart.items %}
+			{% if line_item_finder.key == line_item.key %}
+				{% assign line_item_id = forloop.index %}
+				{% break %}
+			{% endif %}
+		{% endfor %}
+
+		<div id='cart-line-item-{{ line_item_id }}' class="flex cart__line-item cart-line-item">
+			<form class="flex flex-wrap cart__form" id="form-{{ line_item_id }}">
+				<div class="cart__item-image m-r-40">
+
+					{% assign colorOption = '' %}
+					{% assign handleOption = '' %}
+					{% assign frameOption = '' %}
+
+					{% for name in uniq_name_array %}
+
+						{%- assign hidden = true -%}  
+						{%- for i in fc_keys -%}
+							{%- assign index = i | plus: 0 -%}							
+							{%- if name_array[index] == name and line_item.product.tags contains configuration_tag_array[index] -%} 
+								{%- assign hidden = false -%}  
+								{%- break -%}
+							{%- endif -%}
+						{%- endfor -%}
+
+						{% if hidden != true %}
+
+							{% for i in fc_keys %}
+								{% assign index_mobile = i | plus: 0 %}
+								{% assign handle_name = name | handleize %}
+
+								{% if line_item.properties[handle_name] == configuration_option_name_array[index_mobile] %}
+
+									{%- if handle_name == 'wood-colour' -%}
+										{% assign colorOption = configuration_option_img_name_array[index_mobile] %}
+									{%- endif -%}
+
+									{%- if handle_name == 'handles' -%}
+										{% assign handleOption = configuration_option_img_name_array[index_mobile] %}
+									{%- endif -%}
+
+									{%- if handle_name == 'frame-colour' -%}
+										{% assign frameOption = configuration_option_img_name_array[index_mobile] %}
+									{%- endif -%}
+
+								{% endif %}
+
+							{% endfor %}
+
+						{% endif %}
+
+					{% endfor %}
+
+					{% assign img_render = line_item.product.title | handleize | append: "-" | append: line_item.sku %}
+
+					{% if colorOption != blank %}
+						{% assign img_render = img_render | append: "-" | append: colorOption %}
+					{% endif %}
+
+					{% if handleOption != blank %}
+						{% assign img_render = img_render | append: "-" | append: handleOption %}
+					{% endif %}
+
+					{% if frameOption != blank %}
+						{% assign img_render = img_render | append: "-" | append: frameOption %}
+					{% endif %}
+
+					{% assign found_render = false %}
+
+					{% for image in line_item.product.media %}
+						{% if image.src contains img_render %}
+							{% include 'image-element' with image_object: image %}
+							{% assign found_render = true %}
+							{% break %}
+						{% endif %}
+					{% endfor %}
+
+					{% if found_render != true %}
+						{% include 'image-element' with image_object: line_item.image %}
+					{% endif %}
+
+			</div>
+			<div class="cart__item-content">
+				<h6 class="product-block__title">{{ line_item.product.title }}</h6>
+				<p class="product-block__price product-price">{{ line_item.final_line_price | money }}</p>
+				{% assign product = line_item.product %}
+				{% assign variant = line_item.variant %}
+				{% assign first_option = true %}
+				{% assign first_option_mobile = true %}
+				
+				<div class="cart__item-variants--mobile flex flex-wrap m-t-10 hide small--show medium--show">
+					<p class="m-0">
+					{% for variant_option in variant.options %}
+						<span class="{% if first_option_mobile == true %}cart__item-variants--mobile--no-border {% assign first_option_mobile = false %}{% endif %}">{{ variant_option }}</span>
+					{% endfor %}
+					{% for name in uniq_name_array %}
+						<span class="
+							{%- assign hidden = true -%}  
+							{%- for i in fc_keys -%}
+						        {%- assign index = i | plus: 0 -%}
+						        {%- if name_array[index] == name and product.tags contains configuration_tag_array[index] -%} 
+						        	{%- assign hidden = false -%}  
+						        	{%- break -%}
+						        {%- endif -%}
+						    {%- endfor -%} {% if hidden == true %}hide {% endif %} cart__mobile-property {% if first_option_mobile == true %}product-form__variants-container--no-border {% assign first_option_mobile = false %}{% endif %}">
+						    {% if hidden != true %}
+
+								{% for i in fc_keys %}
+							        {% assign index_mobile = i | plus: 0 %}
+						        	{% assign handle_name = name | handleize %}
+						        	{% if line_item.properties[handle_name] == configuration_option_name_array[index_mobile] %}
+							        	<img id="stickyImage-{{ name | handleize }}"  class="product-sticky__property-image"
+						        		src="{{ configuration_option_image_array[index_mobile] }}" alt="{{ configuration_option_name_array[index_mobile] | escape }}">
+						        		{{ configuration_option_name_array[index_mobile] }}
+						        		{% break %}	
+						        	{% endif %}
+							    {% endfor %}
+						     {% endif %}
+					     </span>
+					{% endfor %}
+					</p>
+				</div>
+
+				<div class="cart__item-variants medium--hide small--hide show ">
+					<div class="flex flex-wrap product-sticky__container">
+						<div class="flex-wrap flex cart-variant-container">
+    						{% unless product.has_only_default_variant %}
+    						  {% for option in product.options_with_values %}
+    						  	{% assign option_i = forloop.index0 | plus: 0 %}
+    						  		<div class="product-form__variants-container m-t-20 p-l-20 p-r-20 {% if first_option == true %}product-form__variants-container--no-border {% assign first_option = false %}{% endif %}">
+    									<legend class="product-sticky__legend">
+    									  {{ option.name | escape }}
+    									</legend>
+    									<div class="flex product-sticky__select-container">
+	    									<select
+	    										data-line-item="{{ line_item_id }}"
+	    										data-option-num="option{{ option_i | plus: 1 }}"
+	    										id="ProductSelect-option-{{ line_item_id }}-{{ option.name | handleize }}" class="cart-variant-selector update-cart-selector product-form__select product-form-sticky hide">
+	    										{% for value in option.values %}
+
+	    										  <option
+	    										  {% if variant.options[option_i] == value %}selected="true"{% endif %}
+	    										  id="ProductSelect-option-{{ line_item_id }}-{{ option.name | handleize }}-{{ value | escape | handleize }}"
+	    										  value="{{ value | escape }}">
+	    										  	{{ value }}
+	    										  </option>
+	    										{% endfor %}
+	    									</select>
+	    									<div
+	    										class="select-wrapper"
+	    										data-line-item="{{ line_item_id }}"
+	    										data-option-num="option{{ option_i | plus: 1 }}"
+	    										data-target="ProductSelect-option-{{ line_item_id }}-{{ option.name | handleize }}"
+	    									>
+											    <div class="select-box">
+										        <div class="select__trigger">
+										        	<span class="select-box__active">
+										        		{% for value in option.values %}{% if variant.options[option_i] == value %}{{value}}{% endif %}{% endfor %}
+										        	</span>
+										          <div class="arrow">
+										          	{% include 'chevron-down' %}
+										          </div>
+										        </div>
+										        <div class="custom-options">
+										        	{% for value in option.values %}
+										            <span class="custom-option {% if variant.options[option_i] == value %}selected{% endif %}" data-value="{{ value | escape }}">{{value}}</span>
+										        	{% endfor %}
+										        </div>
+											    </div>
+												</div>
+    									</div>
+    								</div>
+    						  {% endfor %}
+    						{% endunless %}
+    						
+    						{% for name in uniq_name_array %}
+    						<div class="
+    							{%- assign hidden = true -%}  
+    							{%- for i in fc_keys -%}
+    						        {%- assign index = i | plus: 0 -%}
+    						        {%- if name_array[index] == name and product.tags contains configuration_tag_array[index] -%} 
+    						        	{%- assign hidden = false -%}  
+    						        	{%- break -%}
+    						        {%- endif -%}
+    						    {%- endfor -%} {% if hidden == true %}hide {% endif %} product-form__variants-container p-l-20 p-r-20 m-t-20 flex flex-center {% if first_option == true %}product-form__variants-container--no-border {% assign first_option = false %}{% endif %}">
+    						    {% if hidden != true %}
+    								<img id="stickyImage-{{ name | handleize }}"  class="product-sticky__property-image" 
+									{% for i in fc_keys %}
+							        {% assign index = i | plus: 0 %}
+							        	{% assign handle_name = name | handleize %}
+							        	{% if line_item.properties[handle_name] == configuration_option_name_array[index] %}
+							        		src="{{ configuration_option_image_array[index] }}" 
+							        		{% break %}	
+							        	{% endif %}
+							        {% endfor %}
+    								alt="{{ configuration_option_name_array[index] | escape }}">
+    								<div>
+    								<legend class="product-sticky__legend">
+    								  {{ name }}
+    								</legend>
+
+    								<div class="flex product-sticky__select-container">
+	    								<select id="customProperty-{{ line_item_id }}-{{ name | handleize }}"
+	    									name="properties[{{ name | handleize }}]"
+	    									class="product-form__select product-form-sticky update-cart-selector hide"
+	    									data-image-reference="#stickyImage-{{ name | handleize }}"
+	    									data-line-item="{{ line_item_id }}">
+	    										{% for i in fc_keys %}
+    								        {% assign index = i | plus: 0 %}
+    								        {% if name_array[index] == name and product.tags contains configuration_tag_array[index] %}
+    								        	<option
+    								        		{% assign handle_name = name | handleize %}
+    								        		{% if line_item.properties[handle_name] == configuration_option_name_array[index] %}
+
+    								        		id="ProductSelect-option-{{ line_item_id }}-{{ name | handleize }}-{{ configuration_option_name_array[index] | escape | handleize }}"
+
+    								        		selected="selected"
+    								        		{% endif %}
+    								        		data-reference="#{{ name | handleize }}-{{ i }}-{{ configuration_option_name_array[index] | handleize }}"
+    								        		data-name-reference="properties[{{name}}]"
+    								        		data-image="{{ configuration_option_image_array[index] }}"
+    								        		value="{{ configuration_option_name_array[index] | escape }}"
+													data-option="{{ configuration_option_img_name_array[index] }}">{{ configuration_option_name_array[index] }}</option>
+    								        {% endif %}
+    							     		{% endfor %}
+	    									</select>
+	    									<div
+	    										class="select-wrapper"
+	    										data-line-item="{{ line_item_id }}"
+	    										data-target="customProperty-{{ line_item_id }}-{{ name | handleize }}"
+	    									>
+											    <div class="select-box">
+										        <div class="select__trigger">
+										        	<span class="select-box__active">
+										        		{% for i in fc_keys %}
+			    								        {% assign index = i | plus: 0 %}
+			    								        {% if name_array[index] == name and product.tags contains configuration_tag_array[index] %}
+			    								        		{% assign handle_name = name | handleize %}
+			    								        		{% if line_item.properties[handle_name] == configuration_option_name_array[index] %}
+			    								        			{{ configuration_option_name_array[index] }}
+			    								        		{% endif %}
+			    								        {% endif %}
+			    							     		{% endfor %}
+										        	</span>
+										          <div class="arrow">
+										          	{% include 'chevron-down' %}
+										          </div>
+										        </div>
+										        <div class="custom-options">
+										        	{% for i in fc_keys %}
+		    								        {% assign index = i | plus: 0 %}
+		    								        {% if name_array[index] == name and product.tags contains configuration_tag_array[index] %}
+		    								        		{% assign handle_name = name | handleize %}
+		    								        		<span class="custom-option {% if line_item.properties[handle_name] == configuration_option_name_array[index] %} selected
+		    								        		{% endif %}" data-value="{{ configuration_option_name_array[index] | escape }}">{{ configuration_option_name_array[index] }}</span>
+		    								        {% endif %}
+		    							     		{% endfor %}
+										        </div>
+											    </div>
+												</div>
+    								</div>
+    						     	</div>
+    						     {% endif %}
+    					    </div>
+    						{% endfor %}
+    						<select id="variants-{{ line_item_id }}" name="id" id="ProductSelect-{{ section.id }}" class="product-form-variants product-form__variants hide">
+    						  {% for variant in product.variants %}
+    							<option value="{{ variant.id }}"
+    							  {% if variant.id == line_item.variant.id %} selected="selected" {% endif %}>
+    							  {{ variant.title }}  {% if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+    							</option>
+    						  {% endfor %}
+    						</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-form__controls-group flex m-t-25">
+				<div class="product-form__item product-form__quantity flex  cart-number-input m-r-20">
+				  <button class="number-input-minus" type="button">-</button>
+				  <input type="number" id="Quantity-{{ line_item.id }}"
+					name="quantity" value="{{ line_item.quantity }}" min="1" pattern="[0-9]*"
+					class="product-form__input product-form__input--quantity number-input-target update-cart-selector" data-cart-button="{{ line_item_id }}"
+				  >
+				  <button class="number-input-plus" type="button">+</button>
+				</div>
+
+				<div class="flex flex-align-center">
+					<p data-line-item="{{ line_item_id }}" class="remove-cart-button m-r-20 m-b-0 small-link small-link">Remove Item</p>
+				</div>
+				<div class="cart__edit-button flex-align-center flex-align-center large--hide small--flex medium--flex">
+					<p data-overlay-toggle="#m-filter-overlay-{{ line_item_id }}" class="edit-cart-button m-r-20 m-b-0 small-link small-link overlay-toggle">Edit</p>
+				</div>
+			</div>
+			<div id="update-button-{{ line_item_id }}" class='fade-in cart__update-cart flex flex-align-center'>
+				<div class="flex flex-align-center">
+					<p class="m-b-0 update-cart-button m-r-20 small-link small-link-main">Update Cart</p>
+				</div>
+			</div>
+			</form>
+		</div>
+	{% endfor %}
+</div>

@@ -1,0 +1,42 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:27+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            7f116d381fc4d88b64e448f1aeb37c81
+//      Signature:      eyJpdiI6IjhPSWpPTzZlZnRtc09cL3BSbEdBYWlnPT0iLCJ2YWx1ZSI6IkIzcXJnY2EyOUQ3bXUyMmo3NndOZmlUMFwveHZHVW9rTWVrT3IxdUVYUkxOTmJ2OWE0SktiRXRTVHBnN3JaQ0JPZVpzNTdaSGRqU3dscDdycjE5SGFOSzVoZWpIOHZhOXdxRkZKbzBHT0ZFNXh6NjhMZFcwd2N4SCsxSCtUS3lqNnRpd0ozR3d0SEQzTWNOdVRUd2xzT3hXcERzWWY0YWtBQ0FmV1wvZDZxWGF2U1RENmxMZUwrbzRwUzVnTE9yZnB1UW44UThYc29YV3pRRFRmY1lTVjdHM3BCWmhFNnlvUW9rSlpsXC9ZeVwvSUFtQ0xTRndmTFpyeG03dDFtNitkU3B1aXc4bzQ4Qm1PY1gwUW1YOW4zQTFLTGlLYXpaaTdZaGU0ejhiY2NtZUZPYUhwU1wvTm5mRlJ3M3hHUFpcL2ZaSERpdllPbHNRemF1OWM2blB2bzdOYmpiVGJrVlhFenRsXC95RVhTWFFzSjdOSFhmcjdrVWVcLzJWVXA3SUczaVFiZ3Rra2dIYkdJR3BYTW5wNkE5SHlwYWZRdz09IiwibWFjIjoiMzA2Y2Q4ZGNmNjZjYzdiZWY5NGY2MDA2ZDUwZjk3MzMxNWYzYzM1NTAwNWNmMjZlNTEwYzM2NTA3Y2E2MWQzNyJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+
+
+<div class="flex m-t-60 m-b-50 show wrapper">
+    <div class="filter-standard flex flex-wrap m-t-30 m-b-30">
+        
+
+        <div class="filter-standard__container m-l-25">
+            <div data-solo="true" class="filter-standard__selector flex accordion">
+                <p class="filter-standard__filter-text">Sort By</p>
+            </div>
+            
+            <div class="filter-standard__options accordion-panel">
+                <div class="p-t-15 p-l-10 p-r-10 p-b-15">
+                    {% for option in collection.sort_options %}
+                    <a href="/collections/{{ collection.handle | downcase }}/{{ tags_for_url | downcase }}?sort_by={{ option.value }}" {% if pageUrlWithHost contains option.value %}class="selected"{% endif %}>
+                        {{ option.name }}
+                    </a>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

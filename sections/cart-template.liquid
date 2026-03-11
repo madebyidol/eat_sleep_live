@@ -1,0 +1,283 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:56+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            d2224530f30f829cffe62946bea6ab59
+//      Signature:      eyJpdiI6ImUrS0tXT0JmTmswTzA0TFhhZkh0UFE9PSIsInZhbHVlIjoidGlnaEYyWDVyaVwvM01LMWlCcEptWjUxaDhjOWlLNVFpN2t3dFdaNzdNK3B6QlhEV3VCNXQ4cnRCQWJGU1ZOaXVUTDRUSitwVmJobU5BUk52dzdWdmdRdlwvaktQa0M3XC9sbkI4M3k1QUswbGc3Q0tHTjNRRm5zM2VmSkk2RGZWQnF6OWZ3MitjZ0lnYkhrTSs5QUhzOGFTTkE1WlZRdHJNcjVOSmplM1I3Q2t3dWUzTEo2clBxSkNYbWgrYTNtdnJlUkcrYVJOWGdDSmZ5aGtBMnJrUWpsalRHOWJCVEVncDNsVjQrQXI3djNJUHkzUXpPampjbGpxRDhneXQyZVdwTWZhWGV3TjNIMWxKXC9ObHlMYTNVRGxtTUJzaTNGVmdTb0x6T1wvZHZuVktDcm9QSWowWWRFclpoRFVpQ25peUNEc0xYZlhoVDAxaU1yUEVYdmJPd1VsZ3RnR1wvZ1djZXYwRitLRVwvQTVMRFFadVF6QzhhUU84Q2RnblU0R2IxZnBcL2NiZU5oaGMwaWIzRENsREFrOHFIalJBPT0iLCJtYWMiOiI0MTY1ZWFiNmQzMDRiMTMzMDY5NjlmYTkzNWJmYzIyOGRlZDAyMWZjZGZmYjg0Y2JmNTQyNWFiNThhYmEwOTE1In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}Configurations for custom options
+{% endcomment %}
+{% if shop.metafields.custom_fields["product_configuration"] != blank %}
+      {% assign separator = "|###|" %}
+      {% assign name_array = shop.metafields.custom_fields["name"] | split: separator %}
+      {% assign configuration_tag_array = shop.metafields.custom_fields["configuration_tag"] | split: separator %}
+      {% assign configuration_option_name_array = shop.metafields.custom_fields["configuration_option_name"] | split: separator %}
+      {% assign configuration_option_image_array = shop.metafields.custom_fields["configuration_option_image"] | split: separator %}
+      {% assign configuration_option_img_name_array = shop.metafields.custom_fields["configuration_option_img_name"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["product_configuration"] | split: "," %}
+{% endif %}
+{% assign uniq_name_array = name_array | uniq %}
+
+{% for overlay_item in cart.items %}
+	{% assign mobile_line_item_id = forloop.index %}
+	{% include 'mobile-cart-overlay' %}
+{% endfor %}
+
+<div class="wrapper cart js-component__cart m-t-40">
+
+    {% comment %} <div class="klarna__spacing">
+      <!-- Placement v2 -->
+
+    <klarna-placement
+
+      data-key="top-strip-promotion-badge"
+
+    data-locale="en-GB"
+
+    ></klarna-placement>
+
+    <!-- end Placement -->
+    </div> {% endcomment %}
+
+  	<div id="cart-container" class="grid">
+
+  		<div class="image-overlay hide"></div>
+	    <div class="grid__item one-whole">
+	      <h1 class="cart__title">{{ section.settings.title }}</h1>
+	    </div>
+	    
+      {% if cart.items.size == 0 %}
+        <div class="grid__item cart__empty one-whole">
+          <h6>{{section.settings.cart-empty-message}}</h6>
+          <a href="{{ section.settings.cart-empty-url | downcase }}" class="main-button">{{section.settings.cart-empty-button}}</a>
+        </div>
+      {% else %}
+
+	    {% include 'cart-items' %}
+	    {% include 'cart-summary' %}
+
+      {% endif %}
+
+	    <meta id="meta-cart"
+	    	{% for item in cart.items %}
+	    	data-cart-{{forloop.index}}='{{ item.product | json | escape }}'
+	    	{% endfor %}/>
+  	</div>
+</div>
+
+{% include 'cart-sticky' %}
+
+
+
+{% if section.settings.hide-uml == false %}
+<div class="wrapper popular-pieces__section cart__products">
+	{% if section.settings.products-title != blank %}
+		<div class="section-title"><h4>{{ section.settings.products-title }}</h4></div>
+	{% endif %} 
+  <div class="js-component__slick slick-hide slick-arrows popular-pieces" data-slick='
+  	{
+  		"slidesToShow": {{ section.settings.products-count }},
+  		"slidesToScroll": {{ section.settings.products-count }},
+  		"infinite": true,
+  		"draggable": true,
+  		"arrows": true,
+  		"nextArrow": "<button type=\"button\" class=\"slick-next\"></button>",
+  		"prevArrow": "<button type=\"button\" class=\"slick-prev\"></button>",
+  		"responsive": [
+        {
+  			"breakpoint": 768,
+          "settings": {
+            "slidesToShow": 2,
+            "slidesToScroll": 1,
+            "arrows": false
+          }
+  		  }
+      ]
+  	}'>
+  	{% for block in section.blocks %}
+  		{% assign product = all_products[block.settings.product] %}
+  		{% if product != blank %}
+  			<div class="product-block">
+          <a href="{{ product.url | downcase }}">
+    				{% include 'image-element' with image_object: product.featured_image, fade_in: true %}
+    				<h5>{{product.title}}</h5>
+    				<p class="product-block__price">{% if product.price_varies %}From {% endif %}{{ product.price_min | money }}</p>
+          </a>
+  			</div>
+  		{% endif %}
+  	{% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<div class="grid__item nav-breakpoint-down--one-whole medium-down--one-whole product cart-faqs__container">
+  {% if shop.metafields.custom_fields["cart_faqs"] != blank %}
+    {% assign separator = "|###|" %}
+    {% assign cart_faq_question_array = shop.metafields.custom_fields["cart_faq_question"] | split: separator %}
+    {% assign cart_faq_answer_array = shop.metafields.custom_fields["cart_faq_answer"] | split: separator %}
+    {% assign cart_faqs = shop.metafields.custom_fields["cart_faqs"] | split: "," %}
+    <div class="faqs">
+      <div id="product" class="faqs__container">
+        <h5 class="faqs__title">{{ section.settings.accordion-main-title }}</h5>
+        {% for i in cart_faqs %}
+          {% assign cart_faqs_index = i | plus: 0 %}
+          <div class="faqs_question-answer">
+            <div class="accordion">
+              <p class="faqs_question"> {{ cart_faq_question_array[cart_faqs_index] }}</p>
+            </div>
+            <div class="accordion-panel">
+              {{ cart_faq_answer_array[cart_faqs_index] }}
+            </div>
+          </div>
+        {% endfor %}
+
+        {% if section.settings.cart-contact != blank %}
+          <div class="cart__contact">
+            <div class="large--flex">
+              {% include 'icon-chat' %}
+              {{ section.settings.cart-contact }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Cart"
+      },
+      {
+        "type": "text",
+        "label": "Cart Title",
+        "id": "title",
+        "default": "Shopping Basket"
+      },
+      {
+        "type": "header",
+        "content": "Summary"
+      },
+      {
+      	"type": "text",
+      	"label": "Shipping Price",
+      	"id": "shipping-price",
+      	"default": "FREE",
+      	"info": "The price/text to display against the shipping cost"
+      },
+      {
+        "type": "text",
+        "id": "price-prefix",
+        "label": "Price Information",
+        "default": "Inc VAT"
+      },
+      {
+        "type": "text",
+        "id": "trustmark-1",
+        "label": "Trustmark Content 1",
+        "default": "Secure SSL encryption"
+      },
+      {
+        "type": "text",
+        "id": "trustmark-2",
+        "label": "Trustmark Content 2",
+        "default": "Guaranteed safe checkout"
+      },
+      {
+        "type": "header",
+        "content": "Accordion"
+      },
+      {
+        "type": "text",
+        "id": "accordion-main-title",
+        "label": "Accordion Title",
+        "default": "Useful to Know"
+      },
+      {
+        "type": "paragraph",
+        "content": "Add accordion FAQs using the Global field in [Custom Fields](https://customfields.bonify.io/dashboard/eat-sleep-live-2.myshopify.com/globals)"
+      },
+      {
+        "type": "header",
+        "content": "Cart contact"
+      },
+      {
+        "type": "html",
+        "id": "cart-contact",
+        "label": "Cart Contact Text"
+      },
+      {
+        "type": "header",
+        "content": "You Might Like"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide-uml",
+        "label": "Hide You Might Like section",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "products-title",
+        "label": "You Might Like Title"
+      },
+      {
+        "type": "range",
+        "id": "products-count",
+        "min": 1,
+        "max": 7,
+        "step": 1,
+        "default": 3,
+        "label": "Number of products to show"
+      },
+      {
+        "type": "header",
+        "content": "Empty Cart"
+      },
+      {
+        "type": "text",
+        "id": "cart-empty-message",
+        "label": "Message for Empty Cart"
+      },
+      {
+        "type": "text",
+        "id": "cart-empty-button",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "cart-empty-url",
+        "label": "Button URL"
+      }
+    ],
+    "blocks": [
+    	{
+    		"type": "product",
+			"name": "You Might Like",
+    		"settings": [
+    			{
+    			  "type": "product",
+    			  "id": "product",
+    			  "label": "Product"
+    			}
+    		]
+    	}
+    ]
+  }
+{% endschema %}

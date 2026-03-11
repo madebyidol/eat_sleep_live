@@ -1,0 +1,17 @@
+<div class="article-bio">
+	<div class="grid grid--gutterless large--flex">
+        {% if article.metafields.custom.author_image != blank %}
+        <div class="bio-image">
+            {{ article.metafields.custom.author_image | image_url: width: 128 | image_tag }}
+        </div>
+        {% endif %}
+        <div>
+            <span class="bio-author">{{ article.author }}</span>
+        </div>
+        {% if article.metafields.custom.author_bio != blank %}
+        <div>
+            <span class="bio-text">{{ article.metafields.custom.author_bio }}</span>
+        </div>
+        {% endif %}
+	</div>
+</div>

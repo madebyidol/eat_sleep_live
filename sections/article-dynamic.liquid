@@ -1,0 +1,209 @@
+<div class="article-header">
+	<h1 class="article-header__title">{{ article.title }}</h1>
+	<div class="blogs__byline flex">
+
+		{% if article.user.image != blank %}
+			{% include 'image-element' with image_object: article.user.image, classes: 'blogs__byline-icon' %}
+		{% endif %}
+
+		<p class="blogs__byline-text">BY <span>{{ article.author }}</span><span> | {{ article.published_at | date: format: 'abbreviated_date' }}</span></p>
+	</div>
+</div>
+
+{% if article.image %}
+	{% include 'background-image-element' image: article.image, classes: 'article-image' %}
+{% endif %}
+
+<div class="article-content">
+
+	<div class="article-content__standard content-block__standard">
+
+		{{ article.content }}
+
+		{% for block in section.blocks %}
+
+			{% case block.type %}
+
+				{% when 'cta' %}
+
+					{%- if block.settings.title != blank -%}
+
+						<div class="article-box" {{ block.shopify_attributes }}>
+
+							<div class="article-box__wrapper">
+
+								{%- if block.settings.image != blank -%}
+									<div class="image-container" style="background-image: url('{{ block.settings.image | image_url: width: 483, height: 320, crop: 'center' }}');"></div>
+								{%- endif -%}
+
+								<div class="text-container{%- if block.settings.image != blank -%}--image{%- endif -%}">
+
+									<p class="article-box__title">{{ block.settings.title }}</p>
+
+									{%- if block.settings.text != blank -%}
+										<p class="article-box__text">{{ block.settings.text }}</p>
+									{%- endif -%}
+
+									{%- if block.settings.button-text != blank and block.settings.button-url != blank -%}
+										<a class="main-button" href="{{ block.settings.button-url }}">
+											<span>{{ block.settings.button-text }}</span>
+											<svg width="7" height="11" viewbox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+												<path d="M3.31034 6.67241C2.23448 7.78965 0.775862 9.87931 0.206897 10.8103C0.775862 10.4483 1.86207 9.82759 3.41379 8.32759C3.9853 7.77513 5.7069 6.22414 6.46552 5.48276C5.75862 4.7931 4.15452 3.25286 3.41379 2.58621C1.86207 1.18966 0.672414 0.413793 0 0C0.362069 0.775862 1.7069 2.37931 2.17241 3C2.54483 3.49655 3.84483 4.89655 4.44828 5.53448L3.31034 6.67241Z" fill="white"></path> 
+											</svg> 
+										</a>
+									{%- endif -%}
+
+								</div>
+
+							</div>
+
+						</div>
+
+					{%- endif -%}
+
+			{% endcase %}
+
+		{% endfor %}
+
+	</div>
+
+</div>
+
+<div class="article-content">
+	{% render 'article-bio' %}
+</div>
+
+<div class="article-content">
+	{% include 'article-share' %}
+</div>
+
+<div class="article-products wrapper">
+	{% include 'article-related-product-carousel.liquid' %}
+</div>
+
+{% if article.user.image != blank %}
+<div class="article-content article-byline">
+	<div class="large--flex large--flex-center">
+		{% if article.user.image %}
+			<div class="article-byline__image">
+				{% include 'image-element' image_object: article.user.image %}
+			</div>
+		{% endif %}
+		<div>
+			<p class="content-heading">{{ article.author }}</p>
+			<p class="light-description">{{ article.user.bio }}</p>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<div class="js-component__blog wrapper article-recommended">
+	{% if section.settings.recommendations-title != blank %}
+		<h4>{{ section.settings.recommendations-title }}</h4>
+	{% endif %}
+	<div class="blogs grid flex flex-wrap m-t-60" id="js-blog-items">
+		{% if section.settings.recommendations == true %}
+			{% assign recommended_count = 0 %}
+			{% for recommended_article in blog.articles %}
+				{% unless recommended_article.handle == article.handle %}
+					{% include 'suggested-blog-item' with article_item: recommended_article, section: section, recommendation: true %}
+					{% assign recommended_count = recommended_count | plus: 1 %}
+				{% endunless %}
+				{% if recommended_count == 4 %}
+					{% break %}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Set Up"
+    },
+    {
+      "type": "paragraph",
+      "content": "The first section of content will be populated from the article content in the Shopify backend. In order to add further customs sections of content. Visit the Blog Posts section of Custom Fields"
+    },
+    {
+      "type": "paragraph",
+      "content": "To add a author image to the byline. Add an image to the author's user account in Accounts"
+    },
+    {
+      "type": "checkbox",
+      "label": "Show Default Similar Blogs",
+      "id": "recommendations",
+      "info": "Show 3 recent blogs of this category in the recommendations section.",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Recommended Articles"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Byline Icon Override",
+      "info": "By default, blogs will be have the author image in the byline, override this by entering an image here"
+    },
+    {
+      "type": "text",
+      "id": "byline",
+      "label": "Byline Override",
+      "info": "By default, blogs will be have the author name in the byline, override this by entering text here"
+    },
+    {
+      "type": "text",
+      "label": "Recommended Blogs Title",
+      "id": "recommendations-title",
+      "default": "Suggested stories"
+    },
+    {
+      "type": "checkbox",
+      "id": "same-size",
+      "label": "Same Height Recommended Blog Images",
+      "info": "If blog featured images are different heights and you'd like them all to be the same, select this option.",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Article CTA",
+      "type": "cta",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "id": "text",
+          "type": "richtext",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button-url",
+          "label": "Button Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

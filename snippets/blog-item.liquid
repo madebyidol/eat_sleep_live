@@ -1,0 +1,42 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:36+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            f2dcd16f82438bde162779ba162846cd
+//      Signature:      eyJpdiI6IkRMUk5na1RlTGZIWGdvamZkbklFK0E9PSIsInZhbHVlIjoiNDlhMzhqcXlMT2NLYUl5Z0g4UGFDQm9JSzJ2ekRiUGQ2bGJIR1YrbHVoYVowS1RFeEdhMnd4U2k4eW01MlVvS3lVNlwvUUlKRjFUK2I0K1hEYUk1NFB5dXpwZjNRR2krVDZraVRxMHp5dFpuSUZMc012ZkN3UmoxOG8zelZJTWJEcUJQdWFNeGFLXC9MdUNjRW4yaVpIVzJyZkNMQVozR0U0WnlCVThqUjMyV2tMY1dsTkZzdEVLMUFyYVVhdFNJSENxcXVcLzEyempDUUx3UUJObFVoblhwWkVqeUhcL01YVDMwbzJHeTFCZ3pTMExWODJBWTU2NDNtdVwvdmJNVXd4cEJoZnJmRytZeHJ6QXBQU1dFUUZsQzNDK1BuWFVha2U5M0lDNkFqZXMzRXB3cnVKNlBZa3I3UnA2VVUrM1VRRHArWSsyQTB4MExnNG9UVzhJZU1yUWdsQW81dUlDY2JxWEJUOHJSckdBakNqUThHaDhvbkNJdEFjZ21iNlpsWmRmTWo0STErUHNNRDcxcDRCaEFMNnU1cXF3PT0iLCJtYWMiOiJiZmJlYjJhZTM4MDI0YmI4OWQwNjNhNTQ4ODFkMzZlZmRkOTY3NzVjMGE5ZmY3YmI3YTcwYzRjODAwY2RhZTBmIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<a class="grid__item large--one-third {% unless recommendation == true %}medium--one-half{% endunless %} small--one-whole m-b-60 hide-fade-in" href="{{ article_item.url | downcase }}">
+	<div>
+		{% if section.settings.same-size == true %}
+			{% include 'background-image-element' with image: article_item.image, classes: 'blogs_blog-image blogs_blog-background-image' %}
+		{% else %}
+			{% include 'image-element' with image_object: article_item.image, classes: 'blogs_blog-image' %}
+		{% endif %}
+		{% if recommendation == true %}
+			<div class="blogs__byline hide small--show medium--show">
+				<p class="blogs__byline-text blogs__recommended-date"><p>{{ article_item.published_at | date: format: 'abbreviated_date' }}</p></p>
+			</div>
+		{% endif %}
+		<p class="blogs__blog-title">{{ article_item.title }}</p>
+		<div class="blogs__byline flex">
+			{% if section.settings.image != blank %}
+				{% include 'image-element' with image_object: section.settings.image, classes: 'blogs__byline-icon' %}
+			{% elsif article_item.user.image != blank %}
+				<img class="blogs__byline-icon" src="https://cdn.shopify.com/s/files/1/1230/4400/files/avatar_250x250_crop_center_1080x_6dbb2290-ccfe-4d60-a228-9b61643f9aa8.jpg?v=1741432212" alt="Picture of Mark the author" width="250px" height="250px">
+			{% endif %}
+			<p class="blogs__byline-text">BY <span>{% if section.settings.byline != blank %}{{ section.settings.byline }}{% else %}{{ article_item.author }}{% endif %}</span><span class="small--hide medium--hide"> | {{ article_item.published_at | date: format: 'abbreviated_date' }}</span></p>
+		</div>
+	</div>
+</a>

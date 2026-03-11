@@ -1,0 +1,34 @@
+
+<section class="custom-search-section">
+  <h2>   {{section.settings.title}}</h2>
+</section>
+<li class="mobile-nav__item mobile-nav__search">
+  {% include 'custom-search-bar' %}
+</li>
+
+{% schema %}
+{
+"name": "Custom Search",
+"settings": [
+{
+"type":"text",
+"id":"title",
+"label":"Title"
+
+}
+],
+"presets":
+[
+{ 
+"name":"Custom Search",
+"category":"text" 
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

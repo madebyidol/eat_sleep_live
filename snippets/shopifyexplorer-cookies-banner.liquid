@@ -1,0 +1,150 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:51+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            ff3699c3631fd4679165a27054f50391
+//      Signature:      eyJpdiI6IlN5bTc0MXpQZzgzQ1VYdmQxMFZiNlE9PSIsInZhbHVlIjoiQmNXZXRhSlJxWjE2YVZjcjBwbE4xTEhlbkQ2TjhDV1ZJS04xMlB3cFBHbjFoU1VZOWY1QjRLKzJoc3l5TXorZlhoZTE4S1lwNUdCbnplbzMrY29YbGloeTRpQ3FLOEFmdEJ3WEFVN2hDVnNKTXFRZ21leXplczBEY051cnYyK2crcXVzQmx1WW1lSUM4Tk9cL3NlWFNyS2pZaTdvOStNaGlBSzZzSmpBbU1BdDh1eXlOKzBpREJONFwvVmVsWm5jek5oQXVFM2xkekxcLzltanpCZXJRMW9VSWF3ZXRscXdKYXdxK1VocHNlZ2M4TnE1NVFaZHJjYmpmUGIzKzBXcGd6ajlnRzJKZ1AycVlreFR2eGMxdlFYUFZPbjkxMnh0bCtqc1VhSSt6N3RtRTBBa3pXa2xPbjQ5T29YRnljclR6Q1hDZW5MQ1dBeXptODhpQmh5Z1BIVzMrbElZRjBCN2NkbUtJbEI4eVdJZkVxcHJMWTRGeUh2UG1hUk9xZU1DOVVVdUI4eDNxVFdndThQVzF5RVwvUHRvWEZ4MWl0RTRYazFERkxPTlwvNlV1SmxFPSIsIm1hYyI6IjFhODk3NTY4ZTg1ZDU5MDZkMDU4MjRjOWU2NDNlOTc5YWYxNTlhMzRmYjg0ZjlkNTliMjIwYjMwNzQ5MjE1MWYifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<!-- ShopifyExplorer - Add an EU cookies banner to your website without app -->
+<!-- Details in: http://shopifyexplorer.com/shopify-add-eu-cookies-banner-website-without-app.html -->
+{% comment %}Define variables{% endcomment %}
+{% assign text = "We use cookies to ensure that we give you the best experience on our website. If you continue we'll assume that you are understand this." %}
+{% assign more_info = "Learn more" %}
+{% assign privacy_url = "https://www.eatsleeplive.co.uk/pages/privacy" %}
+{% assign button_text = "Accept" %}
+ 
+<style type="text/css">
+    @-webkit-keyframes slideUp{
+        0%{
+            -webkit-transform:translateY(66px);
+            transform:translateY(66px)
+        }
+        100%{
+            -webkit-transform:translateY(0);
+            transform:translateY(0)
+        }
+    }
+    @keyframes slideUp{
+        0%{
+            -webkit-transform:translateY(66px);
+            -ms-transform:translateY(66px);
+            transform:translateY(66px)
+        }
+        100%{
+            -webkit-transform:translateY(0);
+            -ms-transform:translateY(0);
+            transform:translateY(0)
+        }
+    }
+    #se-cookies-message {
+        color: #d0d0d0; /* Change text color here */
+        background-color: #759193; /* Change background color here */
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        top:0px;
+        left:0;
+        right:0;
+        z-index: 100000;
+        box-shadow: 0 0 5px rgba(0,0,0,0.4);
+        opacity: 0;
+        visibility: hidden;
+        font-size: 10px;
+    }
+    #se-cookies-message.se-cookies-message-open {
+        opacity: 1;
+        visibility: visible;
+         
+        animation-duration:0.8s;
+        -webkit-animation-duration:0.8s;
+        -moz-animation-duration:0.8s;
+        -o-animation-duration:0.8s;
+        -webkit-animation-name:slideUp;
+        animation-name:slideUp;
+ 
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+ 
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        -o-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+ 
+        -webkit-justify-content: space-between;
+        -moz-justify-content: space-between;
+        -ms-justify-content: space-between;
+        -o-justify-content: space-between;
+        justify-content: space-between;
+    }
+    #se-accept-cookies-checkbox {
+        color: #759193; /* Change button text color here */
+        background-color: #fff; /* Change button background color here */
+        transition: background 200ms ease-in-out,color 200ms ease-in-out,box-shadow 200ms ease-in-out;
+        -webkit-transition: background 200ms ease-in-out,color 200ms ease-in-out,box-shadow 200ms ease-in-out;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        text-decoration: none;
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+    #se-accept-cookies-checkbox:hover {
+        opacity: 0.8;
+    }
+    .se-cookies-text {
+        padding-right: 15px;
+    }
+    @media screen and (min-width: 768px) {
+        #se-cookies-message {
+            padding: 15px 30px;
+            font-size: 15px;
+        }
+        #se-accept-cookies-checkbox {
+            font-size: 16px;
+            padding: 8px 30px;
+        }
+        .se-cookies-text {
+            padding-right: 0;
+        }
+    }
+</style>
+     
+<div id="se-cookies-message-container">
+    <div id="se-cookies-message">
+        <div class="se-cookies-text">
+            {{text}} <a style=" color: #fff;" href="{{ privacy_url | downcase }}" target="_blank">{{more_info}}</a>
+        </div>
+        <a href="javascript:SHOPIFYEXPLORER_CloseCookiesWindow();" id="se-accept-cookies-checkbox">{{button_text}}</a>
+    </div>
+</div>
+ 
+<script>
+    function SHOPIFYEXPLORER_CheckCookies(){
+        if(!localStorage.cookies_accepted) {
+            var cookies_message = document.getElementById("se-cookies-message");
+            cookies_message.className += " se-cookies-message-open"
+        }
+    }
+    function SHOPIFYEXPLORER_CloseCookiesWindow(){
+        localStorage.cookies_accepted = true;
+        document.getElementById("se-cookies-message-container").removeChild(document.getElementById("se-cookies-message"));
+    }
+         
+    window.onload = SHOPIFYEXPLORER_CheckCookies;
+</script>

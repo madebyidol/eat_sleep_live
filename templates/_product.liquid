@@ -1,0 +1,80 @@
+<div class="js-component__product product">
+ 
+
+    
+    {% section 'product-template' %}
+
+    {% section "product-tab-headers" %}
+
+    <div class="product__tabs">
+        {% section "product-tab-description" %}
+    
+        {% unless product.tags contains "pdp:hide-details" %}
+            {% section "product-tab-details" %}
+        {% endunless %}
+    
+        {% unless product.tags contains "pdp:hide-assembly" %}
+            {% section "product-tab-delivery-assembly" %}
+        {% endunless %}
+    
+        {% unless product.tags contains "pdp:hide-finance" %}
+            {% section "product-tab-finance" %}
+        {% endunless %}
+    
+        {% unless product.tags contains "pdp:hide-aftercare" %}
+            {% section "product-tab-aftercare" %}
+        {% endunless %}
+    </div>
+{% assign canonical_url = product.url %}
+    
+    {% include 'product-explore-range' %}
+
+    <div class="related-products">
+        <div class="wrapper">
+         {% include 'related-product-carousel' %}
+        </div>
+      </div>
+
+    {% section 'product-rv' %}
+
+</div>
+
+
+
+{% unless product.metafields.custom_fields["request_samples_disable"] == 1 %}
+{% capture request_sample %}
+<script defer>
+    $(document).ready(function() {
+        hbspt.forms.create({
+            portalId: "2821538",
+            formId: "91da4124-8268-431e-83e8-dd07e37106c9"
+        });
+    });
+</script>
+{% endcapture %}
+
+{% include 'standard-overlay' with overlay_content: request_sample, overlay_title: 'Request Samples', overlay_id:
+'request-sample-form' %}
+{% endunless %}
+
+{% unless product.metafields.custom_fields["text_section_link_url"] != blank %}
+
+{% capture request_pdf %}
+<script defer>
+    $(document).ready(function() {
+        hbspt.forms.create({
+            portalId: "2821538",
+            formId: "7823aad0-626d-49f4-a19c-fcb394ae7953"
+        });
+    });
+</script>
+{% endcapture %}
+
+{% include 'standard-overlay' with overlay_content: request_pdf, overlay_title: 'Request PDF Specification', overlay_id:
+'request-pdf' %}
+{% endunless %}
+<!-- Before: Basic image tag without alt text -->
+<img src="{{ product.featured_image | img_url: '500x' }}" alt="">
+
+<!-- After: Image tag with dynamically generated alt text -->
+<img src="{{ product.featured_image | img_url: '500x' }}" alt="{{ product.title }} - {{ product.type }} - Buy Now at {{ shop.name }}">

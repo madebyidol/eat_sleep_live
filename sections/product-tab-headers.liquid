@@ -1,0 +1,88 @@
+{% liquid
+
+    assign hideAssembly = false
+    assign hideFinance = false
+    assign hideDetails = false
+    assign hideAftercare = false
+
+    for tag in product.tags
+
+        if tag == 'pdp:hide-finance'
+            assign hideFinance = true
+        endif
+
+        if tag == 'pdp:hide-assembly'
+            assign hideAssembly = true
+        endif
+
+        if tag == 'pdp:hide-details'
+            assign hideDetails = true
+        endif
+
+        if tag == 'pdp:hide-aftercare'
+            assign hideAftercare = true
+        endif
+
+    endfor
+
+%}
+
+<div class="product__tab-header">
+    <div class="product__tab-header-item active">{{ "products.product.tabs.description" | t }}</div>
+    <div class="product__tab-header-item {% if hideDetails == true %}hide{% endif %}">{{ "products.product.tabs.details" | t }}</div>
+    <div class="product__tab-header-item {% if hideAssembly == true %}hide{% endif %}">{{ "products.product.tabs.delivery_assembly" | t }}</div>
+    <div class="product__tab-header-item {% if hideFinance == true %}hide{% endif %}">{{ "products.product.tabs.finance" | t }}</div>
+    <div class="product__tab-header-item {% if hideAftercare == true %}hide{% endif %}">{{ "products.product.tabs.aftercare" | t }}</div>
+</div>
+
+<!-- <div class="product__tabs">
+
+    <div class="product__tab">
+
+        {% include "product-description" productDescription: product %}
+
+        {% include "product-usp" %}
+
+        {% include "product-features" featured: product.metafields.custom_fields["product_features"][0] %}
+
+    </div>
+
+    {% unless hideAssembly %}
+        
+        <div class="product__tab">
+
+            {% if product.metafields.custom_fields["product_features"][1] != blank %}
+                {% include "product-features" featured: product.metafields.custom_fields["product_features"][1] %}
+            {% endif %}
+
+            {% if product.metafields.custom_fields["product_description"][0] != blank %}
+                {% include "product-description" productDescription: product.metafields.custom_fields["product_description"][0] %}
+            {% endif %}
+
+            {% if product.metafields.custom_fields["product_blogs"] != blank %}
+                <section class="footer-blog">
+                    {% include "blog-grid" %}
+                </section>
+            {% endif %}
+
+        </div>
+
+    {% endunless %}
+
+    {% unless hideFinance %}
+    
+        <div class="product__tab">
+
+            {% include "product-finance" %}
+
+        </div>
+
+    {% endunless %}
+
+</div> -->
+
+{% schema %}
+{
+   "name": "Product Tabs"
+}
+{% endschema %}

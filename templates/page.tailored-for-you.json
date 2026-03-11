@@ -1,0 +1,135 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-banner",
+      "settings": {
+        "banner_heading": "tailored for you"
+      }
+    },
+    "93390ffb-5da0-4d97-8504-4aca25eea943": {
+      "type": "custom-image-text",
+      "settings": {
+        "image": "shopify://shop_images/day_bed-3.jpg",
+        "content": "<p>Everything we do here at Eat Sleep Live is built on our commitment to two things –recrafting great British beams into timeless, sustainable furniture. And, of course, our customers.<br/><br/>We’re passionate about making every step of the journey a wonderful experience from start to finish. From getting in touch with our dedicated team here at Eat Sleep Live HQ, to opening the door to our delivery crew – and every bit in between.<br/><br/>That also includes making sure your furniture is 100% right for you. Looking for specific sizing that's not advertised or a completely bespoke piece? Talk to us.<br/><br/>Here's an example of an entirely bespoke day bed that we created for a customer. <br/><br/></p>",
+        "button_text": "get in touch",
+        "button_link": "shopify://pages/get-in-touch"
+      }
+    },
+    "01e57f36-979a-46ed-8b9b-bcc58ddb1530": {
+      "type": "card-columns",
+      "blocks": {
+        "9cfced16-8614-4ae7-8be9-5a4498be4919": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/ESL_Birmingham_Edit_Jade_Selection-62.jpg",
+            "card_heading": "Find the perfect-fit furniture for your home",
+            "card_description": "We know that life isn’t one size fits all, everyone has different spaces and different needs. It’s why we work around you until you’re nothing short of completely happy, from finding your perfect-fit furniture from our collections, to tweaking existing dimensions to suit your space."
+          }
+        },
+        "8fe2a4dd-7bf5-4f99-b6f6-fb30a8984f8d": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/Custom_Winerack_-_grey.jpg",
+            "card_heading": "Bespoke pieces",
+            "card_description": "Why not go fully bespoke to fulfil your furniture dreams? If you’re interested in something completely unique for your home or business that we don’t currently advertise, look no further. With the character and quality of Eat Sleep Live's reclaimed beams, we can create bespoke pieces to fit your furniture wants and needs."
+          }
+        },
+        "4f2025d9-6323-4ba9-a04a-11afa41498b9": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/ESL_Email_Headers_-_Klayvio_6.png",
+            "card_heading": "Need a little room design support?",
+            "card_description": "Why not bring your paint or fabric samples in or send us a photo of your room pictures and dimensions? We'll be happy to help find and mock-up which pieces will work in your space. After all, we know our products like the back of our hand so we know what palettes complement each wood colour."
+          }
+        },
+        "01cbcc00-1001-4ca0-a451-e2da85fe8f00": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "card_image": "shopify://shop_images/image_3.png",
+            "card_heading": "Interior design support",
+            "card_description": "We know our furniture inside and out and so we also know what it’s best paired with. We’re on hand to help you with those all-important colour and textile decisions that will complement both our furniture and space it will sit in."
+          }
+        },
+        "a1e41192-3099-481c-abd8-84c238c99e76": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "card_image": "shopify://shop_images/british-made-centre-panel_39b25eef-68e7-4621-8096-e34a21720758_large-4.png",
+            "card_heading": "Bespoke pieces",
+            "card_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "9cfced16-8614-4ae7-8be9-5a4498be4919",
+        "8fe2a4dd-7bf5-4f99-b6f6-fb30a8984f8d",
+        "4f2025d9-6323-4ba9-a04a-11afa41498b9",
+        "01cbcc00-1001-4ca0-a451-e2da85fe8f00",
+        "a1e41192-3099-481c-abd8-84c238c99e76"
+      ],
+      "settings": {
+        "heading": "Shopping for your furniture, made easy."
+      }
+    },
+    "79a48f00-66d3-4a8b-a2c3-28ad201b0556": {
+      "type": "faq",
+      "blocks": {
+        "798e7756-d2b9-4293-96b9-d7803b2c59e5": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you make custom sizes for any piece?",
+            "answer": "We sure can! We handcraft all the furniture ourselves so, if you let us know what it is you’re interested in, including any drawings/photos showing the style and specifications - we can look into this for you."
+          }
+        },
+        "fe0b7583-ce93-4f86-babb-390cef708158": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you make bespoke products that aren't featured on your website?",
+            "answer": "Absolutely! As we handmake all  the furniture ourselves, if you let us know what it is you're looking for, including any drawings/photos showing the style and specifications, we can look into bringing your idea's to life."
+          }
+        },
+        "62c4d250-915c-4771-bb30-616230fc0296": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you help with how the furniture will be best placed in my room?",
+            "answer": "We can! If you have dimensions and images for us to follow, we're more than happy to advise on room layout."
+          }
+        }
+      },
+      "block_order": [
+        "798e7756-d2b9-4293-96b9-d7803b2c59e5",
+        "fe0b7583-ce93-4f86-babb-390cef708158",
+        "62c4d250-915c-4771-bb30-616230fc0296"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions"
+      }
+    },
+    "7fe709df-bbc4-420f-86f0-ce2270280cba": {
+      "type": "section-cta",
+      "settings": {
+        "heading": "Book your slot today",
+        "description": "<p>Think of us as your own personal shopper! Book your slot today or visit us to discover your future furniture.</p>",
+        "button_text": "Book now",
+        "button_link": "shopify://pages/get-in-touch"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "93390ffb-5da0-4d97-8504-4aca25eea943",
+    "01e57f36-979a-46ed-8b9b-bcc58ddb1530",
+    "79a48f00-66d3-4a8b-a2c3-28ad201b0556",
+    "7fe709df-bbc4-420f-86f0-ce2270280cba"
+  ]
+}

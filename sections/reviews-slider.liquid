@@ -1,0 +1,443 @@
+{% comment %}
+  Reviews Slider Section
+  Displays customer reviews in a carousel using Splide
+{% endcomment %}
+
+<div class="wrapper reviews-section">
+  
+  {% comment %} Header {% endcomment %}
+  {% if section.settings.show_heading %}
+    <div class="reviews-header">
+      {% if section.settings.overline != blank %}
+        <p class="reviews-overline sml-caps">{{ section.settings.overline }}</p>
+      {% endif %}
+      
+      {% if section.settings.heading != blank %}
+        <h2 class="reviews-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% comment %} Reviews Slider {% endcomment %}
+  {% if section.blocks.size > 0 %}
+    <div class="reviews-slider-container">
+      <div class="splide js-reviews-slider" aria-label="Reviews slider">
+        <div class="splide__track">
+          <div class="splide__list">
+            {% for block in section.blocks %}
+              <div class="splide__slide review-card" {{ block.shopify_attributes }}>
+                
+                {% comment %} Star Rating {% endcomment %}
+                <div class="review-stars">
+                  {% for i in (1..5) %}
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip-star-{{ block.id }}-{{ i }})" class="star-icon">
+                        <path clip-rule="evenodd" d="M12 2L14.5528 9.17313H22.1085L15.7778 13.6538L18.3307 20.8269L12 16.3462L5.66927 20.8269L8.22215 13.6538L1.89151 9.17313H9.44721L12 2Z" fill="#00B67A" fill-rule="evenodd"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip-star-{{ block.id }}-{{ i }}">
+                          <rect fill="white" height="24" width="24"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  {% endfor %}
+                </div>
+
+                {% comment %} Review Content {% endcomment %}
+                <div class="review-content">
+                  {% if block.settings.title != blank %}
+                    <h3 class="review-title">{{ block.settings.title }}</h3>
+                  {% endif %}
+                  
+                  {% if block.settings.review_text != blank %}
+                    <p class="review-text">{{ block.settings.review_text }}</p>
+                  {% endif %}
+                </div>
+
+                {% comment %} Reviewer Name {% endcomment %}
+                {% if block.settings.reviewer_name != blank %}
+                  <p class="reviewer-name sml-caps">{{ block.settings.reviewer_name }}</p>
+                {% endif %}
+
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% comment %} CTA Button {% endcomment %}
+  {% if section.settings.button_text != blank %}
+    <div class="reviews-button">
+      <a href="{{ section.settings.button_link }}" class="main-button">
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+  {% endif %}
+
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .reviews-section {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .reviews-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+    max-width: 726px;
+  }
+
+  .reviews-overline {
+    margin: 0;
+  }
+
+  .reviews-heading {
+    margin: 0;
+  }
+
+  /* Slider container */
+  .reviews-slider-container {
+    width: 100%;
+    max-width: {{ section.settings.max_width }}px;
+  }
+
+  /* Review card */
+  .review-card {
+    background: white;
+    border-radius: 32px;
+    padding: 24px;
+    display: flex !important;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 280px;
+  }
+
+  /* Stars */
+  .review-stars {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .review-stars svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  /* Review content */
+  .review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .review-title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #424341;
+  }
+
+  .review-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #808171;
+    font-weight: 300;
+  }
+
+  .reviewer-name {
+    margin: 0;
+  }
+
+  /* Button */
+  .reviews-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Splide pagination dots */
+  #shopify-section-{{ section.id }} .splide__pagination {
+    bottom: -40px;
+    gap: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .splide__pagination__page {
+    width: 8px;
+    height: 8px;
+    background: #d9d9d9;
+    opacity: 1;
+    transition: background 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .splide__pagination__page.is-active {
+    background: #9f5130;
+    transform: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .reviews-section {
+      gap: 48px;
+    }
+
+    .reviews-slider-container {
+      min-width: 100vw;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    if (typeof Splide === 'undefined') {
+      console.warn('Splide.js not loaded');
+      return;
+    }
+
+    var sectionId = '{{ section.id }}';
+    var splideInstance = null;
+
+    function getSliderElement() {
+      return document.querySelector('#shopify-section-' + sectionId + ' .js-reviews-slider');
+    }
+
+    function initSplide() {
+      var sliderElement = getSliderElement();
+      if (!sliderElement) return;
+
+      splideInstance = new Splide(sliderElement, {
+        type: 'loop',
+        perPage: {{ section.settings.slides_to_show | default: 3 }},
+        perMove: 1,
+        gap: '24px',
+        arrows: false,
+        pagination: true,
+        drag: true,
+        snap: true,
+        trimSpace: false,
+        autoplay: {{ section.settings.autoplay }},
+        interval: {{ section.settings.autoplay_speed | default: 5000 }},
+        pauseOnHover: true,
+        breakpoints: {
+          767: {
+            perPage: 1,
+            padding: { left: '10%', right: '10%' },
+            focus: 'center'
+          },
+          1023: {
+            perPage: 2,
+            padding: 0,
+            focus: 0
+          }
+        }
+      });
+
+      splideInstance.mount();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSplide);
+    } else {
+      initSplide();
+    }
+
+    // Shopify theme editor events
+    if (typeof Shopify !== 'undefined' && Shopify.designMode) {
+      document.addEventListener('shopify:section:load', function(event) {
+        if (event.detail.sectionId === sectionId) {
+          setTimeout(function() {
+            if (splideInstance) {
+              splideInstance.destroy(true);
+              splideInstance = null;
+            }
+            initSplide();
+          }, 100);
+        }
+      });
+
+      document.addEventListener('shopify:section:unload', function(event) {
+        if (event.detail.sectionId === sectionId && splideInstance) {
+          splideInstance.destroy(true);
+          splideInstance = null;
+        }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Reviews Slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1380
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "Loved by our customers"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Over 900 five star reviews"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "range",
+      "id": "slides_to_show",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Slides to show (desktop)",
+      "default": 3,
+      "info": "Number of review cards visible at once on desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2000,
+      "max": 9000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Autoplay speed",
+      "default": 5000
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Explore our products"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review title",
+          "default": "Very happy with our custom-made table"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review text",
+          "default": "They were incredibly easy and flexible to deal with, and the end result matches our kitchen shelves perfectly. Fantastic service and craftsmanship from start to finish."
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer name",
+          "default": "Chris"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Slider",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "title": "Very happy with our custom-made table",
+            "review_text": "They were incredibly easy and flexible to deal with, and the end result matches our kitchen shelves perfectly. Fantastic service and craftsmanship from start to finish.",
+            "reviewer_name": "Chris"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Beautiful robust furniture",
+            "review_text": "Eat Sleep Live's furniture is gorgeous, solid, and beautifully made. Great customer communications as well, and the guys who delivered our bed, under-bed drawer, and chest of drawers & put everything together were friendly and efficient. Very highly recommended.",
+            "reviewer_name": "Juliet Kemp"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Beautifully handcrafted furniture built to the highest standard",
+            "review_text": "From start to finish, Mark was very personable yet professional. The dining table/benches and matching shelving unit were of the highest quality, and beautifully crafted.",
+            "reviewer_name": "Anne"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Excellent quality and service",
+            "review_text": "The craftsmanship is outstanding and the whole process was smooth from start to finish. Would highly recommend to anyone looking for bespoke furniture.",
+            "reviewer_name": "David"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

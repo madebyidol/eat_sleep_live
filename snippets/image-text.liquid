@@ -1,0 +1,31 @@
+<div class="product__image-text">
+
+    <div class="product__image-text-inner">
+
+        <div class="product__image-text-content">
+
+            {% if block.settings.subtitle != empty %}
+                
+                <div class="product__image-text-subtitle">{{ block.settings.subtitle }}</div>
+
+            {% endif %}
+
+            <div class="product__image-text-title">{{ block.settings.title }}</div>
+
+            <div class="product__image-text-description">
+                {{ block.settings.content }}
+            </div>
+
+        </div>
+
+        <div class="product__image-text-image">            
+        {% comment %}
+            <img src="{{ block.settings.image | img_url: '720x' }}" alt="">
+        {% endcomment %}
+            {{ block.settings.image | image_url: width: 720 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+
+        </div>
+
+    </div>
+
+</div>

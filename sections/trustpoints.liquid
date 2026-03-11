@@ -1,0 +1,66 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:49+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            4cad7d58b2969d1d1b305025f9e38784
+//      Signature:      eyJpdiI6Img0SnlhQWc1Z2hYUVZNdHh1VVwvVzdRPT0iLCJ2YWx1ZSI6IlN4Y2hJUWI4d2x5cHNtQkc4aGRzVEUzQXgxOGgwbHJnUkUxVlNaME1OS043K1M5WW1kdERFa0xsaVwvNkZQNkVzVmZweVFRV3UxTklWTk1MdWpWU2ltU0JZaG5JQlpVNTlBcVp3czcwMHBGNzhBMjJHTHpsWWxLbnpEMVdcL2FrREFuZUxRUjFnUGFiWjZWd2hTXC9rbE90S2pqS1RRSjFkMTJldGxVNm81ZFRTXC9HNFhNM1BiZ1lLYmM4OU9xUlwvSVwvS0VhV1EzKzZ5NWFuc010VVNEcytzZ3M1N2RVTHVXaU12ZzJpYlRiOGZ4dDFVclwvc3hEOUY0QTU3bDdnQmlqWnRBRkI3SGVrUnpzOE9ZM3pKMVwvM2Yzalppd3JQSFwvZVpBQlFEblREQVhMRitydGhMR0VBYmFYeEtOcmlvdTVpbzdFWVBCK1U3Wmx6UWsxSmlURFJGQVN3QVJIWGNrXC90QkoyT1M4ZXZOXC9LU0pUMWYyQmxsWWVrN2FaK01sOGdhaGh3c2VreUpJbkVvM0dxMmt2dUlvM3JRQT09IiwibWFjIjoiZDA5Yzk2Y2YxMjk1OWM1YjJmN2Q3N2ViOTE4Zjc4NjA2MWY1NTFkOGU3MzEwMThmYzI1NzAxNThlZDI1OGI0NiJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% include 'trustpoints-snippet' %}
+
+{% schema %}
+  {
+    "name": "Trustpoints",
+    "max_blocks": 3,
+    "blocks": [
+    	{
+    		"type": "trustpoints",
+			"name": "Trustpoints",
+    		"settings": [
+    			{
+    				"type": "paragraph",
+    				"content": "Select either an image (e.g. png) or svg file for the icon (1:1 recommended)"
+    			},
+    			{
+    			  "type": "image_picker",
+    			  "id": "icon-image",
+    			  "label": "Icon Image"
+    			},
+    			{
+    			  "type": "text",
+    			  "id": "icon-svg",
+    			  "label": "Icon SVG",
+    			  "info": "Upload the file in the Shopify Files section and paste the URL here"
+    			},
+    			{
+    				"type": "text",
+    				"id": "title",
+    				"label": "Title"
+    			},
+    			{
+    				"type": "textarea",
+    				"id": "description",
+    				"label": "Description"
+    			}
+    		]
+    	}
+    ],
+    "presets": [
+      {
+        "name": "Trustpoints",
+        "category": "Blocks"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,286 @@
+<div class="samples-header">
+
+  <div class="wrapper">
+
+    <div class="flex flex-wrap flex-start">
+
+      <div class="samples-header__content one-half small--one-whole medium--one-whole">
+        {% unless section.settings.title == blank %}
+          <h1 class="samples-header__content-title">{{ section.settings.title }}</h1>
+        {% endunless %}
+
+        {% unless section.settings.paragraph == blank %}
+          <div class="samples-header__content-text">{{ section.settings.paragraph }}</div>
+        {% endunless %}
+
+        <div class="samples-header__content-wood-types flex flex-wrap">
+          {% for block in section.blocks %}
+
+            {% if block.settings.wood_image != blank %}
+
+              <div class="samples-header__content-wood-type">
+                
+                <svg class="samples-header__content-wood-type-image" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs>
+                    <clipPath id="shape{{ block.id }}">
+                      <path d="M0.187829 42.1631C0.187829 29.0833 0.0001494 16.0016 0.0001494 2.85583C-0.0137056 2.85583 0.93855 2.69717 1.83524 2.69717H3.94143C5.12359 2.69717 6.2651 2.14079 7.50735 2.14079C9.09078 2.14079 11.1884 1.91902 12.7624 2.14079C14.7658 2.42306 16.0364 2.31675 18.0591 2.14187C22.3455 1.77129 26.6442 1.42791 30.9465 1.42791C41.2731 1.42791 43.9218 0 54.2397 0C59.4069 0 64.2294 0.00047034 69.0257 0.6511L76.3245 0.6511C79.244 0.6511 81.3863 0.57461 81.8287 0.6511C83.4169 0.925737 84.2685 0.6511 86.1453 0.6511L95.717 0.6511C96.2145 0.470836 95.9047 3.26809 95.9047 4.64072C95.9047 6.74085 95.9047 8.56641 95.7587 12.2959C95.7587 14.992 95.7292 22.6436 95.717 24.8298C95.6828 30.9357 95.5761 37.4134 95.5606 43.5503C95.5514 47.1622 95.4096 50.4534 95.2478 54.0228C95.0748 57.8397 95.1539 61.8596 95.1539 65.7237C95.1539 72.351 94.8771 79.9816 95.2478 86.4681C95.4394 89.8219 95.1539 95.6306 95.1539 95.6306C92.8417 95.6306 90.9221 96.2302 88.2111 95.6306C84.3337 94.7731 82.4465 95.6306 79.5359 95.6306H72.7794C70.7236 95.6306 68.8435 95.3322 66.8038 95.6306C61.123 96.4618 54.0111 95.6306 54.0111 95.6306H40.2476C35.8684 95.6306 32.1514 95.5487 28.5696 94.9563C23.0526 94.0438 17.9189 95.5101 12.387 94.9563C9.52962 94.6702 6.69983 94.2423 3.83716 94.2423C2.92229 94.2423 0.750858 94.9563 0.750858 93.5273C0.750858 89.9085 0.563178 84.2747 0.563178 80.6761C0.563178 67.4353 0.187829 55.2452 0.187829 42.1631Z" fill="none"/>
+                      <path d="M0.187829 42.1631C0.187829 29.0833 0.0001494 16.0016 0.0001494 2.85583C-0.0137056 2.85583 0.93855 2.69717 1.83524 2.69717H3.94143C5.12359 2.69717 6.2651 2.14079 7.50735 2.14079C9.09078 2.14079 11.1884 1.91902 12.7624 2.14079C14.7658 2.42306 16.0364 2.31675 18.0591 2.14187C22.3455 1.77129 26.6442 1.42791 30.9465 1.42791C41.2731 1.42791 43.9218 0 54.2397 0C59.4069 0 64.2294 0.00047034 69.0257 0.6511L76.3245 0.6511C79.244 0.6511 81.3863 0.57461 81.8287 0.6511C83.4169 0.925737 84.2685 0.6511 86.1453 0.6511L95.717 0.6511C96.2145 0.470836 95.9047 3.26809 95.9047 4.64072C95.9047 6.74085 95.9047 8.56641 95.7587 12.2959C95.7587 14.992 95.7292 22.6436 95.717 24.8298C95.6828 30.9357 95.5761 37.4134 95.5606 43.5503C95.5514 47.1622 95.4096 50.4534 95.2478 54.0228C95.0748 57.8397 95.1539 61.8596 95.1539 65.7237C95.1539 72.351 94.8771 79.9816 95.2478 86.4681C95.4394 89.8219 95.1539 95.6306 95.1539 95.6306C92.8417 95.6306 90.9221 96.2302 88.2111 95.6306C84.3337 94.7731 82.4465 95.6306 79.5359 95.6306H72.7794C70.7236 95.6306 68.8435 95.3322 66.8038 95.6306C61.123 96.4618 54.0111 95.6306 54.0111 95.6306H40.2476C35.8684 95.6306 32.1514 95.5487 28.5696 94.9563C23.0526 94.0438 17.9189 95.5101 12.387 94.9563C9.52962 94.6702 6.69983 94.2423 3.83716 94.2423C2.92229 94.2423 0.750858 94.9563 0.750858 93.5273C0.750858 89.9085 0.563178 84.2747 0.563178 80.6761C0.563178 67.4353 0.187829 55.2452 0.187829 42.1631Z" fill="none"/>
+                    </clipPath>
+                  </defs>
+                  <image width="96" height="96" clip-path="url(#shape{{ block.id }})" xlink:href="{{ block.settings.wood_image | image_url: width: 96, height: 96, crop: 'center', pad_color: '000' }}"/>
+                </svg>
+
+                {% if block.settings.wood_name != blank %}
+                  <p class="samples-header__content-wood-type-text">{{ block.settings.wood_name }}</p>
+                {% endif %}
+
+              </div>
+
+            {% endif %}
+
+          {% endfor %}
+
+        </div>
+      </div>
+
+      {% if section.settings.zapier_url != blank %}
+
+        <div class="samples-header__form-container one-half small--one-whole medium--one-whole">
+
+          <form id="requestSamples" class="samples-header__form" name="requestSamplesForm" method="post" data-webhook="{{ section.settings.zapier_url }}" novalidate>
+
+              <p class="posted_successfully" style="display: none;">
+                {% if section.settings.posted_successfully != blank %}
+                  {{ section.settings.posted_successfully }}
+                {% else %}
+                  {{ 'contact.form.post_success' | t }}
+                {% endif %}
+              </p>
+
+              <p class="posted_error" style="display: none;">
+                There has been an error. Please try again later.
+              </p>
+
+            <div class="samples-header__form-content">
+              {% unless section.settings.form_title == blank %}
+                <h4 class="samples-header__form-title">{{ section.settings.form_title }}</h4>
+              {% endunless %}
+      
+              {% unless section.settings.form_paragraph == blank %}
+                <div class="samples-header__form-paragraph">{{ section.settings.form_paragraph }}</div>
+              {% endunless %}
+            </div>
+
+            <div class="samples-header__form-fields">
+
+              <input type="hidden" name="contact[form]" value="Sample Box">
+
+              <input id="first_name" name="contact[first_name]" class="full-width" type="text" placeholder="first name" required>
+              <span class="error" aria-live="polite"></span>
+              
+              <input id="last_name" name="contact[last_name]" class="full-width" type="text" placeholder="last name" required>
+              <span class="error" aria-live="polite"></span>
+
+              <input id="email" name="contact[email]" class="full-width" type="email" placeholder="email" required>
+              <span class="error" aria-live="polite"></span>
+
+              <input id="phone" name="contact[phone]" class="full-width" type="text" placeholder="phone number" required>
+              <span class="error" aria-live="polite"></span>
+
+              <input type="text" name="contact[address_first]" class="full-width" id="address_first" placeholder="first line of address" required>
+              <span class="error" aria-live="polite"></span>
+
+              <input type="text" name="contact[address_second]" class="full-width" id="address_second" placeholder="second line of address">
+              <span class="error" aria-live="polite"></span>
+
+              <input type="text" name="contact[city]" id="city" class="full-width" placeholder="city" required>
+              <span class="error" aria-live="polite"></span>
+
+              <input type="text" name="contact[county]" id="county" class="full-width" placeholder="county" required>
+              <span class="error" aria-live="polite"></span>
+              
+              <input type="text" name="contact[postcode]" id="postcode" class="full-width" placeholder="postcode" required>
+              <span class="error" aria-live="polite"></span>
+              
+              <input id="full_address" type="hidden" name="contact[full_address]">
+
+              <span class="error" aria-live="polite"></span>
+
+              <div class="samples-header__form-select">
+                <label for="hearaboutus">how did you hear about us?</label>
+                <select id="hearaboutus" name="contact[hearaboutus]" class="full-width" >
+                  <option disabled="" value="">Please Select</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Google">Google</option>
+                  <option value="Friends or family">Friends or family </option>
+                  <option value="Events (i.e. Grand Designs)">Events (i.e. Grand Designs)</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              
+              <span class="error" aria-live="polite"></span>
+
+              <div class="samples-header__form-radio-buttons">
+                <p>are you?</p>
+                
+                <div class="samples-header__form-radio-button">
+                  <input type="radio" id="renovating" name="contact[are_you]" value="Renovating your home" checked>
+                  <label for="renovating">
+                    Renovating your home
+                  </label>
+                </div>
+
+                <div class="samples-header__form-radio-button">
+                  <input type="radio" id="moving" name="contact[are_you]" value="Moving house">
+                  <label for="moving">
+                    Moving house
+                  </label>
+                </div>
+
+                <div class="samples-header__form-radio-button">
+                  <input type="radio" id="browsing" name="contact[are_you]" value="Just browsing">
+                  <label for="browsing">
+                    Just browsing
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+            <button class="main-button has-chevron" type="submit">
+              <span>{{ section.settings.form_buttom }}</span>
+              {% render 'chevron-right' %}
+            </button>
+
+            {% unless section.settings.form_small == blank %}
+              <p class="samples-header__form-note"><small>{{ section.settings.form_small }}</small></p>
+            {% endunless %}
+
+          </form>
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Colors and Samples header",
+  "max_blocks": 6,
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Colours and Samples"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "<p>Order our free wood colour samples to find the perfect colour for your space.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Zapier"
+    },
+    {
+      "type": "text",
+      "id": "zapier_url",
+      "label": "Webhook URL",
+      "info": "If left blank, the form will not display.",
+      "default": "https://hooks.zapier.com/hooks/catch/12158034/3brb9mm/"
+    },
+    {
+      "type": "header",
+      "content": "Form Content"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Heading",
+      "default": "Ordering a sample box?"
+    },
+    {
+      "type": "richtext",
+      "id": "form_paragraph",
+      "label": "Paragraph",
+      "default": "<p>Please fill out the below form and we'll post your set of samples the same day!</p>"
+    },
+    {
+      "type": "text",
+      "id": "form_buttom",
+      "label": "Button text",
+      "default": "Request colour samples"
+    },
+    {
+      "type": "textarea",
+      "id": "form_small",
+      "label": "Note",
+      "default": "*Please note our samples are to be used as a guide to colour & texture only. They are not example of the solid, chunky reclaimed wood we use to hand craft our furniture."
+    },
+    {
+      "type": "text",
+      "id": "posted_successfully",
+      "label": "Success message",
+      "default": "Thanks for contacting us. We'll get back to you as soon as possible.",
+      "info": "The message shown after submitting the form."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "wood_type",
+      "name": "Wood Type",
+      "settings": [
+        {
+          "type": "text",
+          "id": "wood_name",
+          "label": "Wood name"
+        },
+        {
+          "type": "image_picker",
+          "id": "wood_image",
+          "label": "Wood image",
+          "info": "1:1 recommended"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Colours and Samples header",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "wood_type"
+        },
+        {
+          "type": "wood_type"
+        },
+        {
+          "type": "wood_type"
+        },
+        {
+          "type": "wood_type"
+        },
+        {
+          "type": "wood_type"
+        },
+        {
+          "type": "wood_type"
+        }
+      ]
+    }
+  ],
+  "templates": [
+    "page"
+  ]
+}
+{% endschema %}

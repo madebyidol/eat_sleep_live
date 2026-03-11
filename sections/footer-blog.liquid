@@ -1,0 +1,213 @@
+<section class="footer-blog">
+
+    <div class="footer-blog__inner">
+
+        {% if section.settings.blog_title != blank or section.settings.resource_link != blank %}
+            <div class="footer-blog__title">
+                {% if section.settings.blog_title != blank %}
+                    <h3 style="color: {{ section.settings.color_heading }}">{{ section.settings.blog_title }}</h3>
+                {% endif %}
+
+                {% if section.settings.resource_link != blank %}
+                    <a class="small--hide" href="{{ section.settings.resource_link | downcase }}">
+                        <span>{{ section.settings.resource_label }}</span>
+                        <div class="icon icon--gold">
+                            {% render 'chevron-right' %}
+                        </div>
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    
+        <div class="footer-blog__articles">
+    
+            <div class="footer-blog__article-stack">
+    
+                {% if section.settings.guide_article_one != blank %}
+                <div class="footer-blog__article footer-blog__article--half">
+    
+                    <a href="{{ section.settings.guide_article_one.url | downcase }}">
+                        <div class="footer-blog__article-image">
+    
+                            <img src="{{ section.settings.guide_article_one.image | image_url: width: 310 }}" loading="lazy" alt="{{section.settings.guide_article_one.image.alt}}" width="310" height="135">
+    
+                        </div>
+    
+                        <div class="footer-blog__article-title">
+                            {{ section.settings.guide_article_one.title }}
+                        </div>
+                    </a>
+    
+                </div>
+                {% endif %}
+    
+                {% if section.settings.guide_article_two != blank %}
+                <div class="footer-blog__article footer-blog__article--half">
+    
+                    <a href="{{ section.settings.guide_article_two.url | downcase }}">
+                        <div class="footer-blog__article-image">
+    
+                            <img src="{{ section.settings.guide_article_two.image | image_url: width: 310 }}" loading="lazy" alt="{{section.settings.guide_article_two.image.alt}}" width="310" height="135">
+    
+                        </div>
+    
+                        <div class="footer-blog__article-title">
+                            {{ section.settings.guide_article_two.title }}
+                        </div>
+                    </a>
+    
+                </div>
+                {% endif %}
+    
+            </div>
+    
+    
+            {% if section.blocks != empty %}
+                {% for block in section.blocks %}
+        
+                    {%
+                    liquid
+                    assign articleClass = "footer-blog__article--full"
+                    assign articleContentClass = ""
+                    assign imageHeight = 294
+            
+                    for tag in block.settings.article_guide.tags
+                        if tag contains "guide"
+                            assign articleClass = "footer-blog__article--guide"
+                            assign articleContentClass = "footer-blog__article-title--full"
+                            assign imageHeight = 135
+                        endif
+                
+                        if tag contains "tag:"
+                            assign blockTag = tag | replace: "tag:", "" | capitalize
+                        endif
+            
+                    endfor
+            
+                    %}
+        
+                    <div class="footer-blog__article {{ articleClass }}">
+            
+                        <a href="{{ block.settings.article_guide.url | downcase }}">
+                            <div class="footer-blog__article-image">
+            
+                                {% if block.settings.article_guide.tags contains "guide" %}
+                                    <div class="footer-blog__article-image--tag">
+                                        <div class="icon icon--white">
+                                            {% include 'icon-tag' %}
+                                        </div>
+                                        <span>{{ blockTag }}</span>
+                                    </div>
+                                {% endif %}
+            
+                                <img src="{{ block.settings.article_guide.image | image_url: width: 310 }}" loading="lazy"
+                                    alt="{{ block.settings.article_guide.image.alt }}" width="310" height="{{ imageHeight }}">
+            
+                            </div>
+            
+                            <div class="footer-blog__article-title {{ articleContentClass }}">
+                                {{ block.settings.article_guide.title }}
+            
+            
+                                {% if block.settings.article_guide.tags contains "guide" %}
+                                <div class="footer-blog__article-title--link">
+                                    <span>{{ 'blogs.article.read_more' | t }}</span>
+                                    <div class="icon icon--light-grey">
+                                        {% include 'chevron-right' %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </a>
+            
+                    </div>
+        
+                {% endfor %}
+            {% endif %}
+    
+        </div>
+
+        {% if section.settings.resource_link != blank %}
+            <div class="footer-blog__title medium--hide large--hide">
+                <a href="{{ section.settings.resource_link | downcase }}">
+                    <span>{{ section.settings.resource_label }}</span>
+                    <div class="icon icon--gold">
+                        {% render 'chevron-right' %}
+                    </div>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+</section>
+
+{% schema %}
+    {
+        "name": "Footer Blogs",
+        "class": "footer-blogs",
+        "max_blocks": 3,
+        "settings": [
+            {
+                "type": "header",
+                "content": "Blog Title"
+            },
+            {
+                "type": "text",
+                "id": "blog_title",
+                "label": "Blog Title",
+                "default": "Our blog"
+            },
+            {
+            "type": "color",
+            "id": "color_heading",
+            "label": "Heading Color",
+            "default": "#808171"
+            },
+            {
+                "type": "url",
+                "id": "resource_link",
+                "label": "Resources Link"
+            },
+            {
+                "type": "text",
+                "id": "resource_label",
+                "label": "Resources Link Label",
+                "default": "View all resources"
+            },
+            {
+                "type": "header",
+                "content": "Blog Articles"
+            },
+            {
+                "type": "article",
+                "id": "guide_article_one",
+                "label": "Guide Article One"
+            },
+            
+            {
+                "type": "article",
+                "id": "guide_article_two",
+                "label": "Guide Article Two"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "article",
+                "name": "Article",
+                "settings": [
+                    {
+                        "type": "article",
+                        "id": "article_guide",
+                        "label": "Article"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+          {
+            "name": "Footer Blogs",
+            "category": "Custom"
+          }
+        ]   
+    }
+{% endschema %}

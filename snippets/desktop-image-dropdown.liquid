@@ -1,0 +1,37 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:21+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            62efc6d006d618d81e8a1813621d8ed0
+//      Signature:      eyJpdiI6IjV6aVlGWnJPdVJQUFBpWjh2bVpIWVE9PSIsInZhbHVlIjoibEUyYVJqT1wvY05MamZXXC94NXBEY0xQZ21STUxQQVwvVTJZOEdabWZweE9hWnNpQ0VLQjBuOHBteUxETG5yOEhWVHV6TXZNaG9ad1p2V1A0R3J4M1I4b3dNb3NRaDlQajBIanBSNHQwTFQ5UWR2dFJsS1U2OHFJK05qMUQ4VzVjVzVzaHI0SXF4VEk0b3pNb2RjOEV3SzdtMjdHQ2d1OXNsZ0xWVXpUQXQ3SHEyOEdWc0UrdmQ4dXBHRFg0VktwZ0drSkF4dEs3ZEdKVEpuRWVVOGpFRld4eWtLY0h5ZklrU2FSaSsreE4xdWY0NTBMRmlsdkdDTmN6SWVJXC9LMHFTNEZQV081aU9oNmRxRjJhNFwvSzE2cjMzWGt0NlRnZitrcjVpUzRRY1wvdUl3dDlEN2JUUDVndjdyR2VsTWdsVGliTnk3TnRyZVcwUzNjZHRmWWtrQW00MDJNSXluUzdTS050MHBMMVdSWWtwT20waGU4bEN3MjJsZGZodWx1UW9tRXlBUGxHU2tqMHIzTE85R1o4UUxJemdOMCtLZ2tzVkxnMGY5UlBqZHh4Nk9nZz0iLCJtYWMiOiJiZTFkZDk1ZWFmNWUxYjBmOTZkZDQ5NGYyZjZkZDAyOWU1M2FlMjA5NjExYjAyZDgwMzcyNTkzNTBjZjY0NjE4In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="site-header__dropdown site-header__image-dropdown">
+	{% for i in (1..6) %}
+	{% assign title_key = 'collection_images_title_' | append: i %}
+	{% assign image_key = 'collection_images_image_' | append: i %}
+	{% assign link_key = 'collection_images_link_' | append: i %}
+	{% if title_key != blank and image_key != blank %}
+	<div class="one-sixth site-header__image-container">
+		<a href="/collections/{{ block.settings[link_key] | downcase }}">
+			<div class="site-header__image" style="background-image: url({{ block.settings[image_key].src | image_url: '300x'}});">
+				<div class="site-header__image-text-container">    
+					<p>{{ block.settings[title_key] }}</p>
+				</div>
+			</div>
+		</a>
+	</div>
+	{% endif %}
+	{% endfor %}
+</div>

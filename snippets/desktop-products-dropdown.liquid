@@ -1,0 +1,48 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:55+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            b0d67acded5142827569ec2086ca88b1
+//      Signature:      eyJpdiI6IjYrczNNTWRvcGtzWjJOMUdZXC9ncVwvUT09IiwidmFsdWUiOiJLcVRnU05oQ3o2dWZWU2dDSkVDeVh4VTJHOXhNSExqN09nR0h5NVUzKzVCaHZ3N1NQdlNvUkpXMUk0ZlwvWnQwR3VZcDBsZDdPeHRcL29aTk1zbTZSUUlBaVAyNGZtSTVON2tCb1NUMUtRMDZVcHo0VUhWNENaejNWR2hqSlhGWjYxTlFqU1lyXC9rSTlnQ2NwNnhFaDRQdmFnamc0TjFFSXlDYVZWbFRoa3I4b2dmckcyaHI1WENjdlg2ajQ4a3RHV1JFR1U5RWZZZ3dDcXpVb29CYWZFdmlodzV6K0swb1R2Q3dDcFQ0aXdKMHQ1Tm5wNEZwS25KZXlCcTJpblF5UTVTUlc4NGcyYjZMOTlWMGJZVnNqYlwvMjg5bXhUTVprRnA5ek9ycmNad0dDT2M0YnBvSUwxMnNEYlA4TEJJS0MzT1NFTXdlcFowek9YYkR0S2tTSkcwT0kyZUQwUWRYbTdHYTErMkdtV1hFY092Q042ZVwvZERsREd3TUJxVmgybnVHRFFKckZHd0l5RkNReXpocXRVQVhuOVFIZDFqY05PY1JmcWZwOE9yZ3BBWFU9IiwibWFjIjoiZTRjOWM0NDQwZWRiZmNiNGM0MjgyMmYzZjM0YWY4NTY4ODY3MjM3ZTEwOTZhZDA0MDczM2ZmMmRiYmRjZWU0ZCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="site-header__dropdown site-header__products-dropdown">
+	{% for i in (1..6) %}
+	{% assign menu_key = 'products_menu_' | append: i %}
+	{% assign products_key = 'products_product_' | append: i %}
+	{% assign hide_title_key = 'products_text_' | append: i %}
+	{% assign link_list = block.settings[menu_key] %}
+	{% assign product = block.settings[products_key] %}
+	{% assign hide_title = block.settings[hide_title_key] %}
+
+		{% if link_list != blank %}
+			{% assign dropdown_menu = linklists[link_list] %}
+			<div class="one-sixth">
+				<p class="site-header__dropdown-links-title">{% unless hide_title == true %}{{ dropdown_menu.title }} {% endunless %}</p>
+				<ul class="site-header__dropdown-links">
+					{% for link in dropdown_menu.links %}
+						<li><a href="{{ link.url | downcase }}">{{ link.title | escape }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% elsif product != blank %}
+			{% assign product = all_products[product] %}
+			<div class="one-sixth site-header__product-container">
+				{% include 'product-block' %}
+			</div>
+		{% else %}
+			<div class="one-sixth"></div>
+		{% endif %}
+	{% endfor %}
+</div>

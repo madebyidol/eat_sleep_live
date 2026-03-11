@@ -1,0 +1,18 @@
+<div class="product__features">
+
+    <div class="product__features-image">
+        <img src="{{ block.settings.feature_image | image_url }}" alt="{{ block.settings.feature_image.alt }}">
+    </div>
+
+    <div class="product__features-content">
+        <div class="product__features-content-inner">
+            <div class="product__features-subtitle">{{ block.settings.category }}</div>
+            <div class="product__features-title">{{ block.settings.title }}</div>
+
+            <div class="product__features-features">
+                {{ block.settings.features }}
+            </div>
+        </div>
+    </div>
+
+</div>

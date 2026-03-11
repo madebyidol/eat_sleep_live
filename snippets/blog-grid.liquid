@@ -1,0 +1,125 @@
+
+{% for item in product.metafields.custom_fields["product_blogs"] %}
+
+    {% assign posts = item.posts | split: "|" %}
+
+    <div class="footer-blog__inner">
+        <div class="footer-blog__title">
+            <h3>{{ item.title }}</h3>
+            <a href="{{ blogs[item.blog].url | downcase }}">
+                <span>{{ item.blog_label }}</span>
+                <div class="icon icon--gold">
+                    {% render 'chevron-right' %}
+                </div>
+            </a>
+        </div>
+    
+        <div class="footer-blog__articles">
+    
+            <div class="footer-blog__article-stack">
+
+                {% for post in posts %}
+                
+                    {% assign p = post | replace: ".", "/" %}
+                    {% assign article = articles[p] %}
+
+                    {% if forloop.index == 1 or forloop.index == 2 %}
+
+                        <div class="footer-blog__article footer-blog__article--half">
+                        
+                            <a href="{{ article.url | downcase }}">
+                                <div class="footer-blog__article-image">
+                        
+                                    <img src="{{ article.image | image_url: width: 310 }}" loading="lazy"
+                                        alt="{{ article.image.alt }}" width="310" height="135">
+                        
+                                </div>
+                        
+                                <div class="footer-blog__article-title">
+                                    {{ article.title }}
+                                </div>
+                            </a>
+                        
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+                {% for post in posts %}
+                
+                    {% assign p = post | replace: ".", "/" %}
+                    {% assign article = articles[p] %}
+
+                    {% if forloop.index != 1 and forloop.index != 2 %}
+
+                        {%
+                        liquid
+                        
+                        assign articleClass = "footer-blog__article--full"
+                        assign articleContentClass = ""
+                        assign imageHeight = 294
+                        
+                        for tag in article.tags
+                            if tag contains "guide"
+                                assign articleClass = "footer-blog__article--guide"
+                                assign articleContentClass = "footer-blog__article-title--full"
+                                assign imageHeight = 135
+                            endif
+                            
+                            if tag contains "tag:"
+                                assign blockTag = tag | replace: "tag:", "" | capitalize
+                            endif
+                        
+                        endfor
+                        
+                        %}
+                        
+                        <div class="footer-blog__article {{ articleClass }}">
+                        
+                            <a href="{{ article.url | downcase }}">
+                                <div class="footer-blog__article-image">
+                        
+                                    {% if article.tags contains "guide" %}
+                                    <div class="footer-blog__article-image--tag">
+                                        <div class="icon icon--white">
+                                            {% include 'icon-tag' %}
+                                        </div>
+                                        <span>{{ blockTag }}</span>
+                                    </div>
+                                    {% endif %}
+                        
+                                    <img src="{{ article.image | image_url: width: 310 }}" loading="lazy" alt="{{ article.image.alt }}"
+                                        width="310" height="{{ imageHeight }}">
+                        
+                                </div>
+                        
+                                <div class="footer-blog__article-title {{ articleContentClass }}">
+                                    {{ article.title }}
+                        
+                        
+                                    {% if article.tags contains "guide" %}
+                                    <div class="footer-blog__article-title--link">
+                                        <span>{{ 'blogs.article.read_more' | t }}</span>
+                                        <div class="icon icon--light-grey">
+                                            {% include 'chevron-right' %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+    
+            
+        </div>
+    </div>
+
+{% endfor %}
+
+

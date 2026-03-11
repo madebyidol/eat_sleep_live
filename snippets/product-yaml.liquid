@@ -1,0 +1,59 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:53+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            27ec648677e132ca92d2157a8f0f89da
+//      Signature:      eyJpdiI6IjVoT1FzRXdxT3BlWVcwNFBWbEFidlE9PSIsInZhbHVlIjoiWVRHaEJZdDlzQ1VRY3ZuWTlqcjdQZXlzQ0haRkZlSDJoNlZkblJ2eWsrazVrV0NJK3ppQno0MlVWMG1kdThNN3IxczFZSFFzMFpvaldnU0pqTFlxcnRaU2xTS1haN0EyU0NneWt6eU5qXC92WHZITE5xencrZUFHa2hXRUZrTENtZHRYV1NEQXlqVGpobkJxc2FFMjNmQXJsdXgrNUNOWklKeDFyMDRIV0IyUnZHQkdBR3RjUldGMCt1SmUzSE1tOThrQW5UVTZ0OUNNOXMwbVBJQkUrd21QcG1LUjA3Mk1iaFJuN1dhb3RJZjVMY1hxd1NJcEZLMGt1ZjEzRkd6ZElpcFZLclpqOHZObGh1V2N4bERJTndBZFJoQ3RIa0wydUtRVlN4NXlQdUcwYktNMGwrWGFLeWF3dVRlS2RQZ0JGYnE1a2k1Z3VqTForTXJUb085VmlDZ0xiazlKWm1mRnQydzVMVDJUWmlGNHVKVU9iN25RWU9ZdVQ4cmRuMFZmQ3NmUGRRR3oxaFQxQzAyK3hxa0JKa3c9PSIsIm1hYyI6IjRkMWM4NTJkYzZmYmE2MTAzMGZhYjk3Y2RjYWQzZDliZWE4ZDYxMDg4YzA5ZjA0MTk0ZjY3MWViNTI2Yjk0ZGYifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if product.metafields.custom_fields["you_may_also_like"] != blank %}
+<div class="block-featured product__yaml">
+	{% if section.settings.yaml-title != blank %}
+		<div class="section-title"><h4>{{ section.settings.yaml-title }}</h4></div>
+	{% endif %} 
+	{% assign product_refs = product.metafields.custom_fields["you_may_also_like"] | split: "|" %}
+  <div class="js-component__slick slick-hide slick-arrows" data-slick='
+  	{
+  		"slidesToShow": 3,
+  		"slidesToScroll": 3,
+  		"infinite": false,
+  		"draggable": true,
+  		"rows": false,
+  		"arrows": true,
+  		"nextArrow": "<button type=\"button\" class=\"slick-next\"></button>",
+  		"prevArrow": "<button type=\"button\" class=\"slick-prev\"></button>",
+  		"responsive": [{
+  			"breakpoint": 768,
+  			"settings": {
+  				"slidesToShow": 1.2,
+          "slidesToScroll": 1,
+  				"arrows": false
+  			}
+  		}]
+  	}'>
+  	{% for product_handle in product_refs %}
+  		{% assign product_ref = all_products[product_handle] %}
+  		{% if product_ref != blank %}
+  			<div class="product-block">
+		        <a href="{{ product_ref.url | downcase }}">
+					{% include 'image-element' with image_object: product_ref.featured_image, fade_in: true %}
+					<h5>{{product_ref.title}}</h5>
+					<p class="product-block__price">{% if product_ref.price_varies %}From {% endif %}{{ product_ref.price_min | money }}</p>
+	      		</a>
+  			</div>
+  		{% endif %}
+  	{% endfor %}
+  </div>
+</div>
+{% endif %}

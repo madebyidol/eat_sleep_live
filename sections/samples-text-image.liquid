@@ -1,0 +1,85 @@
+{{ 'samples-text-image.scss.css' | asset_url | stylesheet_tag }}
+
+  <div class="sample-text-and-image" >
+		
+    <div class="sample--text-content"  data-aos-delay="40">
+      {% if section.settings.title %}<h3 class="h4 normal-spaced">{{ section.settings.title }}</h3>{% endif %}
+      
+      {% if section.settings.text %}{{ section.settings.text | newline_to_br }}{% endif %}
+
+      <div class="sample--buttons">
+        {% if section.settings.button-url %}
+          <a class="main-button" href="{{ section.settings.button-url | downcase }}"  data-aos-delay="80">
+            <span>{{ section.settings.button-text }}</span>
+            {% render 'chevron-right' %}
+          </a>
+        {% endif %}
+
+        {% if section.settings.button-url-2 %}
+          <a class="main-button-text" href="{{ section.settings.button-url-2 | downcase }}"  data-aos-delay="80">
+            <span>{{ section.settings.button-text-2 }}</span>
+            {% render 'chevron-right' %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if section.settings.image != blank %}
+      <div class="sample--image-container"  data-aos-delay="250">
+        {% render 'image-element' with image_object: section.settings.image, classes: 'sample--image' %}
+      </div>
+    {% endif %}
+
+	</div>
+
+{% schema %}
+{
+  "name": "Samples Text and Image",
+  "class": "samples-text-image--section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Can't decide? Need a helping hand?"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Text",
+      "default": "<p>Request a swatch box and you’ll be one step closer to owning your very own slice of perfection. Go on, it’s time to treat yourself.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button-text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button-url",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button-text-2",
+      "label": "Button 2 Text"
+    },
+    {
+      "type": "url",
+      "id": "button-url-2",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Samples Text and Image",
+      "category": "Blocks"
+    }
+  ]
+}
+{% endschema %}

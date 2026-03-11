@@ -1,0 +1,2166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "font_main": "lato_n4",
+    "color_primary": "#808171",
+    "color_secondary": "#759092",
+    "color_menu_options": "#898687",
+    "color_borders": "#898687",
+    "color_body_text": "#434241",
+    "color_link_text": "#9f5130",
+    "color_section_bg": "#f1eeea",
+    "color_footer_bg": "#808171",
+    "color_product_title": "#434241",
+    "offer_banner_show": true,
+    "offer_banner_annimation": false,
+    "offer_banner_txt_1": "Free Premium Delivery",
+    "offer_banner_link_1": "shopify://pages/delivery",
+    "offer_banner_txt_2": "Klarna & Splitit In Checkout",
+    "offer_banner_link_2": "shopify://pages/finance-options",
+    "logo_use_image": true,
+    "custom_logo": "https://cdn.shopify.com/s/files/1/1230/4400/files/Stacked_Green0_b478dd5d-7325-41b3-abe7-cc1a6231ce47.svg?v=1674648869",
+    "favicon_enable": true,
+    "footer_newsletter_enable": true,
+    "newsletter_form_action": "//eatsleeplive.us11.list-manage.com/subscribe/post?u=02804a34ebbf4732080617b1c&id=f50ad6c675",
+    "social_twitter_link": "@eatsleeplive",
+    "social_facebook_link": "https://facebook.com/eatsleeplive/",
+    "social_pinterest_link": "https://uk.pinterest.com/eatsleeplive/",
+    "social_instagram_link": "https://www.instagram.com/eatsleeplive/",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify://shop_images/Stacked_Green0_de3b5576-0428-437c-8b5e-c7d1dbb0ec17.svg",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#f1eeea",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#808171",
+    "checkout_heading_font": "Open Sans",
+    "checkout_body_font": "Open Sans",
+    "checkout_accent_color": "#808171",
+    "checkout_button_color": "#9f5130",
+    "checkout_error_color": "#9f5130",
+    "color_footer_text": "#636363",
+    "color_footer_social_link": "#bbbbbb",
+    "header_color": "#ffffff",
+    "logo_max_width": "450",
+    "wp_visa": true,
+    "wp_visaelectron": true,
+    "wp_mastercard": true,
+    "wp_maestro": true,
+    "wp_amex": true,
+    "wp_diners": false,
+    "wp_jcb": true,
+    "wp_laser": false,
+    "wp_elv": false,
+    "checkout_use_storefront_logo": false,
+    "color_body_bg": "#fff",
+    "color_secondary_body_text": "#898687",
+    "seo_slider_bg_1": "shopify://shop_images/ESL_Prestige_Coffee_Table_06.07-2.16-18.jpg",
+    "seo_slider_title_1": "",
+    "seo_slider_description_1": "Back in 2004, when we started Eat Sleep Live, the goal was to provide a high-quality but affordable alternative to the mass-produced, flat-pack furniture that had become so popular in recent years. Our ambition was to provide a bespoke approach to crafting solid wood furniture, one which would provide each and every customer with a personal service and a unique piece of beautiful rustic furniture, for life. \r\n\r\nSince then, we’re very proud that our range of handmade wooden furniture has evolved and grown, while staying true to the ethos we laid out at the very start.\r\n\r\nPlease take some time to explore our website and exclusive range of chunky rustic wood furniture. We can send you a free set of colour samples to help you decide which finish will work best in your home. Alternatively feel free to give us a call on 01159 700 060 or pop into our showroom for a chat!",
+    "seo_slider_show_1": true,
+    "seo_slider_bg_2": "shopify://shop_images/ESL_17.05-1.16-73.jpg",
+    "seo_slider_title_2": "",
+    "seo_slider_description_2": "Our handmade wooden furniture starts its journey many years before it arrives in your home. We source our solid wood from beautiful, historic buildings all over the UK. Some recent examples of the heritage sites we have extracted our wood from include the recent Kings Cross re-developments in London, a Victorian manor house in Yorkshire, several old mills and schoolhouses, and an 18th century brewery in Burton on Trent, to name but a few! The average age of our wood is between one and two hundred years and its natural character comes through in every individual piece of luxury rustic furniture - each beam has its own history and story to tell.",
+    "seo_slider_show_2": true,
+    "seo_slider_bg_3": "shopify://shop_images/ESL_17.05-1.16-3.jpg",
+    "seo_slider_title_3": "",
+    "seo_slider_description_3": "Once we’ve rescued the solid beams from their previous life we carefully de-nail, prepare and sand each one by hand. This process means the reclaimed wood keeps its natural character before it’s lovingly handcrafted into a piece of beautiful rustic wood furniture.",
+    "seo_slider_show_3": true,
+    "seo_slider_bg_4": "shopify://shop_images/ESL_29.11-1.16_Sideboard-3.jpg",
+    "seo_slider_title_4": "",
+    "seo_slider_description_4": "The debut piece we designed for Eat Sleep Live’s chunky rustic furniture range was the Hudson dining table. Since then our collection has grown to incorporate other collections and types of reclaimed wood furniture including beds, TV stands, coffee tables, shelving units, plus many others! We have also increased the number of expert craftsmen in our team, who handcraft your luxury solid wood furniture with the same high level of care and attention to detail for each piece before we deliver your new rustic furniture to your home.\n\nAll the best\nMark, Leah, Rach and the team",
+    "seo_slider_show_4": true,
+    "seo_slider_bg_5": "",
+    "seo_slider_title_5": "",
+    "seo_slider_description_5": "",
+    "seo_slider_show_5": false,
+    "seo_slider_bg_6": "",
+    "seo_slider_title_6": "",
+    "seo_slider_description_6": "",
+    "seo_slider_show_6": false,
+    "bespoke_hero_title": "Get Creative",
+    "bespoke_hero_description": "We have had the pleasure of creating bespoke pieces for many residential and commercial interiors such as Ben & Jerry's, London zoo, Deanston distillery and many independent   cafes, restaurants, boutique B&Bs, offices and schools.<br><br>\r\nHave a unique project you would like to discuss?",
+    "bespoke_hero_enquiry_text": "Enquire",
+    "bespoke_box_1_title": "Built to last",
+    "bespoke_box_2_title": "Attention to detail",
+    "bespoke_box_3_title": "Preparation, preparation, preparation",
+    "bespoke_box_4_title": "Finishing touches",
+    "bespoke_box_5_title": "Passionate craftsman",
+    "bespoke_enquiry_title": "Enquire",
+    "bespoke_enquiry_description": "Get in touch to discuss your unique project.  We look forward to hearing from you.",
+    "bespoke_enquiry_button_text": "Enquire Now",
+    "bespoke_reviews_title": "What our customers say",
+    "bespoke_customer_1_title": "Dawn Nowell",
+    "bespoke_customer_1_review": "Fantastic service! We were kept up-to-date at regular intervals. The furniture is beautifully constructed and very substantial. I really can’t rate this company enough! I’ve been telling all my friends about them.",
+    "bespoke_customer_2_title": "Jackie Bradley",
+    "bespoke_customer_2_review": "Great quality and customer service. After visiting the show room, I found the staff really friendly and helpful. They kept me informed throughout the process. The quality of the furniture is excellent.",
+    "bespoke_customer_3_title": "Duncan Wells",
+    "bespoke_customer_3_review": "Its so nice in this day and age to have a product that has a personal service feel behind it. The actual products themselves are even better than you expect - who needs TV's anymore when you can just stare in amazement at the furniture!",
+    "home-button_text": "explore tables",
+    "home-hero-link": "https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-dining-tables",
+    "home-title": "Reclaimed Wood Furniture, Rustic, Solid & Handmade in The UK",
+    "hero-slide-image-desktop": "shopify://shop_images/Long-Overhang-Natural_6f24ef99-cb43-44ae-a37c-847431fd0260.jpg",
+    "hero-slide-image-tablet": "shopify://shop_images/Long-Overhang-Natural-mobile_9a17e388-cd57-48ed-b03f-47b2885e8e6f.jpg",
+    "section-1-collection-1": "cavendish-collection",
+    "home-slider-slide-image-1": "shopify://shop_images/reclaimed-wood-and-metal-cavendish-collection_11bd597f-6c2c-4cee-9c16-14a80bf6008a.jpg",
+    "home-slider-slide-image-1-portrait": "shopify://shop_images/reclaimed-rustic-wood-and-metal-cavendish-collection_627156ba-45c6-42a5-b4b1-7d348bffd58e.jpg",
+    "section-1-collection-1-title": "Cavendish",
+    "section-1-collection-2": "hudson-collection",
+    "home-slider-slide-image-2": "shopify://shop_images/reclaimed-rustic-solid-wood-hudson-collection_047cd060-e1de-4750-98e5-983cccd65391.jpg",
+    "home-slider-slide-image-2-portrait": "shopify://shop_images/mobile-hero-hudson_7258725f-e466-41e6-b6b5-15db75086af1.jpg",
+    "section-1-collection-2-title": "Hudson",
+    "section-1-collection-3": "branson-collection",
+    "home-slider-slide-image-3": "shopify://shop_images/solid-rustic-reclaimed-wood-branson-collection_e104a5dc-afb9-406b-85af-1d1b3d1bb019.jpg",
+    "home-slider-slide-image-3-portrait": "shopify://shop_images/solid-rustic-wood-branson-collection_5db5cba5-9d38-4b7d-aa92-e95d9ff7d6bc.jpg",
+    "section-1-collection-3-title": "Branson",
+    "section-1-collection-4": "darcy-collection",
+    "home-slider-slide-image-4": "shopify://shop_images/solid-reclaimed-wood-darcy-collection_b41a1b02-a52b-4a99-b4e2-92210980a847.jpg",
+    "home-slider-slide-image-4-portrait": "shopify://shop_images/solid-reclaimed-wood-rustic-darcy-collection_3a5b1645-2f75-42b3-a7a1-a2e193bf09e4.jpg",
+    "section-1-collection-4-title": "Darcy",
+    "section-1-collection-5": "upholstery-collection",
+    "home-slider-slide-image-5": "shopify://shop_images/handmade-fabric-sofas-armchairs-footstools-collection_61b9ccaa-750e-471e-b006-10c85c9d6437.jpg",
+    "home-slider-slide-image-5-portrait": "shopify://shop_images/handmade-fabric-upholstery-collection_70ad1d17-007e-4dd7-b5d6-4ff8ec41dd2c.jpg",
+    "section-1-collection-5-title": "Upholstery",
+    "home-custom-link-1": "https://www.eatsleeplive.co.uk/collections/reclaimed-solid-wood-beds",
+    "home-custom-link-title-1": "Super Solid Luxury Beds",
+    "home-custom-link-description-1": "Lovingly crafted for a lifetime of dreamy sleep",
+    "home-custom-link-image-1": "shopify://shop_images/reclaimed-rustic-solid-wood-hudson-bed.jpg",
+    "home-custom-link-2": "https://www.eatsleeplive.co.uk/collections/home-office-furniture",
+    "home-custom-link-title-2": "Luxury Home Office",
+    "home-custom-link-description-2": "Stunning choice of items, colours & finishes",
+    "home-custom-link-image-2": "shopify://shop_images/home-office-furniture-1.jpg",
+    "home-esl-collection-image-1": "shopify://shop_images/Update-Cav-Image.jpg",
+    "home-esl-collection-text-eat": "Our luxury rustic furniture makes a beautiful centrepiece for any dining room and makes gatherings with family or friends even more cosy.",
+    "home-esl-collection-image-2": "shopify://shop_images/Bed-update.jpg",
+    "home-esl-collection-text-sleep": "Stunning reclaimed wooden bedroom furniture can make a great difference to the overall feel of your room, meaning your bedroom can be as beautiful as your night's sleep.",
+    "home-esl-collection-image-3": "shopify://shop_images/Live-2-update.jpg",
+    "home-esl-collection-text-live": "Live in style!  Reclaimed wood living room furniture adds elegant and rustic accents to every living room. Made from solid wood, it brings a lifetime of joy.",
+    "home-slogans-1": "Lovingly Designed & Crafted by Us Since 2004",
+    "home-slogans-2": "Handmade From The Finest Reclaimed Wood",
+    "home-slogans-3": "Personally Delivered By Our Craftsmen",
+    "feature-logo-1": "shopify://shop_images/logo-deco.png",
+    "feature-logo-2": "shopify://shop_images/grand-designs-logo_5b75b16b-a5aa-46eb-bc8a-ef9f86bb41ab.png",
+    "feature-logo-3": "shopify://shop_images/newtitle.png",
+    "feature-logo-4": "shopify://shop_images/ce160043-eat-sleep-live-ltd-best-rustic-furniture-supplier-2016-uk.png",
+    "feature-logo-5": "shopify://shop_images/the-telegraph-logotype-logo.png",
+    "testimonial-slide-1-image": "shopify://shop_images/avatar-image.png",
+    "testimonial-slide-1-review": "Fantastic, friendly and personal service. And fantastic product - over the years I've ordered a coffee table, bedside tables, kitchen table and bed - all beautifully crafted products that will last a lifetime and at a decent price. They really care about their customers. Thank you!",
+    "testimonial-slide-1-name": "Katie Scotland, Bath",
+    "testimonial-slide-2-image": "shopify://shop_images/avatar-image_07e5a9a6-7eec-4f84-a9a5-9ac97bd698e2.png",
+    "testimonial-slide-2-review": "From start to finish, our experience of Eat Sleep Live has been great. Personable, responsive and always eager to help. And the bed we ordered is beautiful! We'd have no hesitation in recommending Eat Sleep Live to anyone.",
+    "testimonial-slide-2-name": "Stephen Taylor, Glasgow",
+    "testimonial-slide-3-image": "shopify://shop_images/avatar-image_bbd03bcb-387d-4652-9631-dc73a532fb93.png",
+    "testimonial-slide-3-review": "Excellent quality furniture made from reclaimed wood by real craftsmen. Furniture with heart and soul to last a lifetime.",
+    "testimonial-slide-3-name": "Chrisitne Houseley, County Durham",
+    "testimonial-slide-4-image": "shopify://shop_images/avatar-image_9b34407b-cccb-44fe-9d2a-3df8c63cfafe.png",
+    "testimonial-slide-4-review": "From the first phone call through until delivery, Eat Sleep Live were a delight to deal with. First class service and the actual product, a beautiful bed is already loved! A stunning piece of craftsmanship which will remain with us for many years.",
+    "testimonial-slide-5-name": "Duncan Wells, Somerset",
+    "testimonial-slide-5-image": "shopify://shop_images/avatar-image_4ad86ad1-a30b-45ed-8821-9bde0f3a3a22.png",
+    "testimonial-slide-5-review": "The faultless service from inquiry to delivery just makes these products even better - Its so nice in this day and age to have a product that has a personal service feel behind it let alone the actual products themselves. The actual products themselves are even better than you expect - Who needs TV's anymore when you can just stare in amazement at the furniture!",
+    "testimonial-slide-4-name": "Kate Keer, Surrey",
+    "popular-collection-1": "reclaimed-solid-wood-dining-tables",
+    "popular-collection-1-image": "shopify://shop_images/solid-rustic-reclaimed-wood-dining-tables_ca570f97-0402-4cb2-88ae-a4d4445a60b3.jpg",
+    "popular-collection-1-title": "Dining Tables",
+    "popular-collection-1-description": "Your dining table is where some of life's fondest memories are made. Our range of stunning reclaimed wood dining tables combine timeless chunky design with modern styles to create unique furniture art pieces.",
+    "popular-collection-2": "reclaimed-solid-wood-beds",
+    "popular-collection-2-image": "shopify://shop_images/Hudson-Loft-bed-grey.jpg",
+    "popular-collection-2-title": "Beds",
+    "popular-collection-2-description": "Solid wood beds provide you with support for a solid, refreshing and peaceful night's sleep. Wake with a smile!",
+    "popular-collection-3-image": "shopify://shop_images/Hudson-Coffee-Table.jpg",
+    "popular-collection-3": "reclaimed-solid-wood-coffee-tables",
+    "popular-collection-3-title": "Coffee Tables",
+    "popular-collection-3-description": "Our beautifully designed and luxuriously comfortable sofas complement your living room and bedroom, whatever your style.",
+    "popular-collection-4-image": "shopify://shop_images/Branson-Double-TV-stand_8c4ef3ed-bb3f-4ccd-b514-772ebef90174.jpg",
+    "popular-collection-4": "reclaimed-solid-wood-tv-stands",
+    "popular-collection-4-title": "TV Stands",
+    "popular-collection-4-description": "Extensive choice of designs and sizes for all your entertainment needs, and relax!",
+    "visit-us-image-desktop": "shopify://shop_images/visit-us_a6ed4fb7-b17c-4870-af89-42af52205697.jpg",
+    "visit-us-image-tablet": "shopify://shop_images/visit-us-mob.jpg",
+    "reclaimed-wood-image-desktop": "shopify://shop_images/handmade-historic-reclaimed-wood.jpg",
+    "reclaimed-wood-image-tablet": "shopify://shop_images/solid-reclaimed-wood-beams-from-mill-2.jpg",
+    "social-count-facebook": "71,602",
+    "social-count-twitter": "1725",
+    "social-count-instagram": "12,489",
+    "social-count-pinterest": "151,168",
+    "about-us-section-1-image-desktop": "shopify://shop_images/About-us.jpg",
+    "about-us-section-1-image-tablet": "shopify://shop_images/eat-sleep-live-reclaimed-wood-furniture4_50c6b33f-f98c-49b0-bdf1-4b39c7ec8697.jpg",
+    "home-about-us-section-1": "Back in 2004, when we started Eat Sleep Live, the goal was to provide a high-quality but affordable alternative to the mass-produced, flat-pack furniture that had become so popular in recent years. Our ambition was to provide a bespoke approach to crafting solid wood furniture, one which would provide each and every customer with a personal service and a unique piece of beautiful rustic furniture, for life. \n<p></p><p>\nSince then, we’re very proud that our range of handmade wooden furniture has evolved and grown, while staying true to the ethos we laid out at the very start.\n</p>",
+    "about-us-section-2-image-desktop": "shopify://shop_images/handmade-historic-reclaimed-wood-1.jpg",
+    "about-us-section-2-image-tablet": "shopify://shop_images/handmade-historic-reclaimed-wood-1-Mob.jpg",
+    "home-about-us-section-2": "",
+    "offer_banner_mobile_nav_show": true,
+    "offer_banner_txt_color": "#898687",
+    "offer_banner_bg_color": "#f2f2f2",
+    "offer_banner_bg_color_mobile": "#434241",
+    "offer_banner_cookie_time": "1",
+    "mobile_offer_banner_txt": "WE ARE FULLY OPEN & EXTREMELY BUSY - ORDER NOW WITH 0% FINANCE",
+    "mobile_offer_banner_url": "https://www.eatsleeplive.co.uk/pages/we-are-open-online",
+    "colours_and_samples_description": "All of our reclaimed wood furniture is available in the following 4 colours.<br><br>\nWhy not order a free set of our 4 wood colour samples in a letterbox-friendly package or visit us for inspiration.\n<br><br> For metal frame and fabric colour options please call us on 01159 700 060 to discuss options.",
+    "colours_samples_collection_1_title": "Cavendish",
+    "colours_samples_collection_2_title": "Hudson",
+    "colours_samples_collection_3_title": "Branson",
+    "colours_samples_collection_4_title": "Darcy",
+    "colours_samples_1_parent_title": "Warm",
+    "colours_samples_2_parent_title": "Grey",
+    "colours_samples_3_parent_title": "Natural",
+    "colours_samples_4_parent_title": "Classic",
+    "colours_samples_1_nested_1_description_title": "Warm",
+    "colours_samples_1_nested_1_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_1_show": true,
+    "colours_samples_1_nested_2_description_title": "Warm",
+    "colours_samples_1_nested_2_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_2_show": true,
+    "colours_samples_1_nested_3_description_title": "Warm",
+    "colours_samples_1_nested_3_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_3_show": true,
+    "colours_samples_1_nested_4_description_title": "Warm",
+    "colours_samples_1_nested_4_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_4_show": true,
+    "colours_samples_1_nested_5_description_title": "Warm",
+    "colours_samples_1_nested_5_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_5_show": true,
+    "colours_samples_1_nested_6_description_title": "Warm",
+    "colours_samples_1_nested_6_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_6_show": true,
+    "colours_samples_1_nested_7_description_title": "Warm",
+    "colours_samples_1_nested_7_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_7_show": true,
+    "colours_samples_1_nested_8_description_title": "Warm",
+    "colours_samples_1_nested_8_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_8_show": true,
+    "colours_samples_1_nested_9_description_title": "Warm",
+    "colours_samples_1_nested_9_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_9_show": true,
+    "colours_samples_1_nested_10_description_title": "Warm",
+    "colours_samples_1_nested_10_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_11_description_title": "Warm",
+    "colours_samples_1_nested_11_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_11_show": false,
+    "colours_samples_1_nested_12_description_title": "Warm",
+    "colours_samples_1_nested_12_description_content": "Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. It’s the perfect colour to give your home a warm and inviting feeling.",
+    "colours_samples_1_nested_12_show": false,
+    "colours_samples_2_nested_1_description_title": "Grey",
+    "colours_samples_2_nested_1_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_1_show": false,
+    "colours_samples_2_nested_2_description_title": "Grey",
+    "colours_samples_2_nested_2_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_2_show": true,
+    "colours_samples_2_nested_3_description_title": "Grey",
+    "colours_samples_2_nested_3_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_3_show": true,
+    "colours_samples_2_nested_4_description_title": "Grey",
+    "colours_samples_2_nested_4_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_4_show": true,
+    "colours_samples_2_nested_5_description_title": "Grey",
+    "colours_samples_2_nested_5_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_5_show": true,
+    "colours_samples_2_nested_6_description_title": "Grey",
+    "colours_samples_2_nested_6_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_6_show": true,
+    "colours_samples_2_nested_7_description_title": "Grey",
+    "colours_samples_2_nested_7_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_7_show": true,
+    "colours_samples_2_nested_8_description_title": "Grey",
+    "colours_samples_2_nested_8_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_8_show": true,
+    "colours_samples_2_nested_9_description_title": "Grey",
+    "colours_samples_2_nested_9_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_9_show": true,
+    "colours_samples_2_nested_10_description_title": "Grey",
+    "colours_samples_2_nested_10_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_10_show": true,
+    "colours_samples_2_nested_11_description_title": "Grey",
+    "colours_samples_2_nested_11_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_11_show": true,
+    "colours_samples_2_nested_12_description_title": "Grey",
+    "colours_samples_2_nested_12_description_content": "Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.",
+    "colours_samples_2_nested_12_show": false,
+    "colours_samples_3_nested_1_description_title": "Natural",
+    "colours_samples_3_nested_1_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_1_show": true,
+    "colours_samples_3_nested_2_description_title": "Natural",
+    "colours_samples_3_nested_2_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_2_show": true,
+    "colours_samples_3_nested_3_description_title": "Natural",
+    "colours_samples_3_nested_3_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_3_show": true,
+    "colours_samples_3_nested_4_description_title": "Natural",
+    "colours_samples_3_nested_4_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_4_show": true,
+    "colours_samples_3_nested_5_description_title": "Natural",
+    "colours_samples_3_nested_5_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_5_show": true,
+    "colours_samples_3_nested_6_description_title": "Natural",
+    "colours_samples_3_nested_6_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_6_show": true,
+    "colours_samples_3_nested_7_description_title": "Natural",
+    "colours_samples_3_nested_7_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_7_show": true,
+    "colours_samples_3_nested_8_description_title": "Natural",
+    "colours_samples_3_nested_8_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_8_show": true,
+    "colours_samples_3_nested_9_description_title": "Natural",
+    "colours_samples_3_nested_9_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_9_show": true,
+    "colours_samples_3_nested_10_description_title": "Natural",
+    "colours_samples_3_nested_10_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_10_show": true,
+    "colours_samples_3_nested_11_description_title": "Natural",
+    "colours_samples_3_nested_11_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_11_show": true,
+    "colours_samples_3_nested_12_description_title": "Natural",
+    "colours_samples_3_nested_12_description_content": "Our natural finish is a clear wax which brings out all the natural colours and tones in the wood. It highlights and enhances the genuine character and variations in our gorgeous wood.",
+    "colours_samples_3_nested_12_show": true,
+    "colours_samples_4_nested_1_description_title": "Classic",
+    "colours_samples_4_nested_1_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_1_show": true,
+    "colours_samples_4_nested_2_description_title": "Classic",
+    "colours_samples_4_nested_2_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_2_show": true,
+    "colours_samples_4_nested_3_description_title": "Classic",
+    "colours_samples_4_nested_3_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_3_show": true,
+    "colours_samples_4_nested_4_description_title": "Classic",
+    "colours_samples_4_nested_4_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_5_show": true,
+    "colours_samples_4_nested_5_description_title": "Classic",
+    "colours_samples_4_nested_5_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_D_nested_5_show": true,
+    "colours_samples_4_nested_6_description_title": "Classic",
+    "colours_samples_4_nested_6_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_6_show": true,
+    "colours_samples_4_nested_7_description_title": "Classic",
+    "colours_samples_4_nested_7_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_7_show": true,
+    "colours_samples_4_nested_8_description_title": "Classic",
+    "colours_samples_4_nested_8_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_8_show": true,
+    "colours_samples_4_nested_9_description_title": "Classic",
+    "colours_samples_4_nested_9_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_9_show": true,
+    "colours_samples_4_nested_10_description_title": "Classic",
+    "colours_samples_4_nested_10_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_10_show": true,
+    "colours_samples_4_nested_11_description_title": "Classic",
+    "colours_samples_4_nested_11_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_11_show": true,
+    "colours_samples_4_nested_12_description_title": "Classic",
+    "colours_samples_4_nested_12_description_content": "Our classic finish is the darkest of our natural waxes. A classic brown finish with sumptuous deep and rich tones that blend together to give a stunning timeless and luxurious finish.",
+    "colours_samples_4_nested_12_show": false,
+    "cart_notes_enable": true,
+    "cart_vendor_enable": false,
+    "ajax_cart_method": "drawer",
+    "cart_tab_title_1": "LOVINGLY HAND CRAFTED",
+    "cart_tab_content_1": "Once your order is placed the journey begins and we will schedule your furniture to be lovingly hand crafted. \r\n\r\nExciting times!",
+    "cart_tab_title_2": "KEEP YOU IN THE LOOP",
+    "cart_tab_content_2": "We will contact you once we begin crafting your furniture with an update and again in the final stages to discuss suitable delivery dates. \r\n\r\nComing to you soon!",
+    "cart_tab_title_3": "PERSONALLY DELIVERED BY US",
+    "cart_tab_content_3": "Our expert delivery duo will carefully place your furniture in situ, complete any required assembly and fit protective pads where needed. \r\n\r\nComplimentary wax and aftercare advice supplied with a smile. \r\n\r\nSit back and relax!",
+    "cart_tab_title_4": "ALWAYS THERE FOR YOU",
+    "cart_tab_content_4": "Now your Eat Sleep Live furniture is part of your family it is ready to begin its new chapter.\r\n\r\nAs a lifelong friend of eat sleep live we will always be there for you.\r\n\r\nLove your furniture!",
+    "our-story-section-1-title": "Our Story",
+    "our-story-section-1-text": "“Friends are the family you choose.”<br><br>\r\nGreat friends are reliable and loyal. They are unique and we love them. They are always there when we need them.<br><br>\r\n\r\nWe believe furniture shouldn’t be “here today, gone tomorrow”. It\r\nshould be lovingly crafted to last a lifetime.<br><br>\r\n\r\nMuch like a great friend, it becomes part of the family.\r\n<br><br>\r\nThat’s how we view furniture.",
+    "our-story-section-2-title": "Founded in 2004",
+    "our-story-section-2-text": "Eat Sleep Live was founded in 2004 by Mark Godsell-Fletcher. Driven by a lack of high quality furniture to rival the mass produced alternatives,\r\nMark saw the need for a more personal approach to creating unique furniture that will last a lifetime.",
+    "our-story-section-3-title": "Incredible Journey",
+    "our-story-section-3-text": "His first design was the Hudson dining table, hand-crafted from solid British reclaimed wood in a timeless design that is still going strong today. Seeing the incredible journey this beautiful wood had been on, a passion to give it a new lease of life was born.",
+    "our-story-section-4-title": "Passionate skilled craftsman",
+    "our-story-section-4-text": "Eat Sleep Live now has several collections and an enthusiastic team of passionate skilled craftsman who ensure every piece is given the same care and\r\nattention as that very first piece.",
+    "our-story-section-5-title": "Get in touch",
+    "our-story-section-5-text": "We love to share our passion for furniture, so <a href=\"/pages/get-in-touch\">contact one of our experts</a> for a more personal customer experience.",
+    "how-we-work-section-1-title": "Get the ball rolling",
+    "how-we-work-section-1-text": "You can order online, pop into our workshop or living showroom or chat over the phone - we are here to help.\n<br><br>\nYour order is then scheduled to be lovingly hand crafted.",
+    "how-we-work-section-1-button": "Get in touch",
+    "how-we-work-section-1-link": "/pages/get-in-touch",
+    "how-we-work-section-2-title": "Personally delivered by us",
+    "how-we-work-section-2-text": "We will keep you in the loop and once your unique furniture is complete our own expert 2 man team will deliver and install it carefully in your home.\n<br><br>\nYou sit back and relax.",
+    "how-we-work-section-2-button": "Learn more",
+    "how-we-work-section-2-link": "/pages/delivery",
+    "how-we-work-section-3-title": "Always there for you",
+    "how-we-work-section-3-text": "Our friendly delivery duo will give you aftercare information, fit any protective pads where needed and supply complimentary wax. \n<br><br>\nThey will have had a hand in either hand crafting or finishing your furniture so can answer any questions you may have.\n<br><br>\nAfterwards we will make sure you are completely happy and we will always be there if you need us.",
+    "how-we-work-section-3-button": "Learn more",
+    "how-we-work-section-3-link": "/pages/aftercare",
+    "showroom_header": "Showroom",
+    "showroom_address": "The Archer Exchange<br>\r\n139 Lower Parliament Street<br>\r\nNottingham<br>\r\nNG1 1EE<br>",
+    "showroom_opening_hours": "Mon to Thurs - 10am to 6pm<br>\nFri & Sat - 10am to 4pm<br>\nSunday & out of hours - by appointment<br><br>",
+    "showroom_extra": "",
+    "workshop_header": "Workshop",
+    "workshop_address": "2 Nuthall Road<br>\nNottingham<br>\nNG8 5AZ<br>",
+    "workshop_opening_hours": "<br>Call 01159 700 060 to book an appointment Monday - Friday.<br><br>",
+    "workshop_extra": "",
+    "showroom_page_title": "Visit our showroom",
+    "showroom_page_description": "<p>Pop in to our Nottingham city centre showroom where Rach, Leah or Mark will be on hand to answer any questions. </p> We’ll get the kettle on!\r\n<p>We have also partnered with like minded companies to showcase the best of British upholstery and lighting. Some of which is exclusive to the showroom.</p>",
+    "showroom_page_address": "<p>The Archer Exchange<br>139 Lower Parliament Street<br>Nottingham<br>NG1 1EE</p>\r\n<p>Tel: 01159 700 060</p>",
+    "showroom_page_opening_times": "<p><b><u>Opening Hours</u></b></p>\r\n<p>Mon - Thurs: 10am - 6pm<br>Fri - Sat: 10am - 4pm<br>Sunday & Out of Hours: By Appointment</p>\r\n<p><b><u>Parking</u></b></p>\r\n<p>On street parking on <a href=\"https://goo.gl/maps/kgrWU\" target=\"_blank\">Boston Street</a>, or the <a href=\"https://goo.gl/maps/qUdlH\" target=\"_blank\">Arena car park</a> nearby.</p>",
+    "showroom_page_iframe_code": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d600.9223055336474!2d-1.1404495118369449!3d52.95401480669384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDU3JzE0LjQiTiAxwrAwOCcyMy42Ilc!5e0!3m2!1sen!2sus!4v1470325257866\" width=\"100%\" height=\"100%\" frameborder=\"0\" style=\"border: 0;\" allowfullscreen=\"\"></iframe>",
+    "workshop_page_title": "Visit Us",
+    "workshop_page_description": "<p>Visiting us has now resumed so you are very welcome to come and see us and our beautiful furniture.\n<b> It is by appointment only</b> so we can follow social distancing guidelines so get in touch to arrange. </p><b> \n</b>",
+    "workshop_page_address": "<p>The Old Joinery Mill<br>2 Nuthall Road<br>Nottingham<br>NG8 5AZ</p>\n<p>Tel: 01159 700 060</p>\n\nCompany reg no. 05263088\n<p>Vat No. 275 8812 62</p>",
+    "workshop_page_opening_times": "<p><b><u>Opening Times</u></b></p>\n<p>Monday - Friday:\n 9.00am to 5.00pm<br>Saturday: 9.00am to 1.00pm<br>Weekends & Out Of Hours: by appointment<br> BANK HOLIDAYS: CLOSED FRIDAY 8TH MAY AND MONDAY 25TH MAY! </p><p><b>\n</b></p><p></p><p><b><b><b><u>Parking</u></b></b></b></p><b><b>\n</b></b><p>There is plenty of free parking at the workshop & showrooms.</p>",
+    "workshop_page_iframe_code": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d600.7196025247372!2d-1.1872865179398306!3d52.968601680979106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c1ede30bd511%3A0x3fd1c544419d35cd!2sEat%20Sleep%20Live!5e0!3m2!1sen!2suk!4v1567158847820!5m2!1sen!2suk\" width=\"100%\" height=\"100%\" frameborder=\"0\" style=\"border: 0;\" allowfullscreen=\"\"></iframe>",
+    "collection_1_name": "Cavendish",
+    "collection_1_checked": true,
+    "collection_2_name": "Hudson",
+    "collection_2_checked": true,
+    "collection_3_name": "Branson",
+    "collection_3_checked": true,
+    "collection_4_name": "Darcy",
+    "collection_4_checked": true,
+    "collection_5_name": "Rochester",
+    "collection_5_checked": true,
+    "collection_6_name": "Lighting",
+    "collection_6_checked": false,
+    "collection_7_name": "Prestige",
+    "collection_7_checked": false,
+    "collection_8_name": "Rochester",
+    "collection_8_checked": false,
+    "collection_9_name": "",
+    "collection_9_checked": false,
+    "collection_panel_split": true,
+    "contact_us_telephone": "01159 700 060",
+    "contact_us_email": "info@eatsleeplive.co.uk",
+    "map_1_lat": "52.95418",
+    "map_1_lng": "-1.13934",
+    "map_2_lat": "52.967631",
+    "map_2_lng": "-1.182887",
+    "shop_by_type_page_desc": "Whether you are looking for a new style or starting your first home, our wide range of reclaimed wood furniture has something for everyone.",
+    "contact_form_referral_1": "Google Search",
+    "contact_form_referral_2": "Facebook",
+    "contact_form_referral_3": "Instagram",
+    "contact_form_referral_4": "Pinterest",
+    "contact_form_referral_5": "Bing Search",
+    "contact_form_referral_6": "Customer Referral",
+    "contact_form_referral_7": "Friends or Family",
+    "contact_form_referral_8": "Grand Designs Show",
+    "contact_form_referral_9": "Article Or Blog Post",
+    "contact_form_referral_10": "Other",
+    "bespoke_form_referral_1": "Google Search",
+    "bespoke_form_referral_2": "Bing Search",
+    "bespoke_form_referral_3": "Facebook",
+    "bespoke_form_referral_4": "Instagram",
+    "bespoke_form_referral_5": "Pinterest",
+    "bespoke_form_referral_6": "Customer Referral",
+    "bespoke_form_referral_7": "Friend or Family",
+    "bespoke_form_referral_8": "Grand Designs Show",
+    "bespoke_form_referral_9": "Article Or Blog Post",
+    "bespoke_form_referral_10": "Other",
+    "colours_form_when": "Asap;In the next month;In the next 3 months;In the next 6 months;Not sure have renovations;I’m just browsing",
+    "colours_form_referral": "Google Search;Bing Search;Facebook;Instagram;Pinterest;Customer Referral;Friend Or Family;Grand Designs Show;Magazine Or Newspaper;Article or Blog Post;I'm Existing Customer;Other",
+    "product_info_hover_1": "Place your order now to get your place in the queue. We will then contact you over the coming weeks to finalise colour. Samples available to help.",
+    "product_info_hover_2": "Place your order now to get your place in the queue. We will then contact you over the coming weeks to finalise handles.",
+    "product_info_hover_3": "Personalise your furniture with your own choice of handles fitted by us, no charge for this service. Order now and then post handles over the coming weeks.",
+    "colour_samples_thankyou_title": "Thank you for requesting colour samples",
+    "colour_samples_thankyou": "<p>Your set of samples will arrive over the next few days.</p>",
+    "offer_banner_txt": "WE ARE FULLY OPEN & EXTREMELY BUSY - ORDER NOW WITH 0% FINANCE",
+    "offer_banner_url": "https://www.eatsleeplive.co.uk/pages/we-are-open-online",
+    "search_description": "Use the search function on our website to help\nyou find the perfect piece of reclaimed wood\nfurniture from our product range. Our furniture\nis all hand crafted in our workshop. Browse our\ncollections today.",
+    "show_slideshow": true,
+    "home-title-1": "Reclaimed Wood Furniture, Rustic",
+    "home-title-2": "Solid & Handmade in The UK.",
+    "title-size": "6vw",
+    "home-title-mobile-1": "Reclaimed Wood",
+    "home-title-mobile-2": "Furniture,",
+    "home-title-mobile-3": "Rustic Solid &",
+    "home-title-mobile-4": "Handmade in The UK.",
+    "title-size-mobile": "16vw",
+    "home-link": "shopify://pages/shop-by-collection",
+    "home-slider-checkbox-1": false,
+    "home-slider-checkbox-2": false,
+    "home-slider-checkbox-3": false,
+    "home-slider-checkbox-4": false,
+    "home-slider-checkbox-5": false,
+    "home-title-3": "",
+    "home-subheading": "",
+    "show_image": true,
+    "home-image-desktop": "shopify://shop_images/reclaimed-wood-and-black-metal-dining-table-home-1.jpg",
+    "home-image-tablet": "shopify://shop_images/reclaimed-wood-and-black-metal-dining-table-1.jpg",
+    "subheading-size": "3vw",
+    "home-image": "shopify://shop_images/reclaimed-solid-rustic-wood-furniture-4.jpg",
+    "title": "Image",
+    "subheading": "Subheading",
+    "button_text": "Button",
+    "link": "",
+    "home-image-checkbox": true,
+    "home-slider-checkbox-0": true,
+    "home-slideshow-1": true,
+    "home-slidshow-1": true,
+    "testimonial-slide-1-image-1": "",
+    "testimonial-slide-1-image-2": "",
+    "testimonial-slide-1-image-3": "",
+    "testimonial-slide-2-image-1": "",
+    "testimonial-slide-2-image-2": "",
+    "testimonial-slide-2-image-3": "",
+    "testimonial-slide-3-image-1": "",
+    "testimonial-slide-3-image-2": "",
+    "testimonial-slide-3-image-3": "",
+    "testimonial-slide-4-image-1": "",
+    "testimonial-slide-4-image-2": "",
+    "testimonial-slide-4-image-3": "",
+    "about-us-image-desktop": "shopify://shop_images/about-us-image.jpg",
+    "about-us-image-tablet": "shopify://shop_images/about-us-image_a5d818ac-887c-4ec0-9cc3-32e44cc18235.jpg",
+    "home-about-us": "<p>Back in 2004, when we started Eat Sleep Live, the goal was to provide a high-quality but affordable alternative to the mass-produced, flat-pack furniture that had become so popular in recent years. Our ambition was to provide a bespoke approach to crafting solid wood furniture, one which would provide each and every customer with a personal service and a unique piece of beautiful rustic furniture, for life.</p><p>Back in 2004, when we started Eat Sleep Live, the goal was to provide a high-quality but affordable alternative to the mass-produced, flat-pack furniture that had become so popular in recent years. Our ambition was to provide a bespoke approach to crafting solid wood furniture, one which would provide each and every customer with a personal service and a unique piece of beautiful rustic furniture, for life.</p>",
+    "home-custom-collection-1": "branson-collection",
+    "home-custom-collection-2": "cavendish-collection",
+    "homepage-order": "1,2,3,4,5,6,7,8",
+    "section-2-align": "center",
+    "section-2-title": "love your furniture",
+    "section-2-sub-title": "",
+    "section-2-sub-title-position": "top",
+    "section-2-caption": "Not just a piece of furniture but a part of the family.",
+    "section-2-button": "our story",
+    "section-2-url": "pages/learn-our-story",
+    "section-3-align": "right",
+    "section-3-title": "reclaimed wood",
+    "section-3-sub-title": "Only the finest historic",
+    "section-3-sub-title-position": "top",
+    "section-3-caption": "",
+    "section-3-button": "Our Wood",
+    "section-3-url": "pages/our-reclaimed-wood",
+    "section-4-title-1": "",
+    "section-4-caption-1": "",
+    "section-4-button-1": "Shop Sleep",
+    "section-4-url-1": "/collections/sleep",
+    "section-4-title-2": "",
+    "section-4-caption-2": "",
+    "section-4-button-2": "Shop Eat",
+    "section-4-url-2": "/collections/eat",
+    "section-5-align": "center",
+    "section-5-title": "showroom",
+    "section-5-sub-title": "Visit Our",
+    "section-5-sub-title-position": "top",
+    "section-5-caption": "Why not visit our Nottingham city centre showroom for a chat and hot drink and see our beautiful reclaimed wood furniture for yourself.",
+    "section-5-button": "Visit Us",
+    "section-5-url": "/pages/visit-the-showroom",
+    "section-6-align": "left",
+    "section-6-title": "furniture",
+    "section-6-sub-title": "Living Room",
+    "section-6-sub-title-position": "top",
+    "section-6-caption": "Each handcrafted piece has its own story and our stylish solid wood furniture is built to last a lifetime.",
+    "section-6-button": "Shop Live",
+    "section-6-url": "/collections/live",
+    "section-7-blog": "features",
+    "colours_form_referral_1": "Google Search",
+    "colours_form_referral_2": "Facebook",
+    "colours_form_referral_3": "Other Social Media",
+    "colours_form_referral_4": "Customer Referral",
+    "colours_form_referral_5": "Friend or Family",
+    "colours_form_referral_6": "Elle Decoration Magazine",
+    "colours_form_referral_7": "Grand Designs Magazine",
+    "colours_form_referral_8": "Other Magazine / Newspaper",
+    "colours_form_referral_9": "Other",
+    "colours_form_referral_10": "",
+    "checkout_use_header_image": false,
+    "checkout_logo": "",
+    "checkout_use_body_background_image": false,
+    "checkout_use_sidebar_background_image": false,
+    "offer_banner_txt_close": "CLOSE X",
+    "colours_samples_1_mobile_title": "Test1",
+    "colours_samples_1_mobile_description": "Test1",
+    "colours_samples_2_mobile_title": "Test2",
+    "colours_samples_2_mobile_description": "Test2",
+    "colours_samples_3_mobile_title": "Test3",
+    "colours_samples_3_mobile_description": "Test3",
+    "colours_samples_4_mobile_title": "Test4",
+    "colours_samples_4_mobile_description": "Test4",
+    "colours_samples_5_mobile_title": "5",
+    "colours_samples_5_mobile_description": "5",
+    "colours_samples_6_mobile_title": "666666666",
+    "colours_samples_6_mobile_description": "6666666666",
+    "colours_samples_1_nested_10_show": true,
+    "collection_panel_split_position": "4",
+    "colours_samples_colour_1": "Classic",
+    "colours_samples_colour_1_description": "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam id numquam distinctio totam fugit, cupiditate impedit consectetur odit. Eligendi ab odio culpa id provident. Eos, a minima saepe blanditiis consequatur.",
+    "colours_samples_colour_2": "Warm",
+    "colours_samples_colour_2_description": "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam id numquam distinctio totam fugit, cupiditate impedit consectetur odit.",
+    "colours_samples_colour_3": "Natural",
+    "colours_samples_colour_3_description": "3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam id numquam distinctio totam fugit, cupiditate impedit consectetur odit. Eligendi ab odio culpa id provident.",
+    "colours_samples_colour_4": "Grey",
+    "colours_samples_colour_4_description": "4 Lorem ipsum dolor sit amet. Magnam id numquam distinctio totam fugit, cupiditate impedit consectetur odit. Eligendi ab odio culpa id provident. Eos, a minima saepe blanditiis consequatur. test",
+    "colours_samples_colour_1_title": "Title",
+    "colours_samples_colour_2_title": "Test 2",
+    "colours_samples_colour_3_title": "Test 3",
+    "colours_samples_colour_4_title": "Test 4",
+    "footer_social_enable": true,
+    "sections": {
+      "home-navigation": {
+        "type": "home-navigation",
+        "blocks": {
+          "1501600642110": {
+            "type": "collection",
+            "settings": {
+              "collection": "cavendish-collection",
+              "collection_title": "",
+              "collection_image": "shopify://shop_images/cavendish-collection_f675a83b-bc44-4d70-9b04-91b435d2d8a3.jpg"
+            }
+          },
+          "1501600654926": {
+            "type": "collection",
+            "settings": {
+              "collection": "branson-collection",
+              "collection_title": "",
+              "collection_image": "shopify://shop_images/branson-collection4.jpg"
+            }
+          },
+          "1501600664830": {
+            "type": "collection",
+            "settings": {
+              "collection": "darcy-collection",
+              "collection_title": "",
+              "collection_image": "shopify://shop_images/darcy-collection5.jpg"
+            }
+          },
+          "1501604676070": {
+            "type": "collection",
+            "settings": {
+              "collection": "hudson-collection",
+              "collection_title": "",
+              "collection_image": "shopify://shop_images/hudson-collection.jpg"
+            }
+          },
+          "1561661148254": {
+            "type": "collection",
+            "settings": {
+              "collection": "rochester-collection",
+              "collection_title": "",
+              "collection_image": "shopify://shop_images/reclaimed-wood-and-brushed-metal-aframe-table-and-benches-1.jpg"
+            }
+          },
+          "1501604683910": {
+            "type": "collection",
+            "settings": {
+              "collection": "upholstery-collection",
+              "collection_title": "",
+              "collection_image": "shopify://shop_images/upholstery-collection4_a6d757c1-0355-4684-81e8-f3f9150ba603.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1501600642110",
+          "1501600654926",
+          "1501600664830",
+          "1501604676070",
+          "1561661148254",
+          "1501604683910"
+        ],
+        "settings": {
+          "menu-caption": "SHOP",
+          "top-menu": "shop-by-type",
+          "bottom-menu": "shop-by-room",
+          "collection-caption": "Shop by collection",
+          "side-img": "shopify://shop_images/Sample-request-6.jpg",
+          "side-text": "Order our FREE letterbox friendly colour samples",
+          "side-link": "https://www.eatsleeplive.co.uk/pages/colours-samples"
+        }
+      },
+      "top-nav-desktop": {
+        "type": "top-nav-desktop",
+        "blocks": {
+          "765e83a9-6973-4ac0-aa7e-287cd3ff5c6d": {
+            "type": "dropdown_image",
+            "settings": {
+              "nav_link": "Our Products",
+              "nav_image": "shopify://shop_images/darcy_footboard_bed_f5e1b6de-b69e-473b-a5c8-e77cb2a5784f.jpg",
+              "lower_button_url": "shopify://collections/reclaimed-solid-wood-beds",
+              "lower_button_label": "Shop all",
+              "button_url": "shopify://collections/reclaimed-solid-wood-beds",
+              "button_label": "shop beds"
+            }
+          },
+          "60020e01-7437-44cd-86b0-b357a2de898e": {
+            "type": "collection_list",
+            "settings": {
+              "nav_link": "by room",
+              "enable_collection_list": true
+            }
+          },
+          "5bbceadf-494f-4cec-bc0b-b040831e0d2a": {
+            "type": "collection_list",
+            "settings": {
+              "nav_link": "by collection",
+              "enable_collection_list": true
+            }
+          },
+          "543e8025-b826-4ff3-a65e-66c4a6b351ae": {
+            "type": "dropdown_image",
+            "settings": {
+              "nav_link": "by type",
+              "nav_image": "shopify://shop_images/hudsonlowendbednatural.jpg",
+              "lower_button_url": "",
+              "lower_button_label": "",
+              "button_url": "shopify://collections/reclaimed-solid-wood-beds",
+              "button_label": "Shop Beds"
+            }
+          },
+          "0d304910-808e-4428-b7d5-a45f67db2c1e": {
+            "type": "dropdown_image",
+            "settings": {
+              "nav_link": "about",
+              "nav_image": "shopify://shop_images/ESL_17.05.16-191.jpg",
+              "lower_button_url": "",
+              "lower_button_label": "",
+              "button_url": "shopify://pages/learn-our-story",
+              "button_label": "about us"
+            }
+          },
+          "93824287-82a8-4d1c-b158-c63601816d74": {
+            "type": "collection_list",
+            "settings": {
+              "nav_link": "by style",
+              "enable_collection_list": true
+            }
+          }
+        },
+        "block_order": [
+          "765e83a9-6973-4ac0-aa7e-287cd3ff5c6d",
+          "60020e01-7437-44cd-86b0-b357a2de898e",
+          "5bbceadf-494f-4cec-bc0b-b040831e0d2a",
+          "543e8025-b826-4ff3-a65e-66c4a6b351ae",
+          "0d304910-808e-4428-b7d5-a45f67db2c1e",
+          "93824287-82a8-4d1c-b158-c63601816d74"
+        ],
+        "settings": {
+          "top_desktop_menu": "main-nav"
+        }
+      },
+      "top-nav-mobile": {
+        "type": "top-nav-mobile",
+        "settings": {
+          "top_mobile_menu": "",
+          "image_menu_options_2": "tables",
+          "image_menu_options_1": "by type"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "nav_column_4z6Hrm": {
+            "type": "nav_column",
+            "settings": {
+              "title": "About Us",
+              "menu": "about-our-furniture"
+            }
+          },
+          "nav_column_bJkgng": {
+            "type": "nav_column",
+            "settings": {
+              "title": "Our Products",
+              "menu": "materials-crafts"
+            }
+          },
+          "nav_column_cHJXe6": {
+            "type": "nav_column",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "menu": "footer"
+            }
+          }
+        },
+        "block_order": [
+          "nav_column_4z6Hrm",
+          "nav_column_bJkgng",
+          "nav_column_cHJXe6"
+        ],
+        "settings": {
+          "logo": "shopify://shop_images/esl-horizontal-logo-olive.svg",
+          "show_trustpilot": true,
+          "trustpilot_rating": "5.0",
+          "trustpilot_reviews": "900+ Reviews",
+          "show_showroom": true,
+          "showroom_heading": "Visit us",
+          "showroom_text": "Come and visit our Nottingham workshop and showroom to see our craftsmen at work.",
+          "showroom_button_text": "Book a visit",
+          "showroom_button_link": "shopify://pages/get-in-touch",
+          "showroom_map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76893.78057246737!2d-1.2627249803061305!3d52.96766207395144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c1ede30bd511%3A0x3fd1c544419d35cd!2sEat%20Sleep%20Live!5e0!3m2!1sen!2suk!4v1771000551950!5m2!1sen!2suk\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+        }
+      },
+      "faqs": {
+        "type": "faqs",
+        "settings": {
+          "title": "FAQs",
+          "groups": "Delivery,Ordering",
+          "background-image": "shopify://shop_images/Bitmap_2.png",
+          "background-image-end": "shopify://shop_images/Bitmap_3.png",
+          "background-image-end-mobile": "shopify://shop_images/Bitmap_4.png",
+          "title-end": "Can’t find what you’re looking for?",
+          "description-end": "We love to share our passion for furniture, so contact one of our experts for a more personal customer experience. Eat Sleep Live. Love your furniture.",
+          "link-end": "shopify://pages/learn-our-story",
+          "link-text-end": "Get in touch"
+        }
+      },
+      "blog": {
+        "type": "blog",
+        "blocks": {
+          "7d39d812-c084-438f-9f59-240309998833": {
+            "type": "blog",
+            "settings": {
+              "article": "features/summer-interior-styling-trends",
+              "show-all": true
+            }
+          },
+          "4c0127d9-549a-4866-9c51-e1ae078d8fdd": {
+            "type": "blog",
+            "settings": {
+              "article": "features/natural-and-rustic-home-interiors",
+              "show-all": true
+            }
+          },
+          "554a7c72-1534-40f8-a95c-d71bccba8414": {
+            "type": "blog",
+            "settings": {
+              "article": "features/the-top-benefits-of-reclaimed-wood-furniture",
+              "show-all": true
+            }
+          }
+        },
+        "block_order": [
+          "7d39d812-c084-438f-9f59-240309998833",
+          "4c0127d9-549a-4866-9c51-e1ae078d8fdd",
+          "554a7c72-1534-40f8-a95c-d71bccba8414"
+        ],
+        "settings": {
+          "all-tags": false,
+          "tags": "Furniture,Tips,Trends",
+          "image": "shopify://shop_images/Bitmap_5.png",
+          "byline": "",
+          "same-size": true
+        }
+      },
+      "article-dynamic": {
+        "type": "article-dynamic",
+        "settings": {
+          "recommendations": true,
+          "image": "shopify://shop_images/Bitmap_5.png",
+          "byline": "",
+          "recommendations-title": "Suggested Stories",
+          "same-size": true
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "default-height": true,
+          "button-text": "SELECT YOURS",
+          "size-variant": "Choose Your Size",
+          "rv-title": "Recently Viewed Products"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "blocks": {
+          "product_NLJibX": {
+            "type": "product",
+            "settings": {
+              "product": "hudson-coffee-table-with-shelf"
+            }
+          },
+          "product_JArrwd": {
+            "type": "product",
+            "settings": {
+              "product": "branson-1-drawer-bedside-table"
+            }
+          },
+          "product_6UP7jd": {
+            "type": "product",
+            "settings": {
+              "product": "rochester-dining-table-long-overhang-custom-frame"
+            }
+          },
+          "2e9e052c-44f8-433a-88f2-4cd8532e4a80": {
+            "type": "product",
+            "settings": {
+              "product": "hudson-bed-with-low-end"
+            }
+          },
+          "251cb069-344f-46fa-9018-1749dbb8e0aa": {
+            "type": "product",
+            "settings": {
+              "product": "cavendish-frameless-dining-table-long-overhang-custom"
+            }
+          },
+          "14752772-97b0-4cbc-b9b0-b44028873507": {
+            "type": "product",
+            "settings": {
+              "product": "cavendish-coffee-table-with-shelf"
+            }
+          }
+        },
+        "block_order": [
+          "product_NLJibX",
+          "product_JArrwd",
+          "product_6UP7jd",
+          "2e9e052c-44f8-433a-88f2-4cd8532e4a80",
+          "251cb069-344f-46fa-9018-1749dbb8e0aa",
+          "14752772-97b0-4cbc-b9b0-b44028873507"
+        ],
+        "settings": {
+          "title": "Shopping Basket",
+          "shipping-price": "FREE",
+          "price-prefix": "",
+          "trustmark-1": "Secure SSL encryption",
+          "trustmark-2": "Guaranteed safe checkout",
+          "accordion-main-title": "Useful to Know",
+          "cart-contact": "<p>Need help with your order?<a href=\"mailto:info@eatsleeplive.co.uk\">email</a> or call <a href=\"tel:01159700060\">01159 700 060</a></p>",
+          "hide-uml": false,
+          "products-title": "You Might Like",
+          "products-count": 6,
+          "cart-empty-message": "Your basket appears to be empty",
+          "cart-empty-button": "START shopping",
+          "cart-empty-url": "https://www.eatsleeplive.co.uk/"
+        }
+      },
+      "contact-template": {
+        "type": "contact-template",
+        "blocks": {
+          "6fc00af8-6d16-40ea-b2c8-59359ce7b185": {
+            "type": "social",
+            "settings": {
+              "social-logo": "shopify://shop_images/2-layers_4.png",
+              "social-url": "https://facebook.com"
+            }
+          },
+          "b8341b11-9aff-446a-a6c3-9b5f571d0538": {
+            "type": "social",
+            "settings": {
+              "social-logo": "shopify://shop_images/2-layers_6.png",
+              "social-url": "https://pinterest.com"
+            }
+          },
+          "313b1e6b-2276-4da2-b392-d849fa025927": {
+            "type": "social",
+            "settings": {
+              "social-logo": "shopify://shop_images/2-layers_5.png",
+              "social-url": "https://twitter.com"
+            }
+          },
+          "0efa2e83-0dcd-4225-97fc-72e51e6b8e0e": {
+            "type": "social",
+            "settings": {
+              "social-logo": "shopify://shop_images/2-layers_7.png",
+              "social-url": "https://instagram.com"
+            }
+          }
+        },
+        "block_order": [
+          "6fc00af8-6d16-40ea-b2c8-59359ce7b185",
+          "b8341b11-9aff-446a-a6c3-9b5f571d0538",
+          "313b1e6b-2276-4da2-b392-d849fa025927",
+          "0efa2e83-0dcd-4225-97fc-72e51e6b8e0e"
+        ],
+        "settings": {
+          "hero-text": "",
+          "form-title": "Send us a message",
+          "zapier_url": "https://hooks.zapier.com/hooks/catch/12158034/3brxez7/",
+          "details-title": "Contact details",
+          "phone-number": "01159 700 060",
+          "phone-line": "<p>Monday - Friday (09:00 till 16:00)</p><p></p>",
+          "email": "info@eatsleeplive.co.uk",
+          "email-subtext": "<p>Please allow 1-2 working days for a reply (often much quicker)</p>",
+          "live-chat": "Live Chat",
+          "live-chat-subtext": "<p>Talk to us in real time</p>",
+          "social-title": "Follow Us",
+          "location-title": "Come and see us",
+          "location-intro": "<p>You are very welcome to come and see us, we encourage it. <strong>Viewings are strictly by appointment </strong>as we want to make sure we are on site and can give your our full attention to tour our workshop and showroom!</p>",
+          "opening-times": "<p>Monday - Friday: 9.00am to 4.00pm</p><p></p><p>Weekends & Out Of Hours: <strong>by appointment</strong></p>",
+          "parking": "<p>There is plenty of free parking at the workshop & showrooms.</p>",
+          "booking": "",
+          "booking_link": "https://www.eatsleeplive.co.uk/pages/book-a-visit",
+          "google-map": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2402.9071280581!2d-1.185842948541151!3d52.96808507980285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c1ede30bd511%3A0x3fd1c544419d35cd!2sEat%20Sleep%20Live!5e0!3m2!1sen!2suk!4v1606341373710!5m2!1sen!2suk\" width=\"100%\" height=\"277\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>",
+          "address": "<p>The Old Joinery Mill</p><p>2 Nuthall Road</p><p>Nottingham</p><p>NG8 5AZ</p>"
+        }
+      },
+      "footer-blog": {
+        "type": "footer-blog",
+        "blocks": {
+          "40bfb260-4fb0-48a7-8bc1-2bb58e8fff9a": {
+            "type": "article",
+            "disabled": true,
+            "settings": {
+              "article_guide": "features/cavendish-collection"
+            }
+          },
+          "c1971fc5-2549-40b6-ae3d-6b0d16887172": {
+            "type": "article",
+            "settings": {
+              "article_guide": "features/the-ultimate-guide-to-rustic-interior-design"
+            }
+          },
+          "1a70a3ef-14f7-40f3-a49e-c392edf7093c": {
+            "type": "article",
+            "settings": {
+              "article_guide": "features/how-to-protect-your-wooden-furniture-from-sun-damage"
+            }
+          }
+        },
+        "block_order": [
+          "40bfb260-4fb0-48a7-8bc1-2bb58e8fff9a",
+          "c1971fc5-2549-40b6-ae3d-6b0d16887172",
+          "1a70a3ef-14f7-40f3-a49e-c392edf7093c"
+        ],
+        "settings": {
+          "blog_title": "Our blog",
+          "color_heading": "#f1eeea",
+          "resource_link": "https://www.eatsleeplive.co.uk/blogs/features",
+          "resource_label": "View all resources",
+          "guide_article_one": "features/3-ways-to-style-the-cavendish-dining-table",
+          "guide_article_two": "features/the-top-benefits-of-reclaimed-wood-furniture"
+        }
+      },
+      "product-tab-headers": {
+        "type": "product-tab-headers",
+        "settings": {}
+      },
+      "product-tab-description": {
+        "type": "product-tab-description",
+        "blocks": {
+          "6575120b-c65f-4688-95de-df7acfbc9841": {
+            "type": "usp",
+            "settings": {
+              "image": "shopify://shop_images/Rectangle_39_4861ac5a-24ce-4846-a4a1-fe33014d2552.png",
+              "icon": "medal",
+              "title": "Lifetime Guarantee",
+              "content": "<p>Lorem ipsum dolor sit amet, consectur adipiscing elit.</p>",
+              "image_two": "shopify://shop_images/banner_image_1.jpg",
+              "icon_two": "spanner",
+              "title_two": "Handcrafter to Order",
+              "content_two": "<p>Lorem ipsum dolor sit amet, consectur adipiscing elit.</p>",
+              "image_three": "shopify://shop_images/image_1.jpg",
+              "icon_three": "hand",
+              "title_three": "Free Delivery by Our Craftsmen",
+              "content_three": "<p>Lorem ipsum dolor sit amet, consectur adipiscing elit.</p>"
+            }
+          },
+          "93c8b83b-09d2-4c05-9e93-439a16215248": {
+            "type": "product-feature",
+            "settings": {
+              "category": "LOREM IPSUM",
+              "title": "Lorem ipsum dolor sit amet, consectur adipiscing elit",
+              "features": "<p>Front legs: Solid wood with wenge finish; Back legs</p><p>Front legs: Solid wood with wenge finish; Back legs</p><p>Front legs: Solid wood with wenge finish; Back legs</p><p>Front legs: Solid wood with wenge finish; Back legs;</p>",
+              "feature_image": "shopify://shop_images/cavendish-collection1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "6575120b-c65f-4688-95de-df7acfbc9841",
+          "93c8b83b-09d2-4c05-9e93-439a16215248"
+        ],
+        "settings": {}
+      },
+      "product-tab-details": {
+        "type": "product-tab-details",
+        "blocks": {
+          "3b1462d6-4b0c-4a06-a58f-632dec7682c1": {
+            "type": "image-text",
+            "settings": {
+              "image": "shopify://shop_images/header-mobile6.jpg",
+              "title": "Lorem Ipsum",
+              "content": "<p>Front legs: Solid wood with wenge finish; Back legs</p>"
+            }
+          }
+        },
+        "block_order": [
+          "3b1462d6-4b0c-4a06-a58f-632dec7682c1"
+        ],
+        "settings": {}
+      },
+      "product-tab-delivery-assembly": {
+        "type": "product-tab-delivery-assembly",
+        "settings": {
+          "delivery": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis officia voluptatem dolore fuga recusandae nam rem iste eos, dignissimos amet molestias aliquam quasi sed fugit ab? Laboriosam illo explicabo ex!</p>",
+          "fully_assembled": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis officia voluptatem dolore fuga recusandae nam rem iste eos, dignissimos amet molestias aliquam quasi sed fugit ab? Laboriosam illo explicabo ex!</p>",
+          "assembly_required": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis officia voluptatem dolore fuga recusandae nam rem iste eos, dignissimos amet molestias aliquam quasi sed fugit ab? Laboriosam illo explicabo ex!</p>"
+        }
+      },
+      "product-tab-finance": {
+        "type": "product-tab-finance",
+        "blocks": {
+          "a51bb6fc-4cd2-4ec2-90c9-c568154bb14c": {
+            "type": "finance-option",
+            "settings": {
+              "image": "shopify://shop_images/cavendish-coffee-table_CVCFT001SHc_classicWood_persp-removebg-preview_1-3_fd6f855a-093e-4a49-8ac2-602baa0afd06.png",
+              "price": "150",
+              "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut quam euismod, commodo orci sed, placerat nisi. Ut porta at justo et consectetur. In hac habitasse platea dictumst.</p>"
+            }
+          },
+          "47860dec-98cf-49dc-813d-f0cbae9d3f3b": {
+            "type": "finance-option",
+            "settings": {
+              "image": "shopify://shop_images/cavendish-coffee-table_CVCFT001SHc_classicWood_persp-removebg-preview_1-2_a3da4395-ce49-47e7-9567-2ebbcdb0347b.png",
+              "price": "150",
+              "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut quam euismod, commodo orci sed, placerat nisi. Ut porta at justo et consectetur. In hac habitasse platea dictumst.</p>"
+            }
+          },
+          "6b37e121-9ccc-4265-843b-e5d938c8f32e": {
+            "type": "finance-option",
+            "settings": {
+              "image": "shopify://shop_images/cavendish-coffee-table_CVCFT001SHc_classicWood_persp-removebg-preview_1-1.png",
+              "price": "150",
+              "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut quam euismod, commodo orci sed, placerat nisi. Ut porta at justo et consectetur. In hac habitasse platea dictumst.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "a51bb6fc-4cd2-4ec2-90c9-c568154bb14c",
+          "47860dec-98cf-49dc-813d-f0cbae9d3f3b",
+          "6b37e121-9ccc-4265-843b-e5d938c8f32e"
+        ],
+        "settings": {
+          "subtitle": "SPLIT THE COST, YOUR WAY",
+          "title": "Lorem ipsum dolor sit amet, consectur adipiscing elit",
+          "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut quam euismod, commodo orci sed, placerat nisi. Ut porta at justo et consectetur. In hac habitasse platea dictumst.</p>"
+        }
+      },
+      "product-tab-aftercare": {
+        "type": "product-tab-aftercare",
+        "blocks": {
+          "9201204e-9612-4611-9fef-701ec055875b": {
+            "type": "image-text",
+            "settings": {
+              "image": "shopify://shop_images/live4.jpg",
+              "title": "Lorem ipsum dolor",
+              "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut quam euismod, commodo orci sed, placerat nisi. Ut porta at justo et consectetur. In hac habitasse platea dictumst.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "9201204e-9612-4611-9fef-701ec055875b"
+        ],
+        "settings": {}
+      },
+      "product-rv": {
+        "type": "product-rv",
+        "settings": {
+          "rv-title": "Recently Viewed Products"
+        }
+      },
+      "promotion-banner": {
+        "type": "promotion-banner",
+        "settings": {
+          "enable_banner": true,
+          "text": "VISIT OUR NOTTINGHAM WORKSHOP",
+          "link": "shopify://pages/get-in-touch",
+          "alignment": "center",
+          "background_colour": "#9f5130",
+          "text_colour": "#ffffff"
+        }
+      },
+      "offer-banner": {
+        "type": "offer-banner",
+        "blocks": {
+          "text_P8zPWF": {
+            "type": "text",
+            "settings": {
+              "text": "Hand made in Nottingham",
+              "link": "/pages/get-in-touch#visit-our-workshop"
+            }
+          },
+          "883e5ace-a1e4-47e0-aa4b-4368ca47dc4d": {
+            "type": "text",
+            "settings": {
+              "text": "Made to measure & bespoke",
+              "link": "shopify://pages/tailored-for-you"
+            }
+          },
+          "d35e6ded-8448-4b7f-9ef2-2332a5c5694e": {
+            "type": "text",
+            "settings": {
+              "text": "Got a question? Call 01159 700 060",
+              "link": "tel:01159-700-060"
+            }
+          }
+        },
+        "block_order": [
+          "text_P8zPWF",
+          "883e5ace-a1e4-47e0-aa4b-4368ca47dc4d",
+          "d35e6ded-8448-4b7f-9ef2-2332a5c5694e"
+        ],
+        "settings": {
+          "enable_banner": true,
+          "enable_animation": false
+        }
+      },
+      "page-template": {
+        "type": "page-template",
+        "settings": {}
+      },
+      "app-optimization": {
+        "type": "app-optimization",
+        "blocks": {
+          "app_HgM3Uc": {
+            "type": "app",
+            "settings": {
+              "title": "Yotpo",
+              "url": "cdn-loyalty.yotpo.com/loader/1FlmX8OTlaQw9alA-aOeiQ.js",
+              "block_index": true,
+              "block_product": true,
+              "block_collection": true,
+              "block_page": true,
+              "block_blog": true,
+              "block_article": true,
+              "block_cart": false,
+              "block_search": true,
+              "block_customers": false,
+              "block_gift_card": true,
+              "scroll_index": false,
+              "scroll_product": false,
+              "scroll_collection": false,
+              "scroll_page": false,
+              "scroll_blog": false,
+              "scroll_article": false,
+              "scroll_cart": false,
+              "scroll_search": false,
+              "scroll_customers": false,
+              "scroll_gift_card": false,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "app_Gjb7CH": {
+            "type": "app",
+            "settings": {
+              "title": "Hubspot",
+              "url": "api-na1.hubapi.com/scriptloader/v1/2821538.js",
+              "block_index": true,
+              "block_product": true,
+              "block_collection": true,
+              "block_page": false,
+              "block_blog": false,
+              "block_article": false,
+              "block_cart": false,
+              "block_search": true,
+              "block_customers": false,
+              "block_gift_card": false,
+              "scroll_index": false,
+              "scroll_product": false,
+              "scroll_collection": false,
+              "scroll_page": false,
+              "scroll_blog": false,
+              "scroll_article": false,
+              "scroll_cart": false,
+              "scroll_search": false,
+              "scroll_customers": false,
+              "scroll_gift_card": false,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "app_F4CWki": {
+            "type": "app",
+            "settings": {
+              "title": "redirect app",
+              "url": "d23dclunsivw3h.cloudfront.net/redirect-app.js",
+              "block_index": false,
+              "block_product": false,
+              "block_collection": false,
+              "block_page": false,
+              "block_blog": false,
+              "block_article": false,
+              "block_cart": false,
+              "block_search": false,
+              "block_customers": false,
+              "block_gift_card": false,
+              "scroll_index": true,
+              "scroll_product": true,
+              "scroll_collection": true,
+              "scroll_page": true,
+              "scroll_blog": true,
+              "scroll_article": true,
+              "scroll_cart": true,
+              "scroll_search": true,
+              "scroll_customers": true,
+              "scroll_gift_card": true,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "app_r3cVTk": {
+            "type": "app",
+            "settings": {
+              "title": "trustpilot",
+              "url": "ecommplugins-scripts.trustpilot.com/v2.1/js/header.min.js",
+              "block_index": false,
+              "block_product": false,
+              "block_collection": false,
+              "block_page": false,
+              "block_blog": false,
+              "block_article": false,
+              "block_cart": false,
+              "block_search": false,
+              "block_customers": false,
+              "block_gift_card": false,
+              "scroll_index": true,
+              "scroll_product": true,
+              "scroll_collection": true,
+              "scroll_page": true,
+              "scroll_blog": true,
+              "scroll_article": true,
+              "scroll_cart": true,
+              "scroll_search": true,
+              "scroll_customers": true,
+              "scroll_gift_card": true,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "app_jc7gqp": {
+            "type": "app",
+            "settings": {
+              "title": "trustpilot plugin",
+              "url": "ecommplugins-trustboxsettings.trustpilot.com/eat-sleep-live-2.myshopify.com.js",
+              "block_index": false,
+              "block_product": false,
+              "block_collection": false,
+              "block_page": false,
+              "block_blog": false,
+              "block_article": false,
+              "block_cart": false,
+              "block_search": false,
+              "block_customers": false,
+              "block_gift_card": false,
+              "scroll_index": true,
+              "scroll_product": true,
+              "scroll_collection": true,
+              "scroll_page": true,
+              "scroll_blog": true,
+              "scroll_article": true,
+              "scroll_cart": true,
+              "scroll_search": true,
+              "scroll_customers": true,
+              "scroll_gift_card": true,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "app_Dw8kYK": {
+            "type": "app",
+            "settings": {
+              "title": "",
+              "url": "",
+              "block_index": false,
+              "block_product": false,
+              "block_collection": false,
+              "block_page": false,
+              "block_blog": false,
+              "block_article": false,
+              "block_cart": false,
+              "block_search": false,
+              "block_customers": false,
+              "block_gift_card": false,
+              "scroll_index": false,
+              "scroll_product": false,
+              "scroll_collection": false,
+              "scroll_page": false,
+              "scroll_blog": false,
+              "scroll_article": false,
+              "scroll_cart": false,
+              "scroll_search": false,
+              "scroll_customers": false,
+              "scroll_gift_card": false,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "app_QdWHyC": {
+            "type": "app",
+            "settings": {
+              "title": "trustpilot widget",
+              "url": "widget.trustpilot.com/bootstrap/v5/tp.widget.sync.bootstrap.min.js",
+              "block_index": false,
+              "block_product": false,
+              "block_collection": false,
+              "block_page": false,
+              "block_blog": false,
+              "block_article": false,
+              "block_cart": false,
+              "block_search": false,
+              "block_customers": false,
+              "block_gift_card": false,
+              "scroll_index": true,
+              "scroll_product": true,
+              "scroll_collection": true,
+              "scroll_page": true,
+              "scroll_blog": true,
+              "scroll_article": true,
+              "scroll_cart": true,
+              "scroll_search": true,
+              "scroll_customers": true,
+              "scroll_gift_card": true,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          },
+          "app_MmkfNn": {
+            "type": "app",
+            "settings": {
+              "title": "Hotjar",
+              "url": "https://static.hotjar.com/c/hotjar-3316264.js?sv=7",
+              "block_index": true,
+              "block_product": true,
+              "block_collection": true,
+              "block_page": true,
+              "block_blog": true,
+              "block_article": true,
+              "block_cart": true,
+              "block_search": true,
+              "block_customers": true,
+              "block_gift_card": true,
+              "scroll_index": false,
+              "scroll_product": false,
+              "scroll_collection": false,
+              "scroll_page": false,
+              "scroll_blog": false,
+              "scroll_article": false,
+              "scroll_cart": false,
+              "scroll_search": false,
+              "scroll_customers": false,
+              "scroll_gift_card": false,
+              "interaction_index": false,
+              "interaction_product": false,
+              "interaction_collection": false,
+              "interaction_page": false,
+              "interaction_blog": false,
+              "interaction_article": false,
+              "interaction_cart": false,
+              "interaction_search": false,
+              "interaction_customers": false,
+              "interaction_gift_card": false,
+              "interaction_selectors_1": "",
+              "interaction_event_1": "click",
+              "interaction_selectors_2": "",
+              "interaction_event_2": "click"
+            }
+          }
+        },
+        "block_order": [
+          "app_HgM3Uc",
+          "app_Gjb7CH",
+          "app_F4CWki",
+          "app_r3cVTk",
+          "app_jc7gqp",
+          "app_Dw8kYK",
+          "app_QdWHyC",
+          "app_MmkfNn"
+        ],
+        "settings": {
+          "enable": true,
+          "debug_enable": false
+        }
+      },
+      "three_card_DGVNDx": {
+        "type": "three-card",
+        "blocks": {
+          "card_BbGzHb": {
+            "type": "card",
+            "settings": {
+              "image": "shopify://shop_images/ESL_Grantham_Jade_Selected_Edit-9.jpg",
+              "title": "Eat",
+              "category": "DINING ROOM FURNITURE",
+              "description": "Timeless dining furniture, carefully made from reclaimed wood.",
+              "button_text": "SHOP DINING ROOM",
+              "button_link": "shopify://collections/reclaimed-wood-dining-furniture"
+            }
+          },
+          "card_Gt4cea": {
+            "type": "card",
+            "settings": {
+              "image": "shopify://shop_images/bransonloftbeddouble.jpg",
+              "title": "Sleep",
+              "category": "BEDROOM FURNITURE",
+              "description": "Thoughtfully made bedroom furniture, crafted to last.",
+              "button_text": "SHOP BEDROOM",
+              "button_link": "shopify://collections/reclaimed-wooden-bedroom-furniture"
+            }
+          },
+          "card_zhYmRG": {
+            "type": "card",
+            "settings": {
+              "image": "shopify://shop_images/ESLGranthamJadeEdit-41.jpg",
+              "title": "Live",
+              "category": "LIVING ROOM FURNITURE",
+              "description": "Beautiful, practical furniture designed for modern living.",
+              "button_text": "SHOP LIVING ROOM",
+              "button_link": "shopify://collections/reclaimed-wooden-living-room-furniture"
+            }
+          }
+        },
+        "block_order": [
+          "card_BbGzHb",
+          "card_Gt4cea",
+          "card_zhYmRG"
+        ],
+        "name": "Three Card Section",
+        "settings": {
+          "background_color": "",
+          "show_heading": true,
+          "overline": "Thoughtfully made for your home",
+          "heading": "Transform your home with our unique reclaimed wood furniture",
+          "max_width": 1380,
+          "header_spacing": 64,
+          "card_gap": 24,
+          "card_border_radius": 32
+        }
+      },
+      "showroom_map_GxhfWL": {
+        "type": "showroom-map",
+        "name": "Showroom Section",
+        "settings": {
+          "background_image": "shopify://shop_images/esl-showroom.jpg",
+          "heading": "See where the magic happens",
+          "description": "Visit our Nottingham workshop and showroom to see our craftsmen at work. Explore our unique pieces, samples and finishes, we'll even pop the kettle on.",
+          "button_text": "Book a visit",
+          "button_link": "/pages/get-in-touch",
+          "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76893.78057246737!2d-1.2627249803061305!3d52.96766207395144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c1ede30bd511%3A0x3fd1c544419d35cd!2sEat%20Sleep%20Live!5e0!3m2!1sen!2suk!4v1771000551950!5m2!1sen!2suk\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+          "max_width": 1380,
+          "border_radius": 48,
+          "map_border_radius": 32
+        }
+      },
+      "featured_products_jgnXjp": {
+        "type": "featured-products",
+        "blocks": {
+          "product_P33J6K": {
+            "type": "product",
+            "settings": {
+              "product": "marlowe-dining-table",
+              "button_text": "Build yours"
+            }
+          },
+          "product_K9GMWD": {
+            "type": "product",
+            "settings": {
+              "product": "hudson-bed-with-low-end",
+              "button_text": "Build yours"
+            }
+          },
+          "product_NBeJrq": {
+            "type": "product",
+            "settings": {
+              "product": "branson-chest-of-drawers",
+              "button_text": "Build yours"
+            }
+          },
+          "product_JMEfct": {
+            "type": "product",
+            "settings": {
+              "product": "hudson-bookcase",
+              "button_text": "Build yours"
+            }
+          },
+          "product_weVLAx": {
+            "type": "product",
+            "settings": {
+              "product": "hudson-dining-table",
+              "button_text": "Build yours"
+            }
+          }
+        },
+        "block_order": [
+          "product_P33J6K",
+          "product_K9GMWD",
+          "product_NBeJrq",
+          "product_JMEfct",
+          "product_weVLAx"
+        ],
+        "name": "Featured Products",
+        "settings": {
+          "background_color": "#f8f8f8",
+          "show_heading": true,
+          "overline": "Featured furniture",
+          "heading": "Our bestselling pieces",
+          "max_width": 1380,
+          "card_gap": 24,
+          "card_border_radius": 32
+        }
+      },
+      "our_process_w8t8Ff": {
+        "type": "our-process",
+        "blocks": {
+          "feature_HepWEd": {
+            "type": "feature",
+            "settings": {
+              "icon": "shopify://shop_images/icon-hammer.svg",
+              "title": "Handcrafted in Nottingham",
+              "description": "Reclaimed wood from historic UK buildings"
+            }
+          },
+          "feature_HYECaq": {
+            "type": "feature",
+            "settings": {
+              "icon": "shopify://shop_images/icon-tree.svg",
+              "title": "Made from reclaimed wood",
+              "description": "Giving new life to beautiful, well-aged timber"
+            }
+          },
+          "feature_iXX9Aq": {
+            "type": "feature",
+            "settings": {
+              "icon": "shopify://shop_images/icon-guarantee.svg",
+              "title": "Lifetime guarantee",
+              "description": "Designed to be lived with and enjoyed for years to come"
+            }
+          }
+        },
+        "block_order": [
+          "feature_HepWEd",
+          "feature_HYECaq",
+          "feature_iXX9Aq"
+        ],
+        "name": "Our Process Section",
+        "settings": {
+          "background_color": "#f8f8f8",
+          "show_heading": true,
+          "overline": "Made to measure just for you",
+          "heading": "Our craftsmanship & process",
+          "button_text": "Learn about our process",
+          "button_link": "shopify://pages/learn-our-story",
+          "max_width": 1380,
+          "feature_gap": 40
+        }
+      },
+      "text_and_images_XBeMCf": {
+        "type": "text-and-images",
+        "blocks": {
+          "feature_yfbTdw": {
+            "type": "feature",
+            "settings": {
+              "text": "Reclaimed materials"
+            }
+          },
+          "feature_KNnMPh": {
+            "type": "feature",
+            "settings": {
+              "text": "Minimal waste"
+            }
+          },
+          "feature_Xbwk8D": {
+            "type": "feature",
+            "settings": {
+              "text": "Responsible delivery"
+            }
+          },
+          "feature_U4KJkY": {
+            "type": "feature",
+            "settings": {
+              "text": "Lifetime quality"
+            }
+          }
+        },
+        "block_order": [
+          "feature_yfbTdw",
+          "feature_KNnMPh",
+          "feature_Xbwk8D",
+          "feature_U4KJkY"
+        ],
+        "name": "Flexible Content + Images",
+        "settings": {
+          "layout_direction": "images_first",
+          "background_color": "#f1eeea",
+          "max_width": 1380,
+          "overline": "Sustainability at every step",
+          "heading": "Built for life & the planet",
+          "body_text": "<p>From reclaimed materials to careful making and minimal waste, sustainability guides how we design, build and deliver every piece.</p>",
+          "features_columns": "2",
+          "features_background": true,
+          "button_text": "Our sustainable approach",
+          "button_link": "shopify://pages/our-reclaimed-wood",
+          "image_layout": "two_side_by_side",
+          "show_overlay_features": false,
+          "image_1": "shopify://shop_images/esl-sustainability-1.jpg",
+          "image_2": "shopify://shop_images/esl-sustainability-2.jpg"
+        }
+      },
+      "text_and_images_HgJmXa": {
+        "type": "text-and-images",
+        "blocks": {
+          "feature_7KQ6Qi": {
+            "type": "feature",
+            "settings": {
+              "text": "Choice of finishes"
+            }
+          },
+          "feature_bXhczD": {
+            "type": "feature",
+            "settings": {
+              "text": "Custom sizes available"
+            }
+          },
+          "feature_K4xeQm": {
+            "type": "feature",
+            "settings": {
+              "text": "Expert room guidance"
+            }
+          },
+          "feature_B6PCG7": {
+            "type": "feature",
+            "settings": {
+              "text": "Bespoke designs welcome"
+            }
+          }
+        },
+        "block_order": [
+          "feature_7KQ6Qi",
+          "feature_bXhczD",
+          "feature_K4xeQm",
+          "feature_B6PCG7"
+        ],
+        "name": "Flexible Content + Images",
+        "settings": {
+          "layout_direction": "content_first",
+          "background_color": "rgba(0,0,0,0)",
+          "max_width": 1380,
+          "overline": "Tailored for you",
+          "heading": "Made to measure furniture",
+          "body_text": "<p>Every home is different, which is why our furniture is made to measure. Crafted by hand in our Nottingham workshop, each piece can be tailored in size, finish and detail to fit your space perfectly.</p>",
+          "features_columns": "2",
+          "features_background": true,
+          "button_text": "Start your enquiry",
+          "button_link": "shopify://pages/get-in-touch",
+          "image_layout": "grid_layout",
+          "show_overlay_features": true,
+          "image_1": "shopify://shop_images/ESL_Birmingham_Edit_Jade_Selection-62.jpg",
+          "image_2": "shopify://shop_images/ESL_Grantham_Jade_Edit-62.jpg",
+          "image_3": "shopify://shop_images/14_5ad6459b-45bc-4f8c-b90a-dff58d41cf87.jpg"
+        }
+      },
+      "reviews_slider_haaW6f": {
+        "type": "reviews-slider",
+        "blocks": {
+          "review_HiPTPg": {
+            "type": "review",
+            "settings": {
+              "title": "Very happy with our custom-made table",
+              "review_text": "They were incredibly easy and flexible to deal with, and the end result matches our kitchen shelves perfectly. Fantastic service and craftsmanship from start to finish.",
+              "reviewer_name": "Chris"
+            }
+          },
+          "review_JQw68B": {
+            "type": "review",
+            "settings": {
+              "title": "Beautiful robust furniture",
+              "review_text": "Eat Sleep Live's furniture is gorgeous, solid, and beautifully made. Great customer communications as well, and the guys who delivered our bed, under-bed drawer, and chest of drawers & put everything together were friendly and efficient. Very highly recommended.",
+              "reviewer_name": "Juliet Kemp"
+            }
+          },
+          "review_T3QKnT": {
+            "type": "review",
+            "settings": {
+              "title": "Beautifully handcrafted furniture built to the highest standard",
+              "review_text": "From start to finish, Mark was very personable yet professional. The dining table/benches and matching shelving unit were of the highest quality, and beautifully crafted.",
+              "reviewer_name": "Anne"
+            }
+          },
+          "review_MpPK4d": {
+            "type": "review",
+            "settings": {
+              "title": "Excellent quality and service",
+              "review_text": "The craftsmanship is outstanding and the whole process was smooth from start to finish. Would highly recommend to anyone looking for bespoke furniture.",
+              "reviewer_name": "David"
+            }
+          }
+        },
+        "block_order": [
+          "review_HiPTPg",
+          "review_JQw68B",
+          "review_T3QKnT",
+          "review_MpPK4d"
+        ],
+        "name": "Reviews Slider",
+        "settings": {
+          "background_color": "#f8f8f8",
+          "max_width": 1380,
+          "show_heading": true,
+          "overline": "Loved by our customers",
+          "heading": "Over 900 five star reviews",
+          "slides_to_show": 3,
+          "autoplay": true,
+          "autoplay_speed": 5000,
+          "button_text": "",
+          "button_link": "shopify://collections"
+        }
+      },
+      "hero_video_VKbqm3": {
+        "type": "hero-video",
+        "name": "hero-video-section",
+        "settings": {
+          "video_url": "https://cdn.shopify.com/videos/c/o/v/32936154bf3b4d5bae9afe579b884b5b.mp4",
+          "video_poster": "shopify://shop_images/hero-fallback.jpg",
+          "fallback_image": "shopify://shop_images/hero-fallback.jpg",
+          "heading": "Reclaimed wood furniture with soul",
+          "description": "We craft timeless furniture from reclaimed wood, salvaged from historic British buildings and brought to life by our expert hands.",
+          "show_reviews": true,
+          "rating": "5.0",
+          "review_count": "900+ Reviews",
+          "star_color": "#00b67a",
+          "button_text": "Explore Products",
+          "button_link": "shopify://collections",
+          "button_background": "#9f5130",
+          "button_text_color": "#ffffff",
+          "heading_size": 80,
+          "description_size": 20,
+          "heading_color": "#ffffff",
+          "text_color": "#ffffff",
+          "card_background": "#f1eeea",
+          "padding_top": 100,
+          "padding_bottom": 40
+        }
+      },
+      "footer-bottom-bar": {
+        "type": "footer-bottom-bar",
+        "settings": {
+          "show_email_signup": true,
+          "show_visit_us": true,
+          "visit_title": "Visit us",
+          "visit_address": "<p>The Old Joinery Mill<br>2 Nuthall Road<br>Nottingham<br>NG8 5AZ</p>",
+          "show_contact": true,
+          "contact_title": "Contact",
+          "live_chat_text": "Live chat",
+          "phone": "01159 700 060",
+          "email": "hello@eatsleeplive.co.uk",
+          "show_help": true,
+          "help_title": "Help",
+          "help_menu": "footer",
+          "show_social": true,
+          "facebook_url": "https://www.facebook.com/eatsleeplive/",
+          "instagram_url": "https://www.instagram.com/eatsleeplive/",
+          "pinterest_url": "https://uk.pinterest.com/eatsleeplive/",
+          "twitter_url": ""
+        }
+      },
+      "list-collections": {
+        "type": "list-collections",
+        "blocks": {
+          "collection_gPC7ba": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-beds"
+            }
+          },
+          "collection_RRgXUA": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-wood-dining-room-tables"
+            }
+          },
+          "collection_hWwhWV": {
+            "type": "collection",
+            "settings": {
+              "collection": "side-tables"
+            }
+          },
+          "collection_Pxkex4": {
+            "type": "collection",
+            "settings": {
+              "collection": "dressing-tables"
+            }
+          },
+          "collection_4nt37F": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-coffee-tables"
+            }
+          },
+          "collection_MYC48j": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-desks"
+            }
+          },
+          "collection_fekAKi": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-console-tables"
+            }
+          },
+          "collection_GRXRky": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-bedside-tables"
+            }
+          },
+          "collection_ah3Lyd": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-chest-of-drawers"
+            }
+          },
+          "collection_36hyXg": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-sideboards"
+            }
+          },
+          "collection_kCiNyP": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-cabinets"
+            }
+          },
+          "collection_RwxpkY": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-wardrobes"
+            }
+          },
+          "collection_CXpjaN": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-shelving-units"
+            }
+          },
+          "collection_imAmwG": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-tv-stands"
+            }
+          },
+          "collection_LNECdX": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-bookcases"
+            }
+          },
+          "collection_43TPRE": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-blanket-boxes"
+            }
+          },
+          "collection_gCAMWU": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-underbed-storage"
+            }
+          },
+          "collection_JaQYCN": {
+            "type": "collection",
+            "settings": {
+              "collection": "solid-wood-dining-chairs"
+            }
+          },
+          "collection_BagzPL": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-benches"
+            }
+          },
+          "collection_FtKTVx": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-stools"
+            }
+          },
+          "collection_hVrhib": {
+            "type": "collection",
+            "settings": {
+              "collection": "reclaimed-solid-wood-mirrors"
+            }
+          }
+        },
+        "block_order": [
+          "collection_gPC7ba",
+          "collection_RRgXUA",
+          "collection_hWwhWV",
+          "collection_Pxkex4",
+          "collection_4nt37F",
+          "collection_MYC48j",
+          "collection_fekAKi",
+          "collection_GRXRky",
+          "collection_ah3Lyd",
+          "collection_36hyXg",
+          "collection_kCiNyP",
+          "collection_RwxpkY",
+          "collection_CXpjaN",
+          "collection_imAmwG",
+          "collection_LNECdX",
+          "collection_43TPRE",
+          "collection_gCAMWU",
+          "collection_JaQYCN",
+          "collection_BagzPL",
+          "collection_FtKTVx",
+          "collection_hVrhib"
+        ],
+        "settings": {
+          "background_color": "",
+          "show_heading": true,
+          "overline": "Shop by category",
+          "heading": "Browse our furniture",
+          "description": "",
+          "max_width": 1380,
+          "columns_desktop": 4,
+          "card_gap": 24
+        }
+      }
+    },
+    "content_for_index": [
+      "hero_video_VKbqm3",
+      "three_card_DGVNDx",
+      "our_process_w8t8Ff",
+      "showroom_map_GxhfWL",
+      "featured_products_jgnXjp",
+      "text_and_images_XBeMCf",
+      "reviews_slider_haaW6f",
+      "text_and_images_HgJmXa"
+    ],
+    "blocks": {
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "5017882195547572635": {
+        "type": "shopify://apps/sc-easy-redirects/blocks/app/be3f8dbd-5d43-46b4-ba43-2d65046054c2",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "32150232254412710000": {
+        "type": "shopify://apps/pandectes-gdpr/blocks/banner/58c0baa2-6cc1-480c-9ea6-38d6d559556a",
+        "disabled": false,
+        "settings": {}
+      },
+      "2567389343055140935": {
+        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "6251270934270006384": {
+        "type": "shopify://apps/stape-server-gtm/blocks/gtm/7e13c847-7971-409d-8fe0-29ec14d5f048",
+        "disabled": false,
+        "settings": {}
+      },
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": false,
+        "settings": {
+          "button_color": "#9f5130",
+          "secondary_color": "#ffffff",
+          "ternary_color": "#6a6a6a",
+          "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "Hi, chat directly with Eat Sleep Live. We are here to help!"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "ajax_cart_method": "drawer",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#e5e5e5",
+      "color_section_bg": "#f2f2f2",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#747474",
+      "color_secondary": "#bbb",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "",
+      "social_twitter_link": ""
+    }
+  }
+}

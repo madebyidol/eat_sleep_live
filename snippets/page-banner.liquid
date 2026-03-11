@@ -1,0 +1,45 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:47+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            0887172d275eb89d88ccbf4c09f20b7e
+//      Signature:      eyJpdiI6IkVPZlFvckt3SmdST0hiYXlHNGxYb1E9PSIsInZhbHVlIjoiaG8yWmgzSlRXWXh4WU5qSWo0MlowWWJ5WUphXC9UN2ZcL2t4cUVJdWZmYm1mT1VOWTBsOEloaEQ1aEFRRE5RdHhHTGRFZXpUQjdYT29wUkd4TXRHUE05Z1lVSFgrdHlIWVdrRUFyallJTVVVQ0NMTzBtcjZ6RUZuK1g3djlEWlpoMmI4MzQ4bXZXTEZIU3VWZHRxSml6YmZZWEhGSEhkajNvaTJJRkkzcENYeDZqcHJqTU04ZmlMa0d6YkxuM3VnYUVCMTVsNzRMRkE3Zk9UTGFab0QyOEx4Wmh2Y3hreXpkU1p5Y3FMTmNVdFlGYjdPVGhSNURjV1Ard3NTRDRxOW1oK0g4Z2RtRVo4YkZVRU5TT3RSd1RWZU5tZ0tac1FRY1hMcXl4VnJTU2NabHV3NnhKbTRBZUdia2pLN2tXaVNzNDlDS2x1Umc3bmQzMU5zZHlFeXlaQnZZZFdoMjZBXC9XaWQ1RDl0N0ROMlAxREdLYmh3STJYdHBaMHRaQWdCOW1Db1VPTkRscStUd1RBUUp5OWdJc3FZQT09IiwibWFjIjoiODQzYTAxMjQzZTQyY2NlN2VhMGE4YzZmZTdkYjBjMjVhNTU4MTcwNjdhZTAwOWZiMjZlZDhiMmUzNzk1YTY4OSJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<div class="page-banner">
+  {% if child != blank and banner_image != blank %}
+
+    {% if cta-classes == blank %}
+      {% assign cta-classes = 'single-cta--full-width single-cta' %}
+    {% endif %}
+
+    <div style="background-image: url('{{ banner_image }}')" class="{{ cta-classes }} background-image">
+      {{ child }}    
+    </div>
+
+  {% elsif banner_video != blank and child != blank %}
+
+    <div class="background-video background-image__video single-cta">
+      {{ child }}
+      <div class="background-video__container">
+        <video autoplay loop muted playsinline>
+          <source src="{{ banner_video }}" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+  {% else %}
+    {% if banner_title %}<div class="content-block__standard"><h1 class="h1">{{ banner_title }}</h1></div>{% endif %}
+  {% endif %} 
+</div>

@@ -1,0 +1,38 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:08+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            4c8f30825be541139b39c8ba98b81d7d
+//      Signature:      eyJpdiI6IkJWT3dPNnVTOEtpYUFlYWhlT2V1SlE9PSIsInZhbHVlIjoiUENiT05odUxZMEUyM1A4N3U2cENGUERPVFZHOTVlYUxBQncyY0J0TlwvTEhLQjFrT3lVMEVIZ2g4MUdvME1WTFFyVVJIbmtOV2ZxZXp2YUlkZzhVdzJrM211YjQreDV2ZG1cL0Z3NXc2cUlHc1JMMlBcL1ZqcHZkc0RNMVBsRDZyR01nSmdFTkM4M3V4czVqa3hQbnlpSDlVSW91VUM3OXRqNW9IWUZDR2dEQW03V0taRmV1a2Vlc0FRU0ExYkFkMjdBb3g3ZjJ3SXVUUGNlbkk1Q0grbGFcL1RVdDN4XC9VZE9xNzZqbFwvdm43cm9VWWFcLzBOZGhRdnlcL3hMVjVieEx3N3Q1cjB1Nk5idXYxcm03RUtTSFA4UzlQWTJaWVdYTks0S0lWd2ZWOHQwUEhTXC9la3I4Q1BXamtEejBtOE9lZFwvZ2VwWWZ2cEgwblRwVkRTZkFXWG9qZFwvYkhobDVKRDZjS21NYTh0cyszYWF0bitHQ1NWRFZVV25LaWcyd3FxY0IxeFwvNkZQaHgxdnV3SDYrZm5oUEdBUnJFQT09IiwibWFjIjoiOTEzNGQ3NWI1MjlkNTRjZjAxY2E4MDA5ZjFmZjc5YjNkZDJkNDBmNzY4NzJiMzVlNGM3ZTJiMzQxZWI4YWU5OSJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+
+{%- if is_product -%}
+	{% assign img_url = image_object | img_url: '526x526', crop: 'center', scale: 2 %}
+{%- else -%}
+	{% assign img_url = image_object | img_url: '1080x' %}
+{%- endif -%}
+
+<img class="lazyload {% if fade_in == true %}lazyload-fade{% endif %} {{ classes }}"
+	{{image_style}}
+	src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaoAAAEdCAQAAAD3SeuwAAACTUlEQVR42u3TQQ0AAAjEME45mnGACX60EpYs0wUciqnAVGAqMBVgKjAVmAowFZgKTAWYCkwFpgJTAaYCU4GpAFOBqcBUgKnAVGAqwFRgKjAVmAowFZgKTAWYCkwFpgJMBaYCUwGmAlOBqcBUgKnAVGAqwFRgKjAVYCowFZgKMBWYCkwFpgJMBaYCUwGmAlOBqQBTganAVGAqwFRgKjAVYCowFZgKMBWYCkwFmApMBaYCUwGmAlOBqQBTganAVICpwFRgKsBUYCowFZgKMBWYCkwFmApMBaYCTAWmAlMBpgJTganAVICpwFRgKsBUYCowFWAqMBWYCkwFmApMBaYCTAWmAlMBpgJTgakAU4GpwFRgKsBUYCowFWAqMBWYCjAVmApMBZgKTAWmAlMBpgJTgakAU4GpwFSAqcBUYCrAVGAqMBWYCjAVmApMBZgKTAWmAkwFpgJTgalEAFOBqcBUgKnAVGAqwFRgKjAVYCowFZgKTAWYCkwFpgJMBaYCUwGmAlOBqQBTganAVGAqwFRgKjAVYCowFZgKMBWYCkwFmApMBaYCUwGmAlOBqQBTganAVICpwFRgKjCVqcBUYCowFWAqMBWYCjAVmApMBZgKTAWmAlMBpgJTgakAU4GpwFSAqcBUYCrAVGAqMBWYCjAVmApMBZgKTAWmAkwFpgJTAaYCU4GpwFSAqcBUYCrAVGAqMBVgKjAVmApMZSowFZgKTAWYCkwFpgJMBaYCUwGmAlOBqcBUgKnAVGAqwFRgKjAVYCowFZgKMBWYCkwFTy3qxZrdxUhh6gAAAABJRU5ErkJggg=="
+	data-src="{{ img_url }}"
+	data-widths="[100, 240, 260, 400, 600, 800]"
+	data-aspectratio="{{ image_object.aspect_ratio }}"
+	data-sizes="auto"
+	data-parent-fit="contain"
+	alt="{{ image_object.alt | escape }}"
+	width="{{ image_object.width }}"
+	height="{{ image_object.height }}"
+    {% if id %}id="{{ id }}"{% endif %}>

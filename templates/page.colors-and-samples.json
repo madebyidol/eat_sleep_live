@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "default-header",
+      "blocks": {
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed": {
+          "type": "request-samples",
+          "disabled": true,
+          "settings": {
+            "button-text": "Request colour samples"
+          }
+        },
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0": {
+          "type": "paragraph",
+          "disabled": true,
+          "settings": {
+            "paragraph": "<p></p><p>All of our reclaimed wood furniture is available in 4 colours. <br/><br/><strong>Warm </strong><em>- Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour without being too dark. The perfect colour to give your home a warm and inviting feeling.</em></p><p><strong><br/>Grey </strong><em>- Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.</em></p><p><strong><br/>Classic </strong><em>- Our classic finish is the darkest of our natural waxes. A classic brown colour with sumptous deep and rich tones that blend together to give a stunning timeless and luxurious finish.</em></p><p><strong><br/>Natural </strong><em>- Our natural finish uses a clear wax that brings out all the natural tones and colours in the wood, highlighting the genuine character of each beam.</em><br/></p><p>When you order a free set of our 4 wood colour samples, they'll arrive in a letterbox-friendly package. </p><p>For custom metal frame samples and fabric colour options <em>( Annabel dining chairs) </em>please call us on <a href=\"tel:01159700060\" title=\"tel:01159700060\">01159 700 060</a> to discuss options.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "d2e4d3bb-402f-4595-b409-dffcbeb0e1ed",
+        "ccda2d60-ae14-4857-8a1c-e18338400ab0"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Colours and Samples"
+      }
+    },
+    "ef8a9a57-1154-4853-94b9-a0c7f2833c22": {
+      "type": "colours-and-samples-header",
+      "blocks": {
+        "template--16082743328938__ef8a9a57-1154-4853-94b9-a0c7f2833c22-16775923508a39b258-0": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": "Warm",
+            "wood_image": "shopify://shop_images/colours_samples_1_parent_image.jpg"
+          }
+        },
+        "template--16082743328938__ef8a9a57-1154-4853-94b9-a0c7f2833c22-16775923508a39b258-1": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": "Grey",
+            "wood_image": "shopify://shop_images/colours_samples_2_parent_image.jpg"
+          }
+        },
+        "template--16082743328938__ef8a9a57-1154-4853-94b9-a0c7f2833c22-16775923508a39b258-2": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": "Natural",
+            "wood_image": "shopify://shop_images/colours_samples_3_parent_image.jpg"
+          }
+        },
+        "template--16082743328938__ef8a9a57-1154-4853-94b9-a0c7f2833c22-16775923508a39b258-3": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": "Mocha",
+            "wood_image": "shopify://shop_images/colours_samples_4_parent_image.jpg"
+          }
+        },
+        "0e64b5c8-0b54-402e-88de-04c45724e925": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": "Smoked",
+            "wood_image": "shopify://shop_images/f77b4983985b--smoked-wood-colour-swatch-2-7afc9f.jpg"
+          }
+        },
+        "0a871cfe-b088-402b-bccc-0e20470ccb16": {
+          "type": "wood_type",
+          "settings": {
+            "wood_name": "Limed",
+            "wood_image": "shopify://shop_images/Screenshot_2023-05-26_at_11.04.22.png"
+          }
+        }
+      },
+      "block_order": [
+        "template--16082743328938__ef8a9a57-1154-4853-94b9-a0c7f2833c22-16775923508a39b258-0",
+        "template--16082743328938__ef8a9a57-1154-4853-94b9-a0c7f2833c22-16775923508a39b258-1",
+        "template--16082743328938__ef8a9a57-1154-4853-94b9-a0c7f2833c22-16775923508a39b258-2",
+        "template--16082743328938__ef8a9a57-1154-4853-94b9-a0c7f2833c22-16775923508a39b258-3",
+        "0e64b5c8-0b54-402e-88de-04c45724e925",
+        "0a871cfe-b088-402b-bccc-0e20470ccb16"
+      ],
+      "settings": {
+        "title": "Colours and Samples",
+        "paragraph": "<p>Order our free wood colour samples, in a handy letterbox friendly box, to find the perfect colour for your space. </p>",
+        "zapier_url": "https://hooks.zapier.com/hooks/catch/12158034/3brb9mm/",
+        "form_title": "Ordering a free sample box?",
+        "form_paragraph": "<p>Please fill out this form and your full set of 6 samples will be dropping through your letterbox in no time at all.</p>",
+        "form_buttom": "Request colour samples",
+        "form_small": "*Please note our samples are to be used as a guide to colour & texture only. They are not example of the solid, chunky reclaimed wood we use to hand craft our furniture.",
+        "posted_successfully": "Thanks for requesting our samples, they will be dropping through your letterbox in no time at all!"
+      }
+    },
+    "ade0dad3-e95b-4d24-885e-6617d5726079": {
+      "type": "colours-and-samples-content",
+      "blocks": {
+        "template--16082743328938__ade0dad3-e95b-4d24-885e-6617d5726079-167759223375cc3141-0": {
+          "type": "paragraph",
+          "settings": {
+            "title": "Our colour samples",
+            "paragraph": "<p></p><p>All of our reclaimed wood furniture is available in 6 unique colours that are created by us! <br/><br/><strong>Warm </strong><em>- Our warm finish is a mid-brown natural wax with a hint of honey tones which creates a beautiful rich colour to give your home a warm and inviting feeling.</em></p><p><strong>Grey </strong><em>- Our grey finish is a unique colour wash which is sealed with a natural clear wax. This creates calming tones and a contemporary finish without losing the natural rustic character.</em></p><p><strong>Mocha </strong><em>- Our mocha finish is the darkest of our natural waxes. A classic chocolately brown with sumptous deep and rich tones that blend together to give a stunning timeless and luxurious finish.</em></p><p><strong>Natural </strong><em>- Our natural finish uses a clear wax that brings out all the natural tones and colours in the wood, highlighting the genuine character of each beam.</em></p><p><strong>Limed </strong><em>- Our limed finish uses a white liming wax which enhances all the character while giving a subtle white wash coastal feel.</em></p><p><strong>Smoked </strong><em>- Our smoked finish uses a dark grey wash and sealed with a white wax which enhances all the natural grain & character to give a deep smokey and contemporary style.</em><br/></p><p>When you order a free set of our 6 wood colour samples, they'll arrive in a letterbox-friendly package.</p><p>To order please call us on <a href=\"tel:01159700060\" title=\"tel:01159700060\"><strong>01159 700 060</strong></a><strong> </strong>or email <strong>info@eatsleeplive.co.uk</strong> to discuss options.</p>",
+            "button-text": ""
+          }
+        },
+        "template--16082743328938__ade0dad3-e95b-4d24-885e-6617d5726079-167759223375cc3141-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/16.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "template--16082743328938__ade0dad3-e95b-4d24-885e-6617d5726079-167759223375cc3141-0",
+        "template--16082743328938__ade0dad3-e95b-4d24-885e-6617d5726079-167759223375cc3141-1"
+      ],
+      "settings": {}
+    },
+    "3c455ca5-19d8-4430-997e-6abe3cb6dfe4": {
+      "type": "two-column-images",
+      "blocks": {
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ESL_Grantham_Jade_Selected_Edit-56.jpg"
+          }
+        },
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ESL_Birmingham_Jade_Edit-20.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-0",
+        "template--15982486159530__3c455ca5-19d8-4430-997e-6abe3cb6dfe4-16673156569c44fb55-1"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "172b43fe-6ad9-4a4d-b2fb-3394d815f5d5": {
+      "type": "faq",
+      "blocks": {
+        "c8cdc304-2db0-497f-9613-ec667b2efb34": {
+          "type": "faq",
+          "settings": {
+            "question": "Are the colour samples free and will they fit through the letterbox?",
+            "answer": "Our colour samples are free, we send them out to you by 1st class post. And yes! We package our colour samples in a nice, letter box friendly package."
+          }
+        },
+        "df715761-66aa-4cc4-bcd3-09a4de62aa57": {
+          "type": "faq",
+          "settings": {
+            "question": "Can you match the wood colour to my existing Eat Sleep Live furniture?",
+            "answer": "Please email photos of your existing furniture to info@eatsleeplive.co.uk and we can look into this for you."
+          }
+        },
+        "40b0d4d9-f39f-42e9-bddb-2a01ca925785": {
+          "type": "faq",
+          "settings": {
+            "question": "Are the colours that are sent to me in the sample box accurate?",
+            "answer": "Please take the colour samples and photos on our website as a guide, as no two beams are the same, they all have their own individuality with tones/colours/imperfections which is all part of the character. Plus, this is what makes each piece unique to you!"
+          }
+        },
+        "6a81da56-f066-4ed8-8687-a7a961737107": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer colours that are not displayed on your website?",
+            "answer": "We currently offer six colour options, if any of the colours are not quite what you are looking for, we do offer a service where we would leave your furniture unfinished for you to apply the colour yourselves."
+          }
+        },
+        "bcef056a-4dba-499b-a1bb-2ba2fadd1982": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I request custom metal samples?",
+            "answer": "For custom metal samples, please call us on 0115 9700 060, email or drop us a message on Live Chat to discuss the options."
+          }
+        }
+      },
+      "block_order": [
+        "c8cdc304-2db0-497f-9613-ec667b2efb34",
+        "df715761-66aa-4cc4-bcd3-09a4de62aa57",
+        "40b0d4d9-f39f-42e9-bddb-2a01ca925785",
+        "6a81da56-f066-4ed8-8687-a7a961737107",
+        "bcef056a-4dba-499b-a1bb-2ba2fadd1982"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ef8a9a57-1154-4853-94b9-a0c7f2833c22",
+    "ade0dad3-e95b-4d24-885e-6617d5726079",
+    "3c455ca5-19d8-4430-997e-6abe3cb6dfe4",
+    "172b43fe-6ad9-4a4d-b2fb-3394d815f5d5"
+  ]
+}

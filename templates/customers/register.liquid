@@ -1,0 +1,58 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:25:08+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            8ac7e4ab81e17d4590db66d50764793a
+//      Signature:      eyJpdiI6ImdlMEEzN2pjSWR5MmgzcHE2cTNvNEE9PSIsInZhbHVlIjoiTjJtVlhjVzBVMXNsOGJDNDl3d3JHMlwvMmpIU214ZUlYNURFNzFBdHBxOXJvOWFLUjFYUHRzWXFadDVBVlM4MnJRbjVOYk4yUWhnQ1lmYml3emdxRFdzSUlIYm04ajNQd0RCenBjbW5OYWxrYlwvYmtSejFSRUtYbm5KYTNhQnBUNklyVFwvTE41TFwvVXlwXC9oN21FU3pRb1Yyb2ZGSGV5Q2xuM080ajZXS2c3blVUT1BcL0pUdTlGSUVwbjBTV2ZENzVHSGJaemE1eCtwQTNIaDdFTUszelc1eWY1MjJXK2RjeVhEemN1QXQ4QzF0SXQzSzY4eFRDRHdQWFFKaU5LYk9jQU10bkdFVW1MWnJpcTZDeHcrRzUyRjZYanRpRG5OYXNHZEJCdUFzY3NmU0twTTEycEFMdGVJSmhzb0lHeVZ3UDJuQU56eGo4N3FIZFZPVlVcLzh4Ynd6Z2lnM3NtREN0NmI5eHlGRFNJcG1jMFwveGJ4aU5pY3F0SnBweHhJc2NsNERoTWx3QzZiZTFZRGFyeHVsUXlqb0xSdHJ2dmJaakFjczRCVXVHRmJFb3Z3PSIsIm1hYyI6IjkwOTlmNmNlMGUxMTY4OGU2NTYxNDE0ZDZmZWMxYjUwMjY5ZmZkNDRhMmM4NTlmYzg1N2E4NTIwYzUyZjNjMDMifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<!-- /templates/customers/register.liquid -->
+<div class="wrapper">
+
+<div class="grid">
+
+  <div class="grid__item large--one-half push--large--one-quarter text-center">
+
+    <h1>{{ 'customer.register.title' | t }}</h1>
+
+    <div class="form-vertical">
+      {% form 'create_customer' %}
+
+        {{ form.errors | default_errors }}
+
+        <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
+        <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autofocus>
+
+        <label for="LastName" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
+        <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} >
+
+        <label for="Email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
+        <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+        <label for="CreatePassword" class="hidden-label">{{ 'customer.register.password' | t }}</label>
+        <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
+
+        <p>
+          <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn--full">
+        </p>
+        <a href="{{ shop.url | downcase }}">{{ 'customer.register.cancel' | t }}</a>
+
+      {% endform %}
+    </div>
+
+  </div>
+
+</div>
+
+</div>

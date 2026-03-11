@@ -1,0 +1,59 @@
+{% comment %} Highlighted word from metafields {% endcomment %}
+{% if collection.metafields["custom_fields"]["custom_title"] != blank %}
+	{% assign collectionTitle = collection.metafields["custom_fields"]["custom_title"] %}
+{% else %}
+	{% assign collectionTitle = collection.title %}
+{% endif %}
+
+{% if collection.metafields["custom_fields"]["highlighted_word"] != blank %}
+	{% assign highlightedWord = collection.metafields["custom_fields"]["highlighted_word"] %}
+	{% assign highlightedHTML = highlightedWord | prepend: "<span>" | append: "</span>" %}
+	{% assign titleText = collectionTitle | replace: highlightedWord, highlightedHTML %}
+{% else %}
+	{% assign titleText = collectionTitle %}
+{% endif %}
+
+<style>
+	.collection-header-2 > .collection-header__background-image {
+		background-image:url('{{ collection.image.src | collection_img_url: '960x', scale: 2 }}');
+	}
+
+	@media screen and (max-width: 768px) {
+		.collection-header-2 > .collection-header__background-image {
+			{% if collection.metafields.custom_fields["mobile_banner_image"] != blank %}
+				background-image:url('{{ collection.metafields.custom_fields["mobile_banner_image"] }}');
+			{% else %}
+				background-image:url('{{ collection.image.src | collection_img_url: '768x', scale: 2 }}');
+			{% endif %}
+		}
+	}
+</style>
+
+<section id="collection-header" class="collection-header-2">
+	
+	{% render 'breadcrumb' %}
+
+	{% if collection.metafields.custom_fields["banner_video_url"] != blank %}
+		<div class="collection-header__video-container">
+			<div class="background-video background-image__video">
+				<div class="background-video__container">
+					<video autoplay loop muted playsinline>
+						<source src="{{ collection.metafields.custom_fields["banner_video_url"] }}" type="video/mp4">
+						{% include 'background-image-element' with image: collection.image.src | img_url: '1600x', classes: 'homepage-hero hide large--show' %}
+						{% include 'background-image-element' with image: collection.image.src | img_url: '768x', classes: 'homepage-hero homepage-hero-mobile show large--hide' %}
+					</video>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	
+	<div class="collection-header__background-image"​​​​​​></div>
+
+	<div class="collection-header__text-container wrapper">
+		{% if collection.metafields.custom_fields["sub_title"] != blank %}
+			<p class="collection-header__sub-title normal-spaced">{{ collection.metafields.custom_fields["sub_title"] }}</p>
+		{% endif %}
+
+		<h1 class="normal-spaced">{{ titleText }}</h1>
+	</div>
+</section>

@@ -1,0 +1,13 @@
+<div class="grid__item large--one-quarter {% unless recommendation == true %}medium--one-half{% endunless %} small--one-whole hide-fade-in">
+
+		{% if section.settings.same-size == true %}
+			{% include 'background-image-element' with image: article_item.image, classes: 'blogs_blog-image blogs_blog-background-image' %}
+		{% else %}
+			{% include 'image-element' with image_object: article_item.image, classes: 'blogs_blog-image' %}
+		{% endif %}
+		<p class="blogs__blog-title">{{ article_item.title }}</p>
+		<div class="blogs__byline flex">
+			<a class="blogs__byline-text" href="{{ article_item.url | downcase }}"><span>Read more</span> {%include 'blog-read-more-arrow'%}</a>
+		</div>
+
+</div>

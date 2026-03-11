@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-banner",
+      "settings": {
+        "banner_heading": "finance"
+      }
+    },
+    "878c8a26-82be-4404-a2c0-f374330a97ea": {
+      "type": "text-section",
+      "settings": {
+        "heading": "Our no-hassle finance options",
+        "description": ""
+      }
+    },
+    "44583c8d-ee7b-4db9-8230-ec3a71198f38": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/image_5_with_klarna_1.jpg",
+        "heading": "Benefits of shopping with Klarna",
+        "description": "<p><strong>Pay in 3</strong><br/>Split the cost over 3 months (max spend £1000). You’ll pay the first instalment at the checkout, and the following 2 will be taken automatically 30 and 60 days later.</p><p><strong>Slice it</strong><br/>Or you can choose to split the cost equally up to 48 manageable, monthly instalments with 0% interest up to 12 months.</p><p>*Klarna maximum order is £4250.</p>",
+        "image_position": "text image"
+      }
+    },
+    "f1813e3d-7313-4d4b-b112-069e474c064f": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/ESL_Email_Headers_-_Klayvio_9.png",
+        "heading": "Apply to v12 Retail Finance",
+        "description": "<p>Min. finance value: £250 - Max. finance value: £15,000</p><p><strong>Flexible Deposit</strong><br/>Choose a sliding scale between 0%* and 50% deposit to suit your needs.</p><p><strong>Option 1</strong><br/>Short term 0% finance for 6 or 12 month (zero cost option)</p><p><strong>Option 2</strong><br/>Longer term 9.9% finance for 2,3,4 or 5 years (low cost option)</p><p>1st instalment doesn't start until 30 days after you receive your furniture.</p><p>*0% deposit applies to all furniture except upholstery  bespoke items - minimum 10% deposit required</p>",
+        "image_position": "image text"
+      }
+    },
+    "3923002b-106c-4b82-8e79-c59bd1851a04": {
+      "type": "faq",
+      "blocks": {
+        "787014eb-6d33-4d86-a78e-31a019af26af": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer 0% finance?",
+            "answer": "We do offer both short term 0% finance for up to 12 months and long term finance at 9.9% APR for 24, 36, 48 and 60 months. If you get in touch, we can start the process for you. Applications can be made in person, via phone, email or online."
+          }
+        },
+        "b7fcb5fd-a52b-4af5-a3af-c7faa3918170": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I have to pay a deposit?",
+            "answer": "We offer a flexible deposit – choose a sliding scale between 0% - 50% to suit your needs (for bespoke items and upholstery a min 10% deposit is required)."
+          }
+        },
+        "82d6ffe3-5739-446b-9c81-2e917460ec2c": {
+          "type": "faq",
+          "settings": {
+            "question": "When is my first finance payment due?",
+            "answer": "The first instalment doesn’t start until approx. 30 days after you receive your furniture."
+          }
+        },
+        "6c6119cc-ac52-444b-8eda-6ff060e595e9": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I make overpayments during my finance agreement?",
+            "answer": "You sure can. There are no additional charges for making overpayments or settling the balance before the due date."
+          }
+        },
+        "37a16d50-0165-46ae-9906-70b497fc232c": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the minimum and maximum value I can have on finance?",
+            "answer": "Minimum finance value is £250.00. Maximum finance value is £15,000.00, please note for Klarna the maximum order is £4,250.00"
+          }
+        },
+        "a176a182-8e48-4f39-ab04-55b3c19059a1": {
+          "type": "faq",
+          "settings": {
+            "question": "What happens if the finance is declined, or I have ccj’s?",
+            "answer": "We also offer Splitit – there are no added debt/interest or hidden fees, all you need is a credit card with enough credit available, which helps spread the cost over a maximum of 6 monthly instalments.  The full amount of your purchase is authorised (held) on your credit card to guarantee future payments and this is free of credit checks."
+          }
+        }
+      },
+      "block_order": [
+        "787014eb-6d33-4d86-a78e-31a019af26af",
+        "b7fcb5fd-a52b-4af5-a3af-c7faa3918170",
+        "82d6ffe3-5739-446b-9c81-2e917460ec2c",
+        "6c6119cc-ac52-444b-8eda-6ff060e595e9",
+        "37a16d50-0165-46ae-9906-70b497fc232c",
+        "a176a182-8e48-4f39-ab04-55b3c19059a1"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions"
+      }
+    },
+    "ab80fe7f-aed0-456d-a235-2d78a94077f1": {
+      "type": "section-cta",
+      "settings": {
+        "heading": "Any questions?",
+        "description": "<p>For full terms and conditions please contact us.</p>",
+        "button_text": "Contact us",
+        "button_link": "shopify://pages/get-in-touch"
+      }
+    },
+    "fb13b46f-7db0-4a10-a9a7-4560fa8d75c8": {
+      "type": "please-note",
+      "settings": {
+        "title": "Please Note",
+        "text1": "<p>Eat Sleep Live Limited is authorised and regulated by the Financial Conduct Authority. Firm Reference number - 698300. We are a broker and not a lender. If you are not happy with the service we have received, you have the right to refer your complaint to the Financial Ombudsman Service.</p>",
+        "text2": "<p>The Financial Ombudsman Service<br/>Exchange Tower<br/>London<br/>E14 9SR<br/>0800 023 4 567</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "878c8a26-82be-4404-a2c0-f374330a97ea",
+    "44583c8d-ee7b-4db9-8230-ec3a71198f38",
+    "f1813e3d-7313-4d4b-b112-069e474c064f",
+    "3923002b-106c-4b82-8e79-c59bd1851a04",
+    "ab80fe7f-aed0-456d-a235-2d78a94077f1",
+    "fb13b46f-7db0-4a10-a9a7-4560fa8d75c8"
+  ]
+}

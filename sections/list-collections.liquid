@@ -1,0 +1,213 @@
+{% comment %}
+  List Collections Section
+  /sections/list-collections.liquid
+{% endcomment %}
+
+<div class="wrapper list-collections-page">
+
+  {% if section.settings.show_heading %}
+    <div class="list-collections-header">
+      {% if section.settings.overline != blank %}
+        <p class="list-collections-overline sml-caps">{{ section.settings.overline }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h1 class="list-collections-heading">{{ section.settings.heading }}</h1>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="list-collections-description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="list-collection-search">
+    {% render 'search-bar' %}
+  </div>
+
+  <div class="list-collections-grid">
+    {% for block in section.blocks %}
+      {% if block.settings.collection != blank %}
+        {% assign col = block.settings.collection %}
+        <div class="list-collections-grid-item" {{ block.shopify_attributes }}>
+          {% render 'collection-card', collection: col %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .list-collections-page {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .list-collections-header {
+    text-align: center;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .list-collections-overline {
+    margin: 0;
+  }
+
+  .list-collections-heading {
+    margin: 0;
+    max-width: 28ch;
+  }
+
+  .list-collections-description {
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  /* Search bar */
+  .list-collection-search {
+    margin-bottom: 56px;
+  }
+
+  .list-collection-search .search-bar {
+    max-width: 450px;
+    margin: 0 auto;
+    border: 0;
+    background: white;
+    border-radius: 12px;
+  }
+
+  .list-collection-search .input-group .input-group-field:first-child {
+    border-radius: 12px 0 0 12px;
+    border: 0;
+  }
+
+  .list-collection-search .input-group .input-group-btn:last-child>.btn {
+    border-radius: 12px;
+  }
+
+  /* Grid */
+  .list-collections-grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    gap: {{ section.settings.card_gap }}px;
+  }
+
+  @media (max-width: 1080px) {
+    .list-collections-grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop | minus: 1 | at_least: 2 }}, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .list-collections-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+</style>
+
+{% schema %}
+{
+  "name": "List Collections",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background colour"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "Shop by category"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Browse our collections"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1380
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Columns (desktop)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Card gap",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "limit": 30,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "List Collections"
+    }
+  ]
+}
+{% endschema %}

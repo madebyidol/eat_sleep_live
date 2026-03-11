@@ -1,0 +1,159 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:25:02+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            8d96c601a8b115dbea74a05917ed322a
+//      Signature:      eyJpdiI6IlE4aTJQZzdnZjFBdnczdHJmTzNhNXc9PSIsInZhbHVlIjoiN0h2a1A1XC96SlhyemFOZmFNb3BBNW1BYkN6b0pQanMxcWwya0s3WE9HblJzV3lDZjlJVXZ0UXVxdXJKWHpMMzd4UDdhbVNkaFVrcWMwR0JwMXdra2VzbjhuMHUwYTlFVFdkR2tZeGRzdmdrVmFJOE1OaGZsRjNsaTBCVWhNdXRXcVF5UU5zUVdheHNZWWdxcFhNUkpKMGN3YnRRSjRCaGlCbEdXczQ0WlM1SEEzd1N3K1NIck5JQ0pSYmJZMmVXbXhkbFc4TTFicldtZWZETWIwZklJSHZ4aUpDUHU3ZHZRT2xBM1wvY0EzQUZOaGlacktSbGQ0cEJXc1F4dDg5eHl1Q1NZNVBGbkhsYVhIbDZKaFIwbTNmOWtNeXpvUlQyN1JHT0EyK2IrSzF6ZVJnWDJOaTJ1NHdjNGhxeGxzdmJGaEpWRUh0NGp0QzZka0FoMTZ1cDl5YWtcL3NNeUxFVEFaMDRJb0dDKzMrbGNiR2NEaVprUkJ0XC9tOWttV2RlUUpUS0VhRWpFMVJ4aDh1V3Fha1V0QTFrZGZ5ZHhhOXM1SXBKa1UzNHNrRGpsOVk9IiwibWFjIjoiNjk1MWJiMDMzNzEwM2E1ZWUwNmViZmI2YmRmOGUxOWM1OGE5MGQ0NGQ3ZGE5NWM2YWMwZjRmNWRlYzUwZmI2NiJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% include 'collection-header-2' %}
+
+{% comment %}
+Filters: Products
+To add filter options, tags products accordingly:
+    - filter_<filter name>_<filter option> (e.g. filter_Size-of-Bed_Single)
+    - (Use - for spaces, option text is case sensitive)
+To add new filter names to a collection, add it to the Standard Filter options on Custom Fields global attribute
+{% endcomment %}
+
+{% comment %}{% if shop.metafields.custom_fields["standard_filters"] != blank %}
+  {% assign separator = "|###|" %}
+  {% assign filter_name_array = shop.metafields.custom_fields["filter_name"] | split: separator %}
+  {% assign fc_keys = shop.metafields.custom_fields["standard_filters"] | split: "," %}
+{% endif %}
+{% endcomment %}
+
+{% comment %}
+Create a list of all tags that'll be used in the filters
+{% endcomment %}
+
+
+{% include 'desktop-filter' %}
+
+
+{% paginate collection.products by 25 %}
+<div class="wrapper">
+    <div class="grid flex flex-wrap">
+        {% for product in collection.products %}
+            <div class="grid__item small--one-half medium--one-half one-third">
+                {% include 'product-block' with collection_block: true %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if paginate.pages > 1 %}
+      <div class="pagination">
+        {{ paginate | default_pagination | replace: '&laquo; Previous', '<svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.31046 13.3448C8.46219 15.5793 11.3794 19.7586 12.5174 21.6207C11.3794 20.8966 9.20701 19.6552 6.10357 16.6552C4.96056 15.5503 1.51736 12.4483 0.000118256 10.9655C1.41391 9.58621 4.62211 6.50572 6.10357 5.17241C9.20701 2.37931 11.5863 0.827586 12.9312 0C12.207 1.55172 9.51736 4.75862 8.58632 6C7.8415 6.9931 5.2415 9.7931 4.0346 11.069L6.31046 13.3448Z" fill="currentColor"/></svg>' | replace: 'Next &raquo;', '<svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.7069 4.4766C1.98966 5.22142 1.01724 6.61453 0.637931 7.23522C1.01724 6.99384 1.74138 6.58004 2.77586 5.58004C3.15686 5.21174 4.3046 4.17775 4.81034 3.68349C4.33908 3.22372 3.26968 2.19689 2.77586 1.75246C1.74138 0.821424 0.948276 0.304182 0.5 0.0283203C0.741379 0.545562 1.63793 1.61453 1.94828 2.02832C2.19655 2.35935 3.06322 3.29269 3.46552 3.71798L2.7069 4.4766Z" fill="currentColor"/></svg>' }}
+      </div>
+    {% endif %}
+</div>
+{% endpaginate %}
+
+
+{% schema %}
+  {
+    "name": "Collection Standard",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Collection Header"
+        },
+        {
+            "type": "checkbox",
+            "id": "default-height",
+            "label": "Default Image Height",
+            "info": "Select whether the collection header image use its image's height or the collection design's default height.",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Products"
+        },
+        {
+            "type": "text",
+            "id": "button-text",
+            "label": "Button Text",
+            "default": "SELECT YOURS"
+        },
+        {
+            "type": "text",
+            "id": "size-variant",
+            "label": "Size Variant Name",
+            "default": "Choose Your Size",
+            "info": "In order to display the number of sizes available, enter the option name sizes are classed under for your products (e.g. Choose Your Size) (Note: Case sensitive)"
+        },
+        {
+            "type": "header",
+            "content": "Filter"
+        },
+        {
+            "type": "paragraph",
+            "content": "To add filter options, tags products accordingly: filter_<filter name>_<filter option> (e.g. filter_Size-of-Bed_Single) (Use - for spaces, option text is case sensitive)"
+        },
+        {
+            "type": "paragraph",
+            "content": "To add a new filter to a collection page (e.g. Size-of-Bed), add it to the [Standard Filter options](https://customfields.bonify.io/dashboard/eat-sleep-live-2.myshopify.com/globals) on Custom Fields global attribute"
+        },
+        {
+            "type": "header",
+            "content": "Products"
+        },
+        {
+            "type": "text",
+            "id": "rv-title",
+            "label": "Recently Viewed Title",
+            "default": "Recently Viewed Products"
+        }
+    ]
+  }
+{% endschema %}
+
+{% if template contains 'collection' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "url": "{{ collection.url }}",
+  "name": "{{ collection.title | escape }}",
+  "description": "{{ collection.description | strip_html | escape }}",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {% for product in collection.products %}
+      {
+        "@type": "Product",
+        "name": "{{ product.title | escape }}",
+        "image": "{% if product.featured_image %}{{ product.featured_image.src | img_url: 'master' | prepend: 'https:' }}{% endif %}",
+        "description": "{{ product.description | strip_html | escape }}",
+        "sku": "{% if product.sku != blank %}{{ product.sku | escape }}{% endif %}",
+        "brand": {
+          "@type": "Brand",
+          "name": "Eat Sleep Live"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "{{ product.url | escape }}",
+          "priceCurrency": "{{ shop.currency }}",
+          "price": "{{ product.price | divided_by: 100.0 }}",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}"
+        }
+      }{% if forloop.last == false %},{% endif %}
+      {% endfor %}
+    ]
+  }
+}
+</script>
+{% endif %}
+

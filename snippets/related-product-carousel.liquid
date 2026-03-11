@@ -1,0 +1,170 @@
+<!-- Solution brought to you by Caroline Schnapp -->
+ <!-- See this: https://docs.shopify.com/support/your-store/products/can-i-recommend-related-products#finding-a-relevant-collecitons -->
+
+ {% comment %}
+   Number of related items per row,
+   and number of rows.
+ {% endcomment %} 
+ {% assign number_of_related_products_per_row = 6 %}
+ {% assign number_of_rows = 1 %}
+ 
+ {% comment %}
+   Heading.
+   Leave blank if you don't need one.
+ {% endcomment %}
+ 
+ {% assign heading = 'Recommended products' %}
+ 
+ {% comment %}
+   Set either or both to true, if you want
+   to limit yourself to items with same vendor, and/or type.
+ {% endcomment %}
+ 
+ {% assign same_vendor = false %}
+ {% assign same_type = false %}
+ 
+ {% comment %}
+   Collections to ignore.
+   Never pick related items from those.
+ {% endcomment %}
+ 
+{% comment %}
+its lets look through the collections this is in
+is it in eat?  yes?  use this! no?  is it in sleep?  yes use this! no?  it's in live!
+so it doesnt matter if it's in eat and sleep
+{% endcomment %}
+
+ {% assign exclusions = 'frontpage,all' | split: ',' %}
+ 
+ {% comment %}
+   Looking for a relevant collection.
+ {% endcomment %}
+ 
+ {% comment %}
+ {% if product.metafields.c_f['Related Products'] %}
+   {% assign collection = collections[product.metafields.c_f['Related Products']] %}
+ {% endif %}
+ {% if template == 'cart' or template == 'product' %}
+ 	{% assign collection = collections.all %}
+ {% endif %}
+ {% endcomment %}
+ 
+ {% assign found_a_collection = false %}
+
+ {% comment %}
+ {% if collection and collection.all_products_count > 1 %}
+   {% unless exclusions contains collection.handle %}
+     {% assign found_a_collection = true %}
+   {% endunless %}
+ {% endif %}
+ {% endcomment %}
+ 
+ {% unless found_a_collection %}
+  {% for c in product.collections %}
+    
+    {% comment %}
+      Try to get first subcollection product appears in, and make sure that there's enough products in it to render some prods  
+      **
+      THERES A WEIRD BUG IN THIS, FOR SOME REASON IF THERE'S 3 PRODUCTS, IT ONLY DISPLAYS TWO OF THEM?
+      **
+    {% endcomment %}
+    {% if c.all_products_count > 4 %} 
+      {% comment %} <span>Four prods, first subcollection</span> {% endcomment %}
+      {% assign collection = c %}
+      {% assign found_a_collection = true %}
+      {% break %}
+    {% else %}
+
+      {% comment %}
+        If the requirements aren't met for this, run through eat, sleep and live and assign first collection it appears in 
+      {% endcomment %}
+      {% for c in product.collections %}
+        {% if c.title == "Eat" or c.title == "Sleep" or c.title == "Live" %}
+          {% comment %} <span>Check eat sleep and live, found {{c.title}}</span>{% endcomment %}
+          {% assign collection = c %}
+          {% assign found_a_collection = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %} 
+        If literally everything fails, just give it every product and pull some random ones 
+      {% endcomment %}
+      {% if found_a_collection == false %}
+        {% comment %} <span>No.</span> {% endcomment %}
+        {% assign collection = collection.all_products %}
+        {% assign found_a_collection = true %}
+        {% break %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+ {% endunless %} 
+
+ {% comment %} {{ collection }} {% endcomment %}
+ 
+ {% comment %}
+   If we have a relevant collection.
+ {% endcomment %}
+ 
+ {% if found_a_collection %}
+ 
+   {% assign counter = 0 %}
+   {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
+   {% assign current_product = product %}
+ 
+   {% case number_of_related_products_per_row %}
+     {% when 1 %}
+       {% assign grid_item_width = '' %}
+     {% when 2 %}
+       {% assign grid_item_width = 'large--one-half medium--one-half' %}
+     {% when 3 %}
+       {% assign grid_item_width = 'large--one-third medium--one-third small--one-whole' %}
+     {% when 4 %}
+       {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-whole' %}
+     {% when 5 %}
+       {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-whole' %}
+     {% when 6 %}
+       {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-whole' %}
+     {% else %}
+       {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-whole' %}
+   {% endcase %}
+ 
+   {% capture related_items %}
+     {% for product in collection.products %}
+       {% unless product.handle == current_product.handle %}
+          {% unless same_vendor and current_product.vendor != product.vendor %}
+            {% unless same_type and current_product.type != product.type %}
+              {% include 'product-grid-item' %}
+              {% assign counter = counter | plus: 1 %}
+              {% if counter == break_at %}
+                {% break %}
+              {% endif %}
+            {% endunless %}
+         {% endunless %}
+       {% endunless %}
+     {% endfor %}
+   {% endcapture %}
+ 
+   {% assign related_items = related_items | trim %}
+ 
+   {% unless related_items == blank %}
+ 
+   <aside class="grid">
+     <div class="grid__item">
+       {% unless heading == blank %}
+       <header class="section-header">
+         <h2 class="section-header__title">{{ heading }}</h2>
+       </header>
+       {% endunless %}
+    
+       <div class="grid--full related-products-carousel">
+         {{ related_items }}
+       </div>
+     </div>
+     
+   </aside>
+ 
+   {% endunless %}
+      
+ {% endif %}
+

@@ -1,0 +1,24 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:23:56+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            a311e898e9b2c74152dba162b40765ca
+//      Signature:      eyJpdiI6IjZCbWlzTG55VVRtR2d1NHpnMk0rWEE9PSIsInZhbHVlIjoiemtrYzBtRnFkaFE0SFJORXB2NXl3VUg3YlNIRG9rVUMrVElcL3FBdnlrcm81aWtEQjZROUt2Ykl2d3BXNXZXMlhQVkRENGhYUXVzYkJJSml0QmtGb2N0WkFjcnBOdXlTTkJvU0ppWGhoSlhwZFBYZk80TmpyTWFKUUVUK0JMYU51b3VoNWRtdGx1b0RlK0IrcVJ1WUtNQmhmUGxXejFISTliYU5ES0IxM3B1V3NXRTRFdWRQUmM0Q2RXWEVsajZjd1pmekF0ZDlhWVVxTmhxa1JocURIc1wvdFY5c3E3QzgzalluRW91b1NQbFpIelFmUkJnZ2U4d3loMGxpQ3pGRlwvWWFuWGdQVzF4eEtsVzJGVDFzNkdHelRCS2wzZHhsSml0YVZZRUFjSlpLaEkzbG1XTWMyOHA5cEc1UjNZQUdWZEFFTU95TllKbHZyNm1OZGNxdCtzelwvMnNxeFVUQ3RYS0lWelpUZDhrQ1MrR3NJdWEyUGxUUkQwZk5LZXI5WVU1aW1FSm04MlVsbGJIMllGcTBocXRFWkE9PSIsIm1hYyI6IjE4MmNmOTU2YzE5ZDYwNjRlYWEzYmZjN2QyMDk2NjBlZDk0YjZjYTJkZDJkYjVmOThlYjFhNTIyNTdlMGQzYzUifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<a href="/cart" aria-label="Go to your cart" class="header__cart-icon {{ classes }}">
+	{% capture item_count %}{{ cart.item_count }}{% endcapture %}
+		<span class="{% if item_count == "0" %}hide{% endif %} cart-count header__cart-count flex-center">{{ cart.item_count }}</span>
+	{% include 'cart-icon' %}
+</a>

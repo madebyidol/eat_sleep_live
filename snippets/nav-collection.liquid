@@ -1,0 +1,51 @@
+<div class="site-header__navigation-item-dropdown">
+
+    <div class="site-header__navigation-item-header">
+        <button class="mobile-back">
+            <img src="{{ 'chevron-right-new.svg' | asset_url }}" alt="next-icon" width="18" height="18" loading="lazy">
+        </button>
+
+        <span>{{ link.title }}</span>
+    </div>
+
+    <div class="site-header__navigation-item-dropdown-inner">
+
+        {% if link.links %}
+
+            {% assign linkSize = link.links | size %}
+
+            <div class="site-header__navigation-collection-list {% if linkSize > 7 %}site-header__navigation-collection-list--small{% endif %}">
+
+                {% for childlink in link.links %}
+
+                    <div class="site-header__navigation-collection-item {% if linkSize > 7 %}site-header__navigation-collection-item--small{% endif %}">
+
+                        <a href="{{ childlink.url }}">
+
+                            {% if childlink.object.image != blank %}
+
+                                <div class="site-header__navigation-collection-item-image">
+                                    {% comment %}
+                                    <img src="{{ childlink.object.image | img_url: 'x250', crop: 'center', scale: 2 }}" alt="{{ childlink.title }}" loading="lazy" width="342" height="202">
+                                    {% endcomment %}
+                                    <img data-swap="{{childlink.object.image | image_url: width: 342, height: 202, crop: "center"}}" class="swapimg" alt="{{link.title}}">
+
+                                </div>
+
+                            {% endif %}
+
+                            <span>{{ childlink.title }}</span>
+
+                        </a>    
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+    </div>
+    
+</div>

@@ -1,0 +1,38 @@
+{{ 'product-tab-finance.scss' | asset_url | stylesheet_tag }}
+
+<div class="product__finance">
+
+    <div class="product__finance-inner">
+
+        <div class="product__finance-header">
+            <span class="product__finance-subtitle">Split the cost, your way</span>
+            <span class="product__finance-title">Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
+
+            <p class="product__finance-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur obcaecati reprehenderit possimus molestiae provident tempore animi aperiam cupiditate magni iure unde</p>
+        </div>
+
+        <div class="product__finance-options">
+
+            {% for i in (1..3) %}
+                <div class="product__finance-option">
+                    <div class="product__finance-option-details">
+                        <div class="product__finance-option-image">
+
+                        </div>
+
+                        <div class="product__finance-option-content">
+                            <div class="product__finance-option-subtitle">From</div>
+                            <div class="product__finance-option-price">£150/Month</div>
+                            <div class="product__finance-option-description">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+                        </div>
+
+                    </div>
+                    <a href="{{ routes.cart_url | downcase }}" class="product__finance-option-link">Availble at Checkout</a>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>

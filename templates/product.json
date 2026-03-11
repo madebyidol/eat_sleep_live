@@ -1,0 +1,399 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.product",
+  "sections": {
+    "product-template": {
+      "type": "product-template",
+      "blocks": {
+        "bd2a2013-bec0-4061-80aa-cff5eadd748a": {
+          "type": "add-colour",
+          "settings": {
+            "name": "Warm",
+            "colour_image": "shopify://shop_images/warm.webp"
+          }
+        },
+        "04ef719a-5ad3-4ec6-a359-ceb8af50e2c9": {
+          "type": "add-colour",
+          "settings": {
+            "name": "Grey",
+            "colour_image": "shopify://shop_images/grey.webp"
+          }
+        },
+        "d0f2c94a-11d7-4f83-9336-6e3545ee7782": {
+          "type": "add-colour",
+          "settings": {
+            "name": "Natural",
+            "colour_image": "shopify://shop_images/rsz_1natural_3-modified.png"
+          }
+        },
+        "4cdbc02d-a2b7-40a0-a0a9-d9b9912075bf": {
+          "type": "add-colour",
+          "settings": {
+            "name": "Classic",
+            "colour_image": "shopify://shop_images/classic.webp"
+          }
+        },
+        "b0a08403-19e9-4b0b-ae83-750402de4003": {
+          "type": "add-handle",
+          "settings": {
+            "name": "Antique handle",
+            "handle_image": "shopify://shop_images/h-antique-handles.webp",
+            "identifier": "antiqueH"
+          }
+        },
+        "01877f97-c14b-4816-a04f-9ea0a865a61e": {
+          "type": "add-handle",
+          "settings": {
+            "name": "Antique knob",
+            "handle_image": "shopify://shop_images/h-antique-knob.webp",
+            "identifier": "antiqueK"
+          }
+        },
+        "871a882e-049f-489d-91b0-f1a0db02b6d1": {
+          "type": "add-handle",
+          "settings": {
+            "name": "Brushed bar",
+            "handle_image": "shopify://shop_images/h-bar-handle.webp",
+            "identifier": "contemporary"
+          }
+        },
+        "917f2a61-5d2d-4f7c-b434-4fd8bf85448d": {
+          "type": "add-handle",
+          "settings": {
+            "name": "Long wooden",
+            "handle_image": "shopify://shop_images/h-long-wooden.webp",
+            "identifier": "wooden"
+          }
+        }
+      },
+      "block_order": [
+        "bd2a2013-bec0-4061-80aa-cff5eadd748a",
+        "04ef719a-5ad3-4ec6-a359-ceb8af50e2c9",
+        "d0f2c94a-11d7-4f83-9336-6e3545ee7782",
+        "4cdbc02d-a2b7-40a0-a0a9-d9b9912075bf",
+        "b0a08403-19e9-4b0b-ae83-750402de4003",
+        "01877f97-c14b-4816-a04f-9ea0a865a61e",
+        "871a882e-049f-489d-91b0-f1a0db02b6d1",
+        "917f2a61-5d2d-4f7c-b434-4fd8bf85448d"
+      ],
+      "settings": {
+        "submit": "Add to Basket",
+        "samples": "Order Free Colour Samples",
+        "samples_link": "shopify://pages/colours-samples",
+        "custom_text": "Talk to us about your customisations",
+        "custom_url": "shopify://pages/get-in-touch",
+        "tp_one_label": "Last a lifetime",
+        "tp_one_icon": "hand",
+        "tp_two_label": "Handcrafter to Order",
+        "tp_two_icon": "spanner",
+        "wood_colour_image": "shopify://shop_images/image_c9c4295e-ed64-4a7f-a94f-ed85947aab74.png",
+        "wood_heading": "Wood Colour Sample",
+        "wood_sub": "Get our free colour sample for lorem ipsum dolor amet",
+        "wood_btn_text": "order your free sample",
+        "tp_three_icon": "hand",
+        "tp_three_label": "Free Delivery",
+        "render_message": "*digitally rendered image used for illustration purposes"
+      }
+    },
+    "product-tab-headers": {
+      "type": "product-tab-headers",
+      "settings": {}
+    },
+    "product-tab-description": {
+      "type": "product-tab-description",
+      "blocks": {
+        "df592374-5854-4fdd-bd59-f40f74110284": {
+          "type": "usp",
+          "settings": {
+            "image": "shopify://shop_images/Branson-Coffee-Table.jpg",
+            "icon": "medal",
+            "title": "Made to last a lifetime",
+            "content": "<p>Our furniture is made to last you a lifetime, guaranteed.</p>",
+            "image_two": "shopify://shop_images/ESL_18.02.19-107.jpg",
+            "icon_two": "spanner",
+            "title_two": "Handcrafted to order",
+            "content_two": "<p>By our experienced artisans who put their heart and soul into each piece.</p>",
+            "image_three": "shopify://shop_images/ESL_Grantham_Master_Jade-156-2.jpg",
+            "icon_three": "hand",
+            "title_three": "Delivered by our craftsmen",
+            "content_three": "<p>To your room of choice in your home & any required assembly included.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "df592374-5854-4fdd-bd59-f40f74110284"
+      ],
+      "settings": {}
+    },
+    "product-tab-details": {
+      "type": "product-tab-details",
+      "blocks": {
+        "image_text_mmCN9z": {
+          "type": "image-text",
+          "settings": {
+            "title": "",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_text_mmCN9z"
+      ],
+      "settings": {}
+    },
+    "product-tab-delivery-assembly": {
+      "type": "product-tab-delivery-assembly",
+      "blocks": {
+        "597698bb-8e86-4e33-ae65-710c637913cd": {
+          "type": "image-text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/image_1fdf3524-b5e0-4416-80e5-fa88c7db061b.png",
+            "title": "Lorem ipsum dolor sit amet, consectur adipiscing elit",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut quam euismod, commodo orci sed, placerat nisi. Ut porta at justo et consectetur. In hac habitasse platea dictumst.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "597698bb-8e86-4e33-ae65-710c637913cd"
+      ],
+      "settings": {
+        "delivery": "<p>Our standard lead time for all items is approx 8 to 12 weeks (May be longer for Devon, Cornwall, Wales & Scotland), need it sooner? <a href=\"https://www.eatsleeplive.co.uk/pages/get-in-touch\" target=\"_blank\" title=\"https://www.eatsleeplive.co.uk/pages/get-in-touch\">get in touch</a> to see how we can help, we can do miracles occasionally!</p><p>We aim to deliver all of our furniture via our craftsmen that made your items.</p><p>We do occasionally deliver via our trusted couriers when needed.</p><p><br/>We will contact you with as much notice as possible (usually 7-14 days before) to book your delivery. <br/><br/><strong>Moving house or have renovations?<br/></strong><br/>Order now to get the ball rolling and we will work with you on timescales. Project or move  delayed? Don't worry we can hold your furniture until you are ready and then deliver as soon as possible after completion! <br/><br/>Any questions contact us on </p><p>tel: <strong>01159 700 060<br/></strong>email: <strong>info@eatsleeplive.co.uk<br/></strong><a href=\"https://direct.lc.chat/4777881/\" target=\"_blank\" title=\"live chat\"><strong><br/></strong></a><strong>*We deliver to mainland UK only.</strong></p><p><strong>For Cornwall, Wales & Scotland. Please call us to discuss before ordering as there may be delivery charges.</strong></p>",
+        "fully_assembled": "<p>Most of our pieces will arrive fully assembled and some will need to be assembled, such as dining tables, beds and desks.</p><p>Our assembly service is included free of charge if delivered by our own craftsmen. </p><p>Occasionally we may need to deliver via a trusted courier who may not offer this service, however we can give clear instructions, don't worry its all very simple and easy! <br/><br/><em><strong>PLEASE NOTE:</strong></em><em> We can not be held responsible for furniture not fitting in your house or being able to get it in your room of choice, please check dimensions and accessibility before ordering.</em></p><p><em>We do not hang mirrors or install your TV equipment etc, our service is to simply deliver your Eat Sleep Live items to your home.</em></p><p></p><p><em><strong>Returns & Refunds Policy - easy no hassle </strong></em><a href=\"/pages/returns-and-refunds-policy\" target=\"_blank\" title=\"Returns And Refunds Policy\"><em><strong>learn more</strong></em></a></p><p> </p>",
+        "assembly_required": ""
+      }
+    },
+    "product-tab-finance": {
+      "type": "product-tab-finance",
+      "blocks": {
+        "e0e4c05c-614d-4480-82c5-75c365597d37": {
+          "type": "finance-option",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/klarna_logo.png",
+            "price": "",
+            "description": "<p>Pay Monthly with Klarna. Choose to pay in 3 or via slice it finance</p>"
+          }
+        },
+        "d4196618-5cd0-4a62-a10d-67090cf712f7": {
+          "type": "finance-option",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/splitsave-logo_1.png",
+            "price": "",
+            "description": "<p>Split your purchase into 6 monthly payments on an existing credit card of yours - no credit checks needed, up to your maximum allowance. </p>"
+          }
+        },
+        "0bf46440-c0ce-4aa3-8891-40cf964e3e6c": {
+          "type": "finance-option",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/image_1_b2f8cdb3-5caf-4291-a652-6e71428d46fa.png",
+            "price": "150/month",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur</p>"
+          }
+        }
+      },
+      "block_order": [
+        "e0e4c05c-614d-4480-82c5-75c365597d37",
+        "d4196618-5cd0-4a62-a10d-67090cf712f7",
+        "0bf46440-c0ce-4aa3-8891-40cf964e3e6c"
+      ],
+      "settings": {
+        "subtitle": "PAY, YOUR WAY.",
+        "title": "Kit out your home with our flexible payment options",
+        "description": "<p><strong>ONLINE ORDERS:</strong></p><p><strong>Pay in full via debit/credit card</strong> - Visa, Mastercard, Maestro, Amex or Paypal</p><p> </p><p><strong>OFFLINE ORDERS: (via phone, email or in-store)</strong></p><p><strong>Pay in 2 - </strong>25% or 50% deposit on placing order</p><p>Balance paid on booking delivery</p><p></p><p><strong>Pay in 3 </strong>- 1/3 deposit on placing order</p><p> 1/3 halfway during lead time</p><p> balance paid on booking delivery</p><p>to arrange one of our payment plans please <a href=\"https://www.eatsleeplive.co.uk/pages/get-in-touch\" title=\"get in touch\">get in touch</a></p><p> </p><p><strong>BACS PAYMENTS:</strong></p><p>Not a problem we can give you the details once you enquire/order<br/><br/></p><p></p><p><strong>RETURNS & REFUND POLICY - </strong><em><strong>easy no hassle </strong></em><a href=\"/pages/returns-and-refunds-policy\" target=\"_blank\" title=\"Returns And Refunds Policy\"><em><strong>learn more<br/><br/></strong></em></a></p><p></p><p><strong>QUESTIONS?</strong></p><p><strong>We are always happy to help</strong></p><p><strong>tel: 01159 700 060</strong></p><p><strong>email: info@eatsleeplive.co.uk</strong></p><p><strong> or </strong><a href=\"https://www.eatsleeplive.co.uk/pages/get-in-touch#visit-our-workshop\"><strong>visit us. </strong></a></p><p> *Terms & conditions apply.</p>"
+      }
+    },
+    "product-tab-aftercare": {
+      "type": "product-tab-aftercare",
+      "blocks": {
+        "e0ab5e49-3224-4b14-9662-7180af84115a": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/british-made-centre-panel_39b25eef-68e7-4621-8096-e34a21720758_large_2.png",
+            "title": "Keep your reclaimed wood furniture looking it's best",
+            "content": "<p><strong>Waxing</strong></p><p>Regular waxing will improve the protection and overall appearance. You can wax your furniture as much as you want but every few months is adequate.<br/><br/><strong>Things to be careful of…</strong></p><p>Placing hot or wet items such as pans, plates etc directly onto the surface.</p><p>We recommend the use of placemats or coasters to avoid unwanted stains and marks.</p><p>But dont worry if you get any marks it is always possible to remove them!</p><p><a href=\"/pages/aftercare\" title=\"Aftercare\"><strong>Find out more</strong></a></p>"
+          }
+        },
+        "75646852-e3e6-4c1f-9983-cba1dc218f6d": {
+          "type": "usp",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/british-made-centre-panel_large_b28a91d7-93c4-4765-883b-17438d3cbd86.png",
+            "icon": "medal",
+            "title": "Last a lifetime",
+            "content": "<p>Lorem ipsum dolor sit amet, consectur adipiscing elit.</p>",
+            "image_two": "shopify://shop_images/british-made-centre-panel_39b25eef-68e7-4621-8096-e34a21720758_large_1.png",
+            "icon_two": "spanner",
+            "title_two": "Handcrafter to Order",
+            "content_two": "<p>Lorem ipsum dolor sit amet, consectur adipiscing elit.</p>",
+            "image_three": "shopify://shop_images/british-made-centre-panel_39b25eef-68e7-4621-8096-e34a21720758_large_2.png",
+            "icon_three": "hand",
+            "title_three": "Free Delivery",
+            "content_three": "<p>Lorem ipsum dolor sit amet, consectur adipiscing elit.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "e0ab5e49-3224-4b14-9662-7180af84115a",
+        "75646852-e3e6-4c1f-9983-cba1dc218f6d"
+      ],
+      "settings": {}
+    },
+    "16641886892fac76b7": {
+      "type": "product-features",
+      "disabled": true,
+      "settings": {
+        "subtitle": "Subtitle",
+        "title": "Title text",
+        "features": "<p>Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet</p>",
+        "feature_image": "shopify://shop_images/ESL_Grantham_Jade_Edit-16.jpg"
+      }
+    },
+    "1664455387863fcba9": {
+      "type": "trustpilot-container",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_liquid_9QDN6x": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "custom_liquid": "<script charset=\"utf-8\" type=\"text/javascript\" src=\"//js.hsforms.net/forms/embed/v2.js\"></script>\n<div id=\"made-to-measure-form-wrapper\" class=\"container wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-12\">\n\t\t\t\t\t\t\t<div class=\"main_menu_heading menu-banner-heading\">\n\t\t\t\t\t\t\t\t<h2 style=\"text-align: center\">Make a Made to Measure Enquiry</h2>\n\n<p>Looking for specific sizing that's not advertised or a completely bespoke piece? Talk to us. <a href=\"/pages/tailored-for-you\">Learn more about made to measure here.</a></p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n<div class=\"hbspt-made-to-measure-form-wrapper\">\t\t\t\t\n<script>\n  hbspt.forms.create({\n    portalId: \"2821538\",\n    formId: \"c888552b-1912-4955-bc66-f2e3fe52c9e1\",\n    region: \"na1\"\n  });\n</script>\n</div>\n\n</div>"
+      }
+    },
+    "1657891843b99c9814": {
+      "type": "two-column-images",
+      "blocks": {
+        "1657891843fe72b9fb-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_6ae4186e-2a2c-42c4-a366-f45ac0df62c1.png"
+          }
+        },
+        "1657891843fe72b9fb-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_52f242bb-25ea-4d3c-9290-ff4fbfd72781.png"
+          }
+        }
+      },
+      "block_order": [
+        "1657891843fe72b9fb-0",
+        "1657891843fe72b9fb-1"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "1657891299f5515e3c": {
+      "type": "callout-video",
+      "disabled": true,
+      "settings": {
+        "title": "Key callout here",
+        "title_heading_type": "h4",
+        "title_heading_size": "h4",
+        "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut quam euismod, commodo orci sed, placerat nisi. Ut porta at justo et consectetur. In hac habitasse</p>",
+        "button-text": "",
+        "button-url": "",
+        "image": "shopify://shop_images/Bitmap_32.png",
+        "mobile_image": "shopify://shop_images/british-made-centre-panel_large_b28a91d7-93c4-4765-883b-17438d3cbd86.png",
+        "youtube_url": "https://youtu.be/GtDPjlUToKU"
+      }
+    },
+    "1657891114f78445a1": {
+      "type": "samples-text-image",
+      "disabled": true,
+      "settings": {
+        "title": "Can't decide on colour?",
+        "text": "<p>Order our free wood colour samples to find the perfect colour for your space.</p>",
+        "button-text": "Order Your Samples",
+        "button-url": "shopify://pages/colours-samples",
+        "button-text-2": "Visit Our Workshop",
+        "button-url-2": "shopify://pages/get-in-touch",
+        "image": "shopify://shop_images/Samples_1.png"
+      }
+    },
+    "16589158958a4e3cce": {
+      "type": "footer-blog",
+      "blocks": {
+        "52448ce5-0390-4107-8a6a-bbbdbf437262": {
+          "type": "article",
+          "settings": {
+            "article_guide": "features/creating-a-cosy-night-in-with-eat-sleep-live"
+          }
+        },
+        "70527280-4e9d-4ff0-a972-82fa87d7ff28": {
+          "type": "article",
+          "settings": {
+            "article_guide": "features/summer-interior-styling-trends"
+          }
+        },
+        "fc63c627-22bb-422a-9079-c9ad27ee5fd4": {
+          "type": "article",
+          "settings": {
+            "article_guide": "features/how-to-achieve-nordic-interior-design"
+          }
+        }
+      },
+      "block_order": [
+        "52448ce5-0390-4107-8a6a-bbbdbf437262",
+        "70527280-4e9d-4ff0-a972-82fa87d7ff28",
+        "fc63c627-22bb-422a-9079-c9ad27ee5fd4"
+      ],
+      "disabled": true,
+      "settings": {
+        "blog_title": "",
+        "color_heading": "#808171",
+        "resource_link": "",
+        "resource_label": "",
+        "guide_article_one": "features/natural-and-rustic-home-interiors",
+        "guide_article_two": "features/5-ways-to-use-reclaimed-wood-furniture-within-your-bedroom"
+      }
+    },
+    "product-explore-range": {
+      "type": "product-explore-range",
+      "disabled": true,
+      "settings": {}
+    },
+    "related-product-carousel": {
+      "type": "related-product-carousel",
+      "settings": {
+        "heading": "Recommended products"
+      }
+    },
+    "product-rv": {
+      "type": "product-rv",
+      "settings": {
+        "rv-title": "Recently viewed products"
+      }
+    }
+  },
+  "order": [
+    "product-template",
+    "product-tab-headers",
+    "product-tab-description",
+    "product-tab-details",
+    "product-tab-delivery-assembly",
+    "product-tab-finance",
+    "product-tab-aftercare",
+    "16641886892fac76b7",
+    "1664455387863fcba9",
+    "custom_liquid_9QDN6x",
+    "1657891843b99c9814",
+    "1657891299f5515e3c",
+    "1657891114f78445a1",
+    "16589158958a4e3cce",
+    "product-explore-range",
+    "related-product-carousel",
+    "product-rv"
+  ]
+}

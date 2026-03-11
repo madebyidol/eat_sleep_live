@@ -1,0 +1,67 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2022-01-18T16:24:07+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  147891
+//      Project:        310
+//      Environment:    1410 - qa-testing
+//      MD5:            028b31e79114ea2f825d2145cd862287
+//      Signature:      eyJpdiI6IlkxOTMwMDQ0MkIrS1huSmNjQ1NDdEE9PSIsInZhbHVlIjoiYzBZSFwvXC80Q09rYW4zcWFMOUlydGZvdEVrZGcwdnFWaDFZQW00RUg4RVFlM2RvMVpCcitPSkhCcG5jemJ1S2lnYWZFcDRDVW9NdVM1WTRFcjJPaWRkQzNZRFB0Q3p6Yk9cL3lcL2lIbWRrM3RNbXZGSjU4RDVHbnZ5eCtGK3RHWHVtd3ZJRmhTaStROTNmS0RmSVJFUmZvWnc0MWs2RU9MMFlYSDdYZnI5VGF3YVppXC8rY05EYnpSM2lqakZoM2Vtbkx6QTV6XC9QaTdBUWlWTTFUbVY0czhNbkM2RWQzdUVGcm1aTllzd0ZDUkdjZTQ3bzJGS3VNa2lYaEd0Q1BiYmp6TWFqa2RZbkFlNnFWNjFSUmV1ZEg2OFlDS0xsd3Y4UXZUT29saHdQRnVvVkR4QW1ma3NqK1dMUU5QSXJpczV5ZHJ1WjZcL3VXZGlHVytFRElMK0tJakFjKzlUU0pvd1VaTVpCK0J1Z2JcL0lqU1huZlhabWcyQVNPTDNRc1RueHAzRFd2TnppK1dXTFI4K3lRS0VKTUkrdm93PT0iLCJtYWMiOiJlNzBkNWVjYTdmOWRkNjQ1MWQzMzgxMTczZjU0NzJiOGQ2NjYyMGQyNzc4ZmJmZjZjN2JlNGViNjk1Y2UxNjdkIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{{ 'https://az814789.vo.msecnd.net/toolkit/1.2.11/appmate.js' | script_tag }}
+
+<script type="text/javascript">
+;(function(){
+  if (typeof Appmate === 'undefined') return; // In case lib didn't load.
+  Appmate.init({
+    shop: {
+      domain: '{{ shop.domain }}'
+    },
+    session: {
+      customer: '{{ customer.id }}'
+    },
+    wishlist: {
+        loginRequired: false,
+        handle: '/pages/wishlist'
+    },
+    globals: {
+      settings: {{ settings | json }},
+      cookie_policy_handle: '{{ pages.cookie-policy.handle }}',
+      customer: '{{ customer.id }}',
+      customer_accounts_enabled: {{ shop.customer_accounts_enabled }}
+    },
+    wishlist: {
+      share: {
+        title: 'My Wishlist',
+        description: 'Check out some of my favourite things @ {{ shop.name }}.',
+        imageTitle: '{{ shop.name }}',
+        hashTags: 'wishlist'
+      }
+    }
+  });
+})();
+</script>
+
+{% capture wishlist_king_snippet %}
+  {% include 'appmate-wishlist-king' %}
+{% endcapture %}
+{% unless wishlist_king_snippet contains "Liquid error" %}
+  {{ wishlist_king_snippet }}
+{% endunless %}
+
+
+{% capture cookie_lawyer_snippet %}
+  {% include 'appmate-cookie-lawyer' %}
+{% endcapture %}
+{% unless cookie_lawyer_snippet contains "Liquid error" %}
+  {{ cookie_lawyer_snippet }}
+{% endunless %}

@@ -1,0 +1,278 @@
+{{ 'product-tab-delivery-assembly.scss' | asset_url | stylesheet_tag }}
+
+{% unless product.tags contains "pdp:hide-assembly" %}
+
+    <div class="product__tab">
+
+        <div class="product__delivery-container">
+            <div class="product__delivery">
+
+                <div class="product__delivery-title">Product Delivery</div>
+
+                {{ section.settings.delivery }}
+            </div>
+        
+            <div class="product__assembly">
+
+                <div class="product__delivery-title">Product Assembly</div>
+
+                {% unless product.tags contains "pdp:hide-full-assembly" %}
+        
+                    {{ section.settings.fully_assembled }}
+        
+                {% endunless %}
+                
+                {% unless product.tags contains "pdp:hide-part-assembly" %}
+        
+                    {{ section.settings.assembly_required }}
+        
+                {% endunless %}
+            </div>
+        </div>
+
+
+        {% for block in section.blocks %}
+        {% include block.type %}
+        {% endfor %}
+    </div>
+    
+{% endunless %}
+
+
+{% schema %}
+{
+  "name": "Delivery & Assembly Tab",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Delivery Information"
+    },
+    {
+      "type": "richtext",
+      "id": "delivery",
+      "label": "Delivery Information"
+    },
+    {
+      "type": "header",
+      "content": "Assembly Information"
+    },
+    {
+      "type": "richtext",
+      "id": "fully_assembled",
+      "label": "Fully Assembled Information"
+    },
+    {
+      "type": "richtext",
+      "id": "assembly_required",
+      "label": "Assembly Required Information"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image-text",
+      "name": "Image & Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "usp",
+      "name": "USP's",
+      "settings": [
+        {
+          "type": "header",
+          "content": "USP One"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "medal",
+              "label": "Medal"
+            },
+            {
+              "value": "spanner",
+              "label": "Spanner"
+            },
+            {
+              "value": "hand",
+              "label": "Hand"
+            }
+          ],
+          "default": "medal"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "header",
+          "content": "USP Two"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_two",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "icon_two",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "medal",
+              "label": "Medal"
+            },
+            {
+              "value": "spanner",
+              "label": "Spanner"
+            },
+            {
+              "value": "hand",
+              "label": "Hand"
+            }
+          ],
+          "default": "medal"
+        },
+        {
+          "type": "text",
+          "id": "title_two",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_two",
+          "label": "Content"
+        },
+        {
+          "type": "header",
+          "content": "USP Three"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_three",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "icon_three",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "medal",
+              "label": "Medal"
+            },
+            {
+              "value": "spanner",
+              "label": "Spanner"
+            },
+            {
+              "value": "hand",
+              "label": "Hand"
+            }
+          ],
+          "default": "medal"
+        },
+        {
+          "type": "text",
+          "id": "title_three",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content_three",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "product-feature",
+      "name": "Product Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "features",
+          "label": "Features"
+        },
+        {
+            "type": "image_picker",
+            "id": "feature_image",
+            "label": "Image"
+         }
+      ]
+    },
+    {
+      "type": "blogs",
+      "name": "Blog Grid",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Blog Articles"
+        },
+        {
+          "type": "article",
+          "id": "guide_article_one",
+          "label": "Guide Article One"
+        },
+        {
+          "type": "article",
+          "id": "guide_article_two",
+          "label": "Guide Article Two"
+        },
+        {
+          "type": "article",
+          "id": "article_guide_one",
+          "label": "Article One"
+        },
+        {
+          "type": "article",
+          "id": "article_guide_two",
+          "label": "Article Two"
+        },
+        {
+          "type": "article",
+          "id": "article_guide_three",
+          "label": "Article Three"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

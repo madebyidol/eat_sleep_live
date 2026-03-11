@@ -1,0 +1,83 @@
+<div class="two-column-images flex flex-wrap flex-center"  data-aos-delay="50">
+  {% for block in section.blocks %}
+    <div class="one-half medium--one-half small--one-whole bg-cover" loading="lazy" data-bgimage="{{ block.settings.image.src | img_url: '750x' }}"​​​​​​></div>
+  {% endfor %}
+</div>
+
+<script async>
+  //this code allows us to lazy load a background image
+  // Check for IntersectionObserver support
+  if ('IntersectionObserver' in window) {
+    document.addEventListener("DOMContentLoaded", function() {
+      function handleIntersection(entries) {
+        entries.map((entry) => {
+          if (entry.isIntersecting) {
+            // Item has crossed our observation
+            // threshold - load src from data-src
+            entry.target.style.backgroundImage = "url('"+entry.target.dataset.bgimage+"')";
+            // Job done for this item - no need to watch it!
+            observer.unobserve(entry.target);
+          }
+        });
+      }
+  
+      const headers = document.querySelectorAll('.two-column-images div');
+      const observer = new IntersectionObserver(
+        handleIntersection,
+        { rootMargin: "100px" }
+      );
+      headers.forEach(header => observer.observe(header));
+    });
+  } else {
+    // No interaction support? Load all background images automatically
+    const headers = document.querySelectorAll('.two-column-images div');
+    headers.forEach(header => {
+      header.style.backgroundImage = "url('"+header.dataset.bgimage+"')";
+    });
+  }
+  </script>
+
+  <style>
+    .two-column-images > .one-half {
+	 background-size: cover;
+	 background-repeat: no-repeat;
+	 background-position: center;
+	 padding-bottom: 25%;
+	 min-height: 285px;
+	 max-height: 450px;
+}
+  </style>
+
+{% schema %}
+{
+  "name": "Two Column Images",
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two Column Images",
+      "category": "Blocks",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

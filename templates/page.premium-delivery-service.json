@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-banner",
+      "settings": {
+        "banner_heading": "Our delivery service"
+      }
+    },
+    "d06908a5-0063-4f02-9768-e262963dc953": {
+      "type": "text-section",
+      "settings": {
+        "heading": "Free delivery by our craftsmen*",
+        "description": "<p>Current <strong>lead time</strong> is approx 8 to 12 weeks</p><p><br/><strong>Need it quicker?</strong><br/><a href=\"/pages/get-in-touch\" title=\"Get in touch\">Speak to us</a> and we’ll see what we can do.</p><p>*Delivery method depends on your location, we deliver to mainland UK only, for Scotland, Wales, Devon and Cornwall please <a href=\"https://www.eatsleeplive.co.uk/pages/get-in-touch\">get in touch</a> before ordering as lead time may be longer and delivery may be charged.</p><p>Occasionally we may need to deliver via our trusted couriers</p><p></p>"
+      }
+    },
+    "afe481ac-a88d-4e9b-8e5f-c437a28a7b7d": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/image_0749333f-0845-4ca4-acec-735750a2f328.png",
+        "heading": "Our free premium delivery service comes as standard",
+        "description": "<p>Our own experienced two-person team will put your furniture in situ and complete any required assembly.<br/><br/>They will even fit protective pads where needed and give any after care advice so you can keep your furniture looking beautiful for a lifetime to come.<br/><br/>Sit back and relax and let us do all the work! All part of the service!*<br/><br/></p>",
+        "image_position": "text image"
+      }
+    },
+    "517b5cbb-036d-4c8a-a0b1-8a5067fe8fbf": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/ESL_22.02.19-31-2.jpg",
+        "heading": "Pre-delivery",
+        "description": "<p>We’ll call you with as much notice as possible to discuss your delivery date. Usually, 7 to 14 days prior. <br/><br/>We give an approx time slot of 2 to 4 hours, so you don’t have to wait around all day.<br/><br/>For out of office hours or in the event of an emergency, we’ll also provide our drivers’ telephone number just in case you need to get hold of them on your delivery day.<br/></p>",
+        "image_position": "image text"
+      }
+    },
+    "4d57b3cc-bf79-42bf-aad7-b5451ed27098": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/image_2_017ac493-7210-49ed-a814-b7e60b1a0d4e.png",
+        "heading": "On the delivery day itself",
+        "description": "<p>Our delivery team will pre-call with a more accurate arrival time, and keep you updated if they’re running late or stuck in traffic.<br/><br/>On arrival, they’ll bring your furniture into the room of your choice and assemble where necessary, meaning you can just sit back and relax and let them do all the work. <br/><br/> Have any questions? They’re there to help.<br/></p>",
+        "image_position": "text image"
+      }
+    },
+    "48bebf9e-bd2f-42e1-809b-f7e324c2b69f": {
+      "type": "text-image-column",
+      "settings": {
+        "image": "shopify://shop_images/12-3.jpg",
+        "heading": "Following your delivery",
+        "description": "<p>We’ll get in touch just to check delivery went well and you’re happy with your furniture.</p><p><strong>Please note</strong></p><p>Kindly let us know in advance of any difficult circumstances regarding your delivery, i.e., top floor flat, no parking nearby, restricted parking or limited access etc.<br/><br/>We do ask if you could ensure access to the room and the room itself is clear and ready for our guys to put your furniture in situ.<br/><br/>We can’t be held responsible for furniture not fitting in your chosen room or being too large to be able to get in the room itself – so please be sure to check dimensions of our furniture and additional components such as headboards etc before you order.<br/></p>",
+        "image_position": "image text"
+      }
+    },
+    "ed883b9d-ea63-4b9c-a712-c0396c3a7552": {
+      "type": "faq",
+      "blocks": {
+        "814d5657-1291-4c61-92e5-16fbe15b905b": {
+          "type": "faq",
+          "settings": {
+            "question": "Where do you deliver to?",
+            "answer": "We personally deliver to mainland UK only excluding certain areas in northern Scotland and Wales. Please call us on 01159 700 060 to discuss before ordering."
+          }
+        },
+        "665eaec2-9738-4712-81ac-f4e4f0e7b7ed": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you assemble the furniture in situ if needed?",
+            "answer": "This is all part of our delivery service, deliveries are carried out by our own experienced two man team, who will bring your furniture into your home/room of your choice, assemble where necessary and put in situ for you (yes, even beds!) Sit back and relax and we will do everything for you. If you can make your room clear of any obstructions and remove any old furniture to give us more space that would be great."
+          }
+        },
+        "306fed3b-e8ad-49e7-b688-032dfbd892e2": {
+          "type": "faq",
+          "settings": {
+            "question": "Does your furniture come flat-packed?",
+            "answer": "Here at Eat Sleep Live, we don’t know the meaning of flat-pack furniture! All of our furniture is delivered fully assembled excluding all beds, Cavendish shelving units, desks, dining tables and wardrobes. These will be assembled in our home by our team, assembly is all part of our service."
+          }
+        },
+        "12eb1622-a118-4daf-a794-b647a81b2b6f": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you dispose of the packing for me?",
+            "answer": "We don't use any packaging; we prefer to blanket wrap everything for the safest transportation from our workshop to you home. Plus, it’s better for the planet too!"
+          }
+        },
+        "f64c9266-2c5a-404c-a482-4cc1c5c3f07d": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I have to stay in all day on delivery day?",
+            "answer": "We always give you a 2-4 hour time window and our delivery duo will call you when they are approx. 30 mins away with a more accurate arrival time (if you need more notice e.g. 1 hour, please let us know)."
+          }
+        },
+        "b5023d61-d9af-4e1f-bd36-2b95a26df56d": {
+          "type": "faq",
+          "settings": {
+            "question": "I live outside of the UK, would you still be able to deliver to me as a special request?",
+            "answer": "We only deliver within the UK Mainland. For outside the UK Mainland, we could either deliver to a 3rd party (arranged by yourselves) or meet you in a central location for you to continue the journey. Alternatively, you could head over to our HQ in Nottingham to collect from us.  Please note: we do not package the furniture for transportation, this would need to be provided by the 3rd party and any additional costs for the onward service are not covered within our free delivery service."
+          }
+        }
+      },
+      "block_order": [
+        "814d5657-1291-4c61-92e5-16fbe15b905b",
+        "665eaec2-9738-4712-81ac-f4e4f0e7b7ed",
+        "306fed3b-e8ad-49e7-b688-032dfbd892e2",
+        "12eb1622-a118-4daf-a794-b647a81b2b6f",
+        "f64c9266-2c5a-404c-a482-4cc1c5c3f07d",
+        "b5023d61-d9af-4e1f-bd36-2b95a26df56d"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Frequently asked questions"
+      }
+    },
+    "33e32d3c-0e40-4759-88ac-a2ef0eff8e6b": {
+      "type": "section-cta",
+      "settings": {
+        "heading": "Any questions?",
+        "description": "<p>Get in touch with us, we will be happy to help.</p>",
+        "button_text": "Get in touch",
+        "button_link": "shopify://pages/get-in-touch"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "d06908a5-0063-4f02-9768-e262963dc953",
+    "afe481ac-a88d-4e9b-8e5f-c437a28a7b7d",
+    "517b5cbb-036d-4c8a-a0b1-8a5067fe8fbf",
+    "4d57b3cc-bf79-42bf-aad7-b5451ed27098",
+    "48bebf9e-bd2f-42e1-809b-f7e324c2b69f",
+    "ed883b9d-ea63-4b9c-a712-c0396c3a7552",
+    "33e32d3c-0e40-4759-88ac-a2ef0eff8e6b"
+  ]
+}
