@@ -75,6 +75,29 @@ html, body, .mm-wrapper {
   display: none;
 }
 
+/* Mobile menu */
+#mobile-trigger {
+  display: grid;
+}
+
+#mobile-trigger svg {
+  opacity: 1;
+  grid-area: 1 / 1;
+  transition: opacity 250ms ease-out;
+}
+
+#mobile-trigger svg:last-child {
+  opacity: 0;
+}
+
+#mobile-trigger.active svg:first-child {
+  opacity: 0
+}
+
+#mobile-trigger.active svg:last-child {
+  opacity: 1;
+}
+
 @media screen and (max-width: 1080px) {
   .site-header__navigation {
     position: absolute;
