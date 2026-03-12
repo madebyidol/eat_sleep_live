@@ -110,6 +110,13 @@ html, body, .mm-wrapper {
   }
 }
 
+@media screen and (min-width: 1081px) {
+  .site-header__navigation {
+    height: auto !important;
+    top: auto !important;
+  }
+}
+
 /* Annoucement CSS */
 
 .marquee {
