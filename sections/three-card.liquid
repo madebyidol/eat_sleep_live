@@ -34,7 +34,7 @@
         {% endif %}
 
         <div class="three-card-content">
-          {% if block.settings.category != blank %}
+          {% if block.settings.category != blank and block.settings.show-category == true %}
             <p class="three-card-category sml-caps">{{ block.settings.category }}</p>
           {% endif %}
           {% if block.settings.title != blank %}
@@ -288,6 +288,12 @@
           "id": "title",
           "label": "Title",
           "default": "Eat"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-category",
+          "label": "Display category",
+          "default": true
         },
         {
           "type": "text",
