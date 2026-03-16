@@ -668,9 +668,9 @@
           "765e83a9-6973-4ac0-aa7e-287cd3ff5c6d": {
             "type": "dropdown_image",
             "settings": {
-              "nav_link": "Our Products",
-              "nav_image": "shopify://shop_images/darcy_footboard_bed_f5e1b6de-b69e-473b-a5c8-e77cb2a5784f.jpg",
-              "lower_button_url": "shopify://collections/reclaimed-solid-wood-beds",
+              "nav_link": "Our Furniture",
+              "nav_image": "shopify://shop_images/ESL_Grantham_Jade_Edit-62.jpg",
+              "lower_button_url": "shopify://collections",
               "lower_button_label": "Shop all",
               "button_url": "shopify://collections/reclaimed-solid-wood-beds",
               "button_label": "shop beds"
@@ -1548,6 +1548,7 @@
             "settings": {
               "image": "shopify://shop_images/ESL_Grantham_Jade_Selected_Edit-9.jpg",
               "title": "Eat",
+              "show-category": true,
               "category": "DINING ROOM FURNITURE",
               "description": "Timeless dining furniture, carefully made from reclaimed wood.",
               "button_text": "SHOP DINING ROOM",
@@ -1559,6 +1560,7 @@
             "settings": {
               "image": "shopify://shop_images/bransonloftbeddouble.jpg",
               "title": "Sleep",
+              "show-category": true,
               "category": "BEDROOM FURNITURE",
               "description": "Thoughtfully made bedroom furniture, crafted to last.",
               "button_text": "SHOP BEDROOM",
@@ -1570,6 +1572,7 @@
             "settings": {
               "image": "shopify://shop_images/ESLGranthamJadeEdit-41.jpg",
               "title": "Live",
+              "show-category": true,
               "category": "LIVING ROOM FURNITURE",
               "description": "Beautiful, practical furniture designed for modern living.",
               "button_text": "SHOP LIVING ROOM",
@@ -1885,7 +1888,7 @@
           "rating": "5.0",
           "review_count": "900+ Reviews",
           "star_color": "#00b67a",
-          "button_text": "Explore Products",
+          "button_text": "Shop Furniture",
           "button_link": "shopify://collections",
           "button_background": "#9f5130",
           "button_text_color": "#ffffff",
