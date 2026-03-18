@@ -41,6 +41,7 @@
 .sml-button {
   padding: 8px 24px 7px;
   height: 39px;
+  font-size: 12px;
 }
 
 .light-button {
@@ -101,12 +102,55 @@ html, body, .mm-wrapper {
 @media screen and (max-width: 1080px) {
   .site-header__navigation {
     position: absolute;
+    width: clamp(480px, 80vw, 500px) !important;
+    transition: left .4s ease-out !important;
+  }
+  .site-header__navigation-item-dropdown {
+    width: inherit;
   }
   .site-header .desktop-logo {
     display: none;
   }
   .site-header .mobile-logo {
     display: block;
+  }
+
+  /* Tap target padding — header bar icons (horizontal) */
+  #mobile-trigger {
+    padding: 8px;
+    padding-left: 0;
+  }
+  .customer-links {
+    column-gap: 2px !important;
+  }
+  .customer-links li a {
+    padding: 8px;
+  }
+  .customer-links li:last-child a {
+    padding-right: 0;
+  }
+
+  /* Tap target padding — level 1 nav items (vertical) */
+  .site-header__navigation-list {
+    gap: 8px;
+  }
+  .site-header__navigation-item > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  /* Tap target padding — mobile CTA links (vertical) */
+  .site-header__mobile-list {
+    gap: 8px;
+  }
+
+  /* Tap target padding — level 2 tab items (vertical) */
+  .site-header__nav-tabs {
+    gap: 8px !important;
+  }
+  .site-header__nav-tab a {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 
@@ -115,6 +159,121 @@ html, body, .mm-wrapper {
     height: auto !important;
     top: auto !important;
   }
+  .site-header__navigation-level-3 {
+    display: none;
+  }
+  .mobile-next-arrow,
+  button.mobile-next {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+
+  .site-header__nav-tabs {
+    border-right: none;
+  }
+
+  /* Fix scrolling: only one level scrolls at a time */
+  .site-header__navigation.active {
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+  }
+  .site-header__navigation-item-dropdown {
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    left: -100%;
+    transition: left .4s ease-out;
+  }
+  .site-header__navigation-item-dropdown-inner {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .site-header__navigation-level-3 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(clamp(480px, 80vw, 500px) * -1);
+    width: clamp(480px, 80vw, 500px);
+    background: white;
+    z-index: 99999;
+    transition: left .4s ease-out;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding: 0;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+  }
+  .site-header__navigation-level-3.active {
+    left: 0;
+  }
+  .site-header__navigation-level-3 .site-header__navigation-grandchild-list--mobile {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+    padding-bottom: 80px;
+  }
+  .site-header__navigation-level-3 .site-header__navigation-grandchild-item a {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    font-size: 13px;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e8e5e0;
+  }
+  .site-header__nav-tab-label.has-children {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-header__nav-tab-label {
+    color: var(--esl-olive) !important;
+  }
+  .mobile-next-arrow {
+    flex-shrink: 0;
+  }
+}
+
+/* Navigation image hover zoom */
+a.site-header__navigation-image {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  aspect-ratio: 1 / 1;
+}
+a.site-header__navigation-image img {
+  transition: transform 0.4s ease;
+}
+a.site-header__navigation-image:hover img {
+  transform: scale(1.05);
+}
+.site-header__navigation-image-label {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  left: 16px;
+}
+a.site-header__navigation-image:hover .site-header__navigation-image-label {
+  background-color: #7a3d22;
+}
+.site-header__navigation-image-label svg {
+  display: none;
 }
 
 /* Annoucement CSS */

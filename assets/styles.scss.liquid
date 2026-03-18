@@ -3646,7 +3646,7 @@ label.error {
     transition: background 0.3s ease;
     border: none;
     font-weight: 400;
-    line-height: 1.3;
+    line-height: 1.1;
 
     &:hover, &:focus, &:active {
         background-color: darken(#9F5130, 10%);
@@ -4483,7 +4483,7 @@ header {
     align-items: center;
 
     @media screen and (max-width: 1100px) {
-        column-gap: 32px;
+        column-gap: 24px;
     }
 
     @media only screen and (max-width: $navBreakpoint) {
@@ -4798,8 +4798,8 @@ header {
         width: 100%;
         padding: 8px 12px;
         height: 40px;
-        background: #F2F2F2;
-        border-radius: 6px;
+        background: var(--esl-grey-light);
+        border-radius: 12px;
         border: 1px solid #F2F2F2;
         font-size: 13px;
         line-height: 38px;
@@ -4827,6 +4827,7 @@ header {
         right: 0;
         top: 0%;
         padding: 12px;
+        padding-right: 2px;
         height: 40px;
         display: flex;
         @include align-items(center);
@@ -15176,10 +15177,11 @@ main .trustpilot-widget {
         z-index: 999;
         top: 100%;
         background: white;
-        left: -100%;
+        left: calc(clamp(480px, 80vw, 500px) * -1);
         transition: all .35s ease-in-out;
         overflow: hidden;
         border-top: 0;
+        max-width: 100vw;
     }
 }
 
@@ -15194,6 +15196,7 @@ main .trustpilot-widget {
     border: 0;
     display: flex;
     flex-flow: row-reverse nowrap;
+    gap: 40px;
 
     @media only screen and (max-width: $navBreakpoint) {
         width: 100%;
@@ -15208,12 +15211,11 @@ main .trustpilot-widget {
 
     @media only screen and (max-width: $navBreakpoint) {
         display: flex;
-        justify-content: center;
+        justify-content: start;
 
         .site-header__search {
             display: block;
             max-width: 400px;
-            padding: 5px 10px;
             position: relative;
             
             button {
@@ -15235,6 +15237,7 @@ main .trustpilot-widget {
 
     @media only screen and (max-width: $navBreakpoint) {
         flex-flow: column nowrap;
+        gap: 24px;
     }
 }
 
@@ -15288,7 +15291,6 @@ main .trustpilot-widget {
         }
 
         .site-header__navigation-link--no-image {
-            padding: 0 10px 0 10px;
 
             span {
                 padding: 0;
@@ -15301,7 +15303,6 @@ main .trustpilot-widget {
         }
 
         span {
-            padding: 0 30px;
             display: block;
         }
 
@@ -15310,7 +15311,6 @@ main .trustpilot-widget {
             margin-left: auto;
             position: relative;
             z-index: 999;
-            padding: 20px 30px 20px 20px;
         }
 
         .mobile-next {
@@ -15368,17 +15368,16 @@ main .trustpilot-widget {
     @media only screen and (max-width: $navBreakpoint) {
         display: flex;
         width: 100%;
-        position: relative;
-        z-index: 9;
+        z-index: 2;
         justify-content: center;
         background: #f2f2f2;
         padding: 14px 30px;
         align-items: center;
-        margin-bottom: 15px;
 
         .mobile-back {
             margin-left: 0;
             margin-right: auto;
+            display: flex;
 
             img {
                 transform: rotate(-180deg);
@@ -15386,7 +15385,6 @@ main .trustpilot-widget {
         }
 
         span {
-            text-transform: lowercase;
             color: #434241;
             font-size: 15px;
             line-height: 20px;
@@ -15405,9 +15403,8 @@ main .trustpilot-widget {
     background: white;
     display: flex;
     flex-flow: row nowrap;
-    padding: 50px 0 40px;
     z-index: 2;
-    transition: all .25s ease-in-out;
+    transition: all .35s ease-in-out;
     opacity: 0;
     visibility: hidden;
 
@@ -15446,7 +15443,6 @@ main .trustpilot-widget {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    position: relative;
     z-index: 2;
     
     @media only screen and (max-width: $navBreakpoint) {
@@ -15506,12 +15502,11 @@ main .trustpilot-widget {
 .site-header__navigation-grandchild-item {
     
     a {
-        padding: 4px 0;
         font-family: $bodyFontStack;
         font-size: 16px;
         line-height: 24px;
         color: #434241;
-        font-weight: 600;
+        font-weight: 300;
         position: relative;
         width: 100%;
         display: block;
@@ -15568,12 +15563,10 @@ main .trustpilot-widget {
 .site-header__navigation-image {
     position: relative;
     z-index: 2;
-    width: 527px;
-    height: 330px;
+    width: 100%;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 24px;
     margin-left: auto;
-    flex: 0 0 auto;
 
     img {
         width: 100%;
@@ -15584,8 +15577,9 @@ main .trustpilot-widget {
 
     a {
         position: absolute;
-        bottom: 20px;
-        right: 20px;
+        bottom: 0;
+        right: 0;
+        left: 0;
         background: #808171;
         color: white;
         font-size: 17px;
@@ -15596,6 +15590,7 @@ main .trustpilot-widget {
         padding: 12px 25px;
         display: flex;
         align-items: center;
+        border-radius: 0;
 
         svg {
             margin-left: 10px;
@@ -15629,13 +15624,14 @@ main .trustpilot-widget {
     padding: 12px 25px;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-top: auto;
     align-self: flex-start;
     margin-top: 16px;
-    border-radius: 12px;
     font-family: Lexend Exa, sans-serif;
     font-size: 14px;
     letter-spacing: 1px;
+    border-radius:12px;
 
     svg {
         margin-left: 10px;
@@ -15762,16 +15758,8 @@ main .trustpilot-widget {
     @media only screen and (max-width: $navBreakpoint) {
         display: flex;
         flex-flow: column nowrap;
-        margin-top: 30px;
         margin-left: 0;
-
-        li {
-            padding: 10px 10px 20px;
-
-            a {
-                padding: 0;
-            }
-        }
+        gap: 24px;
 
         span {
             padding: 0 0 0 10px;
