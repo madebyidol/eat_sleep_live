@@ -1550,7 +1550,7 @@
               "title": "Eat",
               "show-category": true,
               "category": "DINING ROOM FURNITURE",
-              "description": "Timeless dining furniture, carefully made from reclaimed wood.",
+              "description": "Timeless dining furniture, lovingly made from reclaimed wood.",
               "button_text": "SHOP DINING ROOM",
               "button_link": "shopify://collections/reclaimed-wood-dining-furniture"
             }
@@ -1558,11 +1558,11 @@
           "card_Gt4cea": {
             "type": "card",
             "settings": {
-              "image": "shopify://shop_images/bransonloftbeddouble.jpg",
+              "image": "shopify://shop_images/darcy_footboard_bed_f5e1b6de-b69e-473b-a5c8-e77cb2a5784f_1.webp-2.jpg",
               "title": "Sleep",
               "show-category": true,
               "category": "BEDROOM FURNITURE",
-              "description": "Thoughtfully made bedroom furniture, crafted to last.",
+              "description": "Thoughtfully made bedroom furniture, crafted to last for generations.",
               "button_text": "SHOP BEDROOM",
               "button_link": "shopify://collections/reclaimed-wooden-bedroom-furniture"
             }
@@ -1570,7 +1570,7 @@
           "card_zhYmRG": {
             "type": "card",
             "settings": {
-              "image": "shopify://shop_images/ESLGranthamJadeEdit-41.jpg",
+              "image": "shopify://shop_images/ESLBirminghamEditJadeSelection-84-2.jpg",
               "title": "Live",
               "show-category": true,
               "category": "LIVING ROOM FURNITURE",
@@ -1590,7 +1590,7 @@
           "background_color": "",
           "show_heading": true,
           "overline": "Thoughtfully made for your home",
-          "heading": "Transform your home with our unique reclaimed wood furniture",
+          "heading": "Make your house a home with our unique reclaimed wood furniture",
           "max_width": 1380,
           "header_spacing": 64,
           "card_gap": 24,
@@ -1615,10 +1615,38 @@
       "featured_products_jgnXjp": {
         "type": "featured-products",
         "blocks": {
-          "product_P33J6K": {
+          "product_3wxWTV": {
             "type": "product",
             "settings": {
-              "product": "marlowe-dining-table",
+              "product": "cavendish-dining-table-long-overhang-custom-frame",
+              "button_text": "Build yours"
+            }
+          },
+          "product_Byxx9N": {
+            "type": "product",
+            "settings": {
+              "product": "cavendish-shelving-unit",
+              "button_text": "Build yours"
+            }
+          },
+          "product_dkLAUF": {
+            "type": "product",
+            "settings": {
+              "product": "darcy-bed-with-footboard",
+              "button_text": "Build yours"
+            }
+          },
+          "product_BigGxD": {
+            "type": "product",
+            "settings": {
+              "product": "branson-1-drawer-bedside-table",
+              "button_text": "Build yours"
+            }
+          },
+          "product_CVyTVG": {
+            "type": "product",
+            "settings": {
+              "product": "cavendish-frameless-dining-table-short-overhang",
               "button_text": "Build yours"
             }
           },
@@ -1626,6 +1654,13 @@
             "type": "product",
             "settings": {
               "product": "hudson-bed-with-low-end",
+              "button_text": "Build yours"
+            }
+          },
+          "product_gchE3G": {
+            "type": "product",
+            "settings": {
+              "product": "cavendish-dining-table-long-overhang",
               "button_text": "Build yours"
             }
           },
@@ -1652,8 +1687,13 @@
           }
         },
         "block_order": [
-          "product_P33J6K",
+          "product_3wxWTV",
+          "product_Byxx9N",
+          "product_dkLAUF",
+          "product_BigGxD",
+          "product_CVyTVG",
           "product_K9GMWD",
+          "product_gchE3G",
           "product_NBeJrq",
           "product_JMEfct",
           "product_weVLAx"
@@ -1677,7 +1717,7 @@
             "settings": {
               "icon": "shopify://shop_images/icon-hammer.svg",
               "title": "Handcrafted in Nottingham",
-              "description": "Reclaimed wood from historic UK buildings"
+              "description": "The finest reclaimed wood from historic British buildings"
             }
           },
           "feature_HYECaq": {
@@ -1685,7 +1725,7 @@
             "settings": {
               "icon": "shopify://shop_images/icon-tree.svg",
               "title": "Made from reclaimed wood",
-              "description": "Giving new life to beautiful, well-aged timber"
+              "description": "Giving new life to beautiful, naturally-aged timber"
             }
           },
           "feature_iXX9Aq": {
@@ -1693,7 +1733,7 @@
             "settings": {
               "icon": "shopify://shop_images/icon-guarantee.svg",
               "title": "Lifetime guarantee",
-              "description": "Designed to be lived with and enjoyed for years to come"
+              "description": "Designed to be lived with and enjoyed for generations"
             }
           }
         },
@@ -1815,7 +1855,7 @@
           "image_layout": "grid_layout",
           "show_overlay_features": true,
           "image_1": "shopify://shop_images/ESL_Birmingham_Edit_Jade_Selection-62.jpg",
-          "image_2": "shopify://shop_images/ESL_Grantham_Jade_Edit-62.jpg",
+          "image_2": "shopify://shop_images/day_bed-3.jpg",
           "image_3": "shopify://shop_images/14_5ad6459b-45bc-4f8c-b90a-dff58d41cf87.jpg"
         }
       },
@@ -1883,7 +1923,7 @@
           "video_poster": "shopify://shop_images/hero-fallback.jpg",
           "fallback_image": "shopify://shop_images/hero-fallback.jpg",
           "heading": "Reclaimed wood furniture with soul",
-          "description": "We craft timeless furniture from reclaimed wood, salvaged from historic British buildings and brought to life by our expert hands.",
+          "description": "We craft timeless furniture from reclaimed wood, salvaged from historic British buildings and brought to life by our expert hands in Nottingham.",
           "show_reviews": true,
           "rating": "5.0",
           "review_count": "900+ Reviews",
