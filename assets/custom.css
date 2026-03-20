@@ -63,7 +63,7 @@ body.nav-open, html.nav-open, #PageContainer {
   overflow: clip !important;
 }
 
-html, body, .mm-wrapper {
+html, body {
   overflow-x: clip;
 }
 

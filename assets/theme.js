@@ -65618,29 +65618,7 @@ var Header = function () {
         }
     }, {
         key: 'mobileMenuInit',
-        value: function mobileMenuInit() {
-            var mobileMenuHeader = document.querySelector('#mobile-nav-header');
-            var mobileMenuHeaderClone = mobileMenuHeader.cloneNode(true);
-            mobileMenuHeaderClone.classList.remove('hide');
-            var mobileMenuHeaderString = mobileMenuHeaderClone.outerHTML;
-
-            document.addEventListener('DOMContentLoaded', function () {
-                var menu = new _mmenuJs2.default('#mobile-nav', {
-                    'extensions': ['fullscreen'],
-                    'navbars': [{
-                        'position': 'top',
-                        'content': [mobileMenuHeaderString, 'prev', 'title']
-                    }]
-                });
-                var api = menu.API;
-
-                document.querySelector('#close-mobile-menu').addEventListener('click', function (evnt) {
-                    evnt.preventDefault();
-                    api.close();
-                });
-                document.querySelector('#mobile-nav').classList.remove('hide');
-            });
-        }
+        value: function mobileMenuInit() {}
     }, {
         key: 'initVideo',
         value: function initVideo() {
