@@ -199,7 +199,7 @@ html, body, .mm-wrapper {
     top: 0;
     bottom: 0;
     left: calc(clamp(480px, 80vw, 500px) * -1);
-    width: clamp(480px, 80vw, 500px);
+    width: 100%;
     background: white;
     z-index: 99999;
     transition: left .4s ease-out;
